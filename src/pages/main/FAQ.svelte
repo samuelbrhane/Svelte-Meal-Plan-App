@@ -3,5 +3,7 @@
 </script>
 
 <Layout>
-  <h1>FAQ</h1>
+  <section class="max-w-6xl mx-auto px-3">
+    <h1 class="pt-[80px] lg:pt-[100px]">FAQ</h1>
+  </section>
 </Layout>
