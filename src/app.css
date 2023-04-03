@@ -4,6 +4,9 @@
 
 @layer base {
   .link {
-    @apply hover:scale-[1.07] hover:text-[#f2dded] text-[#bbe2f9];
+    @apply hover:scale-[1.07] hover:text-[#e6ea7b] text-[#bbe2f9];
+  }
+  .selected {
+    @apply font-semibold text-[#e6ea7b];
   }
 }

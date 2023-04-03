@@ -3,6 +3,11 @@
   import Icon from "@iconify/svelte";
   import { Sidebar } from ".";
   let isSidebarOpen = false;
+
+  // set active page
+  const activeRoute = (route) => {
+    return location.pathname === route;
+  };
 </script>
 
 <header
@@ -21,10 +26,14 @@
 
     <!-- Links -->
     <ul class="lg:flex items-center lg:gap-8 text-[16px] hidden">
-      <Link to="/" class="link">Welcome</Link>
-      <Link to="/recipe" class="link">Recipe</Link>
-      <Link to="/about" class="link">About</Link>
-      <Link to="/faq" class="link">FAQ</Link>
+      <a href="/" class:selected={activeRoute("/")} class="link">Welcome</a>
+      <a href="/recipe" class:selected={activeRoute("/recipe")} class="link"
+        >Recipe</a
+      >
+      <a href="/about" class:selected={activeRoute("/about")} class="link"
+        >About</a
+      >
+      <a href="/faq" class:selected={activeRoute("/faq")} class="link">FAQ</a>
     </ul>
 
     <!-- Authentication links -->
