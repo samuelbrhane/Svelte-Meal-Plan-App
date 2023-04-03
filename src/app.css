@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .link {
+    @apply hover:scale-[1.07] hover:text-[#9c2783] text-[#427fa3];
+  }
+}
