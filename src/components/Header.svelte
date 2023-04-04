@@ -40,12 +40,12 @@
     <div class="lg:flex flex-col items-center hidden">
       <Link
         to="/register"
-        class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md"
+        class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
         >Register</Link
       >
       <div class="text-sm mt-1 flex items-center gap-[6px]">
         <p class="text-white">Already a member?</p>
-        <Link to="/login" class="link">Sign In</Link>
+        <Link to="/login" class="link mt-1">Sign In</Link>
       </div>
     </div>
 

@@ -12,4 +12,19 @@
   .input {
     @apply px-4 py-2 block w-full border-[0.5px] border-[#2386a2ab] outline-none rounded focus:shadow-sm focus:shadow-[#318ac2] focus:border-[1.2px];
   }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
 }

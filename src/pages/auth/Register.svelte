@@ -4,7 +4,7 @@
   import { Link } from "svelte-routing";
 </script>
 
-<main class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+<main class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <!-- auth image -->
   <div class="lg:flex hidden items-center bg-[#fbfdee]">
     <img src="/register.png" alt="login" class="w-full" />
