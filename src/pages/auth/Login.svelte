@@ -1,4 +1,6 @@
 <script>
+  import Icon from "@iconify/svelte";
+  import { Link } from "svelte-routing";
   import { LoginForm } from "../../components";
 </script>
 
@@ -10,8 +12,17 @@
 
   <!-- authentication forms -->
   <div
-    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra]"
+    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra] relative"
   >
+    <!-- back to homepage -->
+    <Link
+      to="/"
+      class="absolute top-4 left-3 flex items-center gap-1 hover:scale-105 hover:text-[#3467a5]"
+    >
+      <Icon icon="ic:baseline-arrow-back" class="text-lg" />
+      Back to homepage
+    </Link>
+
     <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase">
       Plate plan
     </h1>
