@@ -1,6 +1,6 @@
 <script>
-  import { AccordionPanel } from ".";
-  import { faqItems } from "../utils/faqItems";
+  import { faqItems } from "../../utils/faqItems";
+  import AccordionPanel from "./AccordionPanel.svelte";
 </script>
 
 <section class="py-6">
@@ -9,6 +9,3 @@
     <AccordionPanel {item} />
   {/each}
 </section>
-
-<style>
-</style>
