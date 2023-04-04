@@ -4,9 +4,12 @@
 
 @layer base {
   .link {
-    @apply hover:scale-[1.07] hover:text-[#e6ea7b] text-[#bbe2f9];
+    @apply hover:scale-[1.07] hover:text-[#95cbfb] text-[#d5ebf7] font-[Alkatra];
   }
   .selected {
-    @apply font-semibold text-[#e6ea7b];
+    @apply font-semibold text-[#5ecfd7];
+  }
+  .input {
+    @apply px-4 py-2 block w-full border-[0.5px] border-[#2386a2ab] outline-none rounded focus:shadow-sm focus:shadow-[#318ac2] focus:border-[1.2px];
   }
 }

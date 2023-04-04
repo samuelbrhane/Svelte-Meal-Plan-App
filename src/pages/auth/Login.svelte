@@ -1,11 +1,25 @@
 <script>
+  import { LoginForm } from "../../components";
 </script>
 
-<main class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-  <div class="bg-[#f6eff9] lg:flex items-center hidden ">
+<main class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
+  <!-- auth images  -->
+  <div class="bg-[#f5f2f7] lg:flex items-center hidden ">
     <img src="/login.png" alt="login" class="w-full" />
   </div>
-  <div class="">
-    <form />
+
+  <!-- authentication forms -->
+  <div
+    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra]"
+  >
+    <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase">
+      Plate plan
+    </h1>
+    <img src="/title.png" alt="Logo" class="w-16 h-16" />
+
+    <!-- Login form -->
+    <div class="px-4 w-full flex justify-center items-center flex-col">
+      <LoginForm />
+    </div>
   </div>
 </main>

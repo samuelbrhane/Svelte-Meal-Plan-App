@@ -18,7 +18,7 @@
     <Link to="/" class="flex items-center gap-2">
       <img src="/title.png" alt="Logo" class="w-10 h-10 md:w-12 md:h-12" />
       <h1
-        class="text-xl sm:text-2xl font-bold text-[#bbe2f9] md:text-3xl uppercase"
+        class="text-xl sm:text-2xl font-bold text-[#bbe2f9] md:text-3xl uppercase font-[Alkatra]"
       >
         Plate plan
       </h1>
