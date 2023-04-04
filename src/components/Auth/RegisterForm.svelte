@@ -1,14 +1,21 @@
 <script>
   import { Link } from "svelte-routing";
+  import Icon from "@iconify/svelte";
   let name = "";
   let email = "";
   let password = "";
+  let showPassword = false;
 
   //   handle form submit
   const handleFormSubmit = () => {
     console.log("name: " + name);
     console.log("email: " + email);
     console.log("password: " + password);
+  };
+
+  // handle password input change
+  const handlePasswordChange = (e) => {
+    password = e.target.value;
   };
 </script>
 
@@ -36,12 +43,32 @@
     <!-- password -->
     <div class="mb-2">
       <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="input"
-        bind:value={password}
-      />
+      <div class="relative">
+        <input
+          type={showPassword ? "text" : "password"}
+          id="password"
+          class="input"
+          on:input={handlePasswordChange}
+        />
+        <button
+          type="button"
+          class="password"
+          on:click={() => (showPassword = !showPassword)}
+        >
+          <Icon
+            icon="zondicons:view-show"
+            class={`${
+              showPassword ? "hidden" : "inline"
+            } duration-150 ease-in-out`}
+          />
+          <Icon
+            icon="ant-design:eye-invisible-filled"
+            class={`${
+              !showPassword ? "hidden" : "inline"
+            } duration-150 ease-in-out`}
+          />
+        </button>
+      </div>
     </div>
 
     <!-- register -->

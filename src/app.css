@@ -13,6 +13,9 @@
     @apply px-4 py-2 block w-full border-[0.5px] border-[#2386a2ab] outline-none rounded focus:shadow-sm focus:shadow-[#318ac2] focus:border-[1.2px];
   }
 
+  .password {
+    @apply absolute top-2 right-2 text-lg text-gray-600;
+  }
   /* width */
   ::-webkit-scrollbar {
     width: 4px;
