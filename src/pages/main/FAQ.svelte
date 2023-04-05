@@ -1,5 +1,10 @@
 <script>
-  import { CreateAccount, FaqAccordion, UserQuestion } from "../../components";
+  import {
+    CreateAccount,
+    FaqAccordion,
+    Footer,
+    UserQuestion,
+  } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
@@ -30,6 +35,9 @@
 
         <!-- create account ad -->
         <CreateAccount />
+
+        <!-- Footer -->
+        <Footer />
       </div>
     </div>
   </section>

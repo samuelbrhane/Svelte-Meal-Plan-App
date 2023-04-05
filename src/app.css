@@ -20,6 +20,15 @@
   .appImage {
     @apply w-[140px];
   }
+
+  .line {
+    @apply w-full h-1 bg-white;
+  }
+
+  .footerIcon {
+    @apply hover:scale-110 cursor-pointer text-[#5baddc] text-lg;
+  }
+
   /* width */
   ::-webkit-scrollbar {
     @apply w-[4px];

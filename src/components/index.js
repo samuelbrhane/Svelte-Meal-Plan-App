@@ -2,6 +2,7 @@
 export { default as Header } from "./Header.svelte";
 export { default as Sidebar } from "./Sidebar.svelte";
 export { default as CreateAccount } from "./CreateAccount.svelte";
+export { default as Footer } from "./Footer.svelte";
 
 // FAQ page components
 export { default as FaqAccordion } from "./FAQ/FaqAccordion.svelte";
