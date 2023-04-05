@@ -9,6 +9,9 @@ export { default as FaqAccordion } from "./FAQ/FaqAccordion.svelte";
 export { default as AccordionPanel } from "./FAQ/AccordionPanel.svelte";
 export { default as UserQuestion } from "./FAQ/UserQuestion.svelte";
 
+// About page components
+export { default as AboutContent } from "./About/AboutContent.svelte";
+
 // Authentication page components
 export { default as LoginForm } from "./Auth/LoginForm.svelte";
 export { default as RegisterForm } from "./Auth/RegisterForm.svelte";

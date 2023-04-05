@@ -29,6 +29,13 @@
     @apply hover:scale-110 cursor-pointer text-[#5baddc] text-lg;
   }
 
+  .title {
+    @apply font-[Merriweather] text-xl mb-5 md:text-2xl lg:text-3xl xl:text-4xl font-semibold;
+  }
+  .para p {
+    @apply mb-2;
+  }
+
   /* width */
   ::-webkit-scrollbar {
     @apply w-[4px];
