@@ -16,6 +16,10 @@
   .password {
     @apply absolute top-2 right-2 text-lg text-gray-600;
   }
+
+  .appImage {
+    @apply w-[140px];
+  }
   /* width */
   ::-webkit-scrollbar {
     @apply w-[4px];

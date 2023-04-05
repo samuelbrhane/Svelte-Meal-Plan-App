@@ -1,5 +1,5 @@
 <script>
-  import { FaqAccordion, UserQuestion } from "../../components";
+  import { CreateAccount, FaqAccordion, UserQuestion } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
@@ -27,6 +27,9 @@
 
         <!-- users question form -->
         <UserQuestion />
+
+        <!-- create account ad -->
+        <CreateAccount />
       </div>
     </div>
   </section>
