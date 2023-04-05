@@ -23,7 +23,7 @@
 
     <!-- Footer contents -->
     <div
-      class="grid grid-cols-2 lg:grid-cols-4 py-6 text-[#253a3a] items-center"
+      class="grid grid-cols-2 md:grid-cols-4 py-6 gap-4 text-[#253a3a] lg:items-center"
     >
       <!-- mobile apps -->
       <div>
@@ -32,7 +32,7 @@
             icon="ion:logo-apple"
             class="text-xl hover:scale-110 cursor-pointer text-[#5baddc]"
           />
-          <p class="cursor-pointer hover:underline text-sm">
+          <p class="cursor-pointer hover:underline text-sm font-[Alkatra]">
             Get our iOS app from the App Store
           </p>
         </div>
@@ -42,17 +42,17 @@
             icon="ri:android-fill"
             class="text-xl hover:scale-110 cursor-pointer text-[#5baddc]"
           />
-          <p class="cursor-pointer hover:underline text-sm">
+          <p class="cursor-pointer hover:underline text-sm font-[Alkatra]">
             Get our Android app on Google Play
           </p>
         </div>
       </div>
 
       <!-- Links -->
-      <div class="flex justify-center">
+      <div class="flex md:justify-center">
         <div>
           <h1 class="uppercase text-xl mb-2 font-[Roboto]">Navigation</h1>
-          <ul class="lg:flex flex-col font-[Alkatra] gap-2">
+          <ul class="flex flex-col font-[Alkatra] gap-2">
             <a href="/" class:selected={activeRoute("/")} class="">Welcome</a>
             <a href="/recipe" class:selected={activeRoute("/recipe")} class=""
               >Recipe</a
@@ -66,7 +66,7 @@
       </div>
 
       <!-- social -->
-      <div class="flex justify-center">
+      <div class="flex md:justify-center">
         <div>
           <h1 class="uppercase text-xl mb-2 font-[Roboto]">Social</h1>
           <ul class="lg:flex flex-col font-[Alkatra] gap-2">
@@ -87,7 +87,7 @@
       </div>
 
       <!-- Privacy -->
-      <div class="flex justify-center">
+      <div class="flex md:justify-center">
         <div>
           <h1 class="uppercase text-xl mb-2 font-[Roboto]">
             Privacy & Security
@@ -110,6 +110,6 @@
     <div class="line mb-2" />
 
     <!-- copyright -->
-    <p class="font-[Alkatra]">© 2023 Plate Plan Meal Planning Inc</p>
+    <p class="font-[Alkatra] mt-2">© 2023 Plate Plan Meal Planning Inc</p>
   </div>
 </footer>
