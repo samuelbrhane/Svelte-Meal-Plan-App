@@ -1,5 +1,5 @@
 <script>
-  import { FaqAccordion } from "../../components";
+  import { FaqAccordion, UserQuestion } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
@@ -24,6 +24,9 @@
           <!-- accordion -->
           <FaqAccordion />
         </div>
+
+        <!-- users question form -->
+        <UserQuestion />
       </div>
     </div>
   </section>
