@@ -96,7 +96,6 @@
           </div>
         </div>
 
-        <!-- Who we do it for -->
         <div
           class="bg-[#d7d9d9] min-h-[400px] mt-10 md:mt-20 mb-20 font-[Alkatra] para"
         >
