@@ -1,7 +1,9 @@
 <script>
   import {
     CreateAd,
+    Footer,
     HowItWorks,
+    MessageUs,
     OurService,
     OurStory,
     WhoAreWe,
@@ -114,6 +116,11 @@
 
         <!-- Create account -->
         <CreateAd />
+
+        <!-- Message Us -->
+        <MessageUs />
+
+        <Footer />
       </div>
     </div>
   </section>

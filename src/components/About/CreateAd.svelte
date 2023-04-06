@@ -2,8 +2,8 @@
   import Icon from "@iconify/svelte";
 </script>
 
-<main class="bg-[#e6e2e6]">
-  <div class="max-w-6xl mx-auto px-3 grid grid-cols-2 items-center">
+<main class="bg-[#f4f0f4]">
+  <div class="max-w-6xl mx-auto px-3 grid md:grid-cols-2 items-center">
     <div>
       <h1 class="mb-5 text-xl md:text-2xl lg:text-3xl font-[Roboto] font-bold">
         Take Control Of Your Diet
@@ -12,7 +12,7 @@
         Try Eat This Much for yourself, risk-free with our 30-day,
         no-questions-asked refund policy!
       </p>
-      <p class="font-[Merriweather] font-semibold">
+      <p class="font-[Merriweather] font-semibold hidden lg:inline">
         Only $4.99/month or $49/year if you choose to subscribe.
       </p>
       <div class="flex flex-col gap-3 mt-4">
@@ -33,6 +33,6 @@
         </div>
       </div>
     </div>
-    <img src="/aboutBg.png" alt="foodImage" />
+    <img src="/aboutBg.png" alt="foodImage" class="hidden md:inline" />
   </div>
 </main>

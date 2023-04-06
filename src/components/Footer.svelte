@@ -6,7 +6,7 @@
   };
 </script>
 
-<footer class="bg-[#eae8e8] py-5">
+<footer class="bg-[#eae8e8ef] py-5">
   <div class="max-w-6xl mx-auto px-3">
     <!-- Intro -->
     <div class="flex items-end gap-4">
