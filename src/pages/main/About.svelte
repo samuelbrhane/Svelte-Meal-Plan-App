@@ -1,5 +1,11 @@
 <script>
-  import { HowItWorks, OurService, OurStory, WhyWeDo } from "../../components";
+  import {
+    HowItWorks,
+    OurService,
+    OurStory,
+    WhoAreWe,
+    WhyWeDo,
+  } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
@@ -52,7 +58,7 @@
         <HowItWorks />
 
         <!-- Why people love plate plan -->
-        <div class="max-w-6xl mx-auto px-3 text-center">
+        <div class="max-w-6xl mx-auto px-3 mb-8 text-center">
           <h1
             class="mb-3 font-bold text-xl md:text-2xl lg:text-3xl font-[Roboto]"
           >
@@ -101,6 +107,9 @@
             </div>
           </div>
         </div>
+
+        <!-- Who Are We -->
+        <WhoAreWe />
       </div>
     </div>
   </section>

@@ -7,7 +7,7 @@
   };
 </script>
 
-<section class="py-8 flex flex-col items-center justify-between h-full">
+<section class="py-8 flex flex-col items-center justify-between h-full z-40">
   <!-- Links -->
   <ul class="flex items-center flex-col gap-5 text-[16px]">
     <a href="/" class:selected={activeRoute("/")} class="link">Welcome</a>

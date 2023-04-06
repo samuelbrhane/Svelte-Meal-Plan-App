@@ -61,7 +61,7 @@
 
 <!-- Sidebar component for small screen devices -->
 <div
-  class={`fixed lg:hidden top-[80px] bottom-0 ld:top-[100px] w-[200px] ease-in-out bg-[#3c2e3d] ${
+  class={`fixed lg:hidden top-[80px] z-40 bottom-0 ld:top-[100px] w-[200px] ease-in-out bg-[#3c2e3d] ${
     isSidebarOpen ? "left-0 duration-[0.8s]" : "left-[-999px] duration-[1.5s]"
   }`}
 >
