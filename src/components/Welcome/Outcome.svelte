@@ -1,7 +1,6 @@
 <script>
   import Icon from "@iconify/svelte";
   import { outcomes } from "../../utils/outcomes";
-  console.log("outcomes", outcomes);
 </script>
 
 <section class="my-4">
