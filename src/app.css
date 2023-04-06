@@ -36,9 +36,17 @@
     @apply mb-2;
   }
 
+  .scrollBar {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scrollItem {
+    flex-shrink: 0;
+  }
+
   /* width */
   ::-webkit-scrollbar {
-    @apply w-[4px];
+    @apply w-[4px] h-0;
   }
 
   /* Track */

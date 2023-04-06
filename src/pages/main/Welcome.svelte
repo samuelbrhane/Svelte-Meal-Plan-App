@@ -13,7 +13,7 @@
 </script>
 
 <Layout>
-  <section class="pt-[80px] lg:pt-[100px]">
+  <section class="pt-[80px] lg:pt-[100px] overflow-x-hidden">
     <Hero />
     <Service />
     <Outcome />

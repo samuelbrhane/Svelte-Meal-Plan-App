@@ -22,6 +22,7 @@
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.16",
     "bootstrap": "^5.0.1",
+    "rxjs": "^7.8.0",
     "svelte-accordion": "^0.0.0-development",
     "svelte-infinite-scroll": "^2.0.1",
     "svelte-materialify": "^0.3.11",
