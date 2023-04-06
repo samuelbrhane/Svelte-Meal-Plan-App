@@ -3,7 +3,7 @@
 </script>
 
 <section
-  class="bg-gradient-to-tr via-[#f5f4f3] from-[#f7f8f4] to-[#92dce6] grid lg:grid-cols-2 md:gap-0 gap-12 lg:gap-20 min-h-[calc(100vh-100px)]"
+  class="bg-gradient-to-tr rounded-br-[100px] md:rounded-br-[150px] lg:rounded-br-[250px] via-[#e3e2e0] from-[#d6d7d4] to-[#92dce6] grid lg:grid-cols-2 md:gap-0 gap-12 lg:gap-20 min-h-[calc(100vh-100px)]"
 >
   <!-- Hero text -->
   <div
