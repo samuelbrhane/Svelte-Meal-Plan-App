@@ -1,5 +1,5 @@
 <script>
-  import { Features, Hero, Outcome, Service } from "../../components";
+  import { Features, Hero, Outcome, Service, Users } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
@@ -10,5 +10,6 @@
     <Service />
     <Outcome />
     <Features />
+    <Users />
   </section>
 </Layout>

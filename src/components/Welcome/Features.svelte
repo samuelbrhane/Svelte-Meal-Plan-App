@@ -18,7 +18,7 @@
           <div>
             <Icon
               icon={feature.icon}
-              class="text-[60px] hover:scale-110 cursor-pointer text-[#5baddc]"
+              class={`text-[60px] ${feature.background} hover:scale-110 cursor-pointer text-white  px-4 w-[80px] h-[80px] rounded-3xl`}
             />
           </div>
 
