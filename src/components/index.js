@@ -7,6 +7,7 @@ export { default as Footer } from "./Footer.svelte";
 // Welcome page components
 export { default as Hero } from "./Welcome/Hero.svelte";
 export { default as Service } from "./Welcome/Service.svelte";
+export { default as Outcome } from "./Welcome/Outcome.svelte";
 
 // FAQ page components
 export { default as FaqAccordion } from "./FAQ/FaqAccordion.svelte";
