@@ -27,7 +27,9 @@
   <!-- Team -->
   <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-3">
     {#each teams as person (person.id)}
-      <div class="flex flex-col justify-center items-center mb-8">
+      <div
+        class="flex flex-col justify-center items-center mb-8 hover:scale-105"
+      >
         <img
           src={person.image}
           alt="personImage"

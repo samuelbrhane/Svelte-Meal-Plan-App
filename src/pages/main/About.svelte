@@ -1,5 +1,6 @@
 <script>
   import {
+    CreateAd,
     HowItWorks,
     OurService,
     OurStory,
@@ -110,6 +111,9 @@
 
         <!-- Who Are We -->
         <WhoAreWe />
+
+        <!-- Create account -->
+        <CreateAd />
       </div>
     </div>
   </section>
