@@ -14,6 +14,7 @@ export { default as AboutContent } from "./About/AboutContent.svelte";
 export { default as OurStory } from "./About/OurStory.svelte";
 export { default as OurService } from "./About/OurService.svelte";
 export { default as WhyWeDo } from "./About/WhyWeDo.svelte";
+export { default as HowItWorks } from "./About/HowItWorks.svelte";
 
 // Authentication page components
 export { default as LoginForm } from "./Auth/LoginForm.svelte";

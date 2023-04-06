@@ -1,7 +1,5 @@
 <script>
-  import OurService from "../../components/About/OurService.svelte";
-  import OurStory from "../../components/About/OurStory.svelte";
-  import WhyWeDo from "../../components/About/WhyWeDo.svelte";
+  import { HowItWorks, OurService, OurStory, WhyWeDo } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
@@ -50,7 +48,59 @@
         <!-- Why we do it -->
         <WhyWeDo />
 
-        <div />
+        <!-- how it works -->
+        <HowItWorks />
+
+        <!-- Why people love plate plan -->
+        <div class="max-w-6xl mx-auto px-3 text-center">
+          <h1
+            class="mb-3 font-bold text-xl md:text-2xl lg:text-3xl font-[Roboto]"
+          >
+            Why people love Plate Plan
+          </h1>
+          <p class="mb-6 font-[Merriweather] text-light text-gray-500">
+            If they love it, they'll actually use it.
+          </p>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:gap-12 xl:gap-20"
+          >
+            <!-- save time -->
+            <div class="text-center">
+              <h1 class="font-bold text-xl font-[Roboto] ld:text-2xl mb-1">
+                It saves them time
+              </h1>
+              <p class="text-sm font-[Alkatra]">
+                From shopping, to cooking, to deciding 'whats for dinner', Plate
+                Plan is a common sense way to save time and make life easier.
+                Ask us how.
+              </p>
+            </div>
+
+            <!-- It's fun, then healthy -->
+            <div class="text-center">
+              <h1 class="font-bold text-xl font-[Roboto] ld:text-2xl mb-1">
+                It's fun, then healthy
+              </h1>
+              <p class="text-sm font-[Alkatra]">
+                A non-clinical, personalized, ease and experience-focused tool,
+                Plate Plan makes healthy eating the path of least resistance.
+              </p>
+            </div>
+
+            <!--  -->
+            <div class="text-center">
+              <h1 class="font-bold text-xl font-[Roboto] ld:text-2xl mb-1">
+                It saves them money
+              </h1>
+              <p class="text-sm font-[Alkatra]">
+                Plate Plan's recipes and algorithms work in tandem to
+                efficiently create meal plans that reduce food waste and keep
+                grocery bills as low as you want them.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
