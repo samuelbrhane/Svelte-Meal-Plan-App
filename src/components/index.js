@@ -4,6 +4,9 @@ export { default as Sidebar } from "./Sidebar.svelte";
 export { default as CreateAccount } from "./CreateAccount.svelte";
 export { default as Footer } from "./Footer.svelte";
 
+// Welcome page components
+export { default as Hero } from "./Welcome/Hero.svelte";
+
 // FAQ page components
 export { default as FaqAccordion } from "./FAQ/FaqAccordion.svelte";
 export { default as AccordionPanel } from "./FAQ/AccordionPanel.svelte";
