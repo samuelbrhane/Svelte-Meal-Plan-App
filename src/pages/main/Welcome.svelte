@@ -1,5 +1,5 @@
 <script>
-  import { Hero } from "../../components";
+  import { Hero, Service } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
@@ -7,5 +7,6 @@
 <Layout>
   <section class="pt-[80px] lg:pt-[100px]">
     <Hero />
+    <Service />
   </section>
 </Layout>
