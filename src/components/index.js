@@ -11,6 +11,7 @@ export { default as Outcome } from "./Welcome/Outcome.svelte";
 export { default as Features } from "./Welcome/Features.svelte";
 export { default as Users } from "./Welcome/Users.svelte";
 export { default as Pricing } from "./Welcome/Pricing.svelte";
+export { default as Testimonial } from "./Welcome/Testimonial.svelte";
 
 // FAQ page components
 export { default as FaqAccordion } from "./FAQ/FaqAccordion.svelte";

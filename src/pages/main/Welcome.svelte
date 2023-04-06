@@ -1,16 +1,17 @@
 <script>
   import {
     Features,
+    Footer,
     Hero,
     Outcome,
     Pricing,
     Service,
+    Testimonial,
     Users,
   } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
 </script>
 
-<!-- max-w-6xl mx-auto px-3 -->
 <Layout>
   <section class="pt-[80px] lg:pt-[100px]">
     <Hero />
@@ -19,5 +20,7 @@
     <Features />
     <Users />
     <Pricing />
+    <Testimonial />
+    <Footer />
   </section>
 </Layout>
