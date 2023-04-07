@@ -7,7 +7,7 @@
     ResetPassword,
     ResetPasswordConfirm,
   } from "./pages/auth";
-  import { Welcome, About, FAQ, Recipe } from "./pages/main";
+  import { Welcome, About, FAQ, Recipe } from "./pages/public";
 </script>
 
 <Router>

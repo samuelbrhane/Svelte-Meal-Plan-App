@@ -36,6 +36,14 @@
     @apply mb-2;
   }
 
+  .categoryBtn {
+    @apply py-2 rounded text-[#e1dfe1] font-[Alkatra] font-bold bg-[#1d7b93] hover:scale-[1.03] hover:bg-[#123e74];
+  }
+
+  .categoryActive {
+    @apply bg-[#123e74];
+  }
+
   .scrollBar {
     -webkit-overflow-scrolling: touch;
   }

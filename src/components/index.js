@@ -29,6 +29,9 @@ export { default as WhoAreWe } from "./About/WhoAreWe.svelte";
 export { default as CreateAd } from "./About/CreateAd.svelte";
 export { default as MessageUs } from "./About/MessageUs.svelte";
 
+// Recipe page components
+export { default as RecipeSidebar } from "./Recipe/RecipeSidebar.svelte";
+
 // Authentication page components
 export { default as LoginForm } from "./Auth/LoginForm.svelte";
 export { default as RegisterForm } from "./Auth/RegisterForm.svelte";
