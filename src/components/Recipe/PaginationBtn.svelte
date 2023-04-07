@@ -11,7 +11,7 @@
   }
 </script>
 
-<div class="flex items-center justify-center gap-4 pb-2">
+<div class="flex items-center justify-center gap-4 py-2">
   {#each pages as page}
     <button
       on:click={() => dispatch("changePage", page)}
