@@ -27,8 +27,14 @@
     <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
       {calories.toFixed(2)}
     </p>
-    <p class="border-gray-400 border-r-[0.5px] p-2 h-full">45 g</p>
-    <p class="border-gray-400 border-r-[0.5px] p-2 h-full">78 g</p>
-    <p class="border-gray-400 border-r-[0.5px] p-2 h-full">45 g</p>
+    <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
+      {item.recipe.digest[1].total.toFixed(2) || 147} g
+    </p>
+    <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
+      {item.recipe.digest[0].total.toFixed(2) || 312} g
+    </p>
+    <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
+      {item.recipe.digest[2].total.toFixed(2) || 376} g
+    </p>
   </div>
 </div>

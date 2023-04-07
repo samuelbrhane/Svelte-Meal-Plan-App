@@ -8,8 +8,6 @@
   let dataPerPage = 5;
   $: indexOfLastPage = currentPage * dataPerPage;
   $: indexOfFirstPage = indexOfLastPage - dataPerPage;
-  console.log("indexOfLastPage", indexOfLastPage);
-  console.log("indexOfFirstPage", indexOfFirstPage);
 
   //   subscribe to recipe data store
   onMount(() => {
@@ -19,8 +17,6 @@
     });
     return unsubscribe;
   });
-
-  console.log("currentPage: " + currentPage);
 </script>
 
 <section class="border-[0.6px] border-gray-400 w-full">

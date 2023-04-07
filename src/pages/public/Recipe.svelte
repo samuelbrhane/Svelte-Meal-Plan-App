@@ -1,10 +1,14 @@
 <script>
   import { FoodTable, RecipeSidebar } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
-  import Icon from "@iconify/svelte";
+  import { updateStore } from "../../stores/recipeStore";
   let searchWord = "";
+
   // handle recipe search
-  let handleRecipeSearch = async () => {};
+  let handleRecipeSearch = async () => {
+    updateStore(searchWord);
+    searchWord = "";
+  };
 </script>
 
 <!-- max-w-6xl mx-auto px-3  -->
