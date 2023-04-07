@@ -1,12 +1,11 @@
 import { writable } from "svelte/store";
 import { baseRoute, recipeKeys } from "../utils/routes/recipeRoute";
 
-const recipeStore = writable([]);
-const loadingStore = writable(true);
+const recipeStore = writable({ data: [], loading: true });
 
 //   Search Recipes
 let searchRecipe = async (searchWord) => {
-  loadingStore.set(true);
+  recipeStore.set({ data: [], loading: true });
   searchWord = searchWord === "All" ? "food" : searchWord;
   let currentKey;
   if (
@@ -35,8 +34,7 @@ let searchRecipe = async (searchWord) => {
     `${baseRoute}?type=public&q=${searchWord}&app_id=${recipeKeys[currentKey].appId}&app_key=${recipeKeys[currentKey].appKey}`
   );
   let data = await response.json();
-  recipeStore.set(data.hits);
-  loadingStore.set(false);
+  recipeStore.set({ data: data.hits, loading: false });
 };
 
 // Set initial data on page load
@@ -47,4 +45,4 @@ const updateStore = (searchWord) => {
   searchRecipe(searchWord);
 };
 
-export { loadingStore, updateStore, recipeStore };
+export { updateStore, recipeStore };
