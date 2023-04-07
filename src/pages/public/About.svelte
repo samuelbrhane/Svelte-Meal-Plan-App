@@ -16,7 +16,7 @@
   <section class="pt-[80px] lg:pt-[100px]">
     <div class="w-full relative">
       <!-- bg-image -->
-      <img src="/meeting1.jpeg" alt="faqImage" class="w-full object-cover" />
+      <img src="/recipeBg4.jpg" alt="faqImage" class="w-full object-cover" />
 
       <!-- Quote -->
       <div
@@ -58,7 +58,9 @@
         <WhyWeDo />
 
         <!-- how it works -->
-        <HowItWorks />
+        <div class="px-4">
+          <HowItWorks />
+        </div>
 
         <!-- Why people love plate plan -->
         <div class="max-w-6xl mx-auto px-3 mb-8 text-center">

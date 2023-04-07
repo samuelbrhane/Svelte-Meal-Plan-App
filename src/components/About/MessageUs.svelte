@@ -4,12 +4,16 @@
   let message = "";
 </script>
 
-<section class="relative w-full max-h-[540px]">
+<section class="relative w-full min-h-[500px] lg:h-[550px] pb-[200px]">
   <!-- background image -->
-  <img src="/messageBg.jpeg" alt="foodImage" class="w-full max-h-[540px]" />
+  <img
+    src="/messageBg.jpeg"
+    alt="foodImage"
+    class="w-full min-h-[500px] lg:h-[550px]"
+  />
 
   <!--Question content -->
-  <div class="absolute top-0 left-0 w-full bottom-0 bg-[#eae8e8ef]">
+  <div class="absolute top-0 left-0 w-full bottom-0 bg-[#eae8e8ef] py-4">
     <div
       class="max-w-6xl mx-auto px-3 grid grid-cols-1 h-full lg:grid-cols-2 gap-6 lg:gap-20 items-center"
     >

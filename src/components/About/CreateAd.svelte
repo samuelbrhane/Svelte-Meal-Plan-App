@@ -2,7 +2,7 @@
   import Icon from "@iconify/svelte";
 </script>
 
-<main class="bg-[#f4f0f4]">
+<main class="bg-[#f4f0f4] py-10">
   <div class="max-w-6xl mx-auto px-3 grid md:grid-cols-2 items-center">
     <div>
       <h1 class="mb-5 text-xl md:text-2xl lg:text-3xl font-[Roboto] font-bold">
