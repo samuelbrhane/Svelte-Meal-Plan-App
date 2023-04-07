@@ -30,11 +30,13 @@
 </script>
 
 <div
-  class="container mt-[30px] pb-[20px] flex overflow-x-scroll"
+  class="container mt-[30px] flex overflow-x-scroll"
   style="width: {containerWidth}px "
 >
   {#each items as item}
-    <div class="item w-[350px] minh-[300px] mr-5">
+    <div
+      class="item w-[750px] 2xl:w-[350px] gap-4 min-h-[300px] mr-5 flex 2xl:flex-col"
+    >
       {#each item as data (data.id)}
         <div class="mb-4 bg-white px-8 py-10">
           <p class="font-[Alkatra] italic">"{data.text}"</p>

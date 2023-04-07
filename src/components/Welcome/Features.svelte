@@ -12,7 +12,7 @@
     </h1>
 
     <!-- features -->
-    <div class="grid grid-cols-2 lg:gap-8 xl:gap-12">
+    <div class="grid md:grid-cols-2 gap-4 lg:gap-8 xl:gap-12">
       {#each features as feature (feature.id)}
         <div class="mb-4 flex gap-4 items-center">
           <div>
@@ -23,7 +23,9 @@
           </div>
 
           <div>
-            <h1 class="text-xl font-semibold font-[Merriweather] mb-1">
+            <h1
+              class="text-lg lg:text-xl font-semibold font-[Merriweather] mb-1"
+            >
               {feature.title}
             </h1>
             <p class="text-gray-700 font-[Alkatra]">

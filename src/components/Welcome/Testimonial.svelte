@@ -2,7 +2,9 @@
   import { Scroll } from "../";
 </script>
 
-<section class="relative bg-[#eae8e8cd] pb-[90px]">
+<section
+  class="relative bg-[#eae8e8cd] 2xl:pb-[90px] pb-[700px] md:pb-[500px] lg:pb-[130px] xl:pb-0"
+>
   <!-- Background image -->
   <img
     src="/testimonialBg.jpeg"
