@@ -34,7 +34,9 @@
         <button
           class="flex items-center justify-center px-4 py-2 bg-[#848284c1] w-[320px] gap-3 rounded"
         >
-          <h1 class="text-lg font-bold border-gray-300 border-r-2 pr-2">
+          <h1
+            class="text-lg font-bold border-gray-300 border-r-2 pr-2 text-white"
+          >
             Get Our Mobile Application
           </h1>
           <Icon

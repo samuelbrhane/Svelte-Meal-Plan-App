@@ -34,11 +34,13 @@
         class="w-full input"
         bind:value={message}
       />
-      <button
-        type="submit"
-        class="bg-[#427fa3] mt-4 font-bold text-white px-10 py-2 rounded-md hover:scale-[1.06]"
-        >Send Message</button
-      >
+      <div class="flex justify-center mt-4">
+        <button
+          type="submit"
+          class="px-12 hover:scale-[1.03] font-[Roboto] py-2 text-xl bg-[#7db9db] rounded-lg text-white font-semibold"
+          >Send Message</button
+        >
+      </div>
     </form>
   </div>
 </section>

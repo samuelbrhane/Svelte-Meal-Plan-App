@@ -1,5 +1,5 @@
 <script>
-  import { FoodTable, RecipeSidebar } from "../../components";
+  import { FoodTable, Footer, RecipeSidebar } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
   import { updateStore } from "../../stores/recipeStore";
   let searchWord = "";
@@ -11,7 +11,6 @@
   };
 </script>
 
-<!-- max-w-6xl mx-auto px-3  -->
 <Layout>
   <section class="pt-[80px] lg:pt-[100px]">
     <h1
@@ -20,9 +19,10 @@
       Food & Recipe Browser
     </h1>
 
+    <!-- Search input -->
     <form
       on:submit|preventDefault={handleRecipeSearch}
-      class="mb-4 px-4 w-[270px]"
+      class="mb-4 px-4 w-[244px]"
     >
       <input
         type="text"
@@ -33,10 +33,11 @@
     </form>
 
     <!-- Recipe content -->
-
     <div class="px-4 xl:flex mb-6 relative">
       <RecipeSidebar />
       <FoodTable />
     </div>
+
+    <Footer />
   </section>
 </Layout>

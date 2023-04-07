@@ -1,7 +1,7 @@
 export const foodCategories = [
   {
     id: 1,
-    name: "All",
+    name: "Popular",
   },
   {
     id: 2,

@@ -3,7 +3,7 @@
 </script>
 
 <section
-  class="z-20 max-w-6xl mx-auto bg-[#1d6969] mt-10 text-white py-4 px-3 md:py-8 md:px-12 mb-8"
+  class="z-20 max-w-6xl mx-auto bg-[#0b4862] mt-10 text-white py-4 px-3 md:py-8 md:px-12 my-12 rounded-[80px]"
 >
   <h1
     class="text-center text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-[Roboto] mb-4"

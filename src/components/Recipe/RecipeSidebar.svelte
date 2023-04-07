@@ -16,7 +16,7 @@
 >
   <!-- Categories -->
   <h1 class="font-[Merriweather] font-semibold text-2xl mb-3">Categories</h1>
-  <div class="flex xl:flex-col gap-5 overflow-x-scroll">
+  <div class="flex xl:flex-col gap-6 overflow-x-scroll">
     {#each foodCategories as category (category.id)}
       <button
         on:click={() => handleCategory(category.id)}

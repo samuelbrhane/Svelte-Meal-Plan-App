@@ -1,5 +1,5 @@
 <div
-  class="bg-[#d7d9d9] min-h-[400px] mt-10 md:mt-20 mb-20 font-[Alkatra] para"
+  class="bg-[#d7d9d9] min-h-[400px] mt-10 md:mt-20 mb-28 font-[Alkatra] para"
 >
   <div
     class="max-w-6xl mx-auto px-3 grid grid-cols-1 md:grid-cols-2 h-full gap-12 lg:gap-20 xl:gap-24 items-center min-h-[400px]"

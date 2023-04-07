@@ -52,7 +52,7 @@
           <div class="flex justify-center mt-4">
             <button
               type="submit"
-              class="px-16 hover:scale-[1.03] py-2 text-xl bg-[#7db9db] rounded-lg text-white font-semibold"
+              class="px-12 hover:scale-[1.03] font-[Roboto] py-2 text-xl bg-[#7db9db] rounded-lg text-white font-semibold"
               >Send Message</button
             >
           </div>
