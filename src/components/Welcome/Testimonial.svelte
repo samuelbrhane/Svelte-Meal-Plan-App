@@ -2,7 +2,7 @@
   import { Scroll } from "../";
 </script>
 
-<section class="relative bg-[#eae8e8ef] py-10">
+<section class="relative bg-[#eae8e8cd] pb-[90px]">
   <!-- Background image -->
   <img
     src="/testimonialBg.jpeg"
@@ -10,7 +10,7 @@
     class="w-full min-h-[500px] rounded-t-[100px]"
   />
   <div
-    class="bg-[#eae8e8ef] absolute top-0 left-0 h-full w-full rounded-t-[100px] pb-40"
+    class="bg-[#eae8e8cd] absolute top-0 left-0 bottom-0 w-full rounded-t-[100px] pb-40"
   >
     <div class=" py-6">
       <h1

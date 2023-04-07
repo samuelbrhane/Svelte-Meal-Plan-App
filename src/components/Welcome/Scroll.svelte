@@ -30,7 +30,7 @@
 </script>
 
 <div
-  class="container mt-[30px] flex overflow-x-scroll"
+  class="container mt-[30px] pb-[20px] flex overflow-x-scroll"
   style="width: {containerWidth}px "
 >
   {#each items as item}

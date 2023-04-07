@@ -4,7 +4,7 @@
 </script>
 
 <!-- users' additional question form -->
-<section class="bg-[#eae8e8] py-7">
+<section class="bg-[#eae8e8cd] py-7">
   <div class="max-w-6xl mx-auto px-3">
     <h1 class="font-semibold font-[Merriweather] text-xl lg:text-2xl mb-3">
       Have a different question?
