@@ -1,12 +1,16 @@
 <script>
   import { foodCategories } from "../../utils/foodCategories";
+  import { updateStore } from "../../stores/recipeStore";
   let searchWord = "";
   let categoryActive = 1;
 
+  // handle recipe search
   let handleRecipeSearch = async () => {};
 
+  // Handle button category change
   let handleCategory = (id) => {
     categoryActive = id;
+    updateStore(foodCategories[id - 1].name);
   };
 </script>
 

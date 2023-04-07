@@ -31,6 +31,8 @@ export { default as MessageUs } from "./About/MessageUs.svelte";
 
 // Recipe page components
 export { default as RecipeSidebar } from "./Recipe/RecipeSidebar.svelte";
+export { default as FoodTable } from "./Recipe/FoodTable.svelte";
+export { default as FoodCard } from "./Recipe/FoodCard.svelte";
 
 // Authentication page components
 export { default as LoginForm } from "./Auth/LoginForm.svelte";
