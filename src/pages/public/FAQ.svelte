@@ -12,7 +12,7 @@
   <section class="pt-[80px] lg:pt-[100px]">
     <div class="w-full relative bg-red-400">
       <!-- bg-image -->
-      <img src="/faqImg.jpeg" alt="faqImage" class="w-full object-cover" />
+      <img src="/recipeBg1.jpg" alt="faqImage" class="w-full object-cover" />
 
       <!-- frequently asked question content -->
       <div

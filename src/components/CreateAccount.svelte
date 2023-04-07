@@ -7,9 +7,9 @@
   <img
     src="/add.jpeg"
     alt="createBg"
-    class="w-full h-[40vh] md:h-[30vh] lg:h-[40vh] object-center"
+    class="w-full h-[48vh] md:h-[30vh] lg:h-[40vh] object-center"
   />
-  <div class="w-full h-full absolute left-0 top-0 bg-[#eae8e8cd] flex">
+  <div class="w-full h-full absolute left-0 top-0 bg-[#eae8e8cd] flex py-6">
     <div
       class="max-w-6xl mx-auto px-3 grid grid-cols-1 lg:grid-cols-2 gap-3 items-center lg:gap-8 xl:gap-12"
     >
