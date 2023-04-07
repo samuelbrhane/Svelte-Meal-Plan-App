@@ -1,5 +1,11 @@
 <script>
-  import { FoodTable, Footer, RecipeSidebar,RecipeService } from "../../components";
+  import {
+    FoodTable,
+    Footer,
+    RecipeSidebar,
+    RecipeService,
+    CreateAd,
+  } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
   import { updateStore } from "../../stores/recipeStore";
   let searchWord = "";
@@ -38,8 +44,8 @@
       <FoodTable />
     </div>
 
-    <RecipeService/>
-
+    <RecipeService />
+    <CreateAd />
     <Footer />
   </section>
 </Layout>
