@@ -1,9 +1,6 @@
 <script>
-  import { Link } from "svelte-routing";
+  import { Link } from "svelte-navigator";
   import Icon from "@iconify/svelte";
-  const activeRoute = (route) => {
-    return location.pathname === route;
-  };
 </script>
 
 <footer class="bg-[#eae8e8cd] py-5">
@@ -49,7 +46,7 @@
       </div>
 
       <!-- Links -->
-      <div class="flex md:justify-center">
+      <!-- <div class="flex md:justify-center">
         <div>
           <h1 class="uppercase text-xl mb-2 font-[Roboto]">Navigation</h1>
           <ul class="flex flex-col font-[Alkatra] gap-2">
@@ -63,7 +60,7 @@
             <a href="/faq" class:selected={activeRoute("/faq")} class="">FAQ</a>
           </ul>
         </div>
-      </div>
+      </div> -->
 
       <!-- social -->
       <div class="flex md:justify-center">

@@ -1,7 +1,7 @@
 <script>
   import { RegisterForm } from "../../components";
   import Icon from "@iconify/svelte";
-  import { Link } from "svelte-routing";
+  import { Link } from "svelte-navigator";
 </script>
 
 <main class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">

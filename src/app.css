@@ -9,6 +9,9 @@
   .selected {
     @apply font-semibold text-[#5ecfd7];
   }
+  .active {
+    @apply font-semibold text-[#5ecfd7];
+  }
   .input {
     @apply px-4 py-2 block w-full border-[0.5px] border-[#2386a2ab] outline-none rounded focus:shadow-sm focus:shadow-[#318ac2] focus:border-[1.2px];
   }

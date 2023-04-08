@@ -1,10 +1,13 @@
 <script>
+  import { Link } from "svelte-navigator";
+
   export let item = {};
   let calories = item.recipe.calories / 10;
 </script>
 
-<div
-  class="w-full flex flex-col md:flex-row items-center border-b-[0.6px] border-gray-400 font-[Alkatra]"
+<Link
+  to={`/recipeDetail/${item.recipe.uri.split("_")[1]}`}
+  class="w-full flex flex-col md:flex-row items-center border-b-[0.6px] border-gray-400 font-[Alkatra] hover:bg-[#d9ebf9]"
 >
   <div class="flex items-center w-full">
     <!-- image and name -->
@@ -45,4 +48,4 @@
       {item.recipe.digest[2].total.toFixed(2) || 376} g
     </p>
   </div>
-</div>
+</Link>

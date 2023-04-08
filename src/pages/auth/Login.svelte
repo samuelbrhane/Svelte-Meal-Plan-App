@@ -1,12 +1,12 @@
 <script>
   import Icon from "@iconify/svelte";
-  import { Link } from "svelte-routing";
+  import { Link } from "svelte-navigator";
   import { LoginForm } from "../../components";
 </script>
 
 <main class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <!-- auth images  -->
-  <div class="bg-[#f5f2f7] lg:flex items-center hidden ">
+  <div class="bg-[#f5f2f7] lg:flex items-center hidden">
     <img src="/login.png" alt="login" class="w-full" />
   </div>
 

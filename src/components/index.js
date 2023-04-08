@@ -35,6 +35,7 @@ export { default as FoodTable } from "./Recipe/FoodTable.svelte";
 export { default as FoodCard } from "./Recipe/FoodCard.svelte";
 export { default as PaginationBtn } from "./Recipe/PaginationBtn.svelte";
 export { default as RecipeService } from "./Recipe/RecipeService.svelte";
+export { default as RecipeDetails } from "./Recipe/RecipeDetails.svelte";
 
 // Authentication page components
 export { default as LoginForm } from "./Auth/LoginForm.svelte";

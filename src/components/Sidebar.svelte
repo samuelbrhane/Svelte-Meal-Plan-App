@@ -1,5 +1,5 @@
 <script>
-  import { Link } from "svelte-routing";
+  import { Link } from "svelte-navigator";
 
   // set active page
   const activeRoute = (route) => {
