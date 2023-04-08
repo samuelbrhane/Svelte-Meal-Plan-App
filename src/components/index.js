@@ -40,6 +40,8 @@ export { default as RecipeService } from "./Recipe/RecipeService.svelte";
 export { default as RecipeIntro } from "./RecipeDetail/RecipeIntro.svelte";
 export { default as Ingredients } from "./RecipeDetail/Ingredients.svelte";
 export { default as IngredientCard } from "./RecipeDetail/IngredientCard.svelte";
+export { default as Nutrients } from "./RecipeDetail/Nutrients.svelte";
+export { default as CaloriesChart } from "./RecipeDetail/CaloriesChart.svelte";
 
 // Authentication page components
 export { default as LoginForm } from "./Auth/LoginForm.svelte";

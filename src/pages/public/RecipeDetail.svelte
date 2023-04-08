@@ -5,7 +5,7 @@
   import Icon from "@iconify/svelte";
   import { baseRoute, recipeKeys } from "../../utils/routes/recipeRoute";
   import axios from "axios";
-  import { Ingredients, RecipeIntro } from "../../components";
+  import { Ingredients, Nutrients, RecipeIntro } from "../../components";
   const params = useParams();
 
   let recipeData;
@@ -65,8 +65,9 @@
           />
 
           <!-- Ingredients and Nutrients  -->
-          <div class="grid lg:grid-cols-2">
+          <div class="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-20">
             <Ingredients {recipeData} {serving} />
+            <Nutrients {recipeData} {serving} />
           </div>
         </div>
       </div>
