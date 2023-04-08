@@ -58,7 +58,28 @@
     <canvas id="myChart" class="max-w-[300px] max-h-[300px]" />
   </div>
 
-  <p class="font-semibold text-sm font-[Merriweather] text-center mb-3">
+  <p class="font-semibold text-sm font-[Merriweather] text-center mt-10 mb-4">
     Recipe Totals
   </p>
+
+  <div class="flex justify-center font-[Alkatra]">
+    <div class="w-[300px]">
+      <div class="flex justify-between mb-1">
+        <p>Calories</p>
+        <p>{(recipeData.recipe.calories / 10).toFixed(2)} kcal</p>
+      </div>
+      <div class="flex justify-between text-[#CC38B1] mb-1">
+        <p>Carbs</p>
+        <p>{carbsData.toFixed(2)} g</p>
+      </div>
+      <div class="flex justify-between text-[#21B4B9] mb-1">
+        <p>Fats</p>
+        <p>{fatData.toFixed(2)} g</p>
+      </div>
+      <div class="flex justify-between text-[#6A72E3] mb-1">
+        <p>Protein</p>
+        <p>{proteinData.toFixed(2)} g</p>
+      </div>
+    </div>
+  </div>
 </section>
