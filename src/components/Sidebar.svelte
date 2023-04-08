@@ -1,23 +1,57 @@
 <script>
-  import { Link } from "svelte-navigator";
+  import { Link, useLocation } from "svelte-navigator";
+
+  import { onMount, onDestroy } from "svelte";
+
+  let location = useLocation();
+
+  let pathname = "";
+
+  let unsubscribe;
+
+  onMount(() => {
+    unsubscribe = location.subscribe((value) => {
+      pathname = value.pathname;
+    });
+  });
+
+  onDestroy(() => {
+    unsubscribe();
+  });
 
   // set active page
-  const activeRoute = (route) => {
-    return location.pathname === route;
+  const isActive = (url) => {
+    return pathname === url;
   };
 </script>
 
 <section class="py-8 flex flex-col items-center justify-between h-full z-40">
   <!-- Links -->
   <ul class="flex items-center flex-col gap-5 text-[16px]">
-    <a href="/" class:selected={activeRoute("/")} class="link">Welcome</a>
-    <a href="/recipe" class:selected={activeRoute("/recipe")} class="link"
-      >Recipe</a
+    <li
+      on:select={() => isActive("/")}
+      class={` ${pathname === "/" && "active"} link`}
     >
-    <a href="/about" class:selected={activeRoute("/about")} class="link"
-      >About</a
+      <Link to="/">Welcome</Link>
+    </li>
+    <li
+      on:select={() => isActive("/recipe")}
+      class={` ${pathname === "/recipe" && "active"} link`}
     >
-    <a href="/faq" class:selected={activeRoute("/faq")} class="link">FAQ</a>
+      <Link to="/recipe">Recipe</Link>
+    </li>
+    <li
+      on:select={() => isActive("/about")}
+      class={` ${pathname === "/about" && "active"} link`}
+    >
+      <Link to="/about">About</Link>
+    </li>
+    <li
+      on:select={() => isActive("/faq")}
+      class={` ${pathname === "/faq" && "active"} link`}
+    >
+      <Link to="/faq">FAQ</Link>
+    </li>
   </ul>
 
   <!-- Authentication links -->

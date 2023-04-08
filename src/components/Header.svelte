@@ -22,11 +22,9 @@
     unsubscribe();
   });
 
-  function isActive(url) {
-    console.log("pathname: " + pathname);
-    console.log("url: " + url);
+  const isActive = (url) => {
     return pathname === url;
-  }
+  };
 
   // set active page
 </script>
@@ -74,7 +72,7 @@
     </ul>
 
     <!-- Authentication links -->
-    <div>
+    <div class="hidden lg:inline">
       <Link
         to="/register"
         class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
@@ -97,10 +95,10 @@
 </header>
 
 <!-- Sidebar component for small screen devices -->
-<!-- <div
+<div
   class={`fixed lg:hidden top-[80px] z-40 bottom-0 ld:top-[100px] w-[200px] ease-in-out bg-[#3c2e3d] ${
     isSidebarOpen ? "left-0 duration-[0.8s]" : "left-[-999px] duration-[1.5s]"
   }`}
 >
   <Sidebar />
-</div> -->
+</div>
