@@ -1,6 +1,27 @@
 <script>
-  import { Link } from "svelte-navigator";
+  import { Link, useLocation } from "svelte-navigator";
   import Icon from "@iconify/svelte";
+  import { onMount, onDestroy } from "svelte";
+
+  let location = useLocation();
+
+  let pathname = "";
+
+  let unsubscribe;
+
+  onMount(() => {
+    unsubscribe = location.subscribe((value) => {
+      pathname = value.pathname;
+    });
+  });
+
+  onDestroy(() => {
+    unsubscribe();
+  });
+
+  const isActive = (url) => {
+    return pathname === url;
+  };
 </script>
 
 <footer class="bg-[#eae8e8cd] py-5">
@@ -46,21 +67,37 @@
       </div>
 
       <!-- Links -->
-      <!-- <div class="flex md:justify-center">
+      <div class="flex md:justify-center">
         <div>
           <h1 class="uppercase text-xl mb-2 font-[Roboto]">Navigation</h1>
           <ul class="flex flex-col font-[Alkatra] gap-2">
-            <a href="/" class:selected={activeRoute("/")} class="">Welcome</a>
-            <a href="/recipe" class:selected={activeRoute("/recipe")} class=""
-              >Recipe</a
+            <li
+              on:select={() => isActive("/")}
+              class={` ${pathname === "/" && "active"}`}
             >
-            <a href="/about" class:selected={activeRoute("/about")} class=""
-              >About</a
+              <Link to="/">Welcome</Link>
+            </li>
+            <li
+              on:select={() => isActive("/recipe")}
+              class={` ${pathname === "/recipe" && "active"} `}
             >
-            <a href="/faq" class:selected={activeRoute("/faq")} class="">FAQ</a>
+              <Link to="/recipe">Recipe</Link>
+            </li>
+            <li
+              on:select={() => isActive("/about")}
+              class={` ${pathname === "/about" && "active"}`}
+            >
+              <Link to="/about">About</Link>
+            </li>
+            <li
+              on:select={() => isActive("/faq")}
+              class={` ${pathname === "/faq" && "active"}`}
+            >
+              <Link to="/faq">FAQ</Link>
+            </li>
           </ul>
         </div>
-      </div> -->
+      </div>
 
       <!-- social -->
       <div class="flex md:justify-center">
