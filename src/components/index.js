@@ -41,7 +41,6 @@ export { default as RecipeIntro } from "./RecipeDetail/RecipeIntro.svelte";
 export { default as Ingredients } from "./RecipeDetail/Ingredients.svelte";
 export { default as IngredientCard } from "./RecipeDetail/IngredientCard.svelte";
 export { default as Nutrients } from "./RecipeDetail/Nutrients.svelte";
-export { default as CaloriesChart } from "./RecipeDetail/CaloriesChart.svelte";
 export { default as RelatedRecipe } from "./RecipeDetail/RelatedRecipe.svelte";
 
 // Authentication page components
