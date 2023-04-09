@@ -23,7 +23,7 @@
       Back to homepage
     </Link>
 
-    <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase">
+    <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase mt-12">
       Plate plan
     </h1>
     <img src="/title.png" alt="Logo" class="w-16 h-16" />

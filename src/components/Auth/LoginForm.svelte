@@ -1,18 +1,41 @@
 <script>
-  import { Link } from "svelte-navigator";
+  import { Link, navigate } from "svelte-navigator";
+  import authStore from "../../stores/authStore";
   import Icon from "@iconify/svelte";
+  import axios from "axios";
+  import { loginRoute } from "../../utils/routes/authRoutes";
   let email = "";
   let password = "";
+  let errorMessage = "";
   let showPassword = false;
 
   //   handle form submit
-  const handleFormSubmit = () => {
-    console.log("email: " + email);
-    console.log("password: " + password);
-  };
+  const handleFormSubmit = async () => {
+    errorMessage = "";
+    try {
+      // Login user
+      let { data } = await axios.post(loginRoute, {
+        email,
+        password,
+      });
 
-  const handlePasswordChange = (e) => {
-    password = e.target.value;
+      // safe token in local storage
+      localStorage.setItem("platePlanToken", JSON.stringify(data));
+
+      // update authStore
+      authStore.update((authData) => {
+        authData.isAuthenticated = true;
+        authData.token = data;
+        return authData;
+      });
+      // navigate to private home page
+      navigate("/home");
+    } catch (error) {
+      // set error if login failed
+      console.log("error: " + error);
+      errorMessage = "Incorrect Email or Password";
+      console.log("errorMessage", errorMessage);
+    }
   };
 </script>
 
@@ -26,7 +49,13 @@
     <!-- email -->
     <div class="mb-4">
       <label for="email">Email</label>
-      <input type="email" id="email" class="input" bind:value={email} />
+      <input
+        type="email"
+        id="email"
+        class="input"
+        required
+        bind:value={email}
+      />
     </div>
 
     <!-- password -->
@@ -34,10 +63,11 @@
       <label for="password">Password</label>
       <div class="relative">
         <input
+          required
           type={showPassword ? "text" : "password"}
           id="password"
           class="input"
-          on:input={handlePasswordChange}
+          on:input={(e) => (password = e.target.value)}
         />
         <button
           type="button"
@@ -59,6 +89,15 @@
         </button>
       </div>
     </div>
+
+    <!-- login failed error -->
+
+    {#if errorMessage}
+      <p class="text-center my-1 text-sm text-[#a2329c]">
+        {errorMessage}
+      </p>
+    {/if}
+    <p />
 
     <!-- forget password -->
     <button class="hover:scale-105 hover:text-[#26648b]">
