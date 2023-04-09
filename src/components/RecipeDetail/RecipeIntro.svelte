@@ -19,7 +19,9 @@
     {recipeData.recipe.label}
   </h1>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 items-center">
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 md:gap-10 justify-between items-center"
+  >
     <!-- Image -->
     <div>
       <img
@@ -30,7 +32,7 @@
     </div>
 
     <!-- Preparation and cooking time -->
-    <div>
+    <div class="mt-3">
       <div class="mb-8 font-[Alkatra]">
         <Icon icon="mdi:food-variant" class="footerIcon text-3xl mb-1" />
         <p>

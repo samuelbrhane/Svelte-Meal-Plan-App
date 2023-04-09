@@ -1,7 +1,9 @@
 <script>
   export let recipeData = {};
   import { onMount } from "svelte";
+  import Icon from "@iconify/svelte";
   export let serving = 1;
+  let openNutrientInfo = false;
   let proteinData = recipeData.recipe.digest[2].total;
   let fatData = recipeData.recipe.digest[0].total;
   let carbsData = recipeData.recipe.digest[1].total;
@@ -62,24 +64,54 @@
     Recipe Totals
   </p>
 
+  <!-- Recipe total nutrients -->
   <div class="flex justify-center font-[Alkatra]">
     <div class="w-[300px]">
       <div class="flex justify-between mb-1">
         <p>Calories</p>
-        <p>{(recipeData.recipe.calories / 10).toFixed(2)} kcal</p>
+        <p>{((serving * recipeData.recipe.calories) / 10).toFixed(2)} kcal</p>
       </div>
       <div class="flex justify-between text-[#CC38B1] mb-1">
         <p>Carbs</p>
-        <p>{carbsData.toFixed(2)} g</p>
+        <p>{(serving * carbsData).toFixed(2)} g</p>
       </div>
       <div class="flex justify-between text-[#21B4B9] mb-1">
         <p>Fats</p>
-        <p>{fatData.toFixed(2)} g</p>
+        <p>{(serving * fatData).toFixed(2)} g</p>
       </div>
       <div class="flex justify-between text-[#6A72E3] mb-1">
         <p>Protein</p>
-        <p>{proteinData.toFixed(2)} g</p>
+        <p>{(serving * proteinData).toFixed(2)} g</p>
       </div>
     </div>
+  </div>
+
+  <!-- Detail nutrients data -->
+  <div class="flex flex-col items-center my-4">
+    <button
+      on:click={() => (openNutrientInfo = !openNutrientInfo)}
+      class="font-semibold text-sm font-[Alkatra] text-center justify-center w-[300px] py-3 rounded bg-[#7ed8ea3d] text-black flex items-center gap-2 hover:scale-[1.02]"
+    >
+      <span class="border-r-[0.5px] border-[#2a234a] px-2">
+        Detailed Nutrients Information
+      </span>
+      <Icon icon="mdi:format-vertical-align-bottom" class="text-xl" />
+    </button>
+
+    {#if openNutrientInfo}
+      <div class="w-[300px] font-[Alkatra] my-3 duration-1000 ease-in-out">
+        <h2
+          class="text-center mb-2 font-[Merriweather] text-[#c440cd] font-semibold"
+        >
+          Based on {serving} serving
+        </h2>
+        {#each recipeData.recipe.digest as nutrient}
+          <div class="flex justify-between items-center mb-1">
+            <p>{nutrient.label}</p>
+            <p>{(serving * nutrient.total).toFixed(2)} {nutrient.unit}</p>
+          </div>
+        {/each}
+      </div>
+    {/if}
   </div>
 </section>
