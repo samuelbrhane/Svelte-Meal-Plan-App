@@ -2,7 +2,7 @@
   import { Link } from "svelte-navigator";
 
   export let item = {};
-  let calories = item.recipe.calories / 10;
+  $: calories = item.recipe.calories / 10;
 </script>
 
 <Link

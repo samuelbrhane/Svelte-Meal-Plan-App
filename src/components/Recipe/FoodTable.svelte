@@ -2,10 +2,13 @@
   import { onMount } from "svelte";
   import { FoodCard, PaginationBtn } from "..";
   import { recipeStore } from "../../stores/recipeStore";
+  import Icon from "@iconify/svelte";
   let recipeData = [];
   let loading = true;
   let currentPage = 1;
   let dataPerPage = 5;
+  const tableLabel1 = ["Image", "Name"];
+  const tableLabel2 = ["Calories", "Carbs", "Fats", "Protein"];
   $: indexOfLastPage = currentPage * dataPerPage;
   $: indexOfFirstPage = indexOfLastPage - dataPerPage;
 
@@ -17,6 +20,57 @@
     });
     return unsubscribe;
   });
+
+  // sort recipe data
+  const sortData = (item, direction) => {
+    // sort by calories
+    if (item == "Calories") {
+      if (direction == "ascending") {
+        // order recipe data in ascending order
+        recipeData = [
+          ...recipeData.sort((a, b) => a.recipe.calories - b.recipe.calories),
+        ];
+      } else {
+        // order recipe data in descending order
+        recipeData = [
+          ...recipeData.sort((a, b) => b.recipe.calories - a.recipe.calories),
+        ];
+      }
+    }
+
+    // sort by carbs, fats and protein
+    let index;
+    // change index based on item name
+    switch (item) {
+      case "Carbs":
+        index = 1;
+        break;
+      case "Fats":
+        index = 0;
+        break;
+      case "Protein":
+        index = 2;
+        break;
+      default:
+        break;
+    }
+
+    if (direction == "ascending") {
+      // order recipe data in ascending order
+      recipeData = [
+        ...recipeData.sort(
+          (a, b) => a.recipe.digest[index].total - b.recipe.digest[index].total
+        ),
+      ];
+    } else {
+      // order recipe data in descending order
+      recipeData = [
+        ...recipeData.sort(
+          (a, b) => b.recipe.digest[index].total - a.recipe.digest[index].total
+        ),
+      ];
+    }
+  };
 </script>
 
 <section class="border-[0.6px] border-gray-400 w-full">
@@ -25,17 +79,39 @@
     class="w-full flex flex-col md:flex-row items-center border-b-[0.6px] border-gray-400 font-[Merriweather] font-semibold italic"
   >
     <div class="flex items-center w-full">
-      <p class="w-[30%] border-gray-400 border-r-[0.5px] p-2">Image</p>
-      <p class="w-[70%] border-gray-400 border-r-[0.5px] p-2">Name</p>
+      {#each tableLabel1 as item}
+        <div class={`${item == "Image" ? "w-[30%]" : "w-[70%]"} tableLabel`}>
+          <p>{item}</p>
+        </div>
+      {/each}
     </div>
 
     <div
       class="grid grid-cols-4 w-full border-gray-400 border-t-[0.5px] md:border-none"
     >
-      <p class="border-gray-400 border-r-[0.5px] p-2">Calories</p>
-      <p class="border-gray-400 border-r-[0.5px] p-2">Carbs</p>
-      <p class="border-gray-400 border-r-[0.5px] p-2">Fats</p>
-      <p class="border-gray-400 border-r-[0.5px] p-2">Protein</p>
+      {#each tableLabel2 as item}
+        <div class="tableLabel">
+          <p>{item}</p>
+
+          <div class="flex flex-col ml-2 text-[#309eb7]">
+            <button
+              class="hover:scale-[1.02px]"
+              on:click={() => sortData(item, "ascending")}
+              ><Icon
+                icon="material-symbols:keyboard-arrow-up-rounded"
+              /></button
+            >
+
+            <button
+              class="hover:scale-[1.02px]"
+              on:click={() => sortData(item, "descending")}
+              ><Icon
+                icon="material-symbols:keyboard-arrow-down-rounded"
+              /></button
+            >
+          </div>
+        </div>
+      {/each}
     </div>
   </div>
 

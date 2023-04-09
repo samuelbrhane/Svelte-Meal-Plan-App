@@ -24,6 +24,10 @@
     @apply w-[140px] cursor-pointer hover:scale-105;
   }
 
+  .tableLabel {
+    @apply border-gray-400 border-r-[0.5px] p-2 flex items-center;
+  }
+
   .line {
     @apply w-full h-1 bg-white;
   }

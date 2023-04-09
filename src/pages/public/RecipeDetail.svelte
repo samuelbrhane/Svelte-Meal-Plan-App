@@ -103,7 +103,7 @@
           </div>
 
           <!-- Related Recipes -->
-          {#if relatedRecipe}
+          {#if relatedRecipe.hits.length >= 2}
             <div class="mt-5">
               <h1 class="font-bold font-[Roboto] text-3xl mb-3">
                 If you liked this recipe, check these out!
