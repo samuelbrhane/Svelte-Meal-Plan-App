@@ -50,7 +50,7 @@
   }
 
   .scrollBtn {
-    @apply w-8 h-8 rounded-full bg-[#a234a3] flex items-center justify-center text-xl text-white hover:scale-[1.03];
+    @apply w-8 h-8 rounded-full bg-[#a234a3] flex items-center justify-center text-2xl text-white hover:scale-[1.03];
   }
 
   .categoryBtn {

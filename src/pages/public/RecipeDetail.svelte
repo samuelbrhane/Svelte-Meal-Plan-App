@@ -6,6 +6,8 @@
   import { baseRoute, recipeKeys } from "../../utils/routes/recipeRoute";
   import axios from "axios";
   import {
+    CreateAd,
+    Footer,
     Ingredients,
     Nutrients,
     RecipeIntro,
@@ -65,47 +67,55 @@
 </script>
 
 <Layout>
-  <section class="mt-[80px] lg:mt-[100px] py-6">
+  <section class="mt-[80px] lg:mt-[100px] pt-6">
     {#if loading}
       <!--Add Loader until data fetched  -->
       <div class="w-full flex justify-center py-20">
         <img src="/loader.gif" alt="loaderImage" class="w-[180px] h-[180px]" />
       </div>
     {:else}
-      <!-- single recipe details -->
-      <div class="max-w-6xl mx-auto px-3">
-        <Link
-          to="/recipe"
-          class="font-[Alkatra] text-lg flex items-center gap-1 hover:scale-105 hover:text-[#3467a5] w-[200px]"
-        >
-          <Icon icon="ic:baseline-arrow-back" class="text-lg" />
-          Back to recipe table
-        </Link>
+      <div>
+        <!-- single recipe details -->
+        <div class="max-w-6xl mx-auto px-3 mb-5">
+          <Link
+            to="/recipe"
+            class="font-[Alkatra] text-lg flex items-center gap-1 hover:scale-105 hover:text-[#3467a5] w-[200px]"
+          >
+            <Icon icon="ic:baseline-arrow-back" class="text-lg" />
+            Back to recipe table
+          </Link>
 
-        <div class="bg-white shadow mt-4 py-8 px-10">
-          <!-- Recipe Intro -->
-          <RecipeIntro
-            {recipeData}
-            {serving}
-            on:changeServing={(e) => (serving = e.detail)}
-          />
+          <div class="bg-white shadow mt-4 py-8 px-10">
+            <!-- Recipe Intro -->
+            <RecipeIntro
+              {recipeData}
+              {serving}
+              on:changeServing={(e) => (serving = e.detail)}
+            />
 
-          <!-- Ingredients and Nutrients  -->
-          <div class="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-20">
-            <Ingredients {recipeData} {serving} />
-            <Nutrients {recipeData} {serving} />
+            <!-- Ingredients and Nutrients  -->
+            <div
+              class="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-20"
+            >
+              <Ingredients {recipeData} {serving} />
+              <Nutrients {recipeData} {serving} />
+            </div>
           </div>
+
+          <!-- Related Recipes -->
+          {#if relatedRecipe}
+            <div class="mt-5">
+              <h1 class="font-bold font-[Roboto] text-3xl mb-3">
+                If you liked this recipe, check these out!
+              </h1>
+              <RelatedRecipe {relatedRecipe} />
+            </div>
+          {/if}
         </div>
 
-        <!-- Related Recipes -->
-        {#if relatedRecipe}
-          <div class="mt-5">
-            <h1 class="font-bold font-[Roboto] text-3xl mb-3">
-              If you liked this recipe, check these out!
-            </h1>
-            <RelatedRecipe {relatedRecipe} />
-          </div>
-        {/if}
+        <!-- Footer and CreateAd components -->
+        <CreateAd />
+        <Footer />
       </div>
     {/if}
   </section>

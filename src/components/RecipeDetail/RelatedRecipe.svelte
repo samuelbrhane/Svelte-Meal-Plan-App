@@ -41,12 +41,12 @@
       <!-- related recipes -->
       <Link
         to={`/recipeDetail/${item.recipe.uri.split("_")[1]}`}
-        class="overflow-hidden scrollItem min-w-[200px] max-w-[200px] h-[220px] bg-white border-[#1d99b9] border-[0.5px] mr-[8px] rounded p-3"
+        class="overflow-hidden scrollItem min-w-[200px] max-w-[200px]  h-[220px] bg-white border-[#1d99b9] border-[0.5px] mr-[8px] rounded p-3"
       >
         <img
           src={item.recipe.image}
           alt="foodImage"
-          class="w-full h-[140px] rounded-md"
+          class="w-full h-[140px] rounded-md hover:scale-[1.01]"
         />
         <p class="text-sm font-[Alkatra] text-center mt-2">
           {item.recipe.label}
