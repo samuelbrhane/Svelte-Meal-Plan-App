@@ -2,6 +2,11 @@
   import Icon from "@iconify/svelte";
   import { Link } from "svelte-navigator";
   let email = "";
+
+  //   handle form submit
+  const handleFormSubmit = () => {
+    console.log("email: " + email);
+  };
 </script>
 
 <section class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
@@ -28,13 +33,19 @@
       Reset Your Password
     </h1>
 
-    <!-- Login form -->
+    <!-- Password change form -->
     <div class="px-4 w-full flex justify-center items-center flex-col">
-      <form>
+      <form on:submit|preventDefault={handleFormSubmit}>
         <!-- email -->
         <div class="mb-4">
           <label for="email">Email</label>
-          <input type="email" id="email" class="input" bind:value={email} />
+          <input
+            type="email"
+            id="email"
+            class="input"
+            required
+            bind:value={email}
+          />
         </div>
 
         <!-- resent reset password email -->
