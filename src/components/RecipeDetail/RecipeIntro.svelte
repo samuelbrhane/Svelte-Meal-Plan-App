@@ -15,9 +15,13 @@
 </script>
 
 <section>
-  <h1 class="text-center mb-5 font-[Roboto] font-bold text-3xl xl:text-4xl">
-    {recipeData.recipe.label}
-  </h1>
+  <div class="font-[Alkatra] text-sm text-center">
+    <hi class="font-[Roboto] font-bold text-3xl xl:text-4xl">
+      {recipeData?.recipe?.label}
+    </hi>
+    <p>Dish Type: {recipeData?.recipe?.dishType[0]}</p>
+    <p>Cuisine Type: {recipeData?.recipe?.cuisineType[0]}</p>
+  </div>
 
   <div
     class="grid grid-cols-1 md:grid-cols-3 md:gap-10 justify-between items-center"

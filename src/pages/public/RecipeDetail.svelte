@@ -5,27 +5,53 @@
   import Icon from "@iconify/svelte";
   import { baseRoute, recipeKeys } from "../../utils/routes/recipeRoute";
   import axios from "axios";
-  import { Ingredients, Nutrients, RecipeIntro } from "../../components";
+  import {
+    Ingredients,
+    Nutrients,
+    RecipeIntro,
+    RelatedRecipe,
+  } from "../../components";
   const params = useParams();
 
   let recipeData;
+  let relatedRecipe;
   let id = "";
   let loading = true;
   let serving;
 
   // get id from params
-  const unsubscribe = params.subscribe((value) => {
+  $: unsubscribe = params.subscribe((value) => {
     id = value.id;
+    fetchData();
   });
 
-  // get single detail recipe data
+  // change random index
+  const changeIndex = (index) => {
+    if (index == 0) return 1;
+    else if (index == 1) return 2;
+    else return 0;
+  };
+
+  // get single detail recipe data and related recipes
   const fetchData = async () => {
     loading = true;
     const randomIndex = Math.floor(Math.random() * recipeKeys.length);
+    // get single recipe data
     const { data } = await axios.get(
       `${baseRoute}/${id}?type=public&app_id=${recipeKeys[randomIndex].appId}&app_key=${recipeKeys[randomIndex].appKey}`
     );
+
     recipeData = data;
+    if (recipeData) {
+      // get related recipes
+      const response = await fetch(
+        `${baseRoute}?type=public&q=${recipeData.recipe.label}&app_id=${
+          recipeKeys[changeIndex(randomIndex)].appId
+        }&app_key=${recipeKeys[changeIndex(randomIndex)].appKey}`
+      );
+      relatedRecipe = await response.json();
+    }
+
     loading = false;
   };
 
@@ -50,7 +76,7 @@
       <div class="max-w-6xl mx-auto px-3">
         <Link
           to="/recipe"
-          class=" font-[Alkatra] text-lg flex items-center gap-1 hover:scale-105 hover:text-[#3467a5] w-[200px]"
+          class="font-[Alkatra] text-lg flex items-center gap-1 hover:scale-105 hover:text-[#3467a5] w-[200px]"
         >
           <Icon icon="ic:baseline-arrow-back" class="text-lg" />
           Back to recipe table
@@ -70,6 +96,16 @@
             <Nutrients {recipeData} {serving} />
           </div>
         </div>
+
+        <!-- Related Recipes -->
+        {#if relatedRecipe}
+          <div class="mt-5">
+            <h1 class="font-bold font-[Roboto] text-3xl mb-3">
+              If you liked this recipe, check these out!
+            </h1>
+            <RelatedRecipe {relatedRecipe} />
+          </div>
+        {/if}
       </div>
     {/if}
   </section>
