@@ -1,19 +1,16 @@
 <script>
-  import { Route, navigate } from "svelte-navigator";
+  import { Route } from "svelte-navigator";
   import authStore from "../../stores/authStore";
   import { onMount } from "svelte";
 
-  // authentication pages
   import {
-    Activation,
-    Login,
-    Register,
-    ResetPassword,
-    ResetPasswordConfirm,
-  } from "../../pages/auth";
-
-  // private pages
-  import { Home } from "../../pages/private";
+    About,
+    Recipe,
+    RecipeDetail,
+    Welcome,
+    FAQ,
+  } from "../../pages/public";
+  import ProtectedRoute from "./ProtectedRoute.svelte";
 
   let userData = {
     loading: true,
@@ -42,28 +39,13 @@
     <img src="/loader.gif" alt="loaderImage" />
   </div>
 {:else}
-  <!-- private pages -->
-  <Route
-    path="/home"
-    component={userData.isAuthenticated ? Home : navigate("/register")}
-  />
+  <!-- public pages -->
+  <Route path="/" component={Welcome} />
+  <Route path="/recipe" component={Recipe} />
+  <Route path="/about" component={About} />
+  <Route path="/faq" component={FAQ} />
+  <Route path="/recipeDetail/:id" component={RecipeDetail} />
 
-  <!-- authentication pages -->
-  <Route
-    path="/login"
-    component={!userData.isAuthenticated ? Login : navigate("/home")}
-  />
-  <Route
-    path="/register"
-    component={!userData.isAuthenticated ? Register : navigate("/home")}
-  />
-  <Route path="/activate/:uid/:token" component={Activation} />
-  <Route
-    path="/reset-password"
-    component={!userData.isAuthenticated ? ResetPassword : navigate("/home")}
-  />
-  <Route
-    path="/password/reset/confirm/:uid/:token"
-    component={ResetPasswordConfirm}
-  />
+  <!-- protected routes -->
+  <Route component={ProtectedRoute} {userData} />
 {/if}
