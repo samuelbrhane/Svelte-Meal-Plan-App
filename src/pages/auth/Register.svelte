@@ -12,7 +12,7 @@
 
   <!-- authentication forms -->
   <div
-    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra] relative"
+    class="flex flex-col items-center py-4 lg:py-2 xl:py-8 bg-[#ecf4ed] font-[Alkatra] relative"
   >
     <!-- back to homepage -->
     <Link
@@ -23,7 +23,9 @@
       Back to homepage
     </Link>
 
-    <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase mt-8">
+    <h1
+      class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase mt-12 lg:mt-8 xl:mt-12"
+    >
       Plate plan
     </h1>
     <img src="/title.png" alt="Logo" class="w-16 h-16" />
