@@ -33,13 +33,15 @@
 
   //   handle form submit
   const handleFormSubmit = async () => {
+    console.log("name: " + name.split(" ")[0] + name.split(" ")[1]);
     errorMessage = "";
     loading = true;
     try {
       // register user
       await axios.post(registerRoute, {
         email,
-        name,
+        first_name: name.split(" ")[0],
+        last_name: name.split(" ")[1],
         password,
       });
 
