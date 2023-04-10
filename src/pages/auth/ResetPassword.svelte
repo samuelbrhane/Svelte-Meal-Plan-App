@@ -1,13 +1,39 @@
 <script>
   import Icon from "@iconify/svelte";
+  import axios from "axios";
+  import { toast } from "@zerodevx/svelte-toast";
   import { Link } from "svelte-navigator";
+  import { resetPasswordRoute } from "../../utils/routes/authRoutes";
+  import { errorClasses, infoClasses } from "../../utils/toast/toastCustom";
+  import { Loader } from "../../components";
   let email = "";
+  let loading = false;
 
   //   handle form submit
-  const handleFormSubmit = () => {
-    console.log("email: " + email);
+  const handleFormSubmit = async () => {
+    loading = true;
+    try {
+      await axios.post(resetPasswordRoute, { email });
+
+      // check email to reset password
+      toast.push("Please check your email to reset your password!", {
+        theme: infoClasses,
+      });
+      email = "";
+    } catch (error) {
+      // toast error message
+      toast.push("Can't send reset password email!", {
+        theme: errorClasses,
+      });
+    }
+    loading = false;
   };
 </script>
+
+{#if loading}
+  <!-- add loader when form submitted -->
+  <Loader />
+{/if}
 
 <section class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <!-- form  -->
