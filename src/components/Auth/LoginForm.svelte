@@ -68,7 +68,7 @@
   <Loader />
 {/if}
 <section
-  class="bg-white w-full md:w-[500px] lg:w-[450px] xl:w-[550px] md:py-8 lg:py-3 md:px-12 xl:py-12 xl:px-20 p-3 mt-10 lg:mt-4 xl:mt-8 rounded-xl shadow"
+  class="bg-white w-full md:w-[500px] lg:w-[450px] xl:w-[550px] md:py-8 lg:py-3 md:px-12 xl:py-12 xl:px-20 2xl:py-4 p-3 mt-10 lg:mt-4 xl:mt-8 rounded-xl shadow"
 >
   <h1 class="text-center font-semibold text-4xl mb-4 font-[Alkatra]">Log In</h1>
 
