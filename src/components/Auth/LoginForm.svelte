@@ -109,7 +109,6 @@
     </div>
 
     <!-- login failed error -->
-
     {#if error}
       <p transition:fade class="text-center my-1 text-sm text-[#a2329c]">
         {errorMessage}

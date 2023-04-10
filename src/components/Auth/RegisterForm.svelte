@@ -1,21 +1,60 @@
 <script>
   import { Link } from "svelte-navigator";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { fade } from "svelte/transition";
+  import { onDestroy } from "svelte";
   import Icon from "@iconify/svelte";
+  import { infoClasses, successClasses } from "../../utils/toast/toastCustom";
+  import axios from "axios";
+  import { registerRoute } from "../../utils/routes/authRoutes";
   let name = "";
   let email = "";
   let password = "";
+  let errorMessage = "";
   let showPassword = false;
+  let error = false;
+  let timeout;
+
+  // this will run whenever error changes
+  $: if (error) {
+    // set a timeout to clear the error after 3 seconds
+    timeout = setTimeout(() => {
+      error = false;
+    }, 3000);
+  }
+
+  // clear the timeout when the component is destroyed
+  onDestroy(() => {
+    clearTimeout(timeout);
+  });
 
   //   handle form submit
-  const handleFormSubmit = () => {
-    console.log("name: " + name);
-    console.log("email: " + email);
-    console.log("password: " + password);
-  };
+  const handleFormSubmit = async () => {
+    errorMessage = "";
+    try {
+      // register user
+      await axios.post(registerRoute, {
+        email,
+        name,
+        password,
+      });
 
-  // handle password input change
-  const handlePasswordChange = (e) => {
-    password = e.target.value;
+      //user created successfully
+      toast.push("User created successfully", { theme: successClasses });
+
+      // check email to activate
+      toast.push("Please check your email to activate your account!", {
+        theme: infoClasses,
+      });
+
+      name = "";
+      email = "";
+      password = "";
+    } catch (err) {
+      // add error message
+      error = true;
+      errorMessage = err.response.data.email[0];
+    }
   };
 </script>
 
@@ -48,7 +87,7 @@
           type={showPassword ? "text" : "password"}
           id="password"
           class="input"
-          on:input={handlePasswordChange}
+          on:input={(e) => (password = e.target.value)}
         />
         <button
           type="button"
@@ -70,6 +109,13 @@
         </button>
       </div>
     </div>
+
+    <!-- register failed error -->
+    {#if error}
+      <p transition:fade class="text-center my-1 text-sm text-[#a2329c]">
+        {errorMessage}
+      </p>
+    {/if}
 
     <!-- register -->
     <div class="flex justify-center mt-4">
