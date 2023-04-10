@@ -1,19 +1,90 @@
 <script>
   import Icon from "@iconify/svelte";
-  import { Link } from "svelte-navigator";
+  import { Loader } from "../../components";
+  import { fade } from "svelte/transition";
+  import { toast } from "@zerodevx/svelte-toast";
+  import axios from "axios";
+  import { resetPasswordConfirmRoute } from "../../utils/routes/authRoutes";
+  import { navigate, useParams } from "svelte-navigator";
+  import { onDestroy, onMount } from "svelte";
+  import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
   let password = "";
   let password2 = "";
+  let loading = false;
+  let error = false;
+  let errorMessage = "";
+  let uid;
+  let token;
+  let unsubscribe;
+  let timeout;
+
+  // this will run whenever error changes
+  $: if (error) {
+    // set a timeout to clear the error after 3 seconds
+    timeout = setTimeout(() => {
+      error = false;
+    }, 3000);
+  }
 
   let showPassword = false;
   let showPassword2 = false;
 
+  const params = useParams();
+
+  onMount(() => {
+    unsubscribe = params.subscribe((value) => {
+      uid = value.uid;
+      token = value.token;
+    });
+  });
+
+  onDestroy(() => {
+    unsubscribe();
+    clearTimeout(timeout);
+  });
+
   //   handle form submit
-  const handleFormSubmit = () => {
-    console.log("password: " + password);
-    console.log("password2: " + password2);
+  const handleFormSubmit = async () => {
+    loading = true;
+    error = false;
+
+    // check if password is the same as confirm password
+    if (password !== password2) {
+      error = true;
+      errorMessage = "Password and Confirm Password are not the same";
+    } else {
+      try {
+        // reset password
+        await axios.post(resetPasswordConfirmRoute, {
+          uid,
+          token,
+          new_password: password,
+          re_new_password: password2,
+        });
+
+        password = "";
+        password2 = "";
+        navigate("/login");
+
+        // toast reset password success
+        toast.push("Password changed successfully!", {
+          theme: successClasses,
+        });
+      } catch (error) {
+        // toast reset password error
+        toast.push("Can't reset password!", {
+          theme: errorClasses,
+        });
+      }
+    }
+    loading = false;
   };
 </script>
 
+{#if loading}
+  <!-- add loader when form submitted -->
+  <Loader />
+{/if}
 <section class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <!-- form  -->
   <div
@@ -38,6 +109,7 @@
           <div class="relative">
             <input
               required
+              value={password}
               type={showPassword ? "text" : "password"}
               id="password"
               class="input"
@@ -69,6 +141,7 @@
           <label for="password">Confirm Password</label>
           <div class="relative">
             <input
+              value={password2}
               required
               type={showPassword2 ? "text" : "password"}
               id="password"
@@ -95,6 +168,13 @@
             </button>
           </div>
         </div>
+
+        <!-- login failed error -->
+        {#if error}
+          <p transition:fade class="text-center my-1 text-sm text-[#a2329c]">
+            {errorMessage}
+          </p>
+        {/if}
 
         <!-- Change password -->
         <div class="flex justify-center mt-4">

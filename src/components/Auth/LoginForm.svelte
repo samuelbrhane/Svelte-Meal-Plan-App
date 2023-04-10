@@ -123,7 +123,6 @@
         {errorMessage}
       </p>
     {/if}
-    <p />
 
     <!-- forget password -->
     <button class="hover:scale-105 hover:text-[#26648b]">
