@@ -6,9 +6,11 @@
   import { loginRoute } from "../../utils/routes/authRoutes";
   import { fade } from "svelte/transition";
   import { onDestroy } from "svelte";
+  import Loader from "../Loader.svelte";
 
   let error = false;
   let timeout;
+  let loading = false;
 
   // this will run whenever error changes
   $: if (error) {
@@ -31,6 +33,7 @@
   //   handle form submit
   const handleFormSubmit = async () => {
     errorMessage = "";
+    loading = true;
     try {
       // Login user
       let { data } = await axios.post(loginRoute, {
@@ -54,9 +57,15 @@
       error = true;
       errorMessage = "Incorrect Email or Password";
     }
+
+    loading = false;
   };
 </script>
 
+<!-- add loader when submitting form -->
+{#if loading}
+  <Loader />
+{/if}
 <section
   class="bg-white w-full md:w-[500px] lg:w-[450px] xl:w-[550px] md:py-8 md:px-12 xl:py-12 xl:px-20 p-3 mt-10 rounded-xl shadow"
 >

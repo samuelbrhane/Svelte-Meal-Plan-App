@@ -11,6 +11,7 @@
     FAQ,
   } from "../../pages/public";
   import ProtectedRoute from "./ProtectedRoute.svelte";
+  import Loader from "../Loader.svelte";
 
   let userData = {
     loading: true,
@@ -35,9 +36,7 @@
 
 <!-- display loader until token is verified -->
 {#if userData.loading}
-  <div class="flex items-center justify-center">
-    <img src="/loader.gif" alt="loaderImage" />
-  </div>
+  <Loader />
 {:else}
   <!-- public pages -->
   <Route path="/" component={Welcome} />

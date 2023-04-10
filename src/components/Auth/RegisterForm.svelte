@@ -7,6 +7,8 @@
   import { infoClasses, successClasses } from "../../utils/toast/toastCustom";
   import axios from "axios";
   import { registerRoute } from "../../utils/routes/authRoutes";
+  import { Loader } from "..";
+  let loading = false;
   let name = "";
   let email = "";
   let password = "";
@@ -31,6 +33,7 @@
   //   handle form submit
   const handleFormSubmit = async () => {
     errorMessage = "";
+    loading = true;
     try {
       // register user
       await axios.post(registerRoute, {
@@ -55,8 +58,14 @@
       error = true;
       errorMessage = err.response.data.email[0];
     }
+    loading = false;
   };
 </script>
+
+<!-- add loader when submitting the form -->
+{#if loading}
+  <Loader />
+{/if}
 
 <section
   class="bg-white w-full md:w-[500px] lg:w-[450px] xl:w-[550px] md:py-8 md:px-12 xl:py-12 xl:px-20 p-3 mt-10 rounded-xl shadow"
@@ -87,6 +96,7 @@
           type={showPassword ? "text" : "password"}
           id="password"
           class="input"
+          value={password}
           on:input={(e) => (password = e.target.value)}
         />
         <button

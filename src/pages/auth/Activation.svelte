@@ -1,17 +1,59 @@
 <script>
-  import Icon from "@iconify/svelte";
-  import { Link, useParams } from "svelte-navigator";
+  import { navigate, useParams } from "svelte-navigator";
+  import axios from "axios";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { activateAccountRoute } from "../../utils/routes/authRoutes";
+  import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
+  import { Loader } from "../../components";
+  import { onDestroy, onMount } from "svelte";
 
   const params = useParams();
-  const uid = $params.uid;
-  const token = $params.token;
+  let loading = false;
 
-  //   activate account
-  const activateAccount = () => {
-    console.log("uid: " + uid);
-    console.log("token: " + token);
+  let uid;
+  let token;
+  let unsubscribe;
+
+  onMount(() => {
+    unsubscribe = params.subscribe((value) => {
+      uid = value.uid;
+      token = value.token;
+    });
+  });
+
+  onDestroy(() => {
+    unsubscribe();
+  });
+
+  // activate account
+  const activateAccount = async () => {
+    loading = true;
+
+    try {
+      await axios.post(activateAccountRoute, {
+        uid,
+        token,
+      });
+      // add error for activation error
+      toast.push("Account activated successfully!", {
+        theme: successClasses,
+      });
+      navigate("/login");
+    } catch (error) {
+      // add error for activation error
+      toast.push("Error: Can't activate your account!", {
+        theme: errorClasses,
+      });
+    }
+
+    loading = false;
   };
 </script>
+
+<!-- add loader when button clicked -->
+{#if loading}
+  <Loader />
+{/if}
 
 <section class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <!-- activate account image  -->
