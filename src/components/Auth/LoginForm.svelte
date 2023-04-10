@@ -4,6 +4,25 @@
   import Icon from "@iconify/svelte";
   import axios from "axios";
   import { loginRoute } from "../../utils/routes/authRoutes";
+  import { fade } from "svelte/transition";
+  import { onDestroy } from "svelte";
+
+  let error = false;
+  let timeout;
+
+  // this will run whenever error changes
+  $: if (error) {
+    // set a timeout to clear the error after 3 seconds
+    timeout = setTimeout(() => {
+      error = false;
+    }, 3000);
+  }
+
+  // clear the timeout when the component is destroyed
+  onDestroy(() => {
+    clearTimeout(timeout);
+  });
+
   let email = "";
   let password = "";
   let errorMessage = "";
@@ -30,11 +49,10 @@
       });
       // navigate to private home page
       navigate("/home");
-    } catch (error) {
+    } catch (err) {
       // set error if login failed
-      console.log("error: " + error);
+      error = true;
       errorMessage = "Incorrect Email or Password";
-      console.log("errorMessage", errorMessage);
     }
   };
 </script>
@@ -92,8 +110,8 @@
 
     <!-- login failed error -->
 
-    {#if errorMessage}
-      <p class="text-center my-1 text-sm text-[#a2329c]">
+    {#if error}
+      <p transition:fade class="text-center my-1 text-sm text-[#a2329c]">
         {errorMessage}
       </p>
     {/if}
