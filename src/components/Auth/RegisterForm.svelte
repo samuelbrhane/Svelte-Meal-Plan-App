@@ -33,7 +33,6 @@
 
   //   handle form submit
   const handleFormSubmit = async () => {
-    console.log("name: " + name.split(" ")[0] + name.split(" ")[1]);
     errorMessage = "";
     loading = true;
     try {
