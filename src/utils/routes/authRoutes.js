@@ -5,3 +5,5 @@ export const resetPasswordRoute = `${baseBackendUrl}/auth/users/reset_password/`
 export const resetPasswordConfirmRoute = `${baseBackendUrl}/auth/users/reset_password_confirm/`;
 export const verifyTokenRoute = `${baseBackendUrl}/auth/users/me/`;
 export const activateAccountRoute = `${baseBackendUrl}/auth/users/activation/`;
+export const getAuthorizationUrlRoute = `${baseBackendUrl}/auth/o/google-oauth2/?redirect_uri=${baseBackendUrl}`;
+export const googleAuthenticationRoute = `${baseBackendUrl}/auth/o/google-oauth2`;

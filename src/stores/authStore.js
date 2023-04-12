@@ -43,11 +43,12 @@ let verifyToken = async () => {
   }
 };
 
-// verify token on initial load
+// authenticate user using google if url contains code and state
 if (code && state) {
-  googleAuthentication(state, code).then(verifyToken());
-} else {
-  verifyToken();
+  googleAuthentication(state, code);
 }
+
+// verify token on initial load
+verifyToken();
 
 export default authStore;

@@ -1,4 +1,8 @@
-import { baseBackendUrl } from "../routes/authRoutes";
+import {
+  getAuthorizationUrlRoute,
+  googleAuthenticationRoute,
+  verifyTokenRoute,
+} from "../routes/authRoutes";
 import axios from "axios";
 let queryParams = new URLSearchParams(window.location.search);
 import authStore from "../../stores/authStore";
@@ -9,9 +13,7 @@ let state = queryParams.get("state");
 
 // get authentication_url
 export const getGoogleAuthorization = async () => {
-  let { data } = await axios.get(
-    `${baseBackendUrl}/auth/o/google-oauth2/?redirect_uri=${baseBackendUrl}`
-  );
+  let { data } = await axios.get(getAuthorizationUrlRoute);
   window.location.replace(data.authorization_url);
 };
 
@@ -31,7 +33,7 @@ export const googleAuthentication = async (state, code) => {
 
   try {
     const { data } = await axios.post(
-      `${baseBackendUrl}/auth/o/google-oauth2/?${formBody}`,
+      `${googleAuthenticationRoute}/?${formBody}`,
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -42,13 +44,17 @@ export const googleAuthentication = async (state, code) => {
     // safe token in local storage
     localStorage.setItem("platePlanToken", JSON.stringify(data));
 
-    // update authStore
-    authStore.update((authData) => {
-      authData.isAuthenticated = true;
-      authData.token = data;
-      authData.loading = false;
-      return authData;
+    let response = await axios.get(verifyTokenRoute, {
+      headers: { Authorization: `JWT ${data.access}` },
     });
+    authStore.set({
+      loading: false,
+      isAuthenticated: true,
+      token: data,
+      userName: response.data.first_name + " " + response.data.last_name,
+      userEmail: response.data.email,
+    });
+
     // navigate to private home page
     navigate("/home");
   } catch (error) {
