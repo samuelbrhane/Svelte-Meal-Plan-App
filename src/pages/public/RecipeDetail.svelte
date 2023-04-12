@@ -71,7 +71,11 @@
     {#if loading}
       <!--Add Loader until data fetched  -->
       <div class="w-full flex justify-center py-20">
-        <img src="/loader.gif" alt="loaderImage" class="w-[180px] h-[180px]" />
+        <img
+          src="/media/loader.gif"
+          alt="loaderImage"
+          class="w-[180px] h-[180px]"
+        />
       </div>
     {:else}
       <div>

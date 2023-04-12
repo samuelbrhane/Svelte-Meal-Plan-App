@@ -18,7 +18,11 @@
       <div class="grid lg:grid-cols-2 gap-4">
         <!-- Recipe clipper -->
         <div class="relative">
-          <img src="/recipeBg1.jpg" alt="bgImage" class="h-[340px] w-full" />
+          <img
+            src="/media/recipeBg1.jpg"
+            alt="bgImage"
+            class="h-[340px] w-full"
+          />
           <div
             class="absolute top-0 left-0 w-full bottom-0 bg-[#d3d3d3ea] p-4 flex items-center justify-center"
           >
@@ -37,7 +41,11 @@
 
         <!-- Planning Calender -->
         <div class="relative">
-          <img src="/recipeBg2.jpg" alt="bgImage" class="h-[340px] w-full" />
+          <img
+            src="/media/recipeBg2.jpg"
+            alt="bgImage"
+            class="h-[340px] w-full"
+          />
           <div
             class="absolute top-0 left-0 w-full bottom-0 bg-[#d3d3d3ea] p-4 flex items-center justify-center"
           >
@@ -57,7 +65,11 @@
       </div>
 
       <div class="relative mb-8 mt-4">
-        <img src="/recipeBg3.jpg" alt="bgImage" class="h-[340px] w-full" />
+        <img
+          src="/media/recipeBg3.jpg"
+          alt="bgImage"
+          class="h-[340px] w-full"
+        />
         <div
           class="absolute top-0 left-0 w-full bottom-0 bg-[#d3d3d3ea] p-4 flex items-center justify-center"
         >

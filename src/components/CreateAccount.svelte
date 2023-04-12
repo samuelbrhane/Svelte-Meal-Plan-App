@@ -5,7 +5,7 @@
 <section class="relative text-black py-3">
   <!-- background image -->
   <img
-    src="/add.jpeg"
+    src="/media/add.jpeg"
     alt="createBg"
     class="w-full h-[48vh] md:h-[30vh] lg:h-[40vh] object-center"
   />
@@ -45,8 +45,8 @@
           />
         </button>
         <div class="flex items-center gap-3 justify-center">
-          <img src="/app.png" alt="appImage" class="appImage" />
-          <img src="/google.png" alt="appImage" class="appImage" />
+          <img src="/media/app.png" alt="appImage" class="appImage" />
+          <img src="/media/google.png" alt="appImage" class="appImage" />
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@
 <main class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <!-- auth images  -->
   <div class="bg-[#f5f2f7] lg:flex items-center hidden">
-    <img src="/login.png" alt="login" class="w-full" />
+    <img src="/media/login.png" alt="login" class="w-full" />
   </div>
 
   <!-- authentication forms -->
@@ -28,7 +28,7 @@
     >
       Plate plan
     </h1>
-    <img src="/title.png" alt="Logo" class="w-16 h-16" />
+    <img src="/media/title.png" alt="Logo" class="w-16 h-16" />
 
     <!-- Login form -->
     <div class="px-4 w-full flex justify-center items-center flex-col">

@@ -119,7 +119,11 @@
   {#if loading}
     <!-- return loading when fetching data -->
     <div class="w-full h-full flex justify-center mt-16">
-      <img src="/loader.gif" alt="loaderImage" class="w-[200px] h-[200px]" />
+      <img
+        src="/media/loader.gif"
+        alt="loaderImage"
+        class="w-[200px] h-[200px]"
+      />
     </div>
   {:else}
     {#each recipeData.slice(indexOfFirstPage, indexOfLastPage) as item}

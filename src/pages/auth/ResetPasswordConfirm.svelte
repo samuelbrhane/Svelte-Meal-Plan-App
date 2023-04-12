@@ -94,7 +94,7 @@
       Plate plan
     </h1>
 
-    <img src="/title.png" alt="Logo" class="w-16 h-16" />
+    <img src="/media/title.png" alt="Logo" class="w-16 h-16" />
 
     <h1 class="text-center font-semibold text-4xl mt-10 mb-4 font-[Alkatra]">
       Change Your Password
@@ -190,6 +190,6 @@
 
   <!-- forget password images  -->
   <div class="bg-[#cfecf3] lg:flex items-center hidden">
-    <img src="/forget2.png" alt="login" class="w-full" />
+    <img src="/media/forget2.png" alt="login" class="w-full" />
   </div>
 </section>
