@@ -8,7 +8,7 @@
     class="max-w-6xl mx-auto px-3 grid lg:grid-cols-2 lg:gap-8 xl:gap-12 items-center"
   >
     <img
-      src="/outcome1.jpeg"
+      src="/media/outcome1.jpeg"
       alt="outcomeImage"
       class="w-full rounded-md max-h-[500px]"
     />

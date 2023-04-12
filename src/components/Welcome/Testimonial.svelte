@@ -7,7 +7,7 @@
 >
   <!-- Background image -->
   <img
-    src="/testimonialBg.jpeg"
+    src="/media/testimonialBg.jpeg"
     alt="foodImage"
     class="w-full min-h-[500px] rounded-t-[100px]"
   />

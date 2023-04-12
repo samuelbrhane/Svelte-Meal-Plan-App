@@ -2,7 +2,7 @@
   class="max-w-6xl mx-auto px-3 flex flex-col lg:flex-row lg:gap-5 xl:gap-[30px] items-center py-4"
 >
   <div class="lg:w-[55%] mt-4 relative">
-    <img src="/users.png" alt="featureImage" class="w-full" />
+    <img src="/media/users.png" alt="featureImage" class="w-full" />
   </div>
   <div class="lg:w-[45%] relative">
     <h1

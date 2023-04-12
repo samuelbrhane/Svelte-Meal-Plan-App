@@ -29,7 +29,12 @@
         </button>
         <div class="flex gap-3">
           <img
-            src="https://w7.pngwing.com/pngs/841/169/png-transparent-google-play-and-app-store-logos-android-app-store-play-now-button-text-logo-sign.png"
+            src="/media/app.png"
+            alt="appImage"
+            class="appImage"
+          />
+          <img
+            src="/media/google.png"
             alt="appImage"
             class="appImage"
           />
@@ -37,7 +42,7 @@
       </div>
     </div>
     <img
-      src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=600"
+      src="/media/aboutBg.png"
       alt="foodImage"
       class="hidden md:inline"
     />
