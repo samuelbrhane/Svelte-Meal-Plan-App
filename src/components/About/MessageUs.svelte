@@ -7,7 +7,7 @@
 <section class="relative w-full min-h-[500px] lg:h-[550px] pb-[200px]">
   <!-- background image -->
   <img
-    src="/messageBg.jpeg"
+    src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=600"
     alt="foodImage"
     class="w-full min-h-[500px] lg:h-[550px]"
   />

@@ -16,7 +16,11 @@
   <section class="pt-[80px] lg:pt-[100px]">
     <div class="w-full relative">
       <!-- bg-image -->
-      <img src="/recipeBg4.jpg" alt="faqImage" class="w-full object-cover" />
+      <img
+        src="https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        alt="faqImage"
+        class="w-full object-cover"
+      />
 
       <!-- Quote -->
       <div

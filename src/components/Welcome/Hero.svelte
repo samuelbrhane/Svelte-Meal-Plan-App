@@ -46,7 +46,7 @@
 
   <!-- Hero image -->
   <img
-    src="/heroImg1.png"
+    src="./heroImg1.png"
     alt="heroImage"
     class="hidden md:inline md:mt-[-80px] lg:mt-0 w-full"
   />

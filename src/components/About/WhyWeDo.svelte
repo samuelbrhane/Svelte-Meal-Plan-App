@@ -4,7 +4,7 @@
   >
     <div class="relative h-full">
       <img
-        src="/about1.jpeg"
+        src="https://images.pexels.com/photos/8518667/pexels-photo-8518667.jpeg?auto=compress&cs=tinysrgb&w=600"
         alt="aboutImage"
         class="absolute -top-[50px] h-[320px] md:h-[500px] mb:8 w-full rounded shadow"
       />
