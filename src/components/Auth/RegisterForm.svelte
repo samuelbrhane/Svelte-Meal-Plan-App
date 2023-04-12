@@ -8,7 +8,6 @@
   import axios from "axios";
   import { registerRoute } from "../../utils/routes/authRoutes";
   import { Loader } from "..";
-  import { googleAuth } from "../../utils/auth2/googleAuth";
   let loading = false;
   let name = "";
   let email = "";
@@ -70,7 +69,7 @@
 {/if}
 
 <section
-  class="bg-white w-full md:w-[500px] lg:w-[450px] xl:w-[550px] md:py-8 lg:py-3 md:px-12 xl:py-12 2xl:py-4 xl:px-20 p-3 mt-10 lg:mt-4 xl:mt-8 rounded-xl shadow"
+  class="bg-white w-full md:w-[500px] lg:w-[450px] xl:w-[550px] md:py-8 lg:py-3 md:px-12 xl:py-12 2xl:py-6 xl:px-20 p-3 mt-10 lg:mt-4 xl:mt-8 rounded-xl shadow"
 >
   <h1 class="text-center font-semibold text-4xl mb-2 font-[Alkatra]">
     Register
@@ -141,7 +140,6 @@
     <!-- register with google -->
     <div class="flex justify-center mt-2">
       <button
-        on:click={googleAuth}
         type="button"
         class="w-full flex items-center justify-center gap-4 hover:scale-[1.03] py-2 text-lg bg-[#db7dd3] rounded-lg text-white font-semibold"
         ><Icon icon="logos:google-icon" /> Continue with google</button

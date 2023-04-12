@@ -1,8 +1,6 @@
 <script>
   import { Route } from "svelte-navigator";
   import authStore from "../../stores/authStore";
-  import { onMount } from "svelte";
-
   import {
     About,
     Recipe,
@@ -12,6 +10,7 @@
   } from "../../pages/public";
   import ProtectedRoute from "./ProtectedRoute.svelte";
   import Loader from "../Loader.svelte";
+  import { onMount } from "svelte";
 
   let userData = {
     loading: true,
