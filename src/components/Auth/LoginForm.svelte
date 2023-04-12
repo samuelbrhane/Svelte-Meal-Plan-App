@@ -7,6 +7,7 @@
   import { fade } from "svelte/transition";
   import { onDestroy } from "svelte";
   import Loader from "../Loader.svelte";
+  import { getGoogleAuthorization } from "../../utils/auth2/googleAuth";
 
   let error = false;
   let timeout;
@@ -60,6 +61,12 @@
 
     loading = false;
   };
+
+  async function redirectToGoogle() {
+    const response = await fetch("http:localhost:8000/api/google-login/");
+    const data = await response.json();
+    window.location.href = data.url;
+  }
 </script>
 
 <!-- add loader when submitting form -->
@@ -141,6 +148,7 @@
     <!-- login with google -->
     <div class="flex justify-center mt-2">
       <button
+        on:click={getGoogleAuthorization}
         type="button"
         class="w-full flex items-center justify-center gap-4 hover:scale-[1.03] py-2 text-lg bg-[#db7dd3] rounded-lg text-white font-semibold"
         ><Icon icon="logos:google-icon" /> Continue with google</button

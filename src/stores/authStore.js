@@ -1,50 +1,12 @@
 import axios from "axios";
-import { get, writable } from "svelte/store";
-import { baseBackendUrl, verifyTokenRoute } from "../utils/routes/authRoutes";
+import { writable } from "svelte/store";
+import { verifyTokenRoute } from "../utils/routes/authRoutes";
+import { googleAuthentication } from "../utils/auth2/googleAuth";
 let queryParams = new URLSearchParams(window.location.search);
+
 let code = queryParams.get("code");
 let state = queryParams.get("state");
 
-const googleAuthentication = async (state, code) => {
-  if (state && code) {
-    const config = {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    };
-
-    const data = new URLSearchParams();
-    data.append("state", state);
-    data.append("code", code);
-
-    const { data: response } = await axios.post(
-      `${baseBackendUrl}/auth/o/google-oauth2/`,
-      data,
-      config
-    );
-    console.log("response: " + JSON.stringify(response));
-  } else {
-    console.error("Missing state or code parameter");
-  }
-
-  //   const formBody = Object.keys(data)
-  //     .map(
-  //       (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-  //     )
-  //     .join("&");
-
-  //   const { data: response } = await axios.post(
-  //     `${baseBackendUrl}/auth/o/google-oauth2/?`,
-  //     new URLSearchParams(data),
-  //     config
-  //   );
-  //   console.log("data: " + JSON.stringify(response));
-  // }
-};
-
-if (code && state) {
-  googleAuthentication(state, code);
-}
 // create auth store
 const authStore = writable({
   loading: true,
@@ -67,7 +29,7 @@ let verifyToken = async () => {
       loading: false,
       isAuthenticated: true,
       token: userToken,
-      userName: data.name,
+      userName: data.first_name + " " + data.last_name,
       userEmail: data.email,
     });
   } catch (error) {
@@ -82,6 +44,10 @@ let verifyToken = async () => {
 };
 
 // verify token on initial load
-verifyToken();
+if (code && state) {
+  googleAuthentication(state, code).then(verifyToken());
+} else {
+  verifyToken();
+}
 
 export default authStore;

@@ -8,6 +8,7 @@
   import axios from "axios";
   import { registerRoute } from "../../utils/routes/authRoutes";
   import { Loader } from "..";
+  import { getGoogleAuthorization } from "../../utils/auth2/googleAuth";
   let loading = false;
   let name = "";
   let email = "";
@@ -140,6 +141,7 @@
     <!-- register with google -->
     <div class="flex justify-center mt-2">
       <button
+        on:click={getGoogleAuthorization}
         type="button"
         class="w-full flex items-center justify-center gap-4 hover:scale-[1.03] py-2 text-lg bg-[#db7dd3] rounded-lg text-white font-semibold"
         ><Icon icon="logos:google-icon" /> Continue with google</button

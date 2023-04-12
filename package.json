@@ -26,6 +26,7 @@
     "google-auth-library": "^8.7.0",
     "google-login-svelte": "^0.0.1",
     "rxjs": "^7.8.0",
+    "svelte-google-auth": "^0.7.2",
     "svelte-infinite-scroll": "^2.0.1",
     "svelte-materialify": "^0.3.11",
     "svelte-navigator": "^3.2.2"
