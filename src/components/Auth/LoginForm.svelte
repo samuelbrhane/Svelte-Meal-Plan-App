@@ -52,7 +52,7 @@
         return authData;
       });
       // navigate to private home page
-      navigate("/home");
+      navigate("/dashboard");
     } catch (err) {
       // set error if login failed
       error = true;

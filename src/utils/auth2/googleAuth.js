@@ -56,7 +56,7 @@ export const googleAuthentication = async (state, code) => {
     });
 
     // navigate to private home page
-    navigate("/home");
+    navigate("/dashboard");
   } catch (error) {
     // update authStore
     authStore.update((authData) => {
