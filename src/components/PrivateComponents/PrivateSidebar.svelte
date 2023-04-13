@@ -2,6 +2,7 @@
   import { onDestroy, onMount } from "svelte";
   import authStore from "../../stores/authStore";
   import { Link, useLocation } from "svelte-navigator";
+  import Icon from "@iconify/svelte";
 
   let userName;
   let userEmail;
@@ -56,25 +57,37 @@
       on:select={() => isActive("/dashboard")}
       class={` ${pathname === "/dashboard" && "activeLink"} privateLinks`}
     >
-      <Link to="/dashboard">Overview</Link>
+      <Link to="/dashboard" class="flex items-center px-2 gap-2">
+        <Icon icon="material-symbols:dashboard" class="text-xl" />
+        <span>Overview</span>
+      </Link>
     </li>
     <li
       on:select={() => isActive("/mealPlanner")}
       class={` ${pathname === "/mealPlanner" && "activeLink"} privateLinks`}
     >
-      <Link to="/mealPlanner">Meal Planner</Link>
+      <Link to="/mealPlanner" class="flex items-center px-2 gap-2">
+        <Icon icon="game-icons:hot-meal" class="text-xl" />
+        <span>Meal Planner</span>
+      </Link>
     </li>
     <li
       on:select={() => isActive("/shopping")}
       class={` ${pathname === "/shopping" && "activeLink"} privateLinks`}
     >
-      <Link to="/shopping">Shopping</Link>
+      <Link to="/shopping" class="flex items-center px-2 gap-2">
+        <Icon icon="material-symbols:shopping-bag-sharp" class="text-xl" />
+        <span>Shopping</span>
+      </Link>
     </li>
     <li
       on:select={() => isActive("/profile")}
       class={` ${pathname === "/profile" && "activeLink"} privateLinks`}
     >
-      <Link to="/profile">Profile</Link>
+      <Link to="/profile" class="flex items-center px-2 gap-2">
+        <Icon icon="healthicons:ui-user-profile-negative" class="text-xl" />
+        <span>Profile</span>
+      </Link>
     </li>
   </ul>
 </main>

@@ -2,10 +2,11 @@
   import { onMount, onDestroy } from "svelte";
   import authStore from "../../stores/authStore";
   import {
+    CreatePlan,
+    Meals,
     PlannerDate,
     PlannerIntro,
     PrivateLayout,
-    PrivateSidebar,
   } from "../../components";
   let userName;
   let userEmail;
@@ -23,13 +24,30 @@
 </script>
 
 <PrivateLayout>
-  <div class="lg:ml-[220px] py-8 px-4 md:px-8 w-full">
-    <!-- intro and data picker -->
-    <div
-      class="flex gap-4 md:gap-8 lg:gap-10 xl:gap-20 2xl:gap-30 flex-col xl:flex-row"
-    >
-      <PlannerIntro />
-      <PlannerDate />
+  <div class="lg:pl-[220px]">
+    <div class="px-4 md:px-8 py-4 lg:px-12">
+      <!-- intro and data picker -->
+      <div
+        class="flex gap-4 md:gap-8 lg:gap-10 xl:justify-between flex-col xl:flex-row"
+      >
+        <PlannerIntro />
+        <PlannerDate />
+      </div>
+
+      <!-- create meal -->
+      <div
+        class="flex flex-col xl:flex-row mt-4 py-3 gap-4 xl:gap-0 border-t-2 border-[#86116d]"
+      >
+        <!-- meals -->
+        <div class="xl:w-[74%]">
+          <Meals />
+        </div>
+
+        <!-- create meal plan cart -->
+        <div class="xl:w-[26%]">
+          <CreatePlan />
+        </div>
+      </div>
     </div>
   </div>
 </PrivateLayout>
