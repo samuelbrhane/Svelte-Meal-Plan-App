@@ -1,25 +1,27 @@
 <script>
   import { Link, useLocation } from "svelte-navigator";
+  import authStore from "../stores/authStore";
   import Icon from "@iconify/svelte";
   import { Sidebar } from ".";
   let isSidebarOpen = false;
 
   import { onMount, onDestroy } from "svelte";
+  import { logout } from "../utils/functions/logout";
 
   let location = useLocation();
 
   let pathname = "";
 
-  let unsubscribe;
+  let locationUnsubscribe;
 
   onMount(() => {
-    unsubscribe = location.subscribe((value) => {
+    locationUnsubscribe = location.subscribe((value) => {
       pathname = value.pathname;
     });
   });
 
   onDestroy(() => {
-    unsubscribe();
+    locationUnsubscribe();
   });
 
   const isActive = (url) => {
@@ -75,18 +77,32 @@
       </li>
     </ul>
 
-    <!-- Authentication links -->
-    <div class="hidden lg:inline">
-      <Link
-        to="/register"
-        class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
-        >Register</Link
-      >
-      <div class="text-sm mt-1 flex items-center gap-[6px]">
-        <p class="text-white">Already a member?</p>
-        <Link to="/login" class="link mt-1">Sign In</Link>
+    {#if $authStore.isAuthenticated}
+      <div class="hidden lg:flex flex-col items-center">
+        <button
+          on:click={logout}
+          class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
+          >Logout</button
+        >
+        <div class="text-sm mt-1 flex items-center gap-[6px]">
+          <p class="text-white">Create meal plan?</p>
+          <Link to="/login" class="link mt-1">Dashboard</Link>
+        </div>
       </div>
-    </div>
+    {:else}
+      <!-- Authentication links -->
+      <div class="hidden lg:flex flex-col items-center">
+        <Link
+          to="/register"
+          class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
+          >Register</Link
+        >
+        <div class="text-sm mt-1 flex items-center gap-[6px]">
+          <p class="text-white">Already a member?</p>
+          <Link to="/login" class="link mt-1">Sign In</Link>
+        </div>
+      </div>
+    {/if}
 
     <!-- menu links for small screen -->
     <button
