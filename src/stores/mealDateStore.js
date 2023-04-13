@@ -1,4 +1,3 @@
-import axios from "axios";
 import { writable } from "svelte/store";
 let date = new Date(); // Replace this with your own date variable
 
@@ -10,11 +9,8 @@ let formattedDate = date.toLocaleDateString("en-US", {
 });
 
 // create auth store
-const mealPlanStore = writable({
+const mealDateStore = writable({
   selectedDate: formattedDate,
 });
 
-// get the token from local storage
-// let userToken = JSON.parse(localStorage.getItem("platePlanToken"));
-
-export default mealPlanStore;
+export default mealDateStore;

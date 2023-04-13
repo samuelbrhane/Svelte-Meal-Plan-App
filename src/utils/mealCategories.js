@@ -29,4 +29,14 @@ export const mealCategories = [
     title: "Drinks",
     icon: "mingcute:drink-fill",
   },
+  {
+    id: 7,
+    title: "Desserts",
+    icon: "ic:round-emoji-food-beverage",
+  },
+  {
+    id: 8,
+    title: "Appetizers",
+    icon: "mdi:food-ramen",
+  },
 ];

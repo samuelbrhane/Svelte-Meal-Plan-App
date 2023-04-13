@@ -1,15 +1,17 @@
 <script>
   import { onDestroy, onMount } from "svelte";
-  import mealPlanStore from "../../stores/mealPlanStore";
-  let mealPlanStoreUnsubscribe;
+  import mealDateStore from "../../stores/mealDateStore";
+  let mealDateStoreUnsubscribe;
   let selectedDate;
+
+  // subscribe to mealDateStore
   onMount(() => {
-    mealPlanStoreUnsubscribe = mealPlanStore.subscribe((value) => {
+    mealDateStoreUnsubscribe = mealDateStore.subscribe((value) => {
       selectedDate = value.selectedDate;
     });
   });
   onDestroy(() => {
-    mealPlanStoreUnsubscribe();
+    mealDateStoreUnsubscribe();
   });
 </script>
 

@@ -4,10 +4,8 @@
   let isSidebarOpen = false;
 </script>
 
-<section
-  class="flex w-full bg-[rgb(246,246,217)] py-4 lg:pl-[220px] justify-between"
->
-  <div class="px-4 md:px-8 lg:px-12">
+<section class="flex w-full bg-[rgb(246,246,217)] py-4 lg:pl-[220px]">
+  <div class="px-4 md:px-8 lg:px-12 flex items-center justify-between w-full">
     <!-- Add site title -->
     <div class="flex items-center gap-2">
       <img src="/media/title.png" alt="Logo" class="w-12 h-12" />

@@ -59,3 +59,4 @@ export { default as PlannerIntro } from "./MealPlanner/PlannerIntro.svelte";
 export { default as Meals } from "./MealPlanner/Meals.svelte";
 export { default as CreatePlan } from "./MealPlanner/CreatePlan.svelte";
 export { default as MealCategories } from "./MealPlanner/MealCategories.svelte";
+export { default as MealList } from "./MealPlanner/MealList.svelte";

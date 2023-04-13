@@ -1,6 +1,6 @@
 <script>
   import { DateInput } from "date-picker-svelte";
-  import mealPlanStore from "../../stores/mealPlanStore";
+  import mealDateStore from "../../stores/mealDateStore";
 
   // week staring date
   let selectedDate = new Date();
@@ -25,9 +25,8 @@
       month: "long",
       day: "numeric",
     });
-
-    mealPlanStore.update((items) => {
-      return { ...items, selectedDate: formattedDate };
+    mealDateStore.set({
+      selectedDate: formattedDate,
     });
   };
 </script>

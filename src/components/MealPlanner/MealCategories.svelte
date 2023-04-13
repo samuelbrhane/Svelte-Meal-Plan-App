@@ -4,10 +4,10 @@
 </script>
 
 <!-- meal categories -->
-<div class="flex gap-4 justify-between items-center">
+<div class="flex gap-4 justify-between items-center overflow-x-scroll py-3">
   {#each mealCategories as category}
     <button
-      class="flex flex-col items-center bg-[#cce154] hover:scale-[1.03] shadow-md text-sm hover:bg-[#aa34a8] text-black font-[Alkatra] py-6 w-[80px] gap-4 px-2 rounded-3xl"
+      class="flex flex-col items-center bg-[#cce154] hover:scale-[1.03] shadow-md text-sm hover:bg-[#f993f7] text-black font-[Alkatra] py-6 min-w-[80px] gap-4 px-2 rounded-3xl"
     >
       <Icon
         icon={category.icon}

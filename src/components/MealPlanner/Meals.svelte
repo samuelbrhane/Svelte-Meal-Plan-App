@@ -1,18 +1,19 @@
 <script>
   import { onDestroy, onMount } from "svelte";
-  import mealPlanStore from "../../stores/mealPlanStore";
-  import { MealCategories } from "..";
+  import mealDateStore from "../../stores/mealDateStore";
+  import { MealCategories, MealList } from "..";
 
   let day;
-  let mealPlanStoreUnsubscribe;
+  let mealDateStoreUnsubscribe;
 
+  // subscribe to mealDateStore
   onMount(() => {
-    mealPlanStoreUnsubscribe = mealPlanStore.subscribe((value) => {
+    mealDateStoreUnsubscribe = mealDateStore.subscribe((value) => {
       day = value.selectedDate;
     });
   });
   onDestroy(() => {
-    mealPlanStoreUnsubscribe();
+    mealDateStoreUnsubscribe();
   });
 </script>
 
@@ -24,5 +25,9 @@
 
     <!-- meal categories -->
     <MealCategories />
+
+    <!-- meal lists -->
+
+    <MealList />
   </section>
 {/if}
