@@ -32,11 +32,11 @@ export const mealCategories = [
   {
     id: 7,
     title: "Desserts",
-    icon: "ic:round-emoji-food-beverage",
-  },
-  {
-    id: 8,
-    title: "Appetizers",
     icon: "mdi:food-ramen",
   },
+  // {
+  //   id: 8,
+  //   title: "Appetizers",
+  // icon: "ic:round-emoji-food-beverage"
+  // },
 ];

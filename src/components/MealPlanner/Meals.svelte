@@ -75,7 +75,7 @@
           </select>
         </div>
       </div>
-      {#each mealsData as item}
+      {#each mealsData.slice(10) as item}
         <MealCard {item} />
       {/each}
     {/if}

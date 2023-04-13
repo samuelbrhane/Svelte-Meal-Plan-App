@@ -31,6 +31,7 @@
     "svelte-google-auth": "^0.7.2",
     "svelte-infinite-scroll": "^2.0.1",
     "svelte-materialify": "^0.3.11",
-    "svelte-navigator": "^3.2.2"
+    "svelte-navigator": "^3.2.2",
+    "svelte-star-rating": "^2.0.1"
   }
 }

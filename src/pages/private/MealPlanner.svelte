@@ -36,15 +36,15 @@
 
       <!-- create meal -->
       <div
-        class="flex flex-col xl:flex-row mt-4 py-3 gap-4 xl:gap-8 border-t-2 border-[#86116d] border-dashed"
+        class="flex flex-col xl:flex-row mt-4 py-3 gap-4 md:gap-8 lg:gap-12 xl:gap-16 border-t-2 border-[#86116d] border-dashed"
       >
         <!-- meals -->
-        <div class="xl:w-[74%]">
+        <div class="xl:w-[65%]">
           <Meals />
         </div>
 
         <!-- create meal plan cart -->
-        <div class="xl:w-[26%]">
+        <div class="xl:w-[35%]">
           <CreatePlan />
         </div>
       </div>

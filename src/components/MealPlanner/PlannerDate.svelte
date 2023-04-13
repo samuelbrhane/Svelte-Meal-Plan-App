@@ -48,7 +48,7 @@
     {#each days as date}
       <button
         on:click={() => updateDate(date)}
-        class={`rounded w-[106px] py-1 bg-gradient-to-l text-sm font-[Alkatra] text-white hover:scale-[1.03] hover:to-[#433a45] hover:from-[#550e07] 
+        class={`rounded w-[80px] 2xl:w-[110px] py-1 bg-gradient-to-l text-sm font-[Alkatra] text-white hover:scale-[1.03] hover:to-[#433a45] hover:from-[#550e07] 
         ${
           index == date.id
             ? "to-[#9a30b1] from-[#075455]"
