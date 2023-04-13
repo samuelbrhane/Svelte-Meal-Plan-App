@@ -43,6 +43,14 @@
     @apply mb-2;
   }
 
+  .privateLinks {
+    @apply bg-[#e575e7] w-full py-2 rounded text-center text-white font-[Alkatra] hover:bg-[#1b6d99];
+  }
+
+  .activeLink {
+    @apply bg-[#1b6d99];
+  }
+
   .scrollItem {
     scroll-snap-align: center;
   }
