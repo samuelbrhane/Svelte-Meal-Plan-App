@@ -47,3 +47,6 @@ export { default as RelatedRecipe } from "./RecipeDetail/RelatedRecipe.svelte";
 // Authentication page components
 export { default as LoginForm } from "./Auth/LoginForm.svelte";
 export { default as RegisterForm } from "./Auth/RegisterForm.svelte";
+
+// Common private pages components
+export { default as PrivateSidebar } from "./PrivateComponents/PrivateSidebar.svelte";

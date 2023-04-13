@@ -3,7 +3,7 @@
   import authStore from "../../stores/authStore";
   import Icon from "@iconify/svelte";
   import axios from "axios";
-  import { loginRoute } from "../../utils/routes/authRoutes";
+  import { loginRoute, verifyTokenRoute } from "../../utils/routes/authRoutes";
   import { fade } from "svelte/transition";
   import { onDestroy } from "svelte";
   import Loader from "../Loader.svelte";
@@ -44,13 +44,19 @@
 
       // safe token in local storage
       localStorage.setItem("platePlanToken", JSON.stringify(data));
+      let { data: response } = await axios.get(verifyTokenRoute, {
+        headers: { Authorization: `JWT ${data.access}` },
+      });
 
       // update authStore
-      authStore.update((authData) => {
-        authData.isAuthenticated = true;
-        authData.token = data;
-        return authData;
+      authStore.set({
+        loading: false,
+        isAuthenticated: true,
+        token: data,
+        userName: response.first_name + " " + response.last_name,
+        userEmail: response.email,
       });
+
       // navigate to private home page
       navigate("/dashboard");
     } catch (err) {
