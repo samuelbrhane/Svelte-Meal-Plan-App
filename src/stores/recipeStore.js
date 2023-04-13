@@ -6,6 +6,7 @@ const recipeStore = writable({ data: [], loading: true });
 //   Search Recipes
 let searchRecipe = async (searchWord) => {
   recipeStore.set({ data: [], loading: true });
+  console.log("searchWord", searchWord);
   searchWord = searchWord === "All" ? "food" : searchWord;
   let currentKey;
   if (
@@ -30,6 +31,7 @@ let searchRecipe = async (searchWord) => {
     currentKey = 0;
   }
 
+  console.log("currentKey: " + currentKey);
   let response = await fetch(
     `${baseRoute}?type=public&q=${searchWord}&app_id=${recipeKeys[currentKey].appId}&app_key=${recipeKeys[currentKey].appKey}`
   );

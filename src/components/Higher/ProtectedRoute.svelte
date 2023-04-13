@@ -18,7 +18,7 @@
             value.pathname == "/register" ||
             value.pathname == "/reset-password")
         ) {
-          navigate("/home");
+          navigate("/dashboard");
         }
         // navigate to login page if user is not authenticated
         else if (

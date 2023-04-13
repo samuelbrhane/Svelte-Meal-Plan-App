@@ -1,20 +1,36 @@
 <script>
   import { onDestroy, onMount } from "svelte";
   import mealDateStore from "../../stores/mealDateStore";
-  import { MealCategories, MealList } from "..";
+  import { Loader, MealCategories, MealList } from "..";
+  import { recipeStore, updateStore } from "../../stores/recipeStore";
 
+  let searchWord = "";
   let day;
   let mealDateStoreUnsubscribe;
+  let recipeStoreUnsubscribe;
+  let mealsData;
+  let loading;
 
   // subscribe to mealDateStore
   onMount(() => {
     mealDateStoreUnsubscribe = mealDateStore.subscribe((value) => {
       day = value.selectedDate;
     });
+    recipeStoreUnsubscribe = recipeStore.subscribe((value) => {
+      mealsData = value.data;
+      loading = value.loading;
+    });
   });
   onDestroy(() => {
     mealDateStoreUnsubscribe();
+    recipeStoreUnsubscribe();
   });
+
+  // handle meal search
+  const handleSearch = () => {
+    updateStore(searchWord);
+    searchWord = "";
+  };
 </script>
 
 {#if day}
@@ -27,7 +43,38 @@
     <MealCategories />
 
     <!-- meal lists -->
+    {#if loading}
+      <Loader />
+    {:else}
+      <!-- search and filter meal -->
+      <div
+        class="mt-5 mb-3 flex justify-between items-center border-b-2 border-[#edda6cef] pb-2 font-[Alkatra]"
+      >
+        <form on:submit|preventDefault={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search..."
+            bind:value={searchWord}
+            class="input"
+          />
+        </form>
 
-    <MealList />
+        <div>
+          <label for="nutrients">Filter by:</label>
+
+          <select id="nutrients">
+            <option value="Calories" class="bg-[#a2aa45]">Calories</option>
+            <option value="Protein" class="bg-[#a2aa45]">protein</option>
+            <option value="Fats" class="bg-[#a2aa45]">Fats</option>
+            <option value="Carbs" class="bg-[#a2aa45]">Carbs</option>
+          </select>
+        </div>
+      </div>
+      {#each mealsData as item}
+        <p>meals</p>
+      {/each}
+    {/if}
+
+    <!-- <MealList /> -->
   </section>
 {/if}

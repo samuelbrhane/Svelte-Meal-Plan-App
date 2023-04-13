@@ -6,7 +6,7 @@ export const mealCategories = [
   },
   {
     id: 2,
-    title: "Breakfast",
+    title: "Breakfasts",
     icon: "fluent:food-cake-20-filled",
   },
   {
@@ -21,7 +21,7 @@ export const mealCategories = [
   },
   {
     id: 5,
-    title: "Dinner",
+    title: "Dinners",
     icon: "maki:fast-food",
   },
   {
