@@ -36,7 +36,7 @@
 
       <!-- create meal -->
       <div
-        class="flex flex-col xl:flex-row mt-4 py-3 gap-4 xl:gap-0 border-t-2 border-[#86116d]"
+        class="flex flex-col xl:flex-row mt-4 py-3 gap-4 xl:gap-8 border-t-2 border-[#86116d] border-dashed"
       >
         <!-- meals -->
         <div class="xl:w-[74%]">
