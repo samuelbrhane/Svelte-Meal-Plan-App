@@ -52,3 +52,7 @@ export { default as RegisterForm } from "./Auth/RegisterForm.svelte";
 export { default as PrivateSidebar } from "./PrivateComponents/PrivateSidebar.svelte";
 export { default as PrivateHeader } from "./PrivateComponents/PrivateHeader.svelte";
 export { default as PrivateLayout } from "./PrivateComponents/PrivateLayout.svelte";
+
+// MealPlanner page components
+export { default as PlannerDate } from "./MealPlanner/PlannerDate.svelte";
+export { default as PlannerIntro } from "./MealPlanner/PlannerIntro.svelte";
