@@ -23,7 +23,10 @@
         // navigate to login page if user is not authenticated
         else if (
           !userData.isAuthenticated &&
-          (value.pathname == "/dashboard" || value.pathname == "/mealPlanner")
+          (value.pathname == "/dashboard" ||
+            value.pathname == "/mealPlanner" ||
+            value.pathname == "/shopping" ||
+            value.pathname == "/profile")
         ) {
           navigate("/login");
         }
@@ -47,13 +50,20 @@
   } from "../../pages/auth";
 
   // private pages
-  import { Dashboard, MealPlanner } from "../../pages/private";
+  import {
+    Dashboard,
+    MealPlanner,
+    Profile,
+    Shopping,
+  } from "../../pages/private";
 </script>
 
 <div>
   <!-- private pages -->
   <Route path="/dashboard" component={Dashboard} />
   <Route path="/mealPlanner" component={MealPlanner} />
+  <Route path="/profile" component={Profile} />
+  <Route path="/shopping" component={Shopping} />
 
   <!-- authentication pages -->
   <Route path="/login" component={Login} />

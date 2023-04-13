@@ -19,6 +19,6 @@
 
 <PrivateLayout>
   <div class="lg:ml-[220px]">
-    <h1>Dashboard content</h1>
+    <h1>Shopping content</h1>
   </div>
 </PrivateLayout>

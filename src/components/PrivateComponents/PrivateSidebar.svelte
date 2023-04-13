@@ -37,12 +37,6 @@
 </script>
 
 <main class="bg-[rgb(246,246,217)] w-[220px] h-full py-6 px-4">
-  <!-- Add site title -->
-  <!-- <div class="flex flex-col items-center gap-2">
-    <img src="/media/title.png" alt="Logo" class="w-12 h-12" />
-    <h1 class="text-xl font-bold text-[#7db9db] uppercase">Plate plan</h1>
-  </div> -->
-
   <!-- customer data -->
   <div class="flex flex-col items-center mb-6 gap-2">
     <img
@@ -59,26 +53,26 @@
   <!-- Links -->
   <ul class="flex flex-col items-center gap-4 text-[16px] mt-2">
     <li
-      on:select={() => isActive("/overview")}
-      class={` ${pathname === "/overview" && "active"} privateLinks`}
+      on:select={() => isActive("/dashboard")}
+      class={` ${pathname === "/dashboard" && "activeLink"} privateLinks`}
     >
-      <Link to="/overview">Overview</Link>
+      <Link to="/dashboard">Overview</Link>
     </li>
     <li
       on:select={() => isActive("/mealPlanner")}
-      class={` ${pathname === "/mealPlanner" && "active"} privateLinks`}
+      class={` ${pathname === "/mealPlanner" && "activeLink"} privateLinks`}
     >
       <Link to="/mealPlanner">Meal Planner</Link>
     </li>
     <li
       on:select={() => isActive("/shopping")}
-      class={` ${pathname === "/shopping" && "active"} privateLinks`}
+      class={` ${pathname === "/shopping" && "activeLink"} privateLinks`}
     >
       <Link to="/shopping">Shopping</Link>
     </li>
     <li
       on:select={() => isActive("/profile")}
-      class={` ${pathname === "/profile" && "active"} privateLinks`}
+      class={` ${pathname === "/profile" && "activeLink"} privateLinks`}
     >
       <Link to="/profile">Profile</Link>
     </li>

@@ -50,3 +50,5 @@ export { default as RegisterForm } from "./Auth/RegisterForm.svelte";
 
 // Common private pages components
 export { default as PrivateSidebar } from "./PrivateComponents/PrivateSidebar.svelte";
+export { default as PrivateHeader } from "./PrivateComponents/PrivateHeader.svelte";
+export { default as PrivateLayout } from "./PrivateComponents/PrivateLayout.svelte";
