@@ -1,4 +1,5 @@
 <script>
+  export let item = {};
 </script>
 
 <section>

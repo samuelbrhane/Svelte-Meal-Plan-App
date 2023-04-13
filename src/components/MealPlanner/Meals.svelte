@@ -1,7 +1,7 @@
 <script>
   import { onDestroy, onMount } from "svelte";
   import mealDateStore from "../../stores/mealDateStore";
-  import { Loader, MealCategories, MealList } from "..";
+  import { Loader, MealCategories, MealCard } from "..";
   import { recipeStore, updateStore } from "../../stores/recipeStore";
 
   let searchWord = "";
@@ -71,10 +71,8 @@
         </div>
       </div>
       {#each mealsData as item}
-        <p>meals</p>
+        <MealCard {item} />
       {/each}
     {/if}
-
-    <!-- <MealList /> -->
   </section>
 {/if}
