@@ -14,7 +14,12 @@
   // subscribe to mealDateStore
   onMount(() => {
     mealDateStoreUnsubscribe = mealDateStore.subscribe((value) => {
-      day = value.selectedDate;
+      day = value.selectedDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
     });
     recipeStoreUnsubscribe = recipeStore.subscribe((value) => {
       mealsData = value.data;

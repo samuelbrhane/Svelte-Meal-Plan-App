@@ -3,30 +3,27 @@
   import mealDateStore from "../../stores/mealDateStore";
 
   // week staring date
-  let selectedDate = new Date();
   let startingDate = new Date();
   let days = [];
+  let index = 0;
 
   // Create a reactive statement to watch for changes to the starting date and update the days array
   $: {
-    days = [startingDate]; // Clear the days array
+    days = [{ id: 0, day: startingDate }]; // Clear the days array
     for (let i = 0; i < 6; i++) {
       let nextDay = new Date(startingDate);
       nextDay.setDate(startingDate.getDate() + i + 1); // Add i + 1 days to the starting date
-      days.push(nextDay);
+      days.push({ id: i + 1, day: nextDay });
     }
   }
 
-  const updateDate = (day) => {
-    selectedDate = day;
-    let formattedDate = day.toLocaleDateString("en-US", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+  const updateDate = (date) => {
+    console.log("dayid: " + date.id);
+
+    index = date.id;
+    console.log("index: " + index);
     mealDateStore.set({
-      selectedDate: formattedDate,
+      selectedDate: date.day,
     });
   };
 </script>
@@ -48,19 +45,24 @@
   <div
     class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 mt-5 gap-2 py-2 text-center"
   >
-    {#each days as day}
+    {#each days as date}
       <button
-        on:click={() => updateDate(day)}
-        class={`from-[#a234a4] bg-gradient-to-l to-[#44a3a3] rounded w-[106px] py-1 text-sm font-[Alkatra] text-white hover:scale-[1.03] 
-        hover:to-[#433a45] hover:from-[#550e07] ${
-          selectedDate == day && "from-[#550e07] to-[#433a45]"
+        on:click={() => updateDate(date)}
+        class={`rounded w-[106px] py-1 bg-gradient-to-l text-sm font-[Alkatra] text-white hover:scale-[1.03] hover:to-[#433a45] hover:from-[#550e07] 
+        ${
+          index == date.id
+            ? "to-[#9a30b1] from-[#075455]"
+            : "from-[#34a456] to-[#8ea344]"
         }`}
       >
         <p class="text-sm">
-          {day.toLocaleDateString("en-US", { weekday: "long" })}
+          {date.day.toLocaleDateString("en-US", { weekday: "long" })}
         </p>
         <p>
-          {day.toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+          {date.day.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+          })}
         </p>
       </button>
     {/each}
