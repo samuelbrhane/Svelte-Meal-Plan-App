@@ -10,7 +10,7 @@
   />
   <div class="flex-grow">
     <h1 class="text-[13px]">{mealItem.recipe.label}</h1>
-    <div class="text-[12px] text-gray-400 grid grid-cols-2 gap-1 mt-2">
+    <div class="text-[11px] text-gray-400 grid grid-cols-2 mt-1">
       <p>
         Calories:
         {(mealItem?.recipe?.calories / 5).toFixed(2)} kcal

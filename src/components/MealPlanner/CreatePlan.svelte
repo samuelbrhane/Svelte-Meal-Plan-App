@@ -2,7 +2,7 @@
   import { onDestroy, onMount } from "svelte";
   import mealDateStore from "../../stores/mealDateStore";
   import mealStore from "../../stores/mealStore";
-  import { CreateMealCard } from "..";
+  import { CreateMealCard, MealTypeChart } from "..";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -110,5 +110,10 @@
     >
       Create Plan
     </button>
+
+    <!-- meal nutrient charts -->
+    <div class="flex flex-col justify-center items-center">
+      <MealTypeChart />
+    </div>
   </div>
 </section>

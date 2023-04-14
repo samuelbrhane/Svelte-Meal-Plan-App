@@ -18,10 +18,7 @@
   }
 
   const updateDate = (date) => {
-    console.log("dayid: " + date.id);
-
     index = date.id;
-    console.log("index: " + index);
     mealDateStore.set({
       selectedDate: date.day,
     });

@@ -61,3 +61,8 @@ export { default as CreatePlan } from "./MealPlanner/CreatePlan.svelte";
 export { default as MealCategories } from "./MealPlanner/MealCategories.svelte";
 export { default as MealCard } from "./MealPlanner/MealCard.svelte";
 export { default as CreateMealCard } from "./MealPlanner/CreateMealCard.svelte";
+export { default as MealTypeChart } from "./MealPlanner/MealTypeChart.svelte";
+export { default as BreakfastMealChart } from "./MealPlanner/BreakfastMealChart.svelte";
+export { default as LunchMealChart } from "./MealPlanner/LunchMealChart.svelte";
+export { default as SnackMealChart } from "./MealPlanner/SnackMealChart.svelte";
+export { default as DinnerMealChart } from "./MealPlanner/DinnerMealChart.svelte";
