@@ -82,7 +82,7 @@
   }
 
   .mealBtn {
-    @apply bg-[#5944a4] text-left rounded text-white hover:scale-[1.01] hover:bg-[#ec27ce];
+    @apply bg-[#5944a4] text-left rounded text-white hover:scale-[1.01];
   }
 
   .scrollBar {

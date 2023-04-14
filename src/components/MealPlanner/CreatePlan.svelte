@@ -39,7 +39,7 @@
   <div class="flex flex-col gap-5 mt-4">
     <!-- breakfast -->
     <button
-      class={`mealBtn ${selectedMeal == "breakfast" && "bg-[#ec27ce]"}`}
+      class={`mealBtn ${selectedMeal == "breakfast" && "bg-[#27aeec]"}`}
       on:click={() => changeMeal("breakfast")}
     >
       <h1 class="mealText">Breakfast</h1>
@@ -55,7 +55,7 @@
 
     <!-- lunch -->
     <button
-      class={`mealBtn ${selectedMeal == "lunch" && "bg-[#ec27ce]"}`}
+      class={`mealBtn ${selectedMeal == "lunch" && "bg-[#27aeec]"}`}
       on:click={() => changeMeal("lunch")}
     >
       <h1 class="mealText">Lunch</h1>
@@ -72,7 +72,7 @@
 
     <!-- snack -->
     <button
-      class={`mealBtn ${selectedMeal == "snack" && "bg-[#ec27ce]"}`}
+      class={`mealBtn ${selectedMeal == "snack" && "bg-[#27aeec]"}`}
       on:click={() => changeMeal("snack")}
     >
       <h1 class="mealText">Snack</h1>
@@ -89,7 +89,7 @@
 
     <!-- dinner -->
     <button
-      class={`mealBtn ${selectedMeal == "dinner" && "bg-[#ec27ce]"}`}
+      class={`mealBtn ${selectedMeal == "dinner" && "bg-[#27aeec]"}`}
       on:click={() => changeMeal("dinner")}
     >
       <h1 class="mealText">Dinner</h1>
