@@ -73,6 +73,18 @@
     @apply bg-[#123e74];
   }
 
+  .mealText {
+    @apply font-bold font-[Merriweather]  p-2;
+  }
+
+  .mealBox {
+    @apply w-full h-20 bg-[#11494da0]  rounded px-2 py-1;
+  }
+
+  .mealBtn {
+    @apply bg-[#5944a4] text-left rounded text-white hover:scale-[1.01] hover:bg-[#ec27ce];
+  }
+
   .scrollBar {
     -webkit-overflow-scrolling: touch;
   }
