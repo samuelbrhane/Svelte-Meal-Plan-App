@@ -3,6 +3,7 @@
   import authStore from "../../stores/authStore";
   import { Link, useLocation } from "svelte-navigator";
   import Icon from "@iconify/svelte";
+  import { logout } from "../../utils/functions/logout";
 
   let userName;
   let userEmail;
@@ -37,57 +38,111 @@
   };
 </script>
 
-<main class="bg-[rgb(246,246,217)] w-[220px] h-full py-6 px-4">
-  <!-- customer data -->
-  <div class="flex flex-col items-center mb-6 gap-2">
-    <img
-      src="/media/team/person1.webp"
-      alt="customerImage"
-      class="w-16 h-16 rounded-full"
-    />
-    <h1 class="font-[Alkatra] italic">Hello, {userName}</h1>
+<main class="bg-[rgb(246,246,217)] w-[250px] h-full flex flex-col">
+  <div class="bg-[#47153e] py-6">
+    <!-- Add site title -->
+    <Link to="/" class="flex items-center gap-2">
+      <img src="/media/title.png" alt="Logo" class="w-12 h-12" />
+      <h1 class="text-xl font-bold text-[#3789b9] uppercase">Plate plan</h1>
+    </Link>
   </div>
 
-  <!-- pages -->
-  <Link to="/dashboard" class="font-bold font-[Roboto] text-2xl">Dashboard</Link
-  >
-  <!-- Links -->
-  <ul class="flex flex-col items-center gap-4 text-[16px] mt-2">
-    <li
-      on:select={() => isActive("/dashboard")}
-      class={` ${pathname === "/dashboard" && "activeLink"} privateLinks`}
+  <div class="p-4 flex flex-col justify-between flex-grow">
+    <div>
+      <!-- dashboard total overview -->
+      <div class="mb-4">
+        <Link to="/dashboard" class="font-bold font-[Roboto] text-2xl"
+          >Dashboard</Link
+        >
+
+        <ul class="flex flex-col items-center gap-4 text-[16px] mt-2 px-3">
+          <li
+            on:select={() => isActive("/dashboard")}
+            class={` ${pathname === "/dashboard" && "activeLink"} privateLinks`}
+          >
+            <Link to="/dashboard" class="flex items-center px-2 gap-2">
+              <Icon icon="material-symbols:dashboard" class="text-xl" />
+              <span>Overview</span>
+            </Link>
+          </li>
+          <li
+            on:select={() => isActive("/mealPlanner")}
+            class={` ${
+              pathname === "/mealPlanner" && "activeLink"
+            } privateLinks`}
+          >
+            <Link to="/mealPlanner" class="flex items-center px-2 gap-2">
+              <Icon icon="game-icons:hot-meal" class="text-xl" />
+              <span>Meal Planner</span>
+            </Link>
+          </li>
+          <li
+            on:select={() => isActive("/shopping")}
+            class={` ${pathname === "/shopping" && "activeLink"} privateLinks`}
+          >
+            <Link to="/shopping" class="flex items-center px-2 gap-2">
+              <Icon
+                icon="material-symbols:shopping-bag-sharp"
+                class="text-xl"
+              />
+              <span>Shopping</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <!-- nutrients chart -->
+      <div>
+        <Link to="/dashboard" class="font-bold font-[Roboto] text-2xl"
+          >Nutrients</Link
+        >
+        <!-- Links -->
+        <ul class="flex flex-col items-center gap-4 text-[16px] mt-2 px-3">
+          <li
+            on:select={() => isActive("/calories")}
+            class={` ${pathname === "/calories" && "activeLink"} privateLinks`}
+          >
+            <Link to="/calories" class="flex items-center px-2 gap-2">
+              <Icon icon="fluent:food-fish-24-filled" class="text-xl" />
+              <span>Calories</span>
+            </Link>
+          </li>
+          <li
+            on:select={() => isActive("/protein")}
+            class={` ${pathname === "/protein" && "activeLink"} privateLinks`}
+          >
+            <Link to="/protein" class="flex items-center px-2 gap-2">
+              <Icon icon="ic:baseline-fastfood" class="text-xl" />
+              <span>Protein</span>
+            </Link>
+          </li>
+          <li
+            on:select={() => isActive("/fats")}
+            class={` ${pathname === "/fats" && "activeLink"} privateLinks`}
+          >
+            <Link to="/fats" class="flex items-center px-2 gap-2">
+              <Icon icon="fluent:food-pizza-20-filled" class="text-xl" />
+              <span>Fats</span>
+            </Link>
+          </li>
+          <li
+            on:select={() => isActive("/carbs")}
+            class={` ${pathname === "/carbs" && "activeLink"} privateLinks`}
+          >
+            <Link to="/carbs" class="flex items-center px-2 gap-2">
+              <Icon icon="fluent:food-grains-20-filled" class="text-xl" />
+              <span>Carbs</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- user sign out -->
+    <button
+      on:click={logout}
+      class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
+      >Sign out</button
     >
-      <Link to="/dashboard" class="flex items-center px-2 gap-2">
-        <Icon icon="material-symbols:dashboard" class="text-xl" />
-        <span>Overview</span>
-      </Link>
-    </li>
-    <li
-      on:select={() => isActive("/mealPlanner")}
-      class={` ${pathname === "/mealPlanner" && "activeLink"} privateLinks`}
-    >
-      <Link to="/mealPlanner" class="flex items-center px-2 gap-2">
-        <Icon icon="game-icons:hot-meal" class="text-xl" />
-        <span>Meal Planner</span>
-      </Link>
-    </li>
-    <li
-      on:select={() => isActive("/shopping")}
-      class={` ${pathname === "/shopping" && "activeLink"} privateLinks`}
-    >
-      <Link to="/shopping" class="flex items-center px-2 gap-2">
-        <Icon icon="material-symbols:shopping-bag-sharp" class="text-xl" />
-        <span>Shopping</span>
-      </Link>
-    </li>
-    <li
-      on:select={() => isActive("/profile")}
-      class={` ${pathname === "/profile" && "activeLink"} privateLinks`}
-    >
-      <Link to="/profile" class="flex items-center px-2 gap-2">
-        <Icon icon="healthicons:ui-user-profile-negative" class="text-xl" />
-        <span>Profile</span>
-      </Link>
-    </li>
-  </ul>
+  </div>
 </main>

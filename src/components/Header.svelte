@@ -82,7 +82,7 @@
         <button
           on:click={logout}
           class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
-          >Logout</button
+          >Sign out</button
         >
         <div class="text-sm mt-1 flex items-center gap-[6px]">
           <p class="text-white">Create meal plan?</p>
