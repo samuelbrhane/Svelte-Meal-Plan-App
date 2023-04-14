@@ -1,7 +1,9 @@
 <script>
   export let item = {};
+  import mealStore from "../../stores/mealStore";
   import StarRating from "svelte-star-rating";
   let ratings = [3, 3.5, 4, 4.5, 5];
+  import Icon from "@iconify/svelte";
 
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];
@@ -13,6 +15,75 @@
     size: 21,
   };
   const style = "padding: 12px;";
+
+  // add new meal
+  const addMeal = () => {
+    switch ($mealStore.selectedMeal) {
+      // add breakfast
+      case "breakfast":
+        // check meal already exists
+        let breakfastMealExists = $mealStore.breakfast.find(
+          (meal) => meal.recipe.uri == item.recipe.uri
+        );
+
+        // add meal to breakfast list
+        if (!breakfastMealExists) {
+          mealStore.update((mealData) => {
+            return { ...mealData, breakfast: [...mealData.breakfast, item] };
+          });
+        }
+
+        break;
+      // add lunch
+      case "lunch":
+        // check meal already exists
+
+        let lunchMealExists = $mealStore.lunch.find(
+          (meal) => meal.recipe.uri == item.recipe.uri
+        );
+        // add meal to lunch list
+        if (!lunchMealExists) {
+          mealStore.update((mealData) => {
+            return { ...mealData, lunch: [...mealData.lunch, item] };
+          });
+        }
+
+        break;
+      // add snack
+      case "snack":
+        // check meal already exists
+
+        let snackMealExists = $mealStore.snack.find(
+          (meal) => meal.recipe.uri == item.recipe.uri
+        );
+        // add meal to snack list
+        if (!snackMealExists) {
+          mealStore.update((mealData) => {
+            return { ...mealData, snack: [...mealData.snack, item] };
+          });
+        }
+
+        break;
+      // add dinner
+      case "dinner":
+        // check meal already exists
+
+        let dinnerMealExists = $mealStore.dinner.find(
+          (meal) => meal.recipe.uri == item.recipe.uri
+        );
+        // add meal to dinner list
+        if (!dinnerMealExists) {
+          mealStore.update((mealData) => {
+            return { ...mealData, dinner: [...mealData.dinner, item] };
+          });
+        }
+
+        break;
+
+      default:
+        break;
+    }
+  };
 </script>
 
 <button
@@ -29,16 +100,21 @@
     class="flex flex-col text-center md:text-start md:flex-row flex-grow justify-between items-center"
   >
     <!-- meal title and rating -->
-    <div class="flex flex-col items-center flex-grow gap-2">
+    <div class="flex flex-col items-center flex-grow">
       <p>{item?.recipe?.label}</p>
       <StarRating {rating} {config} {style} />
+      <button
+        on:click={addMeal}
+        class="text-2xl text-[#e2eef1] bg-[#1b7dba] hover:bg-[#95126c] rounded-full p-2"
+        ><Icon icon="mdi:cart-arrow-right" /></button
+      >
     </div>
 
     <!-- meal nutrient contents -->
     <div class="text-sm flex flex-col gap-2">
       <p>
         Calories: <span class="text-[#a23495]"
-          >{(item?.recipe?.calories / 10).toFixed(2)} kcal</span
+          >{(item?.recipe?.calories / 5).toFixed(2)} kcal</span
         >
       </p>
       <p>

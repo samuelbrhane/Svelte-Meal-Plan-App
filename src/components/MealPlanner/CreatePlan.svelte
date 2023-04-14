@@ -1,6 +1,8 @@
 <script>
   import { onDestroy, onMount } from "svelte";
   import mealDateStore from "../../stores/mealDateStore";
+  import mealStore from "../../stores/mealStore";
+  import { CreateMealCard } from "..";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -19,6 +21,14 @@
   onDestroy(() => {
     mealDateStoreUnsubscribe();
   });
+
+  // change meal type
+  const changeMeal = (mealType) => {
+    selectedMeal = mealType;
+    mealStore.update((mealData) => {
+      return { ...mealData, selectedMeal: mealType };
+    });
+  };
 </script>
 
 <section class="shadow-md px-4 py-6 font-[Alkatra]">
@@ -30,37 +40,68 @@
     <!-- breakfast -->
     <button
       class={`mealBtn ${selectedMeal == "breakfast" && "bg-[#ec27ce]"}`}
-      on:click={() => (selectedMeal = "breakfast")}
+      on:click={() => changeMeal("breakfast")}
     >
       <h1 class="mealText">Breakfast</h1>
-      <div class="mealBox">Add Breakfast Meals Here.</div>
+      <!-- check meal store length for breakfast-->
+      {#if $mealStore.breakfast.length == 0}
+        <div class="mealBox">Add Breakfast Meals Here.</div>
+      {:else}
+        {#each $mealStore.breakfast as mealItem}
+          <CreateMealCard {mealItem} />
+        {/each}
+      {/if}
     </button>
 
     <!-- lunch -->
     <button
       class={`mealBtn ${selectedMeal == "lunch" && "bg-[#ec27ce]"}`}
-      on:click={() => (selectedMeal = "lunch")}
+      on:click={() => changeMeal("lunch")}
     >
       <h1 class="mealText">Lunch</h1>
-      <div class="mealBox">Add Lunch Meals Here.</div>
+
+      <!-- check meal store length for lunch-->
+      {#if $mealStore.lunch.length == 0}
+        <div class="mealBox">Add Lunch Meals Here.</div>
+      {:else}
+        {#each $mealStore.lunch as mealItem}
+          <CreateMealCard {mealItem} />
+        {/each}
+      {/if}
     </button>
 
     <!-- snack -->
     <button
       class={`mealBtn ${selectedMeal == "snack" && "bg-[#ec27ce]"}`}
-      on:click={() => (selectedMeal = "snack")}
+      on:click={() => changeMeal("snack")}
     >
       <h1 class="mealText">Snack</h1>
-      <div class="mealBox">Add Snack Meals Here.</div>
+
+      <!-- check meal store length for snack-->
+      {#if $mealStore.snack.length == 0}
+        <div class="mealBox">Add Snack Meals Here.</div>
+      {:else}
+        {#each $mealStore.snack as mealItem}
+          <CreateMealCard {mealItem} />
+        {/each}
+      {/if}
     </button>
 
     <!-- dinner -->
     <button
       class={`mealBtn ${selectedMeal == "dinner" && "bg-[#ec27ce]"}`}
-      on:click={() => (selectedMeal = "dinner")}
+      on:click={() => changeMeal("dinner")}
     >
       <h1 class="mealText">Dinner</h1>
-      <div class="mealBox">Add Dinner Meals Here.</div>
+
+      <!-- check meal store length for dinner-->
+      {#if $mealStore.dinner.length == 0}
+        <div class="mealBox">Add Dinner Meals Here.</div>
+      {:else}
+        {#each $mealStore.dinner as mealItem}
+          <CreateMealCard {mealItem} />
+        {/each}
+      {/if}
     </button>
 
     <!-- create meal  -->

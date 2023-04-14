@@ -78,7 +78,7 @@
   }
 
   .mealBox {
-    @apply w-full h-20 bg-[#11494da0]  rounded px-2 py-1;
+    @apply w-full h-20 bg-[#11494da0] px-2 py-1 mb-1;
   }
 
   .mealBtn {
