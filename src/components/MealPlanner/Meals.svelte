@@ -53,7 +53,7 @@
     {:else}
       <!-- search and filter meal -->
       <div
-        class="mt-5 mb-3 flex justify-between items-center border-b-2 border-[#edda6cef] pb-2 font-[Alkatra]"
+        class="flex justify-between items-center pb-1 border-b-2 border-[#edda6cef] font-[Alkatra]"
       >
         <form on:submit|preventDefault={handleSearch}>
           <input
@@ -75,9 +75,11 @@
           </select>
         </div>
       </div>
-      {#each mealsData.slice(8) as item}
-        <MealCard {item} />
-      {/each}
+      <div class="flex flex-col gap-3 pt-1">
+        {#each mealsData.slice(9) as item}
+          <MealCard {item} />
+        {/each}
+      </div>
     {/if}
   </section>
 {/if}

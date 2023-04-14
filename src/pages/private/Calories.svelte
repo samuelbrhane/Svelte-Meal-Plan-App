@@ -18,9 +18,9 @@
 </script>
 
 <PrivateLayout>
-  <section class="lg:ml-[250px]">
+  <div class="lg:ml-[250px]">
     <div class="px-4 md:px-8 py-4 lg:px-12">
-      <h1>Profile content</h1>
+      <h1>Shopping content</h1>
     </div>
-  </section>
+  </div>
 </PrivateLayout>

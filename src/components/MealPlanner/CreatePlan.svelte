@@ -31,7 +31,7 @@
   };
 </script>
 
-<section class="shadow-md px-4 py-6 font-[Alkatra]">
+<section class="shadow-md px-4 py-8 font-[Alkatra]">
   <!-- intro and selected day -->
   <h1 class="font-bold font-[Roboto] text-3xl">Make Your Day</h1>
   <p class="text-sm font-light">{selectedDate}</p>

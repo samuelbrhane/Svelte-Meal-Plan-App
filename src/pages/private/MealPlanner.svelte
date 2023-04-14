@@ -24,7 +24,7 @@
 </script>
 
 <PrivateLayout>
-  <div class="lg:pl-[220px]">
+  <section class="lg:pl-[250px]">
     <div class="px-4 md:px-8 py-4 lg:px-12">
       <!-- intro and data picker -->
       <div
@@ -49,5 +49,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </PrivateLayout>

@@ -16,7 +16,7 @@
   {#each mealCategories as category}
     <button
       on:click={() => handleSearch(category)}
-      class={`flex flex-col items-center bg-[#cce154] hover:scale-[1.03] shadow-md text-sm hover:bg-[#f993f7] text-black font-[Alkatra] py-6 min-w-[80px] gap-4 px-2 rounded-3xl ${
+      class={`flex flex-col items-center bg-[#cce154] hover:scale-[1.03] shadow-md text-sm  text-black font-[Alkatra] py-6 min-w-[80px] gap-4 px-2 rounded-3xl ${
         currentCategory == category.id && "bg-[#f993f7] text-white"
       }`}
     >

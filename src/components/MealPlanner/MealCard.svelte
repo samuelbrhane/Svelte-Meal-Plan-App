@@ -87,7 +87,7 @@
 </script>
 
 <button
-  class="flex justify-between gap-4 mb-3 shadow rounded items-center px-4 py-3 flex-col md:flex-row font-[Alkatra] hover:scale-[1.02] hover:shadow-md w-full"
+  class="flex justify-between gap-4 shadow rounded items-center px-4 py-3 flex-col md:flex-row font-[Alkatra] hover:scale-[1.02] hover:shadow-md w-full"
 >
   <!-- meal image -->
   <img

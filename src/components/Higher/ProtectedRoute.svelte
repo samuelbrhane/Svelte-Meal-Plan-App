@@ -26,7 +26,10 @@
           (value.pathname == "/dashboard" ||
             value.pathname == "/mealPlanner" ||
             value.pathname == "/shopping" ||
-            value.pathname == "/profile")
+            value.pathname == "/calories" ||
+            value.pathname == "/fats" ||
+            value.pathname == "/carbs" ||
+            value.pathname == "/protein")
         ) {
           navigate("/login");
         }
@@ -51,9 +54,12 @@
 
   // private pages
   import {
+    Calories,
+    Carbs,
     Dashboard,
+    Fats,
     MealPlanner,
-    Profile,
+    Protein,
     Shopping,
   } from "../../pages/private";
 </script>
@@ -62,8 +68,11 @@
   <!-- private pages -->
   <Route path="/dashboard" component={Dashboard} />
   <Route path="/mealPlanner" component={MealPlanner} />
-  <Route path="/profile" component={Profile} />
   <Route path="/shopping" component={Shopping} />
+  <Route path="/calories" component={Calories} />
+  <Route path="/fats" component={Fats} />
+  <Route path="/protein" component={Protein} />
+  <Route path="/carbs" component={Carbs} />
 
   <!-- authentication pages -->
   <Route path="/login" component={Login} />

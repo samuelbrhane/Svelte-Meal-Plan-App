@@ -142,7 +142,7 @@
     <button
       on:click={logout}
       class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
-      >Sign out</button
+      >Sign Out</button
     >
   </div>
 </main>
