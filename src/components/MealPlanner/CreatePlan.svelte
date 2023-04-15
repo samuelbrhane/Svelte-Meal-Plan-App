@@ -1,11 +1,15 @@
 <script>
   import { onDestroy, onMount } from "svelte";
+  import Icon from "@iconify/svelte";
   import mealDateStore from "../../stores/mealDateStore";
   import mealStore from "../../stores/mealStore";
-  import { CreateMealCard, MealTypeChart } from "..";
+  import { CalorieCalculator, CreateMealCard, MealTypeChart } from "..";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
+  let showCalculatorModal = false;
+  let plannedCalorie;
+  let calorieValue;
 
   // subscribe to mealDateStore
   onMount(() => {
@@ -35,6 +39,46 @@
   <!-- intro and selected day -->
   <h1 class="font-bold font-[Roboto] text-3xl">Make Your Day</h1>
   <p class="text-sm font-light">{selectedDate}</p>
+
+  <!-- Calories calculator and tracker -->
+  <div class="mt-2">
+    <div class="flex items-center gap-3">
+      <h1>I want to eat</h1>
+      <form
+        on:submit|preventDefault={() => {
+          plannedCalorie = calorieValue;
+          calorieValue = "";
+        }}
+      >
+        <input
+          type="number"
+          bind:value={calorieValue}
+          class="px-2 shadow border-[#4594a4] border-[0.3px] rounded outline-none w-[100px] py-1"
+        />
+      </form>
+
+      <p>Calories.</p>
+    </div>
+
+    <button
+      on:click={() => (showCalculatorModal = true)}
+      class="flex items-center gap-1 text-[#a5349a] text-lg my-1"
+      >Not Sure? <Icon icon="ion:calculator-sharp" /></button
+    >
+
+    <!-- number of planned calories -->
+    {#if plannedCalorie}
+      <p class="text-[#234a33]">
+        Today's planned calorie: {plannedCalorie} kcal
+      </p>
+    {/if}
+
+    <CalorieCalculator
+      {showCalculatorModal}
+      on:addCalorie={(e) => (plannedCalorie = e.detail)}
+      on:closeModal={() => (showCalculatorModal = false)}
+    />
+  </div>
 
   <div class="flex flex-col gap-5 mt-4">
     <!-- breakfast -->

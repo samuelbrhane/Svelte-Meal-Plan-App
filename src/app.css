@@ -85,6 +85,14 @@
     @apply bg-[#5944a4] text-left rounded text-white hover:scale-[1.01];
   }
 
+  .modalCate {
+    @apply flex items-center gap-12;
+  }
+
+  .modalBtn {
+    @apply w-[120px] py-2 shadow rounded hover:scale-[1.02] hover:bg-[#347ba2] hover:text-white;
+  }
+
   .scrollBar {
     -webkit-overflow-scrolling: touch;
   }
