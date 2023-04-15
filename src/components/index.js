@@ -4,6 +4,7 @@ export { default as Sidebar } from "./Sidebar.svelte";
 export { default as CreateAccount } from "./CreateAccount.svelte";
 export { default as Footer } from "./Footer.svelte";
 export { default as Loader } from "./Loader.svelte";
+export { default as Title } from "./Title.svelte";
 
 // Welcome page components
 export { default as Hero } from "./Welcome/Hero.svelte";
