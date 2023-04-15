@@ -4,6 +4,7 @@
   import StarRating from "svelte-star-rating";
   let ratings = [3, 3.5, 4, 4.5, 5];
   import Icon from "@iconify/svelte";
+  import plannerCalorieStore from "../../stores/plannedCalorieStore";
 
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];
@@ -18,70 +19,73 @@
 
   // add new meal
   const addMeal = () => {
-    switch ($mealStore.selectedMeal) {
-      // add breakfast
-      case "breakfast":
-        // check meal already exists
-        let breakfastMealExists = $mealStore.breakfast.find(
-          (meal) => meal.recipe.uri == item.recipe.uri
-        );
+    if ($plannerCalorieStore.plannerCalories) {
+      switch ($mealStore.selectedMeal) {
+        // add breakfast
+        case "breakfast":
+          // check meal already exists
+          let breakfastMealExists = $mealStore.breakfast.find(
+            (meal) => meal.recipe.uri == item.recipe.uri
+          );
 
-        // add meal to breakfast list
-        if (!breakfastMealExists) {
-          mealStore.update((mealData) => {
-            return { ...mealData, breakfast: [...mealData.breakfast, item] };
-          });
-        }
+          // add meal to breakfast list
+          if (!breakfastMealExists) {
+            mealStore.update((mealData) => {
+              return { ...mealData, breakfast: [...mealData.breakfast, item] };
+            });
+          }
 
-        break;
-      // add lunch
-      case "lunch":
-        // check meal already exists
+          break;
+        // add lunch
+        case "lunch":
+          // check meal already exists
 
-        let lunchMealExists = $mealStore.lunch.find(
-          (meal) => meal.recipe.uri == item.recipe.uri
-        );
-        // add meal to lunch list
-        if (!lunchMealExists) {
-          mealStore.update((mealData) => {
-            return { ...mealData, lunch: [...mealData.lunch, item] };
-          });
-        }
+          let lunchMealExists = $mealStore.lunch.find(
+            (meal) => meal.recipe.uri == item.recipe.uri
+          );
+          // add meal to lunch list
+          if (!lunchMealExists) {
+            mealStore.update((mealData) => {
+              return { ...mealData, lunch: [...mealData.lunch, item] };
+            });
+          }
 
-        break;
-      // add snack
-      case "snack":
-        // check meal already exists
+          break;
+        // add snack
+        case "snack":
+          // check meal already exists
 
-        let snackMealExists = $mealStore.snack.find(
-          (meal) => meal.recipe.uri == item.recipe.uri
-        );
-        // add meal to snack list
-        if (!snackMealExists) {
-          mealStore.update((mealData) => {
-            return { ...mealData, snack: [...mealData.snack, item] };
-          });
-        }
+          let snackMealExists = $mealStore.snack.find(
+            (meal) => meal.recipe.uri == item.recipe.uri
+          );
+          // add meal to snack list
+          if (!snackMealExists) {
+            mealStore.update((mealData) => {
+              return { ...mealData, snack: [...mealData.snack, item] };
+            });
+          }
 
-        break;
-      // add dinner
-      case "dinner":
-        // check meal already exists
+          break;
+        // add dinner
+        case "dinner":
+          // check meal already exists
+          let dinnerMealExists = $mealStore.dinner.find(
+            (meal) => meal.recipe.uri == item.recipe.uri
+          );
+          // add meal to dinner list
+          if (!dinnerMealExists) {
+            mealStore.update((mealData) => {
+              return { ...mealData, dinner: [...mealData.dinner, item] };
+            });
+          }
 
-        let dinnerMealExists = $mealStore.dinner.find(
-          (meal) => meal.recipe.uri == item.recipe.uri
-        );
-        // add meal to dinner list
-        if (!dinnerMealExists) {
-          mealStore.update((mealData) => {
-            return { ...mealData, dinner: [...mealData.dinner, item] };
-          });
-        }
+          break;
 
-        break;
-
-      default:
-        break;
+        default:
+          break;
+      }
+    } else {
+      $plannerCalorieStore.errorMessage = "Please add planned calories first.";
     }
   };
 </script>

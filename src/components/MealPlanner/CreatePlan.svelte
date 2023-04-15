@@ -3,13 +3,32 @@
   import Icon from "@iconify/svelte";
   import mealDateStore from "../../stores/mealDateStore";
   import mealStore from "../../stores/mealStore";
-  import { CalorieCalculator, CreateMealCard, MealTypeChart } from "..";
+  import plannerCalorieStore from "../../stores/plannedCalorieStore";
+  import {
+    CalorieCalculator,
+    CalorieTracker,
+    CreateMealCard,
+    MealTypeChart,
+  } from "..";
+  import Calories from "../../pages/private/Calories.svelte";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
   let showCalculatorModal = false;
-  let plannedCalorie;
   let calorieValue;
+
+  $: breakfastCalories = $mealStore.breakfast
+    .map((meal) => meal.recipe.calories / 4)
+    .reduce((acc, val) => acc + val, 0);
+  $: lunchCalories = $mealStore.lunch
+    .map((meal) => meal.recipe.calories / 4)
+    .reduce((acc, val) => acc + val, 0);
+  $: snackCalories = $mealStore.snack
+    .map((meal) => meal.recipe.calories / 4)
+    .reduce((acc, val) => acc + val, 0);
+  $: dinnerCalories = $mealStore.dinner
+    .map((meal) => meal.recipe.calories / 4)
+    .reduce((acc, val) => acc + val, 0);
 
   // subscribe to mealDateStore
   onMount(() => {
@@ -33,6 +52,14 @@
       return { ...mealData, selectedMeal: mealType };
     });
   };
+
+  $: totalCalorieAdded =
+    breakfastCalories + lunchCalories + snackCalories + dinnerCalories;
+
+  $: averageCalorieAdded =
+    ((breakfastCalories + lunchCalories + snackCalories + dinnerCalories) *
+      100) /
+    $plannerCalorieStore.plannerCalories;
 </script>
 
 <section class="shadow-md px-4 py-8 font-[Alkatra]">
@@ -40,13 +67,13 @@
   <h1 class="font-bold font-[Roboto] text-3xl">Make Your Day</h1>
   <p class="text-sm font-light">{selectedDate}</p>
 
-  <!-- Calories calculator and tracker -->
+  <!-- Calories calculator -->
   <div class="mt-2">
     <div class="flex items-center gap-3">
       <h1>I want to eat</h1>
       <form
         on:submit|preventDefault={() => {
-          plannedCalorie = calorieValue;
+          $plannerCalorieStore.plannerCalories = calorieValue;
           calorieValue = "";
         }}
       >
@@ -66,18 +93,34 @@
       >Not Sure? <Icon icon="ion:calculator-sharp" /></button
     >
 
-    <!-- number of planned calories -->
-    {#if plannedCalorie}
-      <p class="text-[#234a33]">
-        Today's planned calorie: {plannedCalorie} kcal
+    <!-- number of planned and add calories -->
+    {#if $plannerCalorieStore.plannerCalories}
+      <p class="text-[#234a33] text-center mt-3">
+        Today's planned calorie: {$plannerCalorieStore.plannerCalories} kcal
+      </p>
+      <p class="text-[#234a33] text-center">
+        Calories Added: {parseInt(totalCalorieAdded)} kcal
+      </p>
+    {:else}
+      <p class="text-[#234a33] text-center mt-3">
+        {$plannerCalorieStore.errorMessage}
       </p>
     {/if}
 
+    <!-- calorie calculator modal -->
     <CalorieCalculator
       {showCalculatorModal}
-      on:addCalorie={(e) => (plannedCalorie = e.detail)}
+      on:addCalorie={(e) => ($plannerCalorieStore.plannerCalories = e.detail)}
       on:closeModal={() => (showCalculatorModal = false)}
     />
+
+    <!-- calorie tracker pie chart -->
+    {#if $plannerCalorieStore.plannerCalories}
+      <div class="flex flex-col items-center mt-3">
+        <p class="text-2xl text-[#a345af]">Calorie Tracker</p>
+        <CalorieTracker {averageCalorieAdded} />
+      </div>
+    {/if}
   </div>
 
   <div class="flex flex-col gap-5 mt-4">

@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-let date = new Date(); // Replace this with your own date variable
+let date = new Date();
 
 // create auth store
 const mealDateStore = writable({
