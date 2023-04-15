@@ -70,3 +70,6 @@ export { default as SnackMealChart } from "./MealPlanner/SnackMealChart.svelte";
 export { default as DinnerMealChart } from "./MealPlanner/DinnerMealChart.svelte";
 export { default as CalorieCalculator } from "./MealPlanner/CalorieCalculator.svelte";
 export { default as CalorieTracker } from "./MealPlanner/CalorieTracker.svelte";
+
+// Shopping page components
+export { default as IngredientsCard } from "./Shopping/IngredientsCard.svelte";

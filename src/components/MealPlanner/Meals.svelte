@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="flex flex-col gap-3 pt-1">
-        {#each mealsData.slice(9) as item}
+        {#each mealsData.slice(6) as item}
           <MealCard {item} />
         {/each}
       </div>
