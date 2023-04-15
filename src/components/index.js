@@ -73,3 +73,4 @@ export { default as CalorieTracker } from "./MealPlanner/CalorieTracker.svelte";
 
 // Shopping page components
 export { default as IngredientsCard } from "./Shopping/IngredientsCard.svelte";
+export { default as ShoppingList } from "./Shopping/ShoppingList.svelte";

@@ -1,6 +1,10 @@
 <script>
   import mealStore from "../../stores/mealStore";
-  import { IngredientsCard, PrivateLayout } from "../../components";
+  import {
+    IngredientsCard,
+    PrivateLayout,
+    ShoppingList,
+  } from "../../components";
   import { DateInput } from "date-picker-svelte";
 
   let currentDate = new Date();
@@ -8,7 +12,9 @@
 
 <PrivateLayout>
   <section class="lg:ml-[250px]">
-    <div class="px-4 md:px-8 py-4 lg:px-12 grid grid-cols-1 xl:grid-cols-2">
+    <div
+      class="px-4 md:px-8 py-4 lg:px-12 grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 2xl:gap-20"
+    >
       <div>
         <!-- data picker  -->
         <div>
@@ -78,9 +84,13 @@
         </div>
       </div>
 
+      <!-- shopping list -->
       <div>
         <img src="/media/shoppingImg.jpg" alt="" class="w-full" />
-        <h1>Shopping</h1>
+        <h1 class="text-3xl font-[Roboto] text-[#348da3] mt-6">
+          Shopping List
+        </h1>
+        <ShoppingList {currentDate} />
       </div>
     </div>
   </section>
