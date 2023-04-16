@@ -1,6 +1,5 @@
 <script>
   export let mealItem = {};
-  console.log("mealItem: " + JSON.stringify(mealItem));
 </script>
 
 <div class="mb-6">
