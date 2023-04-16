@@ -13,6 +13,7 @@
   </h2>
   <div class="grid grid-cols-3 xl:grid-cols-2 gap-2 font-[Alkatra] text-[13px]">
     {#each mealItem.recipe.ingredients as item}
+      <!-- ingredients -->
       <div class="shadow rounded flex gap-4 hover:scale-[1.01]">
         <img src={item.image} alt="foodImage" class="w-20 h-full rounded" />
         <div class="flex flex-col justify-center">
