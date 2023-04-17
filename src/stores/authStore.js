@@ -14,6 +14,7 @@ const authStore = writable({
   token: null,
   userName: "",
   userEmail: "",
+  userId: "",
 });
 
 // get the token from local storage
@@ -31,6 +32,7 @@ let verifyToken = async () => {
       token: userToken,
       userName: data.first_name + " " + data.last_name,
       userEmail: data.email,
+      userId: data.id,
     });
   } catch (error) {
     authStore.set({
@@ -39,6 +41,7 @@ let verifyToken = async () => {
       token: null,
       userName: "",
       userEmail: "",
+      userId: "",
     });
   }
 };

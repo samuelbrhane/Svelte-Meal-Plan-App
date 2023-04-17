@@ -9,17 +9,17 @@
 
   //   Breakfast nutrient data
   $: breakfastProteinData = $mealStore.breakfast
-    .map((meal) => meal.recipe.digest[2].total)
+    .map((meal) => meal.nutrients[2].total)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
   $: breakfastFatsData = $mealStore.breakfast
-    .map((meal) => meal.recipe.digest[0].total)
+    .map((meal) => meal.nutrients[0].total)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
   $: breakfastCarbsData = $mealStore.breakfast
-    .map((meal) => meal.recipe.digest[1].total)
+    .map((meal) => meal.nutrients[1].total)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalBreakfastProtein =
@@ -36,17 +36,17 @@
 
   // lunch nutrient data
   $: lunchProteinData = $mealStore.lunch
-    .map((meal) => meal.recipe.digest[2].total)
+    .map((meal) => meal.nutrients[2].total)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
   $: lunchFatsData = $mealStore.lunch
-    .map((meal) => meal.recipe.digest[0].total)
+    .map((meal) => meal.nutrients[0].total)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
   $: lunchCarbsData = $mealStore.lunch
-    .map((meal) => meal.recipe.digest[1].total)
+    .map((meal) => meal.nutrients[1].total)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalLunchProtein =
@@ -62,17 +62,17 @@
 
   // snack nutrient data
   $: snackProteinData = $mealStore.snack
-    .map((meal) => meal.recipe.digest[2].total)
+    .map((meal) => meal.nutrients[2].total)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
   $: snackFatsData = $mealStore.snack
-    .map((meal) => meal.recipe.digest[0].total)
+    .map((meal) => meal.nutrients[0].total)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
   $: snackCarbsData = $mealStore.snack
-    .map((meal) => meal.recipe.digest[1].total)
+    .map((meal) => meal.nutrients[1].total)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalSnackProtein =
@@ -88,17 +88,17 @@
 
   // dinner nutrient data
   $: dinnerProteinData = $mealStore.dinner
-    .map((meal) => meal.recipe.digest[2].total)
+    .map((meal) => meal.nutrients[2].total)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
   $: dinnerFatsData = $mealStore.dinner
-    .map((meal) => meal.recipe.digest[0].total)
+    .map((meal) => meal.nutrients[0].total)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
   $: dinnerCarbsData = $mealStore.dinner
-    .map((meal) => meal.recipe.digest[1].total)
+    .map((meal) => meal.nutrients[1].total)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalDinnerProtein =

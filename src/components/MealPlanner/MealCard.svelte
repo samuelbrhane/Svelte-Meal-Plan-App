@@ -5,6 +5,7 @@
   let ratings = [3, 3.5, 4, 4.5, 5];
   import Icon from "@iconify/svelte";
   import plannerCalorieStore from "../../stores/plannedCalorieStore";
+  import { faqItems } from "../../utils/faqItems";
 
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];
@@ -19,19 +20,34 @@
 
   // add new meal
   const addMeal = () => {
+    // format meal item
+    const formattedItem = {
+      uri: item.recipe.uri,
+      title: item.recipe.label,
+      image: item.recipe.image,
+      healthLabels: item.recipe.healthLabels,
+      ingredientLines: item.recipe.ingredientLines,
+      ingredients: item.recipe.ingredients,
+      calories: item.recipe.calories,
+      nutrients: item.recipe.digest,
+    };
+
     if ($plannerCalorieStore.plannerCalories) {
       switch ($mealStore.selectedMeal) {
         // add breakfast
         case "breakfast":
           // check meal already exists
           let breakfastMealExists = $mealStore.breakfast.find(
-            (meal) => meal.recipe.uri == item.recipe.uri
+            (meal) => meal.uri == item.uri
           );
 
           // add meal to breakfast list
           if (!breakfastMealExists) {
             mealStore.update((mealData) => {
-              return { ...mealData, breakfast: [...mealData.breakfast, item] };
+              return {
+                ...mealData,
+                breakfast: [...mealData.breakfast, formattedItem],
+              };
             });
           }
 
@@ -41,12 +57,12 @@
           // check meal already exists
 
           let lunchMealExists = $mealStore.lunch.find(
-            (meal) => meal.recipe.uri == item.recipe.uri
+            (meal) => meal.uri == item.uri
           );
           // add meal to lunch list
           if (!lunchMealExists) {
             mealStore.update((mealData) => {
-              return { ...mealData, lunch: [...mealData.lunch, item] };
+              return { ...mealData, lunch: [...mealData.lunch, formattedItem] };
             });
           }
 
@@ -56,12 +72,12 @@
           // check meal already exists
 
           let snackMealExists = $mealStore.snack.find(
-            (meal) => meal.recipe.uri == item.recipe.uri
+            (meal) => meal.uri == item.uri
           );
           // add meal to snack list
           if (!snackMealExists) {
             mealStore.update((mealData) => {
-              return { ...mealData, snack: [...mealData.snack, item] };
+              return { ...mealData, snack: [...mealData.snack, formattedItem] };
             });
           }
 
@@ -70,15 +86,17 @@
         case "dinner":
           // check meal already exists
           let dinnerMealExists = $mealStore.dinner.find(
-            (meal) => meal.recipe.uri == item.recipe.uri
+            (meal) => meal.uri == item.uri
           );
           // add meal to dinner list
           if (!dinnerMealExists) {
             mealStore.update((mealData) => {
-              return { ...mealData, dinner: [...mealData.dinner, item] };
+              return {
+                ...mealData,
+                dinner: [...mealData.dinner, formattedItem],
+              };
             });
           }
-
           break;
 
         default:

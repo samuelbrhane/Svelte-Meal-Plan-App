@@ -10,7 +10,7 @@
     CreateMealCard,
     MealTypeChart,
   } from "..";
-  import Calories from "../../pages/private/Calories.svelte";
+  import authStore from "../../stores/authStore";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -18,16 +18,16 @@
   let calorieValue;
 
   $: breakfastCalories = $mealStore.breakfast
-    .map((meal) => meal.recipe.calories / 4)
+    .map((meal) => meal.calories / 4)
     .reduce((acc, val) => acc + val, 0);
   $: lunchCalories = $mealStore.lunch
-    .map((meal) => meal.recipe.calories / 4)
+    .map((meal) => meal.calories / 4)
     .reduce((acc, val) => acc + val, 0);
   $: snackCalories = $mealStore.snack
-    .map((meal) => meal.recipe.calories / 4)
+    .map((meal) => meal.calories / 4)
     .reduce((acc, val) => acc + val, 0);
   $: dinnerCalories = $mealStore.dinner
-    .map((meal) => meal.recipe.calories / 4)
+    .map((meal) => meal.calories / 4)
     .reduce((acc, val) => acc + val, 0);
 
   // subscribe to mealDateStore
@@ -60,6 +60,32 @@
     ((breakfastCalories + lunchCalories + snackCalories + dinnerCalories) *
       100) /
     $plannerCalorieStore.plannerCalories;
+
+  const createMealPlan = () => {
+    const userId = $authStore.userId;
+    let selectedDate = $mealDateStore.selectedDate;
+
+    // change starting date format
+    let day = selectedDate.getDate().toString().padStart(2, "0");
+    let month = (selectedDate.getMonth() + 1).toString().padStart(2, "0");
+    let year = selectedDate.getFullYear().toString().slice(-2);
+    let formattedDate = `${day}-${month}-${year}`;
+
+    const breakfast = $mealStore.breakfast;
+    const lunch = $mealStore.lunch;
+    const snack = $mealStore.snack;
+    const dinner = $mealStore.dinner;
+    const formBody = {
+      userId,
+      selectedDate: formattedDate,
+      lunch,
+      snack,
+      dinner,
+      breakfast,
+    };
+
+    console.log("formBody: " + JSON.stringify(formBody));
+  };
 </script>
 
 <section class="shadow-md px-4 py-8 font-[Alkatra]">
@@ -193,6 +219,7 @@
 
     <!-- create meal  -->
     <button
+      on:click={createMealPlan}
       class="bg-[#1f7aac] w-full py-2 rounded text-white font-[Alkatra] hover:scale-[1.01]"
     >
       Create Plan
