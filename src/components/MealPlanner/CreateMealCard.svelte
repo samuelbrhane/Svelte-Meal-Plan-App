@@ -64,7 +64,7 @@
     <div class="text-[11px] text-gray-400 grid grid-cols-2 mt-1">
       <p>
         Calories:
-        {(mealItem?.calories / 4).toFixed(2)} kcal
+        {(mealItem?.calories).toFixed(2)} kcal
       </p>
       <p>
         Protein: {(mealItem?.nutrients[2].total / 2).toFixed(2)} g

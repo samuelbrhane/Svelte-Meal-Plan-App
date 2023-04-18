@@ -13,6 +13,7 @@
   import authStore from "../../stores/authStore";
   import axios from "axios";
   import { baseBackendUrl } from "../../utils/routes/authRoutes";
+  import { mainMealRoute } from "../../utils/routes/mealRoutes";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -63,6 +64,7 @@
       100) /
     $plannerCalorieStore.plannerCalories;
 
+  // create new meal plan
   const createMealPlan = async () => {
     const user = $authStore.token.access;
     let selectedDate = $mealDateStore.selectedDate;
@@ -84,6 +86,24 @@
       dinner,
       breakfast,
     };
+
+    // create a new meal plan
+    await axios.post(`${mainMealRoute}`, formBody, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${user}`,
+      },
+    });
+
+    // update meal store
+    mealStore.update((mealData) => {
+      return { ...mealData, breakfast: [], lunch: [], snack: [], dinner: [] };
+    });
+
+    // update plannerCalorieStore
+    plannerCalorieStore.update((planned) => {
+      return { ...planned, plannerCalories: null };
+    });
   };
 </script>
 

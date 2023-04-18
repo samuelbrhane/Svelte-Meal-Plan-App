@@ -28,7 +28,7 @@
       healthLabels: item.recipe.healthLabels,
       ingredientLines: item.recipe.ingredientLines,
       ingredients: item.recipe.ingredients,
-      calories: item.recipe.calories,
+      calories: item.recipe.calories / 4,
       nutrients: item.recipe.digest,
     };
 
