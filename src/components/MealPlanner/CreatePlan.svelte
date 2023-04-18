@@ -11,6 +11,8 @@
     MealTypeChart,
   } from "..";
   import authStore from "../../stores/authStore";
+  import axios from "axios";
+  import { baseBackendUrl } from "../../utils/routes/authRoutes";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -61,8 +63,8 @@
       100) /
     $plannerCalorieStore.plannerCalories;
 
-  const createMealPlan = () => {
-    const userId = $authStore.userId;
+  const createMealPlan = async () => {
+    const user = $authStore.token.access;
     let selectedDate = $mealDateStore.selectedDate;
 
     // change starting date format
@@ -76,15 +78,12 @@
     const snack = $mealStore.snack;
     const dinner = $mealStore.dinner;
     const formBody = {
-      userId,
       selectedDate: formattedDate,
       lunch,
       snack,
       dinner,
       breakfast,
     };
-
-    console.log("formBody: " + JSON.stringify(formBody));
   };
 </script>
 
