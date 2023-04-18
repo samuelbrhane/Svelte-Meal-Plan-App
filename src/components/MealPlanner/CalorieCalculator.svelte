@@ -15,7 +15,16 @@
   const calculateCalories = () => {
     if (selectedPlan == "") errorMessage = "Please select your plan";
     else if (selectedGender == "") errorMessage = "Please select a gender";
-    else {
+    else if (
+      +age < 1 ||
+      +age > 120 ||
+      +weight < 10 ||
+      +height < 0 ||
+      +height > 280 ||
+      +weight > 250
+    ) {
+      errorMessage = "Please enter a valid values";
+    } else {
       let min;
       let max;
       //   average calories for female
@@ -27,7 +36,7 @@
         min = 250;
         max = 270;
       }
-      let reducedCalories = (min * 10) / 100;
+      let reducedCalories = (min * 20) / 100;
       //   reduce 20%
       if (selectedPlan == "Lose Weight") {
         min = min - reducedCalories;
@@ -37,6 +46,21 @@
       } else if (selectedPlan == "Build Muscle") {
         min = min + reducedCalories;
         max = max + reducedCalories;
+      }
+
+      let percentCalorie = (min * 10) / 100;
+      if (+age < 20 || +weight < 30 || +height < 100) {
+        min = min - 3 * percentCalorie;
+        max = max - 3 * percentCalorie;
+      }
+
+      if (+age < 40 || +weight < 80 || +height < 180) {
+        min = min + percentCalorie;
+        max = max + percentCalorie;
+      }
+      if (+weight < 110 || +height < 220) {
+        min = min + 2 * percentCalorie;
+        max = max + 2 * percentCalorie;
       }
 
       const calorieNumber =
@@ -55,7 +79,7 @@
 </script>
 
 <section
-  class={`bg-[#181f1b87] flex items-center justify-center py-12 fixed left-0 right-0 ${
+  class={`bg-[#181f1bb2] flex items-center justify-center py-12 fixed left-0 right-0 ${
     showCalculatorModal ? "top-0 bottom-0" : "top-[-999px] bottom-[999px]"
   } ease-in-out duration-700`}
 >
