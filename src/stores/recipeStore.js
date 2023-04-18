@@ -31,7 +31,6 @@ let searchRecipe = async (searchWord) => {
     currentKey = 0;
   }
 
-  console.log("currentKey: " + currentKey);
   let response = await fetch(
     `${baseRoute}?type=public&q=${searchWord}&app_id=${recipeKeys[currentKey].appId}&app_key=${recipeKeys[currentKey].appKey}`
   );

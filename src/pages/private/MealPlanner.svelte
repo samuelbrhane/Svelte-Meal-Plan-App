@@ -1,6 +1,4 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
-  import authStore from "../../stores/authStore";
   import {
     CreatePlan,
     Meals,
@@ -8,19 +6,6 @@
     PlannerIntro,
     PrivateLayout,
   } from "../../components";
-  let userName;
-  let userEmail;
-  let unsubscribe;
-
-  onMount(() => {
-    unsubscribe = authStore.subscribe((value) => {
-      userName = value.userName;
-      userEmail = value.userEmail;
-    });
-  });
-  onDestroy(() => {
-    unsubscribe();
-  });
 </script>
 
 <PrivateLayout>

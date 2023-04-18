@@ -1,26 +1,41 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
+  import { Loader, PrivateLayout } from "../../components";
   import authStore from "../../stores/authStore";
-  import { PrivateLayout, PrivateSidebar } from "../../components";
-  let userName;
-  let userEmail;
-  let unsubscribe;
+  import { onMount } from "svelte";
+  import { mainMealRoute } from "../../utils/routes/mealRoutes";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { errorClasses } from "../../utils/toast/toastCustom";
 
-  onMount(() => {
-    unsubscribe = authStore.subscribe((value) => {
-      userName = value.userName;
-      userEmail = value.userEmail;
+  let userMeals = [];
+  let loading = false;
+
+  // fetch user's meal data
+  onMount(async () => {
+    loading = true;
+    const response = await fetch(`${mainMealRoute}user/${$authStore.userId}/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${$authStore.token.access}`,
+      },
     });
-  });
-  onDestroy(() => {
-    unsubscribe();
+    if (response.ok) {
+      const data = await response.json();
+      userMeals = data;
+    } else {
+      toast.push("Failed to fetch meals", { theme: errorClasses });
+    }
+    loading = false;
   });
 </script>
 
 <PrivateLayout>
   <section class="lg:ml-[250px]">
     <div class="px-4 md:px-8 lg:px-12">
-      <h1>Dashboard content</h1>
+      {#if loading}
+        <Loader />
+      {:else}
+        <p>Data</p>
+      {/if}
     </div>
   </section>
 </PrivateLayout>
