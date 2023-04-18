@@ -14,6 +14,8 @@
   import axios from "axios";
   import { baseBackendUrl } from "../../utils/routes/authRoutes";
   import { mainMealRoute } from "../../utils/routes/mealRoutes";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { errorClasses } from "../../utils/toast/toastCustom";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -88,22 +90,27 @@
     };
 
     // create a new meal plan
-    await axios.post(`${mainMealRoute}`, formBody, {
+    const { data } = await axios.post(`${mainMealRoute}`, formBody, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `JWT ${user}`,
       },
     });
 
-    // update meal store
-    mealStore.update((mealData) => {
-      return { ...mealData, breakfast: [], lunch: [], snack: [], dinner: [] };
-    });
+    // check error message
+    if (data.error) {
+      toast.push(data.error, { theme: errorClasses });
+    } else {
+      // update meal store
+      mealStore.update((mealData) => {
+        return { ...mealData, breakfast: [], lunch: [], snack: [], dinner: [] };
+      });
 
-    // update plannerCalorieStore
-    plannerCalorieStore.update((planned) => {
-      return { ...planned, plannerCalories: null };
-    });
+      // update plannerCalorieStore
+      plannerCalorieStore.update((planned) => {
+        return { ...planned, plannerCalories: null };
+      });
+    }
   };
 </script>
 

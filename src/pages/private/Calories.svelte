@@ -1,6 +1,33 @@
 <script>
   import { PrivateLayout, Title, NutrientsLineChart } from "../../components";
   import { DateInput } from "date-picker-svelte";
+  import { mainMealRoute } from "../../utils/routes/mealRoutes";
+  import { onMount } from "svelte";
+  import { errorClasses } from "../../utils/toast/toastCustom";
+  import { toast } from "@zerodevx/svelte-toast";
+  import authStore from "../../stores/authStore";
+
+  let userMeals = [];
+  let loading = false;
+
+  // fetch user's meal data
+  onMount(async () => {
+    loading = true;
+    const response = await fetch(`${mainMealRoute}user/${$authStore.userId}/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${$authStore.token.access}`,
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      userMeals = data;
+      console.log("userMeals", userMeals);
+    } else {
+      toast.push("Failed to fetch meals", { theme: errorClasses });
+    }
+    loading = false;
+  });
 
   let labelName = "Calories";
   let startingDate = new Date(Date.now() - 6 * 24 * 60 * 60 * 1000);
@@ -24,13 +51,15 @@
       days.push(formattedDate.toString());
     }
   }
+
+  console.log("userMeals", JSON.stringify(userMeals));
 </script>
 
 <PrivateLayout>
   <div class="lg:ml-[250px]">
     <div class="px-4 md:px-8 py-4 lg:px-12">
       <!--title and starting day  -->
-      <div class="flex justify-between mb-6">
+      <div class="flex flex-col md:flex-row justify-between mb-6">
         <Title title="Calories" subtitle="Chart of weekly calories intake" />
         <div>
           <!-- data picker  -->

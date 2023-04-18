@@ -38,7 +38,7 @@
         case "breakfast":
           // check meal already exists
           let breakfastMealExists = $mealStore.breakfast.find(
-            (meal) => meal.uri == item.uri
+            (meal) => meal.uri == formattedItem.uri
           );
 
           // add meal to breakfast list
@@ -57,7 +57,7 @@
           // check meal already exists
 
           let lunchMealExists = $mealStore.lunch.find(
-            (meal) => meal.uri == item.uri
+            (meal) => meal.uri == formattedItem.uri
           );
           // add meal to lunch list
           if (!lunchMealExists) {
@@ -72,7 +72,7 @@
           // check meal already exists
 
           let snackMealExists = $mealStore.snack.find(
-            (meal) => meal.uri == item.uri
+            (meal) => meal.uri == formattedItem.uri
           );
           // add meal to snack list
           if (!snackMealExists) {
@@ -86,7 +86,7 @@
         case "dinner":
           // check meal already exists
           let dinnerMealExists = $mealStore.dinner.find(
-            (meal) => meal.uri == item.uri
+            (meal) => meal.uri == formattedItem.uri
           );
           // add meal to dinner list
           if (!dinnerMealExists) {
