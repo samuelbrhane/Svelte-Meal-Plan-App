@@ -2,12 +2,13 @@ import authStore from "../../stores/authStore";
 
 export const logout = () => {
   // update authStore
-  authStore.set({
-    loading: false,
-    isAuthenticated: false,
-    token: null,
-    userName: "",
-    userEmail: "",
+  authStore.update((authData) => {
+    authData.loading = false;
+    authData.isAuthenticated = false;
+    authData.token = null;
+    authData.userName = "";
+    authData.userEmail = "";
+    return authData;
   });
 
   //   remove token from local storage

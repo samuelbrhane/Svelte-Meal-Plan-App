@@ -1,7 +1,7 @@
 <script>
   import { onDestroy, onMount } from "svelte";
   import authStore from "../../stores/authStore";
-  import { Link, useLocation } from "svelte-navigator";
+  import { Link, navigate, useLocation } from "svelte-navigator";
   import Icon from "@iconify/svelte";
   import { logout } from "../../utils/functions/logout";
 
@@ -140,7 +140,10 @@
 
     <!-- user sign out -->
     <button
-      on:click={logout}
+      on:click={() => {
+        logout();
+        navigate("/");
+      }}
       class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
       >Sign Out</button
     >

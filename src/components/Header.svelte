@@ -1,5 +1,5 @@
 <script>
-  import { Link, useLocation } from "svelte-navigator";
+  import { Link, useLocation, navigate } from "svelte-navigator";
   import authStore from "../stores/authStore";
   import Icon from "@iconify/svelte";
   import { Sidebar } from ".";
@@ -9,9 +9,7 @@
   import { logout } from "../utils/functions/logout";
 
   let location = useLocation();
-
   let pathname = "";
-
   let locationUnsubscribe;
 
   onMount(() => {
@@ -80,7 +78,10 @@
     {#if $authStore.isAuthenticated}
       <div class="hidden lg:flex flex-col items-center">
         <button
-          on:click={logout}
+          on:click={() => {
+            logout();
+            navigate("/");
+          }}
           class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
           >Sign Out</button
         >
