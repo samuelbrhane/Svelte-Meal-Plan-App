@@ -1,6 +1,9 @@
 <script>
+  import { onMount } from "svelte";
   import { PrivateLayout, Title, NutrientsLineChart } from "../../components";
   import { DateInput } from "date-picker-svelte";
+  import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
+  import authStore from "../../stores/authStore";
 
   let labelName = "Protein";
 
@@ -28,6 +31,52 @@
       days.push(formattedDate.toString());
     }
   }
+
+  let userMeals = [];
+  let loading = false;
+
+  // fetch user's meal data
+  onMount(() => {
+    fetchUserMeals($authStore.userId, $authStore.token.access).then(
+      (response) => {
+        loading = response.loading;
+        userMeals = response.userMeals;
+      }
+    );
+  });
+
+  // protein array
+  let protein = [];
+  $: {
+    protein = [];
+    // find the day in userMeals
+    days.forEach((day) => {
+      let findDay = userMeals.find(
+        (meal) => meal.selectedDate.toString() == day
+      );
+      // if not meal created add 0
+      if (!findDay) {
+        protein.push(0);
+      } else {
+        // add the total protein for that day
+        let currentDateProtein = 0;
+
+        findDay.breakfast.forEach((data) => {
+          currentDateProtein += data.nutrients[2].total;
+        });
+        findDay.lunch.forEach((data) => {
+          currentDateProtein += data.nutrients[2].total;
+        });
+        findDay.snack.forEach((data) => {
+          currentDateProtein += data.nutrients[2].total;
+        });
+        findDay.dinner.forEach((data) => {
+          currentDateProtein += data.nutrients[2].total;
+        });
+        protein.push(currentDateProtein);
+      }
+    });
+  }
 </script>
 
 <PrivateLayout>
@@ -53,7 +102,7 @@
       </div>
 
       <!-- protein chart -->
-      <NutrientsLineChart {days} {labelName} />
+      <NutrientsLineChart {days} {labelName} data={protein} />
     </div>
   </div>
 </PrivateLayout>
