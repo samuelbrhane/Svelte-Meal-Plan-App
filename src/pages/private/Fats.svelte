@@ -7,7 +7,7 @@
 
   let labelName = "Fats";
 
-  // make starting data one week from now
+  // make starting data three days from now
   let startingDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
   // change starting date format

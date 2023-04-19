@@ -250,10 +250,5 @@
     >
       Create Plan
     </button>
-
-    <!-- meal nutrient charts -->
-    <div class="flex flex-col justify-center items-center">
-      <MealTypeChart />
-    </div>
   </div>
 </section>

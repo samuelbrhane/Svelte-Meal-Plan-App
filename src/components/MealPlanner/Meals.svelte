@@ -1,7 +1,7 @@
 <script>
   import { onDestroy, onMount } from "svelte";
   import mealDateStore from "../../stores/mealDateStore";
-  import { Loader, MealCategories, MealCard } from "..";
+  import { Loader, MealCategories, MealCard, PaginationBtn } from "..";
   import { recipeStore, updateStore } from "../../stores/recipeStore";
 
   let searchWord = "";
@@ -10,6 +10,11 @@
   let recipeStoreUnsubscribe;
   let mealsData;
   let loading;
+
+  let currentPage = 1;
+  let dataPerPage = 5;
+  $: indexOfLastPage = currentPage * dataPerPage;
+  $: indexOfFirstPage = indexOfLastPage - dataPerPage;
 
   // subscribe to mealDateStore
   onMount(() => {
@@ -76,9 +81,31 @@
         </div>
       </div>
       <div class="flex flex-col gap-3 pt-1">
-        {#each mealsData.slice(6) as item}
+        {#each mealsData.slice(indexOfFirstPage, indexOfLastPage) as item}
           <MealCard {item} />
         {/each}
+      </div>
+
+      <!-- pagination -->
+      <div class="border-t-2 border-[#b8d02e] pb-1 mt-2">
+        <div class="flex items-center justify-between px-4 pt-2 font-[Alkatra]">
+          <p>
+            Result {indexOfFirstPage + 1} - {indexOfLastPage} out of {mealsData.length}
+          </p>
+          <p>
+            Page {Math.ceil(indexOfLastPage / dataPerPage)} of {Math.ceil(
+              mealsData.length / dataPerPage
+            )}
+          </p>
+        </div>
+
+        <!-- pagination btn -->
+        <PaginationBtn
+          {dataPerPage}
+          recipeData={mealsData}
+          {currentPage}
+          on:changePage={(e) => (currentPage = e.detail)}
+        />
       </div>
     {/if}
   </section>
