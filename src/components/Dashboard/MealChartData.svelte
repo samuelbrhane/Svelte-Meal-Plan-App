@@ -1,10 +1,5 @@
 <script>
-  import {
-    BreakfastMealChart,
-    DinnerMealChart,
-    LunchMealChart,
-    SnackMealChart,
-  } from "..";
+  import { NutrientsChart } from "..";
 
   export let selectedDayData;
 
@@ -114,20 +109,40 @@
     (dinnerProteinData + dinnerFatsData + dinnerCarbsData);
 </script>
 
-<div class="grid grid-cols-1 md:grid-col-2 xl:grid-cols-4 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
   <!-- breakfast chart -->
-  <BreakfastMealChart
-    {totalBreakfastProtein}
-    {totalBreakfastFats}
-    {totalBreakfastCarbs}
+  <NutrientsChart
+    id="breakfastChart"
+    title="Breakfast Nutrients Chart"
+    totalCarbs={totalBreakfastCarbs}
+    totalFats={totalBreakfastFats}
+    totalProtein={totalBreakfastProtein}
   />
 
   <!-- lunch chart -->
-  <LunchMealChart {totalLunchProtein} {totalLunchFats} {totalLunchCarbs} />
+  <NutrientsChart
+    id="lunchChart"
+    title="Lunch Nutrients Chart"
+    totalCarbs={totalLunchCarbs}
+    totalFats={totalLunchFats}
+    totalProtein={totalLunchProtein}
+  />
 
   <!-- snack chart -->
-  <SnackMealChart {totalSnackProtein} {totalSnackFats} {totalSnackCarbs} />
+  <NutrientsChart
+    id="snackChart"
+    title="Snack Nutrients Chart"
+    totalCarbs={totalSnackCarbs}
+    totalFats={totalSnackFats}
+    totalProtein={totalSnackProtein}
+  />
 
   <!-- dinner chart -->
-  <DinnerMealChart {totalDinnerProtein} {totalDinnerFats} {totalDinnerCarbs} />
+  <NutrientsChart
+    id="dinnerChart"
+    title="Dinner Nutrients Chart"
+    totalCarbs={totalDinnerCarbs}
+    totalFats={totalDinnerFats}
+    totalProtein={totalDinnerProtein}
+  />
 </div>

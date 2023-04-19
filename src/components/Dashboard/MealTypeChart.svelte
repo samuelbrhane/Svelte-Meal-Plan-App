@@ -1,11 +1,5 @@
 <script>
-  import {
-    BreakfastMealChart,
-    DinnerMealChart,
-    LunchMealChart,
-    SnackMealChart,
-    MealChartData,
-  } from "..";
+  import { MealChartData, NutrientsChart } from "..";
   export let formattedDate;
   export let userMeals;
 
@@ -22,18 +16,18 @@
     <p class="font-[Alkatra] mt-1 font-light mb-1">
       No Meal Plan Is Created For The Selected Day.
     </p>
-    <div class="grid grid-cols-1 md:grid-col-2 xl:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
       <!-- breakfast chart -->
-      <BreakfastMealChart />
+      <NutrientsChart id="breakfastChart" title="Breakfast Nutrients Chart" />
 
       <!-- lunch chart -->
-      <LunchMealChart />
+      <NutrientsChart id="lunchChart" title="Lunch Nutrients Chart" />
 
       <!-- snack chart -->
-      <SnackMealChart />
+      <NutrientsChart id="snackChart" title="Snack Nutrients Chart" />
 
       <!-- dinner chart -->
-      <DinnerMealChart />
+      <NutrientsChart id="dinnerChart" title="Dinner Nutrients Chart" />
     </div>
   </div>
 {/if}

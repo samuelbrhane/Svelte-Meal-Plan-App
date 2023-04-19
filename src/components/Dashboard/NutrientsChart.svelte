@@ -2,23 +2,25 @@
   import { onMount, afterUpdate } from "svelte";
   import Chart from "chart.js/auto";
 
-  export let totalLunchProtein = 0;
-  export let totalLunchFats = 0;
-  export let totalLunchCarbs = 0;
+  export let totalProtein = 0;
+  export let totalFats = 0;
+  export let totalCarbs = 0;
+  export let id = "";
+  export let title = "";
   let sample = 100;
-  if (totalLunchProtein > 0) sample = 0;
+  if (totalCarbs > 0) sample = 0;
 
   let chartInstance;
 
   const createChart = () => {
-    const lunchCtx = document.getElementById("lunchChart");
-    chartInstance = new Chart(lunchCtx, nutrientData);
+    const nutrientCtx = document.getElementById(id);
+    chartInstance = new Chart(nutrientCtx, nutrientData);
   };
 
   const updateChart = () => {
-    chartInstance.data.datasets[0].data[0] = totalLunchProtein;
-    chartInstance.data.datasets[0].data[1] = totalLunchFats;
-    chartInstance.data.datasets[0].data[2] = totalLunchCarbs;
+    chartInstance.data.datasets[0].data[0] = totalProtein;
+    chartInstance.data.datasets[0].data[1] = totalFats;
+    chartInstance.data.datasets[0].data[2] = totalCarbs;
     chartInstance.data.datasets[0].data[3] = sample;
     chartInstance.update();
   };
@@ -37,7 +39,7 @@
 
   labels = ["Protein", "Fats", "Carbs", "Sample"];
   backgroundColor = ["#32aac898", "#c832a798", "#85a33498", "#a34a346d"];
-  data = [totalLunchProtein, totalLunchFats, totalLunchCarbs, sample];
+  data = [totalProtein, totalFats, totalCarbs, sample];
 
   const nutrientData = {
     type: "pie",
@@ -55,11 +57,10 @@
       plugins: {
         legend: {
           position: "top",
-          font: 12,
         },
         title: {
           display: true,
-          text: "Lunch Nutrients Chart",
+          text: title,
           color: "#a3affd",
           font: {
             size: 16,
@@ -72,5 +73,5 @@
 </script>
 
 <div class="flex items-center justify-center">
-  <canvas id="lunchChart" class="chartCard" />
+  <canvas {id} class="chartCard" />
 </div>

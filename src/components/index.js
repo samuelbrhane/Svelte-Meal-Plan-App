@@ -73,7 +73,4 @@ export { default as ShoppingList } from "./Shopping/ShoppingList.svelte";
 // dashboard page components
 export { default as MealTypeChart } from "./Dashboard/MealTypeChart.svelte";
 export { default as MealChartData } from "./Dashboard/MealChartData.svelte";
-export { default as BreakfastMealChart } from "./Dashboard/BreakfastMealChart.svelte";
-export { default as LunchMealChart } from "./Dashboard/LunchMealChart.svelte";
-export { default as SnackMealChart } from "./Dashboard/SnackMealChart.svelte";
-export { default as DinnerMealChart } from "./Dashboard/DinnerMealChart.svelte";
+export { default as NutrientsChart } from "./Dashboard/NutrientsChart.svelte";
