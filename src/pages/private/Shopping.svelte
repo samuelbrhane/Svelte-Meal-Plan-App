@@ -38,7 +38,7 @@
 
 <PrivateLayout>
   <section class="lg:ml-[250px]">
-    <div class="px-4 md:px-8 py-4 lg:px-12">
+    <div class="px-4 md:px-12 py-4 lg:px-20">
       {#if loading}
         <Loader />
       {:else}

@@ -25,17 +25,15 @@
   $: uniqueShoppingList = [...new Set(reducedShoppingList)];
 </script>
 
-{#if selectedDayData}
-  <h2 class="text-sm text-gray-500 font-[Alkatra] mb-1">
-    Here is the list for {selectedDayData.selectedDate}
-  </h2>
-  <div class="flex gap-3 flex-wrap mt-2">
-    {#each uniqueShoppingList.sort(() => Math.random() - 0.5) as item}
-      <p
-        class="font-[Alkatra] mb-1 w-[240px] border-[#721cb4] border-dotted border-[0.5px] px-2 py-1"
-      >
-        {item.charAt(0).toUpperCase() + item.slice(1)}
-      </p>
-    {/each}
-  </div>
-{/if}
+<h2 class="text-sm text-gray-500 font-[Alkatra] mb-1">
+  Here is the list for {selectedDayData.selectedDate}
+</h2>
+<div class="flex gap-3 flex-wrap mt-2">
+  {#each uniqueShoppingList.sort(() => Math.random() - 0.5) as item}
+    <p
+      class="font-[Alkatra] mb-1 w-[240px] border-[#721cb4] border-dotted border-[0.5px] px-2 py-1"
+    >
+      {item.charAt(0).toUpperCase() + item.slice(1)}
+    </p>
+  {/each}
+</div>

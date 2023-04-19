@@ -6,9 +6,9 @@
   import authStore from "../../stores/authStore";
 </script>
 
-<section class="flex w-full bg-[rgb(246,246,217)] py-4 lg:pl-[250px]">
-  <div class="px-4 md:px-8 lg:px-12 flex items-center justify-between w-full">
-    <h1 class="font-[Alkatra] italic text-2xl text-[#a23497]">
+<section class="flex w-full bg-[#47153e] py-4 lg:pl-[250px]">
+  <div class="px-4 md:px-12 lg:px-20 flex items-center justify-between w-full">
+    <h1 class="font-[Alkatra] italic text-2xl text-[#97e2e9]">
       Hello, {$authStore.userName}
     </h1>
 

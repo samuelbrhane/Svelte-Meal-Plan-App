@@ -38,8 +38,8 @@
   };
 </script>
 
-<main class="bg-[rgb(246,246,217)] w-[250px] h-full flex flex-col">
-  <div class="bg-[#47153e] py-6">
+<main class="bg-[#47153e] text-white w-[250px] h-full flex flex-col">
+  <div class="py-6">
     <!-- Add site title -->
     <Link to="/" class="flex items-center gap-2">
       <img src="/media/title.png" alt="Logo" class="w-12 h-12" />
@@ -52,7 +52,7 @@
       <!-- dashboard total overview -->
       <div class="mb-4">
         <Link to="/dashboard" class="font-bold font-[Roboto] text-2xl"
-          >Dashboard</Link
+          >Overview</Link
         >
 
         <ul class="flex flex-col items-center gap-4 text-[16px] mt-2 px-3">
@@ -62,7 +62,7 @@
           >
             <Link to="/dashboard" class="flex items-center px-2 gap-2">
               <Icon icon="material-symbols:dashboard" class="text-xl" />
-              <span>Overview</span>
+              <span>Dashboard</span>
             </Link>
           </li>
           <li

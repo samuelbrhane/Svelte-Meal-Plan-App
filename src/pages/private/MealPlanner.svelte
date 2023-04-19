@@ -17,7 +17,7 @@
 
 <PrivateLayout>
   <section class="lg:pl-[250px]">
-    <div class="px-4 md:px-8 py-4 lg:px-12">
+    <div class="px-4 md:px-12 py-4 lg:px-20">
       <!-- intro and data picker -->
       <div
         class="flex gap-4 md:gap-8 lg:gap-10 xl:justify-between flex-col xl:flex-row"

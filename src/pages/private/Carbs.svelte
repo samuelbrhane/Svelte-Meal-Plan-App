@@ -81,7 +81,7 @@
 
 <PrivateLayout>
   <div class="lg:ml-[250px]">
-    <div class="px-4 md:px-8 py-4 lg:px-12">
+    <div class="px-4 md:px-12 py-4 lg:px-20">
       <!--title and starting day  -->
       <div class="flex justify-between mb-6">
         <Title title="Carbs" subtitle="Chart of weekly carbs intake" />
@@ -93,7 +93,7 @@
 
           <!-- week start -->
           <div
-            class="flex items-center gap-2 font-[Alkatra] text-sm font-light text-[#a3344a]"
+            class="flex items-center gap-2 font-[Alkatra] text-sm font-light text-[#a3344a] mr-12"
           >
             <h1 class="text-lg">Starting Date:</h1>
             <DateInput bind:value={startingDate} />
