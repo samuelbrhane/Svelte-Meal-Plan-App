@@ -52,7 +52,38 @@
     }
   }
 
-  console.log("userMeals", JSON.stringify(userMeals));
+  // calories array
+  let calories = [];
+  $: {
+    calories = [];
+    // find the day in userMeals
+    days.forEach((day) => {
+      let findDay = userMeals.find(
+        (meal) => meal.selectedDate.toString() == day
+      );
+      // if not meal created add 0
+      if (!findDay) {
+        calories.push(0);
+      } else {
+        // add the total calories for that day
+        let currentDateCalories = 0;
+
+        findDay.breakfast.forEach((data) => {
+          currentDateCalories += data.calories;
+        });
+        findDay.lunch.forEach((data) => {
+          currentDateCalories += data.calories;
+        });
+        findDay.snack.forEach((data) => {
+          currentDateCalories += data.calories;
+        });
+        findDay.dinner.forEach((data) => {
+          currentDateCalories += data.calories;
+        });
+        calories.push(currentDateCalories);
+      }
+    });
+  }
 </script>
 
 <PrivateLayout>
@@ -78,7 +109,7 @@
       </div>
 
       <!-- calories chart -->
-      <NutrientsLineChart {days} {labelName} />
+      <NutrientsLineChart {days} {labelName} data={calories} />
     </div>
   </div>
 </PrivateLayout>

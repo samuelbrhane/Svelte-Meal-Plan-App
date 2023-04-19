@@ -1,6 +1,7 @@
 <script>
   import { onMount, afterUpdate } from "svelte";
   export let days = [];
+  export let data = [];
   export let labelName;
 
   let chart = null;
@@ -28,7 +29,7 @@
         datasets: [
           {
             label: labelName,
-            data: [14, 40, 25, 45, 76, 87, 34],
+            data: data,
             backgroundColor: [
               "#368ea4",
               "#f456c1",

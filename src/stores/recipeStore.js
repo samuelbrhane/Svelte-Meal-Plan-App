@@ -5,8 +5,8 @@ const recipeStore = writable({ data: [], loading: true });
 
 //   Search Recipes
 let searchRecipe = async (searchWord) => {
+  console.log("called searchRecipe method");
   recipeStore.set({ data: [], loading: true });
-  console.log("searchWord", searchWord);
   searchWord = searchWord === "All" ? "food" : searchWord;
   let currentKey;
   if (
@@ -38,12 +38,9 @@ let searchRecipe = async (searchWord) => {
   recipeStore.set({ data: data.hits, loading: false });
 };
 
-// Set initial data on page load
-searchRecipe("All");
-
 // Export a function to update the store when the user clicks a button
 const updateStore = (searchWord) => {
   searchRecipe(searchWord);
 };
 
-export { updateStore, recipeStore };
+export { updateStore, recipeStore, searchRecipe };

@@ -7,8 +7,12 @@
     CreateAd,
   } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
-  import { updateStore } from "../../stores/recipeStore";
+  import { onMount } from "svelte";
+  import { updateStore, searchRecipe } from "../../stores/recipeStore";
   let searchWord = "";
+  onMount(() => {
+    searchRecipe("All");
+  });
 
   // handle recipe search
   let handleRecipeSearch = async () => {

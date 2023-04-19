@@ -23,16 +23,16 @@
   let calorieValue;
 
   $: breakfastCalories = $mealStore.breakfast
-    .map((meal) => meal.calories / 4)
+    .map((meal) => meal.calories)
     .reduce((acc, val) => acc + val, 0);
   $: lunchCalories = $mealStore.lunch
-    .map((meal) => meal.calories / 4)
+    .map((meal) => meal.calories)
     .reduce((acc, val) => acc + val, 0);
   $: snackCalories = $mealStore.snack
-    .map((meal) => meal.calories / 4)
+    .map((meal) => meal.calories)
     .reduce((acc, val) => acc + val, 0);
   $: dinnerCalories = $mealStore.dinner
-    .map((meal) => meal.calories / 4)
+    .map((meal) => meal.calories)
     .reduce((acc, val) => acc + val, 0);
 
   // subscribe to mealDateStore

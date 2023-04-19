@@ -1,4 +1,6 @@
 <script>
+  import { searchRecipe } from "../../stores/recipeStore";
+  import { onMount } from "svelte";
   import {
     CreatePlan,
     Meals,
@@ -6,6 +8,11 @@
     PlannerIntro,
     PrivateLayout,
   } from "../../components";
+
+  // search recipe on mount
+  onMount(() => {
+    searchRecipe("All");
+  });
 </script>
 
 <PrivateLayout>
