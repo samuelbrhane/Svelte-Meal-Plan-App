@@ -8,7 +8,7 @@
   let labelName = "Protein";
 
   // make starting data one week from now
-  let startingDate = new Date(Date.now() - 6 * 24 * 60 * 60 * 1000);
+  let startingDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
   // change starting date format
   $: day = startingDate.getDate().toString().padStart(2, "0");

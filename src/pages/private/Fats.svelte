@@ -1,11 +1,14 @@
 <script>
+  import { onMount } from "svelte";
   import { PrivateLayout, Title, NutrientsLineChart } from "../../components";
   import { DateInput } from "date-picker-svelte";
+  import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
+  import authStore from "../../stores/authStore";
 
   let labelName = "Fats";
 
   // make starting data one week from now
-  let startingDate = new Date(Date.now() - 6 * 24 * 60 * 60 * 1000);
+  let startingDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
 
   // change starting date format
   $: day = startingDate.getDate().toString().padStart(2, "0");
@@ -27,6 +30,52 @@
       const formattedDate = `${day}-${month}-${year}`;
       days.push(formattedDate.toString());
     }
+  }
+
+  let userMeals = [];
+  let loading = false;
+
+  // fetch user's meal data
+  onMount(() => {
+    fetchUserMeals($authStore.userId, $authStore.token.access).then(
+      (response) => {
+        loading = response.loading;
+        userMeals = response.userMeals;
+      }
+    );
+  });
+
+  // fats array
+  let fats = [];
+  $: {
+    fats = [];
+    // find the day in userMeals
+    days.forEach((day) => {
+      let findDay = userMeals.find(
+        (meal) => meal.selectedDate.toString() == day
+      );
+      // if not meal created add 0
+      if (!findDay) {
+        fats.push(0);
+      } else {
+        // add the total fats for that day
+        let currentDateFats = 0;
+
+        findDay.breakfast.forEach((data) => {
+          currentDateFats += data.nutrients[0].total;
+        });
+        findDay.lunch.forEach((data) => {
+          currentDateFats += data.nutrients[0].total;
+        });
+        findDay.snack.forEach((data) => {
+          currentDateFats += data.nutrients[0].total;
+        });
+        findDay.dinner.forEach((data) => {
+          currentDateFats += data.nutrients[0].total;
+        });
+        fats.push(currentDateFats);
+      }
+    });
   }
 </script>
 
@@ -53,7 +102,7 @@
       </div>
 
       <!-- fats chart -->
-      <NutrientsLineChart {days} {labelName} />
+      <NutrientsLineChart {days} {labelName} data={fats} />
     </div>
   </div>
 </PrivateLayout>
