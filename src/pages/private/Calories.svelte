@@ -1,10 +1,7 @@
 <script>
   import { PrivateLayout, Title, NutrientsLineChart } from "../../components";
   import { DateInput } from "date-picker-svelte";
-  import { mainMealRoute } from "../../utils/routes/mealRoutes";
   import { onMount } from "svelte";
-  import { errorClasses } from "../../utils/toast/toastCustom";
-  import { toast } from "@zerodevx/svelte-toast";
   import authStore from "../../stores/authStore";
   import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
 

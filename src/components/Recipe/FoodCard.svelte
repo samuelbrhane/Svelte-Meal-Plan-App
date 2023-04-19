@@ -2,7 +2,7 @@
   import { Link } from "svelte-navigator";
 
   export let item = {};
-  $: calories = item.recipe.calories / 10;
+  $: calories = item.recipe.calories;
 </script>
 
 <Link
@@ -31,21 +31,21 @@
   >
     <!-- calories -->
     <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
-      {calories.toFixed(2)} kcal
+      {(calories / 4).toFixed(2)} kcal
     </p>
     <!-- carbs -->
     <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
-      {item.recipe.digest[1].total.toFixed(2) || 147} g
+      {(item.recipe.digest[1].total / 6).toFixed(2) || 137} g
     </p>
 
     <!-- fats -->
     <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
-      {item.recipe.digest[0].total.toFixed(2) || 312} g
+      {(item.recipe.digest[0].total / 2.4).toFixed(2) || 32} g
     </p>
 
     <!-- protein -->
     <p class="border-gray-400 border-r-[0.5px] p-2 h-full">
-      {item.recipe.digest[2].total.toFixed(2) || 376} g
+      {(item.recipe.digest[2].total / 2.8).toFixed(2) || 26} g
     </p>
   </div>
 </Link>

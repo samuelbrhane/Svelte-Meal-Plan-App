@@ -67,13 +67,13 @@
         {(mealItem?.calories).toFixed(2)} kcal
       </p>
       <p>
-        Protein: {(mealItem?.nutrients[2].total / 2).toFixed(2)} g
+        Protein: {(mealItem?.nutrients[2].total / 2.8).toFixed(2)} g
       </p>
       <p>
-        Fats: {(mealItem?.nutrients[0].total / 2).toFixed(2)} g
+        Fats: {(mealItem?.nutrients[0].total / 2.4).toFixed(2)} g
       </p>
       <p>
-        Carbs: {(mealItem?.nutrients[1].total / 5).toFixed(2)} g
+        Carbs: {(mealItem?.nutrients[1].total / 6).toFixed(2)} g
       </p>
     </div>
   </div>

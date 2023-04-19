@@ -63,14 +63,17 @@ export { default as CreatePlan } from "./MealPlanner/CreatePlan.svelte";
 export { default as MealCategories } from "./MealPlanner/MealCategories.svelte";
 export { default as MealCard } from "./MealPlanner/MealCard.svelte";
 export { default as CreateMealCard } from "./MealPlanner/CreateMealCard.svelte";
-export { default as MealTypeChart } from "./MealPlanner/MealTypeChart.svelte";
-export { default as BreakfastMealChart } from "./MealPlanner/BreakfastMealChart.svelte";
-export { default as LunchMealChart } from "./MealPlanner/LunchMealChart.svelte";
-export { default as SnackMealChart } from "./MealPlanner/SnackMealChart.svelte";
-export { default as DinnerMealChart } from "./MealPlanner/DinnerMealChart.svelte";
 export { default as CalorieCalculator } from "./MealPlanner/CalorieCalculator.svelte";
 export { default as CalorieTracker } from "./MealPlanner/CalorieTracker.svelte";
 
 // Shopping page components
 export { default as IngredientsCard } from "./Shopping/IngredientsCard.svelte";
 export { default as ShoppingList } from "./Shopping/ShoppingList.svelte";
+
+// dashboard page components
+export { default as MealTypeChart } from "./Dashboard/MealTypeChart.svelte";
+export { default as MealChartData } from "./Dashboard/MealChartData.svelte";
+export { default as BreakfastMealChart } from "./Dashboard/BreakfastMealChart.svelte";
+export { default as LunchMealChart } from "./Dashboard/LunchMealChart.svelte";
+export { default as SnackMealChart } from "./Dashboard/SnackMealChart.svelte";
+export { default as DinnerMealChart } from "./Dashboard/DinnerMealChart.svelte";

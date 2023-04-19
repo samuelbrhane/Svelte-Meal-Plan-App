@@ -2,9 +2,11 @@
   import { onMount, afterUpdate } from "svelte";
   import Chart from "chart.js/auto";
 
-  export let totalLunchProtein;
-  export let totalLunchFats;
-  export let totalLunchCarbs;
+  export let totalLunchProtein = 0;
+  export let totalLunchFats = 0;
+  export let totalLunchCarbs = 0;
+  let sample = 100;
+  if (totalLunchProtein > 0) sample = 0;
 
   let chartInstance;
 
@@ -17,6 +19,7 @@
     chartInstance.data.datasets[0].data[0] = totalLunchProtein;
     chartInstance.data.datasets[0].data[1] = totalLunchFats;
     chartInstance.data.datasets[0].data[2] = totalLunchCarbs;
+    chartInstance.data.datasets[0].data[3] = sample;
     chartInstance.update();
   };
 
@@ -28,40 +31,39 @@
     updateChart();
   });
 
+  let labels;
+  let backgroundColor;
+  let data;
+
+  labels = ["Protein", "Fats", "Carbs", "Sample"];
+  backgroundColor = ["#32aac898", "#c832a798", "#85a33498", "#a34a346d"];
+  data = [totalLunchProtein, totalLunchFats, totalLunchCarbs, sample];
+
   const nutrientData = {
-    type: "polarArea",
+    type: "pie",
     data: {
       datasets: [
         {
-          data: [totalLunchProtein, totalLunchFats, totalLunchCarbs],
-          backgroundColor: ["#32aac898", "#c832a798", "#85a33498"],
+          data,
+          backgroundColor,
         },
       ],
-      labels: ["Protein", "Fats", "Carbs"],
+      labels,
     },
     options: {
       responsive: true,
-      scales: {
-        r: {
-          pointLabels: {
-            display: true,
-            centerPointLabels: true,
-            font: {
-              size: 18,
-            },
-          },
-        },
-      },
       plugins: {
         legend: {
           position: "top",
+          font: 12,
         },
         title: {
           display: true,
           text: "Lunch Nutrients Chart",
-          color: "#a3a234",
+          color: "#a3affd",
           font: {
-            size: 18,
+            size: 16,
+            weight: "bold",
           },
         },
       },
@@ -69,6 +71,6 @@
   };
 </script>
 
-<div>
-  <canvas id="lunchChart" class="max-w-[300px] max-h-[300px]" />
+<div class="flex items-center justify-center">
+  <canvas id="lunchChart" class="chartCard" />
 </div>

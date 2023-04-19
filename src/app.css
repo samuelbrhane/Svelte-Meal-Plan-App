@@ -55,6 +55,10 @@
     scroll-snap-align: center;
   }
 
+  .chartCard {
+    @apply max-w-[280px] max-h-[280px] shadow p-4 hover:scale-[1.01];
+  }
+
   .scrollable-container {
     display: flex;
     overflow-x: auto;

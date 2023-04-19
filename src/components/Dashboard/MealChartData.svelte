@@ -5,21 +5,21 @@
     LunchMealChart,
     SnackMealChart,
   } from "..";
-  import mealStore from "../../stores/mealStore";
 
-  //   Breakfast nutrient data
-  $: breakfastProteinData = $mealStore.breakfast
-    .map((meal) => meal.nutrients[2].total)
+  export let selectedDayData;
+
+  $: breakfastProteinData = selectedDayData.breakfast
+    .map((meal) => meal.nutrients[2].total / 2.8)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
-  $: breakfastFatsData = $mealStore.breakfast
-    .map((meal) => meal.nutrients[0].total)
+  $: breakfastFatsData = selectedDayData.breakfast
+    .map((meal) => meal.nutrients[0].total / 2.4)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
-  $: breakfastCarbsData = $mealStore.breakfast
-    .map((meal) => meal.nutrients[1].total)
+  $: breakfastCarbsData = selectedDayData.breakfast
+    .map((meal) => meal.nutrients[1].total / 5)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalBreakfastProtein =
@@ -35,18 +35,18 @@
     (breakfastProteinData + breakfastFatsData + breakfastCarbsData);
 
   // lunch nutrient data
-  $: lunchProteinData = $mealStore.lunch
-    .map((meal) => meal.nutrients[2].total)
+  $: lunchProteinData = selectedDayData.lunch
+    .map((meal) => meal.nutrients[2].total / 2.8)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
-  $: lunchFatsData = $mealStore.lunch
-    .map((meal) => meal.nutrients[0].total)
+  $: lunchFatsData = selectedDayData.lunch
+    .map((meal) => meal.nutrients[0].total / 2.4)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
-  $: lunchCarbsData = $mealStore.lunch
-    .map((meal) => meal.nutrients[1].total)
+  $: lunchCarbsData = selectedDayData.lunch
+    .map((meal) => meal.nutrients[1].total / 5)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalLunchProtein =
@@ -61,18 +61,18 @@
     (lunchProteinData + lunchFatsData + lunchCarbsData);
 
   // snack nutrient data
-  $: snackProteinData = $mealStore.snack
-    .map((meal) => meal.nutrients[2].total)
+  $: snackProteinData = selectedDayData.snack
+    .map((meal) => meal.nutrients[2].total / 2.8)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
-  $: snackFatsData = $mealStore.snack
-    .map((meal) => meal.nutrients[0].total)
+  $: snackFatsData = selectedDayData.snack
+    .map((meal) => meal.nutrients[0].total / 2.4)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
-  $: snackCarbsData = $mealStore.snack
-    .map((meal) => meal.nutrients[1].total)
+  $: snackCarbsData = selectedDayData.snack
+    .map((meal) => meal.nutrients[1].total / 5)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalSnackProtein =
@@ -87,18 +87,18 @@
     (snackProteinData + snackFatsData + snackCarbsData);
 
   // dinner nutrient data
-  $: dinnerProteinData = $mealStore.dinner
-    .map((meal) => meal.nutrients[2].total)
+  $: dinnerProteinData = selectedDayData.dinner
+    .map((meal) => meal.nutrients[2].total / 2.8)
     .reduce((acc, val) => acc + val, 0);
 
   // fats
-  $: dinnerFatsData = $mealStore.dinner
-    .map((meal) => meal.nutrients[0].total)
+  $: dinnerFatsData = selectedDayData.dinner
+    .map((meal) => meal.nutrients[0].total / 2.4)
     .reduce((acc, val) => acc + val, 0);
 
   // carbs
-  $: dinnerCarbsData = $mealStore.dinner
-    .map((meal) => meal.nutrients[1].total)
+  $: dinnerCarbsData = selectedDayData.dinner
+    .map((meal) => meal.nutrients[1].total / 5)
     .reduce((acc, val) => acc + val, 0);
 
   $: totalDinnerProtein =
@@ -114,18 +114,20 @@
     (dinnerProteinData + dinnerFatsData + dinnerCarbsData);
 </script>
 
-<!-- breakfast chart -->
-<BreakfastMealChart
-  {totalBreakfastProtein}
-  {totalBreakfastFats}
-  {totalBreakfastCarbs}
-/>
+<div class="grid grid-cols-1 md:grid-col-2 xl:grid-cols-4 gap-8">
+  <!-- breakfast chart -->
+  <BreakfastMealChart
+    {totalBreakfastProtein}
+    {totalBreakfastFats}
+    {totalBreakfastCarbs}
+  />
 
-<!-- lunch chart -->
-<LunchMealChart {totalLunchProtein} {totalLunchFats} {totalLunchCarbs} />
+  <!-- lunch chart -->
+  <LunchMealChart {totalLunchProtein} {totalLunchFats} {totalLunchCarbs} />
 
-<!-- snack chart -->
-<SnackMealChart {totalSnackProtein} {totalSnackFats} {totalSnackCarbs} />
+  <!-- snack chart -->
+  <SnackMealChart {totalSnackProtein} {totalSnackFats} {totalSnackCarbs} />
 
-<!-- dinner chart -->
-<DinnerMealChart {totalDinnerProtein} {totalDinnerFats} {totalDinnerCarbs} />
+  <!-- dinner chart -->
+  <DinnerMealChart {totalDinnerProtein} {totalDinnerFats} {totalDinnerCarbs} />
+</div>

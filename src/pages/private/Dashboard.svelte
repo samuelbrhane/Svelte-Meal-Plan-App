@@ -1,5 +1,10 @@
 <script>
-  import { Loader, PrivateLayout, Title } from "../../components";
+  import {
+    Loader,
+    PrivateLayout,
+    Title,
+    MealTypeChart,
+  } from "../../components";
   import authStore from "../../stores/authStore";
   import { onMount } from "svelte";
   import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
@@ -71,9 +76,9 @@
         </div>
 
         <!-- meal nutrient charts -->
-        <!-- <div class="flex flex-col justify-center items-center">
-      <MealTypeChart />
-    </div> -->
+        <div>
+          <MealTypeChart {userMeals} {formattedDate} />
+        </div>
       {/if}
     </div>
   </section>

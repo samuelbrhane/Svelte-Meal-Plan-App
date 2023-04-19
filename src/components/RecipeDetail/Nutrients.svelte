@@ -69,19 +69,19 @@
     <div class="w-[300px]">
       <div class="flex justify-between mb-1">
         <p>Calories</p>
-        <p>{((serving * recipeData.recipe.calories) / 10).toFixed(2)} kcal</p>
+        <p>{((serving * recipeData.recipe.calories) / 4).toFixed(2)} kcal</p>
       </div>
       <div class="flex justify-between text-[#CC38B1] mb-1">
         <p>Carbs</p>
-        <p>{(serving * carbsData).toFixed(2)} g</p>
+        <p>{((serving * carbsData) / 6).toFixed(2)} g</p>
       </div>
       <div class="flex justify-between text-[#21B4B9] mb-1">
         <p>Fats</p>
-        <p>{(serving * fatData).toFixed(2)} g</p>
+        <p>{((serving * fatData) / 2.4).toFixed(2)} g</p>
       </div>
       <div class="flex justify-between text-[#6A72E3] mb-1">
         <p>Protein</p>
-        <p>{(serving * proteinData).toFixed(2)} g</p>
+        <p>{((serving * proteinData) / 2.8).toFixed(2)} g</p>
       </div>
     </div>
   </div>

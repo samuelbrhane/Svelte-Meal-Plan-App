@@ -2,9 +2,11 @@
   import { onMount, afterUpdate } from "svelte";
   import Chart from "chart.js/auto";
 
-  export let totalSnackProtein;
-  export let totalSnackFats;
-  export let totalSnackCarbs;
+  export let totalSnackProtein = 0;
+  export let totalSnackFats = 0;
+  export let totalSnackCarbs = 0;
+  let sample = 100;
+  if (totalSnackProtein > 0) sample = 0;
 
   let chartInstance;
 
@@ -17,6 +19,7 @@
     chartInstance.data.datasets[0].data[0] = totalSnackProtein;
     chartInstance.data.datasets[0].data[1] = totalSnackFats;
     chartInstance.data.datasets[0].data[2] = totalSnackCarbs;
+    chartInstance.data.datasets[0].data[3] = sample;
     chartInstance.update();
   };
 
@@ -28,30 +31,27 @@
     updateChart();
   });
 
+  let labels;
+  let backgroundColor;
+  let data;
+
+  labels = ["Protein", "Fats", "Carbs", "Sample"];
+  backgroundColor = ["#32aac898", "#c832a798", "#85a33498", "#a34a346d"];
+  data = [totalSnackProtein, totalSnackFats, totalSnackCarbs, sample];
+
   const nutrientData = {
-    type: "polarArea",
+    type: "pie",
     data: {
       datasets: [
         {
-          data: [totalSnackProtein, totalSnackFats, totalSnackCarbs],
-          backgroundColor: ["#32aac898", "#c832a798", "#85a33498"],
+          data,
+          backgroundColor,
         },
       ],
-      labels: ["Protein", "Fats", "Carbs"],
+      labels,
     },
     options: {
       responsive: true,
-      scales: {
-        r: {
-          pointLabels: {
-            display: true,
-            centerPointLabels: true,
-            font: {
-              size: 18,
-            },
-          },
-        },
-      },
       plugins: {
         legend: {
           position: "top",
@@ -59,9 +59,10 @@
         title: {
           display: true,
           text: "Snack Nutrients Chart",
-          color: "#a3a234",
+          color: "#a3affd",
           font: {
-            size: 18,
+            size: 16,
+            weight: "bold",
           },
         },
       },
@@ -69,6 +70,6 @@
   };
 </script>
 
-<div class="mb-2">
-  <canvas id="snackChart" class="max-w-[300px] max-h-[300px]" />
+<div class="flex items-center justify-center">
+  <canvas id="snackChart" class="chartCard" />
 </div>
