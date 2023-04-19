@@ -47,14 +47,17 @@ export const googleAuthentication = async (state, code) => {
     let response = await axios.get(verifyTokenRoute, {
       headers: { Authorization: `JWT ${data.access}` },
     });
-    authStore.set({
-      loading: false,
-      isAuthenticated: true,
-      token: data,
-      userName: response.data.first_name + " " + response.data.last_name,
-      userEmail: response.data.email,
-    });
 
+    authStore.update((authData) => {
+      authData.loading = false;
+      authData.isAuthenticated = true;
+      authData.token = data;
+      authData.userName =
+        response.data.first_name + " " + response.data.last_name;
+      authData.userEmail = response.data.email;
+      authData.userId = response.data.id;
+      return authData;
+    });
     // navigate to private home page
     navigate("/dashboard");
   } catch (error) {

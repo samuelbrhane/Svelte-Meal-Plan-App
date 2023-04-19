@@ -49,12 +49,14 @@
       });
 
       // update authStore
-      authStore.set({
-        loading: false,
-        isAuthenticated: true,
-        token: data,
-        userName: response.first_name + " " + response.last_name,
-        userEmail: response.email,
+      authStore.update((authData) => {
+        authData.loading = false;
+        authData.isAuthenticated = true;
+        authData.token = data;
+        authData.userName = response.first_name + " " + response.last_name;
+        authData.userEmail = response.email;
+        authData.userId = response.id;
+        return authData;
       });
 
       // navigate to private home page
