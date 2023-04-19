@@ -6,27 +6,19 @@
   import { errorClasses } from "../../utils/toast/toastCustom";
   import { toast } from "@zerodevx/svelte-toast";
   import authStore from "../../stores/authStore";
+  import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
 
   let userMeals = [];
   let loading = false;
 
   // fetch user's meal data
-  onMount(async () => {
-    loading = true;
-    const response = await fetch(`${mainMealRoute}user/${$authStore.userId}/`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `JWT ${$authStore.token.access}`,
-      },
-    });
-    if (response.ok) {
-      const data = await response.json();
-      userMeals = data;
-      console.log("userMeals", userMeals);
-    } else {
-      toast.push("Failed to fetch meals", { theme: errorClasses });
-    }
-    loading = false;
+  onMount(() => {
+    fetchUserMeals($authStore.userId, $authStore.token.access).then(
+      (response) => {
+        loading = response.loading;
+        userMeals = response.userMeals;
+      }
+    );
   });
 
   let labelName = "Calories";
