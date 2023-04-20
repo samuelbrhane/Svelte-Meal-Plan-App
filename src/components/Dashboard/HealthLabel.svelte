@@ -3,14 +3,20 @@
   export let formattedDate;
   import Drawer, { AppContent, Content } from "@smui/drawer";
   import List, { Item } from "@smui/list";
+  import { onMount } from "svelte";
 
   let clickedMeal = "";
 
-  $: findDay = userMeals.find(
-    (meal) => meal.selectedDate.toString() == formattedDate
-  );
-
   let healthLabel;
+
+  let findDay;
+
+  $: {
+    findDay = userMeals.find(
+      (meal) => meal.selectedDate.toString() == formattedDate
+    );
+    handleClick("breakfast");
+  }
 
   const handleClick = (mealType) => {
     clickedMeal = mealType;
@@ -36,8 +42,8 @@
   };
 </script>
 
-<section>
-  <h1 class="font-semibold font-[Roboto] text-xl">Health Labels</h1>
+<section class="mt-4">
+  <h1 class="font-[Roboto] font-semibold text-2xl mb-3">Health Labels</h1>
 
   <div class="flex mt-3 gap-8">
     <Drawer>
@@ -103,7 +109,9 @@
           <div
             class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-2 2xl:grid-cols-3 gap-3"
           >
-            {#each healthLabel[0].healthLabels as item}
+            {#each healthLabel[0].healthLabels
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 18) as item}
               <p
                 class="font-[Alkatra] text-sm mb-1 border-[#721cb4] border-dotted border-[0.5px] px-1 py-1"
               >

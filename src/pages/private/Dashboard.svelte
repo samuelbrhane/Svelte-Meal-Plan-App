@@ -6,6 +6,7 @@
     MealTypeChart,
     CombineNutrientChart,
     HealthLabel,
+    CaloriesChart,
   } from "../../components";
   import authStore from "../../stores/authStore";
   import { onMount } from "svelte";
@@ -48,6 +49,71 @@
       }
     );
   });
+
+  let totalCalories;
+  let totalCarbs;
+  let totalProtein;
+  let totalFats;
+  let sample;
+
+  $: {
+    totalCalories;
+    totalCarbs;
+    totalProtein;
+    totalFats;
+    sample;
+
+    let findDay = userMeals.find(
+      (meal) => meal.selectedDate.toString() == formattedDate
+    );
+    // if not meal created add 0
+    if (!findDay) {
+      totalCalories = 0;
+      totalCarbs = 0;
+      totalProtein = 0;
+      totalFats = 0;
+      sample = 100;
+    } else {
+      // add the total nutrient for that day
+      totalCalories = 0;
+      totalCarbs = 0;
+      totalProtein = 0;
+      totalFats = 0;
+      sample = 0;
+      findDay.breakfast.forEach((data) => {
+        totalCalories += data.calories;
+        totalCarbs += data.nutrients[1].total / 6;
+        totalProtein += data.nutrients[2].total / 2.8;
+        totalFats += data.nutrients[0].total / 2.4;
+      });
+      findDay.lunch.forEach((data) => {
+        totalCalories += data.calories;
+        totalCarbs += data.nutrients[1].total / 6;
+        totalProtein += data.nutrients[2].total / 2.8;
+        totalFats += data.nutrients[0].total / 2.4;
+      });
+      findDay.snack.forEach((data) => {
+        totalCalories += data.calories;
+        totalCarbs += data.nutrients[1].total / 6;
+        totalProtein += data.nutrients[2].total / 2.8;
+        totalFats += data.nutrients[0].total / 2.4;
+      });
+      findDay.dinner.forEach((data) => {
+        totalCalories += data.calories;
+        totalCarbs += data.nutrients[1].total / 6;
+        totalProtein += data.nutrients[2].total / 2.8;
+        totalFats += data.nutrients[0].total / 2.4;
+      });
+    }
+  }
+
+  $: averageCarbs =
+    (totalCarbs * 100) / (totalCarbs + totalProtein + totalFats);
+
+  $: averageProtein =
+    (totalProtein * 100) / (totalCarbs + totalProtein + totalFats);
+
+  $: averageFats = (totalFats * 100) / (totalCarbs + totalProtein + totalFats);
 </script>
 
 <PrivateLayout>
@@ -80,7 +146,19 @@
         <!-- meal nutrient charts -->
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
           <MealTypeChart {userMeals} {formattedDate} />
-          <HealthLabel {userMeals} {formattedDate} />
+          <div>
+            <CaloriesChart
+              {totalCalories}
+              {totalCarbs}
+              {totalProtein}
+              {totalFats}
+              {averageCarbs}
+              {averageFats}
+              {averageProtein}
+              {sample}
+            />
+            <HealthLabel {userMeals} {formattedDate} />
+          </div>
         </div>
 
         <!-- combined chart for nutrients -->

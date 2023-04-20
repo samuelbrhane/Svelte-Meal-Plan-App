@@ -73,5 +73,8 @@
 </script>
 
 <section class="my-8">
+  <h1 class="font-[Roboto] font-semibold text-2xl mb-3">
+    Weekly Nutrients Intake
+  </h1>
   <VerticalChart {days} {carbs} {protein} {fats} />
 </section>
