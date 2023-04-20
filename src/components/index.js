@@ -74,3 +74,5 @@ export { default as ShoppingList } from "./Shopping/ShoppingList.svelte";
 export { default as MealTypeChart } from "./Dashboard/MealTypeChart.svelte";
 export { default as MealChartData } from "./Dashboard/MealChartData.svelte";
 export { default as NutrientsChart } from "./Dashboard/NutrientsChart.svelte";
+export { default as CombineNutrientChart } from "./Dashboard/CombineNutrientChart.svelte";
+export { default as VerticalChart } from "./Dashboard/VerticalChart.svelte";

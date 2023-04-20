@@ -22,7 +22,7 @@
   });
 
   const createChart = (days) => {
-    const caloriesCtx = document.getElementById("caloriesChart");
+    const caloriesCtx = document.getElementById("chart");
     return new Chart(caloriesCtx, {
       type: "line",
       data: {
@@ -57,4 +57,4 @@
   };
 </script>
 
-<canvas id="caloriesChart" class="w-full max-h-[70vh]" />
+<canvas id="chart" class="w-full max-h-[70vh]" />

@@ -4,6 +4,7 @@
     PrivateLayout,
     Title,
     MealTypeChart,
+    CombineNutrientChart,
   } from "../../components";
   import authStore from "../../stores/authStore";
   import { onMount } from "svelte";
@@ -76,9 +77,10 @@
         </div>
 
         <!-- meal nutrient charts -->
-        <div>
-          <MealTypeChart {userMeals} {formattedDate} />
-        </div>
+        <MealTypeChart {userMeals} {formattedDate} />
+
+        <!-- combined chart for nutrients -->
+        <CombineNutrientChart {userMeals} {formattedDate} {startingDate} />
       {/if}
     </div>
   </section>
