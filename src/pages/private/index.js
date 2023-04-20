@@ -5,3 +5,4 @@ export { default as Calories } from "./Calories.svelte";
 export { default as Fats } from "./Fats.svelte";
 export { default as Protein } from "./Protein.svelte";
 export { default as Carbs } from "./Carbs.svelte";
+export { default as Management } from "./Management.svelte";

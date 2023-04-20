@@ -29,7 +29,8 @@
             value.pathname == "/calories" ||
             value.pathname == "/fats" ||
             value.pathname == "/carbs" ||
-            value.pathname == "/protein")
+            value.pathname == "/protein" ||
+            value.pathname == "/management")
         ) {
           navigate("/login");
         }
@@ -58,6 +59,7 @@
     Carbs,
     Dashboard,
     Fats,
+    Management,
     MealPlanner,
     Protein,
     Shopping,
@@ -69,6 +71,7 @@
   <Route path="/dashboard" component={Dashboard} />
   <Route path="/mealPlanner" component={MealPlanner} />
   <Route path="/shopping" component={Shopping} />
+  <Route path="/management" component={Management} />
   <Route path="/calories" component={Calories} />
   <Route path="/fats" component={Fats} />
   <Route path="/protein" component={Protein} />

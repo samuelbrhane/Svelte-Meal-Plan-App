@@ -88,6 +88,17 @@
               <span>Shopping</span>
             </Link>
           </li>
+          <li
+            on:select={() => isActive("/management")}
+            class={` ${
+              pathname === "/management" && "activeLink"
+            } privateLinks`}
+          >
+            <Link to="/management" class="flex items-center px-2 gap-2">
+              <Icon icon="eos-icons:cluster-management" class="text-xl" />
+              <span>Management</span>
+            </Link>
+          </li>
         </ul>
       </div>
 

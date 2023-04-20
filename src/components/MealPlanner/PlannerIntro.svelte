@@ -28,7 +28,7 @@
     Meal Planner
   </h1>
   <div
-    class="from-[#a234a4] bg-gradient-to-l to-[#44a3a3] hover:scale-[1.03] hover:to-[#433a45] hover:from-[#550e07] text-white font-[Alkatra] py-3 px-12 max-w-[400px] text-xl rounded"
+    class="from-[#a234a4] bg-gradient-to-l to-[#44a3a3] hover:scale-[1.03] hover:to-[#433a45] hover:from-[#550e07] text-white font-[Alkatra] py-3 px-6 max-w-[400px] text-lg rounded"
   >
     <p>Selected Date:</p>
     <p class="mt-1">

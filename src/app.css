@@ -44,7 +44,7 @@
   }
 
   .privateLinks {
-    @apply bg-[#a5d147] w-full py-2 rounded text-center text-white font-[Alkatra] hover:bg-[#1b6d99] hover:scale-[1.03];
+    @apply bg-[#e8dc309b] w-full py-2 rounded text-center text-white font-[Alkatra] hover:bg-[#1b6d99]  hover:scale-[1.03];
   }
 
   .activeLink {
