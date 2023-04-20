@@ -78,3 +78,6 @@ export { default as CombineNutrientChart } from "./Dashboard/CombineNutrientChar
 export { default as VerticalChart } from "./Dashboard/VerticalChart.svelte";
 export { default as HealthLabel } from "./Dashboard/HealthLabel.svelte";
 export { default as CaloriesChart } from "./Dashboard/CaloriesChart.svelte";
+
+// management page components
+export { default as Report } from "./Management/Report.svelte";

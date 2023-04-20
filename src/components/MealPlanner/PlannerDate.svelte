@@ -28,7 +28,7 @@
 <section>
   <!-- data picker  -->
   <h1 class="text-2xl xl:text-3xl mb-3 font-light font-[Merriweather]">
-    Selected Your Week
+    Select Your Week
   </h1>
 
   <!-- week start -->

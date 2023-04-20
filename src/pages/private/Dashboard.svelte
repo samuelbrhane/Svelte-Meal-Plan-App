@@ -124,20 +124,20 @@
       {:else}
         <!--title and starting day  -->
         <div class="flex justify-between flex-wrap mb-6 mt-4">
-          <Title title="Dashboard" subtitle="Overview of user meal plan" />
+          <Title title="Dashboard" subtitle="Overview of your meal plan" />
           <div>
             <!-- data picker  -->
             <h1
               class="text-2xl xl:text-3xl mb-3 font-light font-[Merriweather]"
             >
-              Selected Start Date
+              Selected The Date
             </h1>
 
             <!-- week start -->
             <div
               class="flex items-center gap-2 font-[Alkatra] text-sm font-light text-[#a3344a] mr-12"
             >
-              <h1 class="text-lg">Starting Date:</h1>
+              <h1 class="text-lg">Selected Date:</h1>
               <DateInput bind:value={startingDate} />
             </div>
           </div>

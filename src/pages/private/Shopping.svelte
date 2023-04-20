@@ -6,6 +6,7 @@
     IngredientsCard,
     PrivateLayout,
     ShoppingList,
+    Title,
   } from "../../components";
   import { DateInput } from "date-picker-svelte";
   import { onMount } from "svelte";
@@ -43,20 +44,23 @@
         <Loader />
       {:else}
         <div>
-          <!-- data picker  -->
-          <div>
-            <h1
-              class="text-2xl xl:text-3xl mb-3 font-light font-[Merriweather]"
-            >
-              Selected The Date
-            </h1>
+          <div class="flex justify-between">
+            <Title title="Shopping" subtitle="Ingredients and shopping list" />
+            <!-- data picker  -->
+            <div>
+              <h1
+                class="text-2xl xl:text-3xl mb-3 font-light font-[Merriweather]"
+              >
+                Select The Date
+              </h1>
 
-            <!-- week start -->
-            <div
-              class="flex items-center gap-2 font-[Alkatra] text-sm font-light text-[#a3344a]"
-            >
-              <h1 class="text-lg">Selected Date:</h1>
-              <DateInput bind:value={currentDate} />
+              <!-- week start -->
+              <div
+                class="flex items-center gap-2 font-[Alkatra] text-sm font-light text-[#a3344a]"
+              >
+                <h1 class="text-lg">Selected Date:</h1>
+                <DateInput bind:value={currentDate} />
+              </div>
             </div>
           </div>
 

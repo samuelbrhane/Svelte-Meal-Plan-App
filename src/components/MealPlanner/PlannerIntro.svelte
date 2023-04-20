@@ -1,6 +1,7 @@
 <script>
   import { onDestroy, onMount } from "svelte";
   import mealDateStore from "../../stores/mealDateStore";
+  import { Title } from "..";
   let mealDateStoreUnsubscribe;
   let selectedDate;
 
@@ -20,18 +21,13 @@
   });
 </script>
 
-<section class="">
-  <h1 class="text-2xl xl:text-3xl mb-3 font-light font-[Merriweather]">
-    Plan Your Week
-  </h1>
-  <h1 class="font-bold text-3xl xl:text-4xl mb-5 font-[Roboto]">
-    Meal Planner
-  </h1>
+<section class="flex flex-col justify-between">
+  <Title title="Meal Planner" subtitle="Create a meal plan" />
   <div
-    class="from-[#a234a4] bg-gradient-to-l to-[#44a3a3] hover:scale-[1.03] hover:to-[#433a45] hover:from-[#550e07] text-white font-[Alkatra] py-3 px-6 max-w-[400px] text-lg rounded"
+    class="from-[#a234a4] mt-4 bg-gradient-to-l to-[#44a3a3] hover:scale-[1.03] hover:to-[#433a45] hover:from-[#550e07] text-white font-[Alkatra] py-1 px-6 max-w-[400px] text-lg rounded"
   >
     <p>Selected Date:</p>
-    <p class="mt-1">
+    <p class="">
       {selectedDate}
     </p>
   </div>

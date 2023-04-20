@@ -29,6 +29,7 @@
     "flatpickr": "^4.6.13",
     "google-auth-library": "^8.7.0",
     "google-login-svelte": "^0.0.1",
+    "jspdf": "^2.5.1",
     "rxjs": "^7.8.0",
     "svelte-google-auth": "^0.7.2",
     "svelte-infinite-scroll": "^2.0.1",
