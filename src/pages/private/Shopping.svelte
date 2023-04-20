@@ -73,11 +73,7 @@
               <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-8 mb-6">
                 <!-- breakfast -->
                 <div class="mealType">
-                  <h1
-                    class="text-[#a343a3] text-xl font-[Alkatra] mt-5 italic uppercase"
-                  >
-                    Breakfast
-                  </h1>
+                  <h1 class="labelText">Breakfast</h1>
                   {#each selectedDayData.breakfast as mealItem}
                     <IngredientsCard {mealItem} />
                   {/each}
@@ -85,11 +81,7 @@
 
                 <!-- lunch -->
                 <div class="mealType">
-                  <h1
-                    class="text-[#a343a3] text-xl font-[Alkatra] mt-5 italic uppercase"
-                  >
-                    Lunch
-                  </h1>
+                  <h1 class="labelText">Lunch</h1>
                   {#each selectedDayData.lunch as mealItem}
                     <IngredientsCard {mealItem} />
                   {/each}
@@ -97,11 +89,7 @@
 
                 <!-- snack -->
                 <div class="mealType">
-                  <h1
-                    class="text-[#a343a3] text-xl font-[Alkatra] mt-5 italic uppercase"
-                  >
-                    Snack
-                  </h1>
+                  <h1 class="labelText">Snack</h1>
                   {#each selectedDayData.snack as mealItem}
                     <IngredientsCard {mealItem} />
                   {/each}
@@ -109,11 +97,7 @@
 
                 <!-- dinner -->
                 <div class="mealType">
-                  <h1
-                    class="text-[#a343a3] text-xl font-[Alkatra] mt-5 italic uppercase"
-                  >
-                    Dinner
-                  </h1>
+                  <h1 class="labelText">Dinner</h1>
                   {#each selectedDayData.dinner as mealItem}
                     <IngredientsCard {mealItem} />
                   {/each}

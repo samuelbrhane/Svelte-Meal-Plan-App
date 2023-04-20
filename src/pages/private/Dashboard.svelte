@@ -5,6 +5,7 @@
     Title,
     MealTypeChart,
     CombineNutrientChart,
+    HealthLabel,
   } from "../../components";
   import authStore from "../../stores/authStore";
   import { onMount } from "svelte";
@@ -56,7 +57,7 @@
         <Loader />
       {:else}
         <!--title and starting day  -->
-        <div class="flex justify-between mb-6 mt-4">
+        <div class="flex justify-between flex-wrap mb-6 mt-4">
           <Title title="Dashboard" subtitle="Overview of user meal plan" />
           <div>
             <!-- data picker  -->
@@ -77,7 +78,10 @@
         </div>
 
         <!-- meal nutrient charts -->
-        <MealTypeChart {userMeals} {formattedDate} />
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          <MealTypeChart {userMeals} {formattedDate} />
+          <HealthLabel {userMeals} {formattedDate} />
+        </div>
 
         <!-- combined chart for nutrients -->
         <CombineNutrientChart {userMeals} {formattedDate} {startingDate} />

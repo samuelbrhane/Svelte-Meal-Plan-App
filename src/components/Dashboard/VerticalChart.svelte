@@ -4,7 +4,6 @@
   export let carbs;
   export let fats;
   export let protein;
-  $: console.log("carbs", carbs);
 
   let chart = null;
 

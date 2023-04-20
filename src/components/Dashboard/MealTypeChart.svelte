@@ -16,7 +16,7 @@
     <p class="font-[Alkatra] mt-1 font-light mb-1">
       No Meal Plan Is Created For The Selected Day.
     </p>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- breakfast chart -->
       <NutrientsChart id="breakfastChart" title="Breakfast Nutrients Chart" />
 

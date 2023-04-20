@@ -55,6 +55,10 @@
     scroll-snap-align: center;
   }
 
+  .labelText {
+    @apply text-[#a343a3] text-xl font-[Alkatra] mt-3 uppercase;
+  }
+
   .chartCard {
     @apply max-w-[280px] max-h-[280px] shadow p-4 hover:scale-[1.01];
   }
