@@ -1,8 +1,8 @@
 <script>
   import Icon from "@iconify/svelte";
-  import { mealCategories } from "../../utils/mealCategories";
+  import { mealCategories } from "../utils/mealCategories";
   let currentCategory = 1;
-  import { updateStore } from "../../stores/recipeStore";
+  import { updateStore } from "../stores/recipeStore";
 
   // search meal on category
   const handleSearch = (category) => {

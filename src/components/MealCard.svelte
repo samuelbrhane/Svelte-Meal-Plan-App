@@ -6,6 +6,8 @@
   import Icon from "@iconify/svelte";
   import plannerCalorieStore from "../stores/plannedCalorieStore";
 
+  export let page;
+  $: console.log("page: " + page);
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];
 
@@ -27,7 +29,7 @@
       healthLabels: item.recipe.healthLabels,
       ingredientLines: item.recipe.ingredientLines,
       ingredients: item.recipe.ingredients,
-      calories: item.recipe.calories / 4,
+      calories: item.recipe.calories,
       nutrients: item.recipe.digest,
     };
 
@@ -140,12 +142,12 @@
       </p>
       <p>
         Protein: <span class="text-[#3472a2]"
-          >{(item?.recipe?.digest[2].total / 2.8).toFixed(2)} g</span
+          >{(item?.recipe?.digest[2].total / 3).toFixed(2)} g</span
         >
       </p>
       <p>
         Fats: <span class="text-[#34a23d]"
-          >{(item?.recipe?.digest[0].total / 2.4).toFixed(2)} g</span
+          >{(item?.recipe?.digest[0].total / 5).toFixed(2)} g</span
         >
       </p>
       <p>

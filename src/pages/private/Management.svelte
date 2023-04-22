@@ -5,6 +5,7 @@
     PrivateLayout,
     Report,
     Title,
+    UpdatePlan,
     UserMealsTable,
   } from "../../components";
   import authStore from "../../stores/authStore";
@@ -62,9 +63,9 @@
               <Meals page="Management" />
             </div>
 
-            <!-- create meal plan cart -->
+            <!-- update meal plan cart -->
             <div class="xl:w-[35%]">
-              <p>update meal</p>
+              <UpdatePlan />
             </div>
           </div>
         {/if}

@@ -1,7 +1,8 @@
 <script>
   export let mealItem = {};
   import Icon from "@iconify/svelte";
-  import mealStore from "../../stores/mealStore";
+  import mealStore from "../stores/mealStore";
+  import manageMealStore from "../stores/manageMealStore";
 
   // remove meal from the meal store
   const removeMeal = () => {
@@ -64,16 +65,16 @@
     <div class="text-[11px] text-gray-400 grid grid-cols-2 mt-1">
       <p>
         Calories:
-        {(mealItem?.calories).toFixed(2)} kcal
+        {(mealItem?.calories / 4).toFixed(2)} kcal
       </p>
       <p>
-        Protein: {(mealItem?.nutrients[2].total / 2.8).toFixed(2)} g
+        Protein: {(mealItem?.nutrients[2].total / 3).toFixed(2)} g
       </p>
       <p>
-        Fats: {(mealItem?.nutrients[0].total / 2.4).toFixed(2)} g
+        Fats: {(mealItem?.nutrients[0].total / 5).toFixed(2)} g
       </p>
       <p>
-        Carbs: {(mealItem?.nutrients[1].total / 6).toFixed(2)} g
+        Carbs: {(mealItem?.nutrients[1].total / 5).toFixed(2)} g
       </p>
     </div>
   </div>

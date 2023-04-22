@@ -4,15 +4,9 @@
   import mealDateStore from "../../stores/mealDateStore";
   import mealStore from "../../stores/mealStore";
   import plannerCalorieStore from "../../stores/plannedCalorieStore";
-  import {
-    CalorieCalculator,
-    CalorieTracker,
-    CreateMealCard,
-    MealTypeChart,
-  } from "..";
+  import { CalorieCalculator, CalorieTracker, ManageMealCard } from "..";
   import authStore from "../../stores/authStore";
   import axios from "axios";
-  import { baseBackendUrl } from "../../utils/routes/authRoutes";
   import { mainMealRoute } from "../../utils/routes/mealRoutes";
   import { toast } from "@zerodevx/svelte-toast";
   import { errorClasses } from "../../utils/toast/toastCustom";
@@ -59,12 +53,10 @@
   };
 
   $: totalCalorieAdded =
-    breakfastCalories + lunchCalories + snackCalories + dinnerCalories;
+    (breakfastCalories + lunchCalories + snackCalories + dinnerCalories) / 4;
 
   $: averageCalorieAdded =
-    ((breakfastCalories + lunchCalories + snackCalories + dinnerCalories) *
-      100) /
-    $plannerCalorieStore.plannerCalories;
+    (totalCalorieAdded * 100) / $plannerCalorieStore.plannerCalories;
 
   // create new meal plan
   const createMealPlan = async () => {
@@ -187,7 +179,7 @@
         <div class="mealBox">Add Breakfast Meals Here.</div>
       {:else}
         {#each $mealStore.breakfast as mealItem}
-          <CreateMealCard {mealItem} />
+          <ManageMealCard {mealItem} />
         {/each}
       {/if}
     </button>
@@ -204,7 +196,7 @@
         <div class="mealBox">Add Lunch Meals Here.</div>
       {:else}
         {#each $mealStore.lunch as mealItem}
-          <CreateMealCard {mealItem} />
+          <ManageMealCard {mealItem} />
         {/each}
       {/if}
     </button>
@@ -221,7 +213,7 @@
         <div class="mealBox">Add Snack Meals Here.</div>
       {:else}
         {#each $mealStore.snack as mealItem}
-          <CreateMealCard {mealItem} />
+          <ManageMealCard {mealItem} />
         {/each}
       {/if}
     </button>
@@ -238,7 +230,7 @@
         <div class="mealBox">Add Dinner Meals Here.</div>
       {:else}
         {#each $mealStore.dinner as mealItem}
-          <CreateMealCard {mealItem} />
+          <ManageMealCard {mealItem} />
         {/each}
       {/if}
     </button>

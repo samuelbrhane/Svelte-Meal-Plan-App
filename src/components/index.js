@@ -8,6 +8,8 @@ export { default as Title } from "./Title.svelte";
 export { default as NutrientsLineChart } from "./NutrientsLineChart.svelte";
 export { default as Meals } from "./Meals.svelte";
 export { default as MealCard } from "./MealCard.svelte";
+export { default as MealCategories } from "./MealCategories.svelte";
+export { default as ManageMealCard } from "./ManageMealCard.svelte";
 
 // Welcome page components
 export { default as Hero } from "./Welcome/Hero.svelte";
@@ -61,8 +63,6 @@ export { default as PrivateLayout } from "./PrivateComponents/PrivateLayout.svel
 export { default as PlannerDate } from "./MealPlanner/PlannerDate.svelte";
 export { default as PlannerIntro } from "./MealPlanner/PlannerIntro.svelte";
 export { default as CreatePlan } from "./MealPlanner/CreatePlan.svelte";
-export { default as MealCategories } from "./MealPlanner/MealCategories.svelte";
-export { default as CreateMealCard } from "./MealPlanner/CreateMealCard.svelte";
 export { default as CalorieCalculator } from "./MealPlanner/CalorieCalculator.svelte";
 export { default as CalorieTracker } from "./MealPlanner/CalorieTracker.svelte";
 
@@ -82,3 +82,4 @@ export { default as CaloriesChart } from "./Dashboard/CaloriesChart.svelte";
 // management page components
 export { default as Report } from "./Management/Report.svelte";
 export { default as UserMealsTable } from "./Management/UserMealsTable.svelte";
+export { default as UpdatePlan } from "./Management/UpdatePlan.svelte";

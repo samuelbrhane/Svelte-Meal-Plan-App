@@ -3,6 +3,7 @@
   export let userMeals;
   import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
   import { Label } from "@smui/common";
+  import manageMealStore from "../../stores/manageMealStore";
 
   //   add pagination
   let rowsPerPage = 10;
@@ -15,6 +16,27 @@
   $: if (currentPage > lastPage) {
     currentPage = lastPage;
   }
+
+  // update management meal store for updating
+  const updateManagementStore = (item) => {
+    manageMealStore.update((mealStore) => {
+      return {
+        ...mealStore,
+        id: item.id,
+        selectedDate: item.selectedDate,
+        breakfast: item.breakfast,
+        lunch: item.lunch,
+        snack: item.snack,
+        dinner: item.dinner,
+      };
+    });
+  };
+
+  // delete single meal
+  const deleteMeal = (item) => {};
+
+  // generate report for the selected date
+  const generateReport = (item) => {};
 </script>
 
 <section>
@@ -65,20 +87,29 @@
           >
 
           <!-- managing meal data -->
-          <Cell class="cell ">
+          <Cell class="cell">
             <!-- edit meal  -->
             <div class="flex gap-2 justify-between items-center text-lg">
-              <button class="text-[#34a470] hover:scale-[1.01]">
+              <button
+                class="text-[#34a470] hover:scale-[1.01]"
+                on:click={() => updateManagementStore(item)}
+              >
                 <Icon icon="material-symbols:edit" />
               </button>
 
               <!-- delete meal -->
-              <button class="text-[#a43449] hover:scale-[1.01]">
+              <button
+                class="text-[#a43449] hover:scale-[1.01]"
+                on:click={() => deleteMeal(item)}
+              >
                 <Icon icon="ic:sharp-delete" />
               </button>
 
               <!-- generate report -->
-              <button class="text-[#4a34a4] hover:scale-[1.01]">
+              <button
+                class="text-[#4a34a4] hover:scale-[1.01]"
+                on:click={() => generateReport(item)}
+              >
                 <Icon icon="mdi:file-report" />
               </button>
             </div>

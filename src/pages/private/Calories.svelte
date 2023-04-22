@@ -58,16 +58,16 @@
         let currentDateCalories = 0;
 
         findDay.breakfast.forEach((data) => {
-          currentDateCalories += data.calories;
+          currentDateCalories += data.calories / 4;
         });
         findDay.lunch.forEach((data) => {
-          currentDateCalories += data.calories;
+          currentDateCalories += data.calories / 4;
         });
         findDay.snack.forEach((data) => {
-          currentDateCalories += data.calories;
+          currentDateCalories += data.calories / 4;
         });
         findDay.dinner.forEach((data) => {
-          currentDateCalories += data.calories;
+          currentDateCalories += data.calories / 4;
         });
         calories.push(currentDateCalories);
       }

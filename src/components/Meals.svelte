@@ -85,7 +85,7 @@
       </div>
       <div class="flex flex-col gap-3 pt-1">
         {#each mealsData.slice(indexOfFirstPage, indexOfLastPage) as item}
-          <MealCard {item} />
+          <MealCard {item} {page} />
         {/each}
       </div>
 
