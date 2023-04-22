@@ -2,6 +2,7 @@
   export let item = {};
   import mealStore from "../stores/mealStore";
   import StarRating from "svelte-star-rating";
+  import manageMealStore from "../stores/manageMealStore";
   let ratings = [3, 3.5, 4, 4.5, 5];
   import Icon from "@iconify/svelte";
   import plannerCalorieStore from "../stores/plannedCalorieStore";
@@ -19,7 +20,7 @@
   };
   const style = "padding: 12px;";
 
-  // add new meal
+  // add new meal to mealStore or manageMealStore
   const addMeal = () => {
     // format meal item
     const formattedItem = {
@@ -33,78 +34,164 @@
       nutrients: item.recipe.digest,
     };
 
-    if ($plannerCalorieStore.plannerCalories) {
-      switch ($mealStore.selectedMeal) {
-        // add breakfast
-        case "breakfast":
-          // check meal already exists
-          let breakfastMealExists = $mealStore.breakfast.find(
-            (meal) => meal.uri == formattedItem.uri
-          );
+    switch (page) {
+      case "MealPlanner":
+        if ($plannerCalorieStore.plannerCalories) {
+          switch ($mealStore.selectedMeal) {
+            // add breakfast
+            case "breakfast":
+              // check meal already exists
+              let breakfastMealExists = $mealStore.breakfast.find(
+                (meal) => meal.uri == formattedItem.uri
+              );
 
-          // add meal to breakfast list
-          if (!breakfastMealExists) {
-            mealStore.update((mealData) => {
-              return {
-                ...mealData,
-                breakfast: [...mealData.breakfast, formattedItem],
-              };
-            });
+              // add meal to breakfast list
+              if (!breakfastMealExists) {
+                mealStore.update((mealData) => {
+                  return {
+                    ...mealData,
+                    breakfast: [...mealData.breakfast, formattedItem],
+                  };
+                });
+              }
+
+              break;
+            // add lunch
+            case "lunch":
+              // check meal already exists
+
+              let lunchMealExists = $mealStore.lunch.find(
+                (meal) => meal.uri == formattedItem.uri
+              );
+              // add meal to lunch list
+              if (!lunchMealExists) {
+                mealStore.update((mealData) => {
+                  return {
+                    ...mealData,
+                    lunch: [...mealData.lunch, formattedItem],
+                  };
+                });
+              }
+
+              break;
+            // add snack
+            case "snack":
+              // check meal already exists
+
+              let snackMealExists = $mealStore.snack.find(
+                (meal) => meal.uri == formattedItem.uri
+              );
+              // add meal to snack list
+              if (!snackMealExists) {
+                mealStore.update((mealData) => {
+                  return {
+                    ...mealData,
+                    snack: [...mealData.snack, formattedItem],
+                  };
+                });
+              }
+
+              break;
+            // add dinner
+            case "dinner":
+              // check meal already exists
+              let dinnerMealExists = $mealStore.dinner.find(
+                (meal) => meal.uri == formattedItem.uri
+              );
+              // add meal to dinner list
+              if (!dinnerMealExists) {
+                mealStore.update((mealData) => {
+                  return {
+                    ...mealData,
+                    dinner: [...mealData.dinner, formattedItem],
+                  };
+                });
+              }
+              break;
+
+            default:
+              break;
           }
+        } else {
+          $plannerCalorieStore.errorMessage =
+            "Please add planned calories first.";
+        }
+        break;
+      case "Management":
+        switch ($manageMealStore.selectedMeal) {
+          // add breakfast
+          case "breakfast":
+            // check meal already exists
+            let breakfastMealExists = $manageMealStore.breakfast.find(
+              (meal) => meal.uri == formattedItem.uri
+            );
 
-          break;
-        // add lunch
-        case "lunch":
-          // check meal already exists
+            // add meal to breakfast list
+            if (!breakfastMealExists) {
+              manageMealStore.update((mealData) => {
+                return {
+                  ...mealData,
+                  breakfast: [...mealData.breakfast, formattedItem],
+                };
+              });
+            }
+            break;
 
-          let lunchMealExists = $mealStore.lunch.find(
-            (meal) => meal.uri == formattedItem.uri
-          );
-          // add meal to lunch list
-          if (!lunchMealExists) {
-            mealStore.update((mealData) => {
-              return { ...mealData, lunch: [...mealData.lunch, formattedItem] };
-            });
-          }
+          // add lunch
+          case "lunch":
+            // check meal already exists
+            let lunchMealExists = $manageMealStore.lunch.find(
+              (meal) => meal.uri == formattedItem.uri
+            );
+            // add meal to lunch list
+            if (!lunchMealExists) {
+              manageMealStore.update((mealData) => {
+                return {
+                  ...mealData,
+                  lunch: [...mealData.lunch, formattedItem],
+                };
+              });
+            }
+            break;
 
-          break;
-        // add snack
-        case "snack":
-          // check meal already exists
+          // add snack
+          case "snack":
+            // check meal already exists
+            let snackMealExists = $manageMealStore.snack.find(
+              (meal) => meal.uri == formattedItem.uri
+            );
+            // add meal to snack list
+            if (!snackMealExists) {
+              manageMealStore.update((mealData) => {
+                return {
+                  ...mealData,
+                  snack: [...mealData.snack, formattedItem],
+                };
+              });
+            }
+            break;
 
-          let snackMealExists = $mealStore.snack.find(
-            (meal) => meal.uri == formattedItem.uri
-          );
-          // add meal to snack list
-          if (!snackMealExists) {
-            mealStore.update((mealData) => {
-              return { ...mealData, snack: [...mealData.snack, formattedItem] };
-            });
-          }
-
-          break;
-        // add dinner
-        case "dinner":
-          // check meal already exists
-          let dinnerMealExists = $mealStore.dinner.find(
-            (meal) => meal.uri == formattedItem.uri
-          );
-          // add meal to dinner list
-          if (!dinnerMealExists) {
-            mealStore.update((mealData) => {
-              return {
-                ...mealData,
-                dinner: [...mealData.dinner, formattedItem],
-              };
-            });
-          }
-          break;
-
-        default:
-          break;
-      }
-    } else {
-      $plannerCalorieStore.errorMessage = "Please add planned calories first.";
+          // add dinner
+          case "dinner":
+            // check meal already exists
+            let dinnerMealExists = $manageMealStore.dinner.find(
+              (meal) => meal.uri == formattedItem.uri
+            );
+            // add meal to dinner list
+            if (!dinnerMealExists) {
+              manageMealStore.update((mealData) => {
+                return {
+                  ...mealData,
+                  dinner: [...mealData.dinner, formattedItem],
+                };
+              });
+            }
+            break;
+          default:
+            break;
+        }
+      default:
+        break;
     }
   };
 </script>

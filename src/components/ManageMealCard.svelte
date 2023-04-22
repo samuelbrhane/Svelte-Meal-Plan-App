@@ -3,49 +3,26 @@
   import Icon from "@iconify/svelte";
   import mealStore from "../stores/mealStore";
   import manageMealStore from "../stores/manageMealStore";
+  import { removeMealFromCart } from "../utils/functions/removeMealFromCart";
+  export let page;
 
   // remove meal from the meal store
   const removeMeal = () => {
-    switch ($mealStore.selectedMeal) {
-      // remove meal from breakfast data
-      case "breakfast":
-        mealStore.update((mealData) => {
-          let filterMealData = mealData.breakfast.filter(
-            (meal) => meal.uri != mealItem.uri
-          );
-          return { ...mealData, breakfast: filterMealData };
-        });
+    switch (page) {
+      // remove items in MealPlanner page
+      case "MealPlanner":
+        removeMealFromCart(mealStore, $mealStore.selectedMeal, mealItem);
         break;
 
-      // remove meal from lunch data
-      case "lunch":
-        mealStore.update((mealData) => {
-          let filterMealData = mealData.lunch.filter(
-            (meal) => meal.uri != mealItem.uri
-          );
-          return { ...mealData, lunch: filterMealData };
-        });
+      // remove meal in Management page
+      case "Management":
+        removeMealFromCart(
+          manageMealStore,
+          $manageMealStore.selectedMeal,
+          mealItem
+        );
         break;
 
-      // remove meal from snack data
-      case "snack":
-        mealStore.update((mealData) => {
-          let filterMealData = mealData.snack.filter(
-            (meal) => meal.uri != mealItem.uri
-          );
-          return { ...mealData, snack: filterMealData };
-        });
-        break;
-
-      // remove meal from dinner data
-      case "dinner":
-        mealStore.update((mealData) => {
-          let filterMealData = mealData.dinner.filter(
-            (meal) => meal.uri != mealItem.uri
-          );
-          return { ...mealData, dinner: filterMealData };
-        });
-        break;
       default:
         break;
     }

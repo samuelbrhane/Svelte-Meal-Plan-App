@@ -179,7 +179,7 @@
         <div class="mealBox">Add Breakfast Meals Here.</div>
       {:else}
         {#each $mealStore.breakfast as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="MealPlanner" />
         {/each}
       {/if}
     </button>
@@ -196,7 +196,7 @@
         <div class="mealBox">Add Lunch Meals Here.</div>
       {:else}
         {#each $mealStore.lunch as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="MealPlanner" />
         {/each}
       {/if}
     </button>
@@ -213,7 +213,7 @@
         <div class="mealBox">Add Snack Meals Here.</div>
       {:else}
         {#each $mealStore.snack as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="MealPlanner" />
         {/each}
       {/if}
     </button>
@@ -230,7 +230,7 @@
         <div class="mealBox">Add Dinner Meals Here.</div>
       {:else}
         {#each $mealStore.dinner as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="MealPlanner" />
         {/each}
       {/if}
     </button>

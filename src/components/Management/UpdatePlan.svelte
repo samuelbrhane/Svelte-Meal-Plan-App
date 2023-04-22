@@ -25,54 +25,49 @@
   };
 
   $: totalCalorieAdded =
-    breakfastCalories + lunchCalories + snackCalories + dinnerCalories;
+    (breakfastCalories + lunchCalories + snackCalories + dinnerCalories) / 4;
 
   // create new meal plan
-  // const createMealPlan = async () => {
-  //   const user = $authStore.token.access;
-  //   let selectedDate = $mealDateStore.selectedDate;
-
-  //   // change starting date format
-  //   let day = selectedDate.getDate().toString().padStart(2, "0");
-  //   let month = (selectedDate.getMonth() + 1).toString().padStart(2, "0");
-  //   let year = selectedDate.getFullYear().toString().slice(-2);
-  //   let formattedDate = `${day}-${month}-${year}`;
-
-  //   const breakfast = $mealStore.breakfast;
-  //   const lunch = $mealStore.lunch;
-  //   const snack = $mealStore.snack;
-  //   const dinner = $mealStore.dinner;
-  //   const formBody = {
-  //     selectedDate: formattedDate,
-  //     lunch,
-  //     snack,
-  //     dinner,
-  //     breakfast,
-  //   };
-
-  //   // create a new meal plan
-  //   const { data } = await axios.post(`${mainMealRoute}`, formBody, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `JWT ${user}`,
-  //     },
-  //   });
-
-  //   // check error message
-  //   if (data.error) {
-  //     toast.push(data.error, { theme: errorClasses });
-  //   } else {
-  //     // update meal store
-  //     mealStore.update((mealData) => {
-  //       return { ...mealData, breakfast: [], lunch: [], snack: [], dinner: [] };
-  //     });
-
-  //     // update plannerCalorieStore
-  //     plannerCalorieStore.update((planned) => {
-  //       return { ...planned, plannerCalories: null };
-  //     });
-  //   }
-  // };
+  const updateMealPlan = async () => {
+    // const user = $authStore.token.access;
+    // let selectedDate = $mealDateStore.selectedDate;
+    // // change starting date format
+    // let day = selectedDate.getDate().toString().padStart(2, "0");
+    // let month = (selectedDate.getMonth() + 1).toString().padStart(2, "0");
+    // let year = selectedDate.getFullYear().toString().slice(-2);
+    // let formattedDate = `${day}-${month}-${year}`;
+    // const breakfast = $mealStore.breakfast;
+    // const lunch = $mealStore.lunch;
+    // const snack = $mealStore.snack;
+    // const dinner = $mealStore.dinner;
+    // const formBody = {
+    //   selectedDate: formattedDate,
+    //   lunch,
+    //   snack,
+    //   dinner,
+    //   breakfast,
+    // };
+    // // create a new meal plan
+    // const { data } = await axios.post(`${mainMealRoute}`, formBody, {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: `JWT ${user}`,
+    //   },
+    // });
+    // // check error message
+    // if (data.error) {
+    //   toast.push(data.error, { theme: errorClasses });
+    // } else {
+    //   // update meal store
+    //   mealStore.update((mealData) => {
+    //     return { ...mealData, breakfast: [], lunch: [], snack: [], dinner: [] };
+    //   });
+    //   // update plannerCalorieStore
+    //   plannerCalorieStore.update((planned) => {
+    //     return { ...planned, plannerCalories: null };
+    //   });
+    // }
+  };
 </script>
 
 <section class="shadow-md px-4 py-8 font-[Alkatra]">
@@ -80,6 +75,9 @@
   <h1 class="font-bold font-[Roboto] text-3xl">Update Your Meal Plan</h1>
   {#if $manageMealStore.selectedDate}
     <p class="text-sm font-light">{$manageMealStore.selectedDate}</p>
+    <p class="text-[#234a33] text-center">
+      Calories Added: {parseInt(totalCalorieAdded)} kcal
+    </p>
   {/if}
 
   <div class="flex flex-col gap-5 mt-4">
@@ -94,7 +92,7 @@
         <div class="mealBox">Add Breakfast Meals Here.</div>
       {:else}
         {#each $manageMealStore.breakfast as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="Management" />
         {/each}
       {/if}
     </button>
@@ -106,12 +104,12 @@
     >
       <h1 class="mealText">Lunch</h1>
 
-      <!-- check meal store length for lunch-->
+      <!-- check manage meal store length for lunch-->
       {#if $manageMealStore.lunch.length == 0}
         <div class="mealBox">Add Lunch Meals Here.</div>
       {:else}
         {#each $manageMealStore.lunch as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="Management" />
         {/each}
       {/if}
     </button>
@@ -128,7 +126,7 @@
         <div class="mealBox">Add Snack Meals Here.</div>
       {:else}
         {#each $manageMealStore.snack as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="Management" />
         {/each}
       {/if}
     </button>
@@ -145,13 +143,14 @@
         <div class="mealBox">Add Dinner Meals Here.</div>
       {:else}
         {#each $manageMealStore.dinner as mealItem}
-          <ManageMealCard {mealItem} />
+          <ManageMealCard {mealItem} page="Management" />
         {/each}
       {/if}
     </button>
 
     <!-- create meal  -->
     <button
+      on:click={updateMealPlan}
       class="bg-[#1f7aac] w-full py-2 rounded text-white font-[Alkatra] hover:scale-[1.01]"
     >
       Update Plan
