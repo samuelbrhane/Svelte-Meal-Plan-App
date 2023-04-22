@@ -51,7 +51,7 @@
         Fats: {(mealItem?.nutrients[0].total / 5).toFixed(2)} g
       </p>
       <p>
-        Carbs: {(mealItem?.nutrients[1].total / 5).toFixed(2)} g
+        Carbs: {(mealItem?.nutrients[1].total / 4).toFixed(2)} g
       </p>
     </div>
   </div>

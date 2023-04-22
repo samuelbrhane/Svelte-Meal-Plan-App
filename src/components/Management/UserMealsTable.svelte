@@ -67,22 +67,22 @@
           <Cell class="cell">{item.selectedDate}</Cell>
           <Cell class="cell">
             {#each item.breakfast as meal}
-              {meal.title}
+              {meal.title} {"  "}
             {/each}
           </Cell>
           <Cell class="cell">
             {#each item.lunch as meal}
-              {meal.title}
+              {meal.title} {"  "}
             {/each}</Cell
           >
           <Cell class="cell">
             {#each item.snack as meal}
-              {meal.title}
+              {meal.title} {"  "}
             {/each}</Cell
           >
           <Cell class="cell">
             {#each item.dinner as meal}
-              {meal.title}
+              {meal.title} {"  "}
             {/each}</Cell
           >
 

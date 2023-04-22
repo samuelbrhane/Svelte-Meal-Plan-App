@@ -2,6 +2,11 @@
   import manageMealStore from "../../stores/manageMealStore";
   import { ManageMealCard } from "..";
   import checkDateStore from "../../stores/checkDateStore";
+  import authStore from "../../stores/authStore";
+  import axios from "axios";
+  import { mainMealRoute } from "../../utils/routes/mealRoutes";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
   let selectedMeal = "breakfast";
 
   $: breakfastCalories = $manageMealStore.breakfast
@@ -30,44 +35,43 @@
 
   // create new meal plan
   const updateMealPlan = async () => {
-    // const user = $authStore.token.access;
-    // let selectedDate = $mealDateStore.selectedDate;
-    // // change starting date format
-    // let day = selectedDate.getDate().toString().padStart(2, "0");
-    // let month = (selectedDate.getMonth() + 1).toString().padStart(2, "0");
-    // let year = selectedDate.getFullYear().toString().slice(-2);
-    // let formattedDate = `${day}-${month}-${year}`;
-    // const breakfast = $mealStore.breakfast;
-    // const lunch = $mealStore.lunch;
-    // const snack = $mealStore.snack;
-    // const dinner = $mealStore.dinner;
-    // const formBody = {
-    //   selectedDate: formattedDate,
-    //   lunch,
-    //   snack,
-    //   dinner,
-    //   breakfast,
-    // };
-    // // create a new meal plan
-    // const { data } = await axios.post(`${mainMealRoute}`, formBody, {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: `JWT ${user}`,
-    //   },
-    // });
-    // // check error message
-    // if (data.error) {
-    //   toast.push(data.error, { theme: errorClasses });
-    // } else {
-    //   // update meal store
-    //   mealStore.update((mealData) => {
-    //     return { ...mealData, breakfast: [], lunch: [], snack: [], dinner: [] };
-    //   });
-    //   // update plannerCalorieStore
-    //   plannerCalorieStore.update((planned) => {
-    //     return { ...planned, plannerCalories: null };
-    //   });
-    // }
+    const user = $authStore.token.access;
+
+    const breakfast = $manageMealStore.breakfast;
+    const lunch = $manageMealStore.lunch;
+    const snack = $manageMealStore.snack;
+    const dinner = $manageMealStore.dinner;
+    const selectedDate = $manageMealStore.selectedDate;
+    const mealId = $manageMealStore.id;
+
+    const formBody = {
+      selectedDate,
+      lunch,
+      snack,
+      dinner,
+      breakfast,
+    };
+    // update a meal plan
+    await axios.put(`${mainMealRoute}${mealId}/`, formBody, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${user}`,
+      },
+    });
+
+    // update meal store
+    manageMealStore.update((mealData) => {
+      return {
+        ...mealData,
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+        selectedDate: null,
+        id: null,
+      };
+    });
+    toast.push("Meal Updated Successfully.", { theme: successClasses });
   };
 </script>
 

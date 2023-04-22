@@ -105,7 +105,7 @@
       </p>
       <p>
         Carbs: <span class="text-[#5a269e]"
-          >{(item?.recipe?.digest[1].total / 5).toFixed(2)} g</span
+          >{(item?.recipe?.digest[1].total / 4).toFixed(2)} g</span
         >
       </p>
     </div>

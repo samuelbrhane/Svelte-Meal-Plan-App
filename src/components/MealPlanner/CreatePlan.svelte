@@ -9,7 +9,7 @@
   import axios from "axios";
   import { mainMealRoute } from "../../utils/routes/mealRoutes";
   import { toast } from "@zerodevx/svelte-toast";
-  import { errorClasses } from "../../utils/toast/toastCustom";
+  import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -102,6 +102,8 @@
       plannerCalorieStore.update((planned) => {
         return { ...planned, plannerCalories: null };
       });
+
+      toast.push("Meal Created Successfully.", { theme: successClasses });
     }
   };
 </script>

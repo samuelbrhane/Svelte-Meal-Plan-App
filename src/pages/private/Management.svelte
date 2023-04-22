@@ -13,7 +13,7 @@
   import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
   import { searchRecipe } from "../../stores/recipeStore";
 
-  let loading;
+  let loading = true;
   let userMeals = [];
   // let errorMessage;
 
@@ -39,7 +39,7 @@
         <Title title="Management" subtitle="Manage your meal plan" />
 
         <!-- check user meal length -->
-        {#if userMeals && userMeals.length == 0}
+        {#if userMeals.length == 0}
           <div
             class="flex flex-col text-xl gap-2 font-bold font-[Alkatra] mt-4"
           >
