@@ -1,9 +1,10 @@
 <script>
   import { onDestroy, onMount } from "svelte";
-  import mealDateStore from "../../stores/mealDateStore";
-  import { Loader, MealCategories, MealCard, PaginationBtn } from "..";
-  import { recipeStore, updateStore } from "../../stores/recipeStore";
+  import { Loader, MealCategories, MealCard, PaginationBtn } from "./";
+  import mealDateStore from "../stores/mealDateStore";
+  import { recipeStore, updateStore } from "../stores/recipeStore";
 
+  export let page;
   let searchWord = "";
   let day;
   let mealDateStoreUnsubscribe;
@@ -45,9 +46,11 @@
 
 {#if day}
   <section>
-    <h1 class="text-3xl font-[Roboto] mb-4">
-      What Is The Plan For {day.split(",")[0]}?
-    </h1>
+    {#if page == "MealPlanner"}
+      <h1 class="text-3xl font-[Roboto] mb-4">
+        What Is The Plan For {day.split(",")[0]}?
+      </h1>
+    {/if}
 
     <!-- meal categories -->
     <MealCategories />

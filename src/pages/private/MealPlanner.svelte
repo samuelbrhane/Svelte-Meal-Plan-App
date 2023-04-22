@@ -32,7 +32,7 @@
       >
         <!-- meals -->
         <div class="xl:w-[65%]">
-          <Meals />
+          <Meals page="MealPlanner" />
         </div>
 
         <!-- create meal plan cart -->

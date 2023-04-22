@@ -1,11 +1,10 @@
 <script>
   export let item = {};
-  import mealStore from "../../stores/mealStore";
+  import mealStore from "../stores/mealStore";
   import StarRating from "svelte-star-rating";
   let ratings = [3, 3.5, 4, 4.5, 5];
   import Icon from "@iconify/svelte";
-  import plannerCalorieStore from "../../stores/plannedCalorieStore";
-  import { faqItems } from "../../utils/faqItems";
+  import plannerCalorieStore from "../stores/plannedCalorieStore";
 
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];

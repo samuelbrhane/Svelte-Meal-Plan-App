@@ -5,7 +5,6 @@ const recipeStore = writable({ data: [], loading: true });
 
 //   Search Recipes
 let searchRecipe = async (searchWord) => {
-  console.log("called searchRecipe method");
   recipeStore.set({ data: [], loading: true });
   searchWord = searchWord === "All" ? "food" : searchWord;
   let currentKey;

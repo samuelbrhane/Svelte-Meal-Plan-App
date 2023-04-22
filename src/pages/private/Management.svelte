@@ -1,6 +1,7 @@
 <script>
   import {
     Loader,
+    Meals,
     PrivateLayout,
     Report,
     Title,
@@ -9,12 +10,13 @@
   import authStore from "../../stores/authStore";
   import { onMount } from "svelte";
   import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
+  import { searchRecipe } from "../../stores/recipeStore";
 
   let loading;
   let userMeals = [];
   // let errorMessage;
 
-  // fetch user's meal data
+  // fetch user's meal and recipe
   onMount(() => {
     fetchUserMeals($authStore.userId, $authStore.token.access).then(
       (response) => {
@@ -22,6 +24,7 @@
         userMeals = response.userMeals;
       }
     );
+    searchRecipe("All");
   });
 </script>
 
@@ -48,6 +51,21 @@
           <!-- show user meals -->
           <div>
             <UserMealsTable {userMeals} />
+          </div>
+
+          <!-- update meals -->
+          <div
+            class="flex flex-col xl:flex-row mt-4 py-3 gap-4 md:gap-8 lg:gap-12 xl:gap-16 border-t-2 border-[#86116d] border-dashed"
+          >
+            <!-- meals -->
+            <div class="xl:w-[65%]">
+              <Meals page="Management" />
+            </div>
+
+            <!-- create meal plan cart -->
+            <div class="xl:w-[35%]">
+              <p>update meal</p>
+            </div>
           </div>
         {/if}
       </div>

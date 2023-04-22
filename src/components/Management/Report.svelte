@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import jsPDF from "jspdf";
 
   const sections = [
@@ -56,4 +56,4 @@
 
 <div class="bg-green-400">
   <button class="bg-red-400" on:click={downloadPDF}>Download Report</button>
-</div>
+</div> -->
