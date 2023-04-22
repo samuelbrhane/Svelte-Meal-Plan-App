@@ -6,6 +6,8 @@
   let ratings = [3, 3.5, 4, 4.5, 5];
   import Icon from "@iconify/svelte";
   import plannerCalorieStore from "../stores/plannedCalorieStore";
+  import { addMealToCart } from "../utils/functions/addMealToCart";
+  import checkDateStore from "../stores/checkDateStore";
 
   export let page;
   $: console.log("page: " + page);
@@ -37,159 +39,23 @@
     switch (page) {
       case "MealPlanner":
         if ($plannerCalorieStore.plannerCalories) {
-          switch ($mealStore.selectedMeal) {
-            // add breakfast
-            case "breakfast":
-              // check meal already exists
-              let breakfastMealExists = $mealStore.breakfast.find(
-                (meal) => meal.uri == formattedItem.uri
-              );
-
-              // add meal to breakfast list
-              if (!breakfastMealExists) {
-                mealStore.update((mealData) => {
-                  return {
-                    ...mealData,
-                    breakfast: [...mealData.breakfast, formattedItem],
-                  };
-                });
-              }
-
-              break;
-            // add lunch
-            case "lunch":
-              // check meal already exists
-
-              let lunchMealExists = $mealStore.lunch.find(
-                (meal) => meal.uri == formattedItem.uri
-              );
-              // add meal to lunch list
-              if (!lunchMealExists) {
-                mealStore.update((mealData) => {
-                  return {
-                    ...mealData,
-                    lunch: [...mealData.lunch, formattedItem],
-                  };
-                });
-              }
-
-              break;
-            // add snack
-            case "snack":
-              // check meal already exists
-
-              let snackMealExists = $mealStore.snack.find(
-                (meal) => meal.uri == formattedItem.uri
-              );
-              // add meal to snack list
-              if (!snackMealExists) {
-                mealStore.update((mealData) => {
-                  return {
-                    ...mealData,
-                    snack: [...mealData.snack, formattedItem],
-                  };
-                });
-              }
-
-              break;
-            // add dinner
-            case "dinner":
-              // check meal already exists
-              let dinnerMealExists = $mealStore.dinner.find(
-                (meal) => meal.uri == formattedItem.uri
-              );
-              // add meal to dinner list
-              if (!dinnerMealExists) {
-                mealStore.update((mealData) => {
-                  return {
-                    ...mealData,
-                    dinner: [...mealData.dinner, formattedItem],
-                  };
-                });
-              }
-              break;
-
-            default:
-              break;
-          }
+          // add meal item in MealPlanner page
+          addMealToCart(mealStore, $mealStore, formattedItem);
         } else {
           $plannerCalorieStore.errorMessage =
             "Please add planned calories first.";
         }
         break;
+
+      // add meal item in Management page
       case "Management":
-        switch ($manageMealStore.selectedMeal) {
-          // add breakfast
-          case "breakfast":
-            // check meal already exists
-            let breakfastMealExists = $manageMealStore.breakfast.find(
-              (meal) => meal.uri == formattedItem.uri
-            );
-
-            // add meal to breakfast list
-            if (!breakfastMealExists) {
-              manageMealStore.update((mealData) => {
-                return {
-                  ...mealData,
-                  breakfast: [...mealData.breakfast, formattedItem],
-                };
-              });
-            }
-            break;
-
-          // add lunch
-          case "lunch":
-            // check meal already exists
-            let lunchMealExists = $manageMealStore.lunch.find(
-              (meal) => meal.uri == formattedItem.uri
-            );
-            // add meal to lunch list
-            if (!lunchMealExists) {
-              manageMealStore.update((mealData) => {
-                return {
-                  ...mealData,
-                  lunch: [...mealData.lunch, formattedItem],
-                };
-              });
-            }
-            break;
-
-          // add snack
-          case "snack":
-            // check meal already exists
-            let snackMealExists = $manageMealStore.snack.find(
-              (meal) => meal.uri == formattedItem.uri
-            );
-            // add meal to snack list
-            if (!snackMealExists) {
-              manageMealStore.update((mealData) => {
-                return {
-                  ...mealData,
-                  snack: [...mealData.snack, formattedItem],
-                };
-              });
-            }
-            break;
-
-          // add dinner
-          case "dinner":
-            // check meal already exists
-            let dinnerMealExists = $manageMealStore.dinner.find(
-              (meal) => meal.uri == formattedItem.uri
-            );
-            // add meal to dinner list
-            if (!dinnerMealExists) {
-              manageMealStore.update((mealData) => {
-                return {
-                  ...mealData,
-                  dinner: [...mealData.dinner, formattedItem],
-                };
-              });
-            }
-            break;
-          default:
-            break;
+        if ($manageMealStore.selectedDate) {
+          // add meal item in MealPlanner page
+          addMealToCart(manageMealStore, $manageMealStore, formattedItem);
+        } else {
+          $checkDateStore.errorMessage = "Please select updating meal first.";
         }
+
       default:
         break;
     }

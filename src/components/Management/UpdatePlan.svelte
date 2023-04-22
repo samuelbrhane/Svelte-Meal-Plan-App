@@ -1,6 +1,7 @@
 <script>
   import manageMealStore from "../../stores/manageMealStore";
   import { ManageMealCard } from "..";
+  import checkDateStore from "../../stores/checkDateStore";
   let selectedMeal = "breakfast";
 
   $: breakfastCalories = $manageMealStore.breakfast
@@ -73,10 +74,16 @@
 <section class="shadow-md px-4 py-8 font-[Alkatra]">
   <!-- intro -->
   <h1 class="font-bold font-[Roboto] text-3xl">Update Your Meal Plan</h1>
+
+  <!-- check if meal is selected -->
   {#if $manageMealStore.selectedDate}
     <p class="text-sm font-light">{$manageMealStore.selectedDate}</p>
     <p class="text-[#234a33] text-center">
       Calories Added: {parseInt(totalCalorieAdded)} kcal
+    </p>
+  {:else}
+    <p class="text-[#234a33] text-center mt-3">
+      {$checkDateStore.errorMessage}
     </p>
   {/if}
 
