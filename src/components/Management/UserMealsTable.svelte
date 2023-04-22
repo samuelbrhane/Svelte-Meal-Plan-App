@@ -4,6 +4,11 @@
   import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
   import { Label } from "@smui/common";
   import manageMealStore from "../../stores/manageMealStore";
+  import axios from "axios";
+  import { mainMealRoute } from "../../utils/routes/mealRoutes";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { successClasses } from "../../utils/toast/toastCustom";
+  import authStore from "../../stores/authStore";
 
   //   add pagination
   let rowsPerPage = 10;
@@ -33,7 +38,15 @@
   };
 
   // delete single meal
-  const deleteMeal = (item) => {};
+  const deleteMeal = async (id) => {
+    await axios.delete(`${mainMealRoute}${id}/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `JWT ${$authStore.token.access}`,
+      },
+    });
+    toast.push("Meal Deleted Successfully.", { theme: successClasses });
+  };
 
   // generate report for the selected date
   const generateReport = (item) => {};
@@ -100,7 +113,7 @@
               <!-- delete meal -->
               <button
                 class="text-[#a43449] hover:scale-[1.01]"
-                on:click={() => deleteMeal(item)}
+                on:click={() => deleteMeal(item.id)}
               >
                 <Icon icon="ic:sharp-delete" />
               </button>

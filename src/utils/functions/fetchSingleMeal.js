@@ -4,7 +4,6 @@ let loading = true;
 let userMeal = [];
 let errorMessage = "";
 export const fetchSingleMeal = async (selectedDate, token) => {
-  console.log("meal fetched");
   loading = true;
   const response = await fetch(`${mainMealRoute}date/${selectedDate}/`, {
     headers: {

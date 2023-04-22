@@ -1,12 +1,12 @@
 <script>
   import manageMealStore from "../../stores/manageMealStore";
-  import { ManageMealCard } from "..";
+  import { ManageMealCard, ManagementTitle } from "..";
   import checkDateStore from "../../stores/checkDateStore";
   import authStore from "../../stores/authStore";
   import axios from "axios";
   import { mainMealRoute } from "../../utils/routes/mealRoutes";
   import { toast } from "@zerodevx/svelte-toast";
-  import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
+  import { successClasses } from "../../utils/toast/toastCustom";
   let selectedMeal = "breakfast";
 
   $: breakfastCalories = $manageMealStore.breakfast
@@ -81,10 +81,7 @@
 
   <!-- check if meal is selected -->
   {#if $manageMealStore.selectedDate}
-    <p class="text-sm font-light">{$manageMealStore.selectedDate}</p>
-    <p class="text-[#234a33] text-center">
-      Calories Added: {parseInt(totalCalorieAdded)} kcal
-    </p>
+    <ManagementTitle {totalCalorieAdded} />
   {:else}
     <p class="text-[#234a33] text-center mt-3">
       {$checkDateStore.errorMessage}

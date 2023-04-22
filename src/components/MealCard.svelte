@@ -10,7 +10,7 @@
   import checkDateStore from "../stores/checkDateStore";
 
   export let page;
-  $: console.log("page: " + page);
+
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];
 
