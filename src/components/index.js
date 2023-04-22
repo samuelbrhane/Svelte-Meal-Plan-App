@@ -81,3 +81,4 @@ export { default as CaloriesChart } from "./Dashboard/CaloriesChart.svelte";
 
 // management page components
 export { default as Report } from "./Management/Report.svelte";
+export { default as UserMealsTable } from "./Management/UserMealsTable.svelte";
