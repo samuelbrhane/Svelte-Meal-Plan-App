@@ -37,9 +37,4 @@ let searchRecipe = async (searchWord) => {
   recipeStore.set({ data: data.hits, loading: false });
 };
 
-// Export a function to update the store when the user clicks a button
-const updateStore = (searchWord) => {
-  searchRecipe(searchWord);
-};
-
-export { updateStore, recipeStore, searchRecipe };
+export { recipeStore, searchRecipe };

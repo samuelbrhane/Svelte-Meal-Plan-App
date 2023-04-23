@@ -8,7 +8,7 @@
   } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
   import { onMount } from "svelte";
-  import { updateStore, searchRecipe } from "../../stores/recipeStore";
+  import { searchRecipe } from "../../stores/recipeStore";
   let searchWord = "";
   onMount(() => {
     searchRecipe("All");
@@ -16,7 +16,7 @@
 
   // handle recipe search
   let handleRecipeSearch = async () => {
-    updateStore(searchWord);
+    searchRecipe(searchWord);
     searchWord = "";
   };
 </script>

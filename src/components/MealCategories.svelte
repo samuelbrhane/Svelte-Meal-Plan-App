@@ -2,12 +2,12 @@
   import Icon from "@iconify/svelte";
   import { mealCategories } from "../utils/mealCategories";
   let currentCategory = 1;
-  import { updateStore } from "../stores/recipeStore";
+  import { searchRecipe } from "../stores/recipeStore";
 
   // search meal on category
   const handleSearch = (category) => {
     currentCategory = category.id;
-    updateStore(category.title);
+    searchRecipe(category.title);
   };
 </script>
 

@@ -9,6 +9,7 @@
   import { toast } from "@zerodevx/svelte-toast";
   import { successClasses } from "../../utils/toast/toastCustom";
   import authStore from "../../stores/authStore";
+  import { generateReport } from "../../utils/functions/generateReport";
 
   //   add pagination
   let rowsPerPage = 10;
@@ -39,17 +40,19 @@
 
   // delete single meal
   const deleteMeal = async (id) => {
+    // delete meal from the database
     await axios.delete(`${mainMealRoute}${id}/`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `JWT ${$authStore.token.access}`,
       },
     });
+
+    // socket emit to delete meal
     toast.push("Meal Deleted Successfully.", { theme: successClasses });
   };
 
-  // generate report for the selected date
-  const generateReport = (item) => {};
+  // Update the meals array when a meal is deleted or updated via websocket
 </script>
 
 <section>
@@ -121,7 +124,7 @@
               <!-- generate report -->
               <button
                 class="text-[#4a34a4] hover:scale-[1.01]"
-                on:click={() => generateReport(item)}
+                on:click={() => generateReport(item, $authStore.userName)}
               >
                 <Icon icon="mdi:file-report" />
               </button>

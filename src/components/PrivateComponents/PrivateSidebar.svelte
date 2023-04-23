@@ -39,10 +39,10 @@
 </script>
 
 <main class="bg-[#47153e] text-white w-[250px] h-full flex flex-col">
-  <div class="py-6">
+  <div class="py-2">
     <!-- Add site title -->
     <Link to="/" class="flex items-center gap-2">
-      <img src="/media/title.png" alt="Logo" class="w-12 h-12" />
+      <img src="/media/title.png" alt="Logo" class="w-10 h-10" />
       <h1 class="text-xl font-bold text-[#3789b9] uppercase">Plate plan</h1>
     </Link>
   </div>
@@ -50,12 +50,12 @@
   <div class="p-4 flex flex-col justify-between flex-grow">
     <div>
       <!-- dashboard total overview -->
-      <div class="mb-4">
+      <div class="mb-2">
         <Link to="/dashboard" class="font-bold font-[Roboto] text-2xl"
           >Overview</Link
         >
 
-        <ul class="flex flex-col items-center gap-4 text-[16px] mt-2 px-3">
+        <ul class="flex flex-col items-center gap-3 text-[16px] mt-2 px-3">
           <li
             on:select={() => isActive("/dashboard")}
             class={` ${pathname === "/dashboard" && "activeLink"} privateLinks`}
@@ -108,7 +108,7 @@
           >Nutrients</Link
         >
         <!-- Links -->
-        <ul class="flex flex-col items-center gap-4 text-[16px] mt-2 px-3">
+        <ul class="flex flex-col items-center gap-3 text-[16px] mt-2 px-3">
           <li
             on:select={() => isActive("/calories")}
             class={` ${pathname === "/calories" && "activeLink"} privateLinks`}

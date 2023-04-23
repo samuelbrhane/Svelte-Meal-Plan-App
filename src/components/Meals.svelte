@@ -2,7 +2,7 @@
   import { onDestroy, onMount } from "svelte";
   import { Loader, MealCategories, MealCard, PaginationBtn } from "./";
   import mealDateStore from "../stores/mealDateStore";
-  import { recipeStore, updateStore } from "../stores/recipeStore";
+  import { recipeStore, searchRecipe } from "../stores/recipeStore";
 
   export let page;
   let searchWord = "";
@@ -39,7 +39,7 @@
 
   // handle meal search
   const handleSearch = () => {
-    updateStore(searchWord);
+    searchRecipe(searchWord);
     searchWord = "";
   };
 </script>
