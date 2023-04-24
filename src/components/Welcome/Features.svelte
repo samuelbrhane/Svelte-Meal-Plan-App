@@ -6,7 +6,7 @@
 <section class="bg-[#d7d9d9]">
   <div class="max-w-6xl mx-auto px-3 py-6">
     <h1
-      class="text-center text-2xl md:text-3xl lg:text-4xl font-bold font-[Roboto] mb-6"
+      class="text-center text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-bold font-[Roboto] mb-6"
     >
       Plate Plan Features
     </h1>

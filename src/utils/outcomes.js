@@ -2,29 +2,29 @@ export const outcomes = [
   {
     id: 1,
     icon: "solar:medal-star-square-bold-duotone",
-    title: "Preventative lifestyles",
+    title: "Protective habits",
     content:
-      "Those who cook at home regularly are 28% less likely to have an overweight BMI, protecting against hypertension, high cholesterol, and diabetes type II.",
+      "Take charge of your health and enjoy the benefits of a healthy lifestyle. Eat a healthy and balanced diet to lower your risk of diseases like diabetes and heart disease.",
   },
   {
     id: 2,
     icon: "material-symbols:monitor-heart-rounded",
-    title: "Reduced healthcare costs",
+    title: "Resourceful healthcare management",
     content:
-      "Those who cook at home regularly are 28% less likely to have an overweight BMI, protecting against hypertension, high cholesterol, and diabetes type II.",
+      "Save money on healthcare costs by being proactive about your health. Preventative measures like regular exercise, healthy eating, and preventative screenings to help catch health problems early.",
   },
   {
     id: 3,
     icon: "bx:recycle",
-    title: "Reduced food waste",
+    title: "Optimized food consumption",
     content:
-      "Every time employees use Mealime, they reduce food waste in their household. The cumulative result across an organization is often substantial.",
+      "Minimize food waste and save money. By taking steps to reduce food waste, such as planning meals in advance, using up leftovers, and properly storing food save money on groceries.",
   },
   {
     id: 4,
     icon: "fluent:fast-acceleration-20-filled",
-    title: "Improved productivity",
+    title: "Heightened work rate",
     content:
-      "Every time employees use Mealime, they reduce food waste in their household. The cumulative result across an organization is often substantial.",
+      "Maximize productivity by optimizing your workflow. Create a streamlined workflow to complete tasks more efficiently, make fewer errors, and accomplish more in less time.",
   },
 ];

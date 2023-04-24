@@ -4,7 +4,11 @@
 </script>
 
 <section id="Pricing" class="px-4 relative lg:px-20 xl:px-30 py-12">
-  <h1 class="text-center font-semibold text-3xl font-[Roboto]">Pricing Plan</h1>
+  <h1
+    class="text-center font-semibold text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-[Roboto]"
+  >
+    Pricing Plan
+  </h1>
   <h1 class="text-center font-bold text-xl mt-2 mb-6 font-[Merriweather]">
     Choose your pricing policy
   </h1>

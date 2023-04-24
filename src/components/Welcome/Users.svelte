@@ -11,22 +11,27 @@
       We have more than thousand of worldwide happy customer.
     </h1>
 
-    <p class="mt-3 lg:mt-5 font-[Merriweather]">
-      Co-working offers beautifully crafted workspaces where people can create,
-      connect, and grow their businesses at prime locations in multiple cities.
-    </p>
+    <div class="font-[Alkatra] flex flex-col gap-2">
+      <p>
+        Our meal planning application has thousands of happy users who have
+        discovered a new level of convenience and control over their diets.
+      </p>
 
-    <p class="mt-1 font-[Merriweather]">
-      Co-working offers beautifully crafted workspaces where people can create,
-      connect, and grow their businesses at prime locations in multiple cities.
-    </p>
+      <p>
+        With our fully customizable plans, users can set caloric and macro
+        goals, choose their preferred foods, and even accommodate restrictions
+        and allergies.
+      </p>
 
-    <div class="flex gap-1 items-center mt-3 lg:mt-5 font-[Alkatra] text-sm">
-      <p class="text-lg font-semibold">Unlimited design possibility</p>
-    </div>
-
-    <div class="flex gap-1 items-center font-[Alkatra] text-sm">
-      <p class="text-lg font-semibold">Unlimited design possibility</p>
+      <p>
+        We take pride in the positive feedback we receive from our users, who
+        have reported increased energy, weight loss, and better overall health
+        as a result of using our meal planning application.
+      </p>
+      <p>
+        Join our community of happy users today and discover the benefits of
+        taking control of your diet!
+      </p>
     </div>
   </div>
 </div>

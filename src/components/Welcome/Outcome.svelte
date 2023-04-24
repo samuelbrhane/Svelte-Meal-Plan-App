@@ -16,7 +16,7 @@
     <!-- outcomes -->
     <div class="mt-6 lg:mt-0">
       <h1
-        class="text-3xl lg:text-4xl xl:text-[50px] font-bold font-[Roboto] mb-3 lg:mb-6"
+        class="text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-bold font-[Roboto] mb-3 lg:mb-6"
       >
         Life changing Outcomes
       </h1>

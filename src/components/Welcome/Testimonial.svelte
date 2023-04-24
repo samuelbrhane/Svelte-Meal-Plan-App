@@ -16,7 +16,7 @@
   >
     <div class=" py-6">
       <h1
-        class="text-center text-3xl lg:text-4xl font-semibold font-[Roboto] mb-4"
+        class="text-center text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-semibold font-[Roboto] mb-4"
       >
         The benefits are lasting
       </h1>
