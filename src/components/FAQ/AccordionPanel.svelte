@@ -6,7 +6,7 @@
 
 <button
   on:click={() => (active = !active)}
-  class={`text-[#444] font-[Merriweather] mb-1 cursor-pointer p-3 rounded-md w-full flex items-center justify-between text-left outline-none hover:bg-gray-100 duration-200`}
+  class={`text-[#444] font-[Alkatra] mb-1 cursor-pointer p-3 rounded-md w-full flex items-center justify-between text-left outline-none hover:bg-gray-100 duration-200`}
 >
   {item?.title}
   <Icon icon="material-symbols:add" class={`${active ? "hidden" : "inline"}`} />
@@ -20,5 +20,5 @@
     active && "h-[140px] md:h-[120px] py-2"
   }`}
 >
-  <p class="px-3 text-sm ">{item?.content}</p>
+  <p class="px-3 text-sm font-[Alkatra] text-[#383838]">{item?.content}</p>
 </div>

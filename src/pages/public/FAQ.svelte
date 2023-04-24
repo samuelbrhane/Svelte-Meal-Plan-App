@@ -25,7 +25,7 @@
         <div class="max-w-6xl mx-auto px-3">
           <!-- faq -->
           <h1
-            class="font-semibold font-[Merriweather] mt-8 text-xl md:text-2xl lg:text-3xl"
+            class="font-semibold font-[Merriweather] mt-8 text-[#a32389] text-3xl lg:text-4xl xl:text-[42px]"
           >
             Frequently Asked Questions
           </h1>

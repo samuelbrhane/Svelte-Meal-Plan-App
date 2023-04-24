@@ -16,16 +16,16 @@
       <!-- create account -->
       <div class="">
         <h1
-          class="text-xl font-bold mb-3 md:text-2xl xl:text-3xl font-[Merriweather]"
+          class="text-xl font-bold mb-3 md:text-2xl xl:text-3xl font-[Merriweather] text-[#a32389]"
         >
           Create Your Account Today
         </h1>
         <p class="font-semibold font-[Alkatra] md:text-lg mb-2">
-          Try Eat This Much for yourself, risk-free with our 30-day,
-          no-questions-asked refund policy!
+          Give Plate Plan a try, without any risk with our 30-day, hassle-free
+          refund policy!
         </p>
-        <p class="font-[Merriweather] font-semibold">
-          Only $4.99/month or $49/year if you choose to subscribe.
+        <p class="font-[Alkatra] font-semibold">
+          Only $9.99/month or $99/year if you choose to subscribe.
         </p>
       </div>
 

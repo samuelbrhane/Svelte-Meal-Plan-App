@@ -82,7 +82,7 @@
             logout();
             navigate("/");
           }}
-          class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
+          class="px-12 hover:scale-[1.03] font-[Roboto] py-2 text-xl bg-[#44a0d6] rounded-lg text-white font-semibold"
           >Sign Out</button
         >
         <div class="text-sm mt-1 flex items-center gap-[6px]">
@@ -95,7 +95,7 @@
       <div class="hidden lg:flex flex-col items-center">
         <Link
           to="/register"
-          class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
+          class="px-12 hover:scale-[1.03] font-[Roboto] py-2 text-xl bg-[#44a0d6] rounded-lg text-white font-semibold"
           >Register</Link
         >
         <div class="text-sm mt-1 flex items-center gap-[6px]">

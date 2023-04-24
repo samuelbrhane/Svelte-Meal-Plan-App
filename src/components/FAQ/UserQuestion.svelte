@@ -6,14 +6,16 @@
 <!-- users' additional question form -->
 <section class="bg-[#eae8e8cd] py-7">
   <div class="max-w-6xl mx-auto px-3">
-    <h1 class="font-semibold font-[Merriweather] text-xl lg:text-2xl mb-3">
+    <h1
+      class="font-semibold font-[Roboto] text-3xl md:text-4xl xl:text-[30px] lg:text-2xl mb-3 text-[#a32389]"
+    >
       Have a different question?
     </h1>
-    <p>
+    <p class="font-[Alkatra]">
       At the core of our values is providing exceptional personalized assistance
       to each and every one of our clients. Should you require further
       clarification, feel free to peruse our extensive repository of knowledge
-      at the Plan to Eat Knowledge Base. Alternatively, you may reach out to us
+      at Plate Plan Knowledge Base. Alternatively, you may reach out to us
       through the messaging function below for a casual chat. Our team is
       available on weekdays from 9 to 5 Mountain time, and we are committed to
       responding to your queries within 12 hours, even if they are sent beyond
@@ -21,7 +23,7 @@
     </p>
 
     <!-- form -->
-    <form class="mt-4">
+    <form class="mt-4 font-[Alkatra]">
       <input
         type="email"
         placeholder="Enter Your Email"
