@@ -3,7 +3,6 @@
     Loader,
     Meals,
     PrivateLayout,
-    Report,
     Title,
     UpdatePlan,
     UserMealsTable,
@@ -12,9 +11,9 @@
   import { onMount } from "svelte";
   import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
   import { searchRecipe } from "../../stores/recipeStore";
+  import userMealStore from "../../stores/userMealStore";
 
   let loading = true;
-  let userMeals = [];
   // let errorMessage;
 
   // fetch user's meal and recipe
@@ -22,7 +21,7 @@
     fetchUserMeals($authStore.userId, $authStore.token.access).then(
       (response) => {
         loading = response.loading;
-        userMeals = response.userMeals;
+        $userMealStore.userMeals = response.userMeals;
       }
     );
     searchRecipe("All");
@@ -39,11 +38,13 @@
         <Title title="Management" subtitle="Manage your meal plan" />
 
         <!-- check user meal length -->
-        {#if userMeals.length == 0}
+        {#if $userMealStore.userMeals.length == 0}
           <div
             class="flex flex-col text-xl gap-2 font-bold font-[Alkatra] mt-4"
           >
-            <p class="text-[#35a1a3]">No Meal Is Created For This Date.</p>
+            <p class="text-[#35a1a3]">
+              No Meal Plan Is Created At This Moment.
+            </p>
             <p class="text-[#a33589]">
               Please Go To Meal Planner And Create A Meal First.
             </p>
@@ -51,7 +52,7 @@
         {:else}
           <!-- show user meals -->
           <div>
-            <UserMealsTable {userMeals} />
+            <UserMealsTable />
           </div>
 
           <!-- update meals -->

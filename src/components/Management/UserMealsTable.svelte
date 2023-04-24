@@ -1,6 +1,5 @@
 <script>
   import Icon from "@iconify/svelte";
-  export let userMeals;
   import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
   import { Label } from "@smui/common";
   import manageMealStore from "../../stores/manageMealStore";
@@ -10,14 +9,18 @@
   import { successClasses } from "../../utils/toast/toastCustom";
   import authStore from "../../stores/authStore";
   import { generateReport } from "../../utils/functions/generateReport";
+  import userMealStore from "../../stores/userMealStore";
 
   //   add pagination
   let rowsPerPage = 10;
   let currentPage = 0;
   $: start = currentPage * rowsPerPage;
-  $: end = Math.min(start + rowsPerPage, userMeals.length);
-  $: slice = userMeals.slice(start, end);
-  $: lastPage = Math.max(Math.ceil(userMeals.length / rowsPerPage) - 1, 0);
+  $: end = Math.min(start + rowsPerPage, $userMealStore.userMeals.length);
+  $: slice = $userMealStore.userMeals.slice(start, end);
+  $: lastPage = Math.max(
+    Math.ceil($userMealStore.userMeals.length / rowsPerPage) - 1,
+    0
+  );
 
   $: if (currentPage > lastPage) {
     currentPage = lastPage;
@@ -40,6 +43,10 @@
 
   // delete single meal
   const deleteMeal = async (id) => {
+    $userMealStore.userMeals = $userMealStore.userMeals.filter(
+      (meal) => meal.id !== id
+    );
+
     // delete meal from the database
     await axios.delete(`${mainMealRoute}${id}/`, {
       headers: {
@@ -48,11 +55,8 @@
       },
     });
 
-    // socket emit to delete meal
     toast.push("Meal Deleted Successfully.", { theme: successClasses });
   };
-
-  // Update the meals array when a meal is deleted or updated via websocket
 </script>
 
 <section>
@@ -147,7 +151,7 @@
     </div>
 
     <div class="whitespace-nowrap text-lg">
-      {start + 1}-{end} of {userMeals.length}
+      {start + 1}-{end} of {$userMealStore.userMeals.length}
     </div>
 
     <div class="flex text-xl gap-3">

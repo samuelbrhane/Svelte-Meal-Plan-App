@@ -80,7 +80,6 @@ export { default as HealthLabel } from "./Dashboard/HealthLabel.svelte";
 export { default as CaloriesChart } from "./Dashboard/CaloriesChart.svelte";
 
 // management page components
-export { default as Report } from "./Management/Report.svelte";
 export { default as UserMealsTable } from "./Management/UserMealsTable.svelte";
 export { default as UpdatePlan } from "./Management/UpdatePlan.svelte";
 export { default as ManagementTitle } from "./Management/ManagementTitle.svelte";

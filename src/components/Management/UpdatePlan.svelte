@@ -7,6 +7,8 @@
   import { mainMealRoute } from "../../utils/routes/mealRoutes";
   import { toast } from "@zerodevx/svelte-toast";
   import { successClasses } from "../../utils/toast/toastCustom";
+  import userMealStore from "../../stores/userMealStore";
+
   let selectedMeal = "breakfast";
 
   $: breakfastCalories = $manageMealStore.breakfast
@@ -43,6 +45,13 @@
     const dinner = $manageMealStore.dinner;
     const selectedDate = $manageMealStore.selectedDate;
     const mealId = $manageMealStore.id;
+
+    $userMealStore.userMeals = $userMealStore.userMeals.map((meal) => {
+      if (meal.id == mealId) {
+        return { ...meal, breakfast, lunch, snack, dinner };
+      }
+      return meal;
+    });
 
     const formBody = {
       selectedDate,
