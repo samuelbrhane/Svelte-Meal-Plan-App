@@ -95,12 +95,12 @@
       </p>
       <p>
         Protein: <span class="text-[#3472a2]"
-          >{(item?.recipe?.digest[2].total / 5).toFixed(2)} g</span
+          >{(item?.recipe?.digest[2].total / 4).toFixed(2)} g</span
         >
       </p>
       <p>
         Fats: <span class="text-[#34a23d]"
-          >{(item?.recipe?.digest[0].total / 6).toFixed(2)} g</span
+          >{(item?.recipe?.digest[0].total / 5).toFixed(2)} g</span
         >
       </p>
       <p>

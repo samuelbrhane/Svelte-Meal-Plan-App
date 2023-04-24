@@ -33,8 +33,8 @@
         max = 220;
       } else {
         // average calories for male
-        min = 250;
-        max = 270;
+        min = 240;
+        max = 260;
       }
       let reducedCalories = (min * 20) / 100;
       //   reduce 20%
@@ -54,11 +54,11 @@
         max = max - 3 * percentCalorie;
       }
 
-      if (+age < 40 || +weight < 80 || +height < 180) {
+      if ((+age < 40 && +weight > 80) || (+age < 40 && +height > 180)) {
         min = min + percentCalorie;
         max = max + percentCalorie;
       }
-      if (+weight < 110 || +height < 220) {
+      if (+weight > 110 || +height > 220) {
         min = min + 2 * percentCalorie;
         max = max + 2 * percentCalorie;
       }

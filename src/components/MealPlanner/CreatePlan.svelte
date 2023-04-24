@@ -53,7 +53,7 @@
   };
 
   $: totalCalorieAdded =
-    (breakfastCalories + lunchCalories + snackCalories + dinnerCalories) / 4;
+    (breakfastCalories + lunchCalories + snackCalories + dinnerCalories) / 3;
 
   $: averageCalorieAdded =
     (totalCalorieAdded * 100) / $plannerCalorieStore.plannerCalories;

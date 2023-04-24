@@ -33,7 +33,7 @@
   };
 
   $: totalCalorieAdded =
-    (breakfastCalories + lunchCalories + snackCalories + dinnerCalories) / 4;
+    (breakfastCalories + lunchCalories + snackCalories + dinnerCalories) / 3;
 
   // create new meal plan
   const updateMealPlan = async () => {
