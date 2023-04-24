@@ -1,6 +1,7 @@
 <script>
   import { Route, navigate, useLocation } from "svelte-navigator";
   import { onMount, onDestroy } from "svelte";
+  import NotFound from "../../pages/404NotFound.svelte";
   export let userData;
 
   let location = useLocation();
@@ -89,4 +90,7 @@
     path="/password/reset/confirm/:uid/:token"
     component={ResetPasswordConfirm}
   />
+
+  <!-- page not found -->
+  <Route path="/*" component={NotFound} />
 </div>
