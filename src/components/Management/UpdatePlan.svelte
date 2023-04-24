@@ -8,6 +8,7 @@
   import { toast } from "@zerodevx/svelte-toast";
   import { successClasses } from "../../utils/toast/toastCustom";
   import userMealStore from "../../stores/userMealStore";
+  import { socket } from "../../utils/socket/socket";
 
   let selectedMeal = "breakfast";
 
@@ -68,6 +69,17 @@
         Authorization: `JWT ${user}`,
       },
     });
+
+    socket.on("meal_updated", (updatedMeal) => {
+      $userMealStore.userMeals = $userMealStore.userMeals.map((meal) => {
+        if (meal.id == updatedMeal.id) {
+          return updatedMeal;
+        }
+        return meal;
+      });
+    });
+
+    socket.emit("update_meal", formBody);
 
     // update meal store
     manageMealStore.update((mealData) => {

@@ -10,6 +10,7 @@
   import authStore from "../../stores/authStore";
   import { generateReport } from "../../utils/functions/generateReport";
   import userMealStore from "../../stores/userMealStore";
+  import { socket } from "../../utils/socket/socket";
 
   //   add pagination
   let rowsPerPage = 10;
@@ -56,6 +57,11 @@
       },
     });
 
+    socket.on("meal_deleted", (mealId) => {
+      $userMealStore.userMeals = $userMealStore.userMeals.filter(
+        (meal) => meal.id !== mealId
+      );
+    });
     toast.push("Meal Deleted Successfully.", { theme: successClasses });
   };
 </script>
