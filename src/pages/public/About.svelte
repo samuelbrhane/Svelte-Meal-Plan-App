@@ -27,10 +27,10 @@
         class="flex justify-center w-full top-[20vh] h-[20vh] md:h-[16vh] lg:top-[50vh] lg:h-[28vh] absolute left-0 z-20"
       >
         <div
-          class="bg-[#d7d9d9] text-black max-w-6xl mx-auto font-bold h-full font-[Merriweather] py-8 px-8 md:py-10 md:px-20 lg:px-30 xl:px-40 text-xl md:text-3xl xl:text-4xl"
+          class="bg-[#d7d9d9] text-[#a32389] max-w-7xl mx-auto font-bold h-full font-[Merriweather] py-8 px-8 md:py-10 md:px-20 lg:px-30 xl:px-30 text-xl md:text-3xl xl:text-4xl"
         >
-          <h1 class="mb-4">It's not just about cooking...</h1>
-          <h1 class="text-center">it's about connection.</h1>
+          <h1 class="text-start mb-4 mr-24">It's not just about eating...</h1>
+          <h1 class="text-end">it's about the relationships.</h1>
         </div>
       </div>
 
@@ -53,14 +53,14 @@
 
         <!-- About Content -->
 
-        <!-- Our Story -->
-        <OurStory />
+        <!-- Why we do it -->
+        <WhyWeDo />
 
         <!-- service -->
         <OurService />
 
-        <!-- Why we do it -->
-        <WhyWeDo />
+        <!-- Our Story -->
+        <OurStory />
 
         <!-- how it works -->
         <div class="px-4">
@@ -70,7 +70,7 @@
         <!-- Why people love plate plan -->
         <div class="max-w-6xl mx-auto px-3 mb-8 text-center">
           <h1
-            class="mb-3 font-bold text-xl md:text-2xl lg:text-3xl font-[Roboto]"
+            class="mb-3 font-bold text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto]"
           >
             Why people love Plate Plan
           </h1>

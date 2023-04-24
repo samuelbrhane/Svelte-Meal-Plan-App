@@ -10,7 +10,7 @@
 
 <Layout>
   <section class="pt-[80px] lg:pt-[100px]">
-    <div class="w-full relative bg-red-400">
+    <div class="w-full relative">
       <!-- bg-image -->
       <img
         src="/media/recipeBg1.jpg"

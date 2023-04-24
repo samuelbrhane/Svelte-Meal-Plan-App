@@ -3,19 +3,19 @@
     class="max-w-6xl mx-auto px-3 grid grid-cols-1 md:grid-cols-2 h-full gap-12 lg:gap-20 xl:gap-24 items-center"
   >
     <div class="">
-      <h1 class="title">Why we do it.</h1>
+      <h1 class="title">Our Story.</h1>
       <p>
-        Our physical and emotional health is directly tied to what we eat, and
-        the best way to ensure we are getting the highest quality food is to
-        prepare it at home.
+        Our story began with a group of health enthusiasts who were frustrated
+        with the lack of options when it came to meal planning apps.
       </p>
       <p>
-        Without a system to organize recipes, plan menus, and compile shopping
-        lists, our kitchens will lack the ingredients we need to prepare our
-        meals.
+        We saw a need for a more personalized and user-friendly approach to meal
+        planning that would help people stay on track with their health goals
+        without sacrificing taste or convenience.
       </p>
-      Our hope is that Plan to Eat will equip you to prepare delicious, wholesome
-      food at home that nourishes both body and soul.
+      Today, Plate Plan is proud to be one of the leading meal planning apps on the
+      market. Our app is designed to be intuitive and easy-to-use, with features
+      that cater to individual dietary needs, preferences, and goals.
       <p />
     </div>
 

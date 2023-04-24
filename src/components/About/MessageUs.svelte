@@ -19,22 +19,26 @@
     >
       <div>
         <h1
-          class="text-xl font-bold md:text-2xl lg:text-3xl xl:text-4xl font-[Roboto] mb-6"
+          class="font-bold text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto] mb-6"
         >
           Questions?
         </h1>
-        <p class="font-[Merriweather]">
+        <p class="font-[Alkatra]">
           Personal service is one of the things we pride ourselves on most. If
-          you have questions, comments, or would just like to chat, we’re always
-          here. You can get in touch by filling out the form below. We’re here
-          weekdays from 9-5 Mountain time. If you send a message outside of
-          business hours we’ll do our best to get back to you within 12 hours.
+          you have questions, comments, or would just like to chat, we&#39;re
+          always here. You can get in touch by filling out the form below.
+          We&#39;re here weekdays from 9-5 Mountain time. If you send a message
+          outside of business hours we&#39;ll do our best to get back to you
+          within 12 hours.
         </p>
       </div>
 
       <!-- Question form -->
       <div class="bg-white rounded-xl shadow py-4 px-6 md:py-8 lg:py-12">
-        <form on:submit|preventDefault={handleFormSubmit}>
+        <form
+          on:submit|preventDefault={handleFormSubmit}
+          class="font-[Alkatra]"
+        >
           <!-- email -->
 
           <input

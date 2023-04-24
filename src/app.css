@@ -37,7 +37,7 @@
   }
 
   .title {
-    @apply font-[Merriweather] text-xl mb-5 md:text-2xl lg:text-3xl xl:text-4xl font-semibold;
+    @apply font-[Roboto] text-2xl mb-5 md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-[#a32389];
   }
   .para p {
     @apply mb-2;

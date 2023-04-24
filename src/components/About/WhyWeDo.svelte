@@ -14,17 +14,19 @@
     >
       <h1 class="title">Why we do it.</h1>
       <p>
-        Our physical and emotional health is directly tied to what we eat, and
-        the best way to ensure we are getting the highest quality food is to
-        prepare it at home.
+        Our app is designed to simplify the process by providing personalized
+        meal plans that are tailored to meet individual dietary requirements and
+        preferences.
       </p>
       <p>
-        Without a system to organize recipes, plan menus, and compile shopping
-        lists, our kitchens will lack the ingredients we need to prepare our
-        meals.
+        Our mission is to make meal planning effortless, fun and enjoyable,
+        while encouraging our users to take control of their health and
+        wellbeing. With Plate Plan, you can save time, reduce food waste and
+        grocery costs, and feel confident that you are providing your body with
+        the nourishment it needs.
       </p>
-      Our hope is that Plan to Eat will equip you to prepare delicious, wholesome
-      food at home that nourishes both body and soul.
+      We believe that healthy eating is not a diet, but a lifestyle, and we are committed
+      to helping our users cultivate healthy habits that will last a lifetime.
       <p />
     </div>
   </div>

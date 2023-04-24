@@ -1,38 +1,38 @@
 export const howItWorks = [
   {
     id: 1,
-    title: "No ads.",
+    title: "Ad-free experience.",
     content:
-      "We don’t like ads on our site. Especially in the context of a web application like Plan to Eat. We’re here to make your life more simple, not to complicate it with things you don’t want or need.",
+      "We believe in providing you with a clean and hassle-free experience on Plate Plan. We understand that ads can be intrusive and disruptive, and we want to ensure that you can focus solely on meal planning without any distractions.",
   },
   {
     id: 2,
-    title: "No tracking.",
+    title: "Privacy-first approach.",
     content:
-      "We are a privacy-focused company. We don’t share or sell your personal information with any third parties. We support other privacy-focused companies, like plausible.io, for analytics and error logging. We don’t prompt you to “accept cookies” because we only use cookies to remember that you’ve logged in to your account.",
+      "Your privacy is of utmost importance to us at Plate Plan. We have stringent policies in place to ensure that your personal information is never shared or sold to third parties. We use cookies only to improve your experience on our platform and remember your preferences.",
   },
   {
     id: 3,
-    title: "No startup mentality.",
+    title: "Long-term commitment.",
     content:
-      "We’ve been around for over 10 years. We are not trying to grow as fast as possible (by making our service free) so we can sell our customer base and move on to the next project.",
+      "At Plate Plan, we are not in a rush to grow quickly and move on to the next project. We are committed to providing you with a high-quality meal planning service for years to come.",
   },
   {
     id: 4,
-    title: "No hidden costs.",
+    title: "Transparent pricing.",
     content:
-      "It’s $5.95/month or $49/year. We do not ask for credit card information before starting a free trial. We do not want to “trick” you into paying us because you forgot to cancel. We offer a 60-day, no-questions-asked refund policy. By default, we do not automatically bill you when your yearly subscription expires. And we will never sell your privacy for a profit. Our service is 100% funded by our subscription fees. It’s that simple.",
+      "We believe in keeping things simple and straightforward. Our subscription fees are clearly stated, and we do not have any hidden costs or fees. We offer a 60-day refund policy, and we never auto-bill you after your subscription ends.",
   },
   {
     id: 5,
-    title: "No automatic subscription renewals.",
+    title: "No automatic renewal.",
     content:
-      "If you love Plan to Eat and want to keep using it, we’re so thrilled! But if it’s not right for you, we’ll never try to get you to continue service and we’ll never renew your subscription without your authorization. If your account expires, we don’t remove your account but instead suspend it so you can renew at any time. ‘Cause we love you.",
+      "We understand that our service may not be for everyone, and we respect your decision to discontinue using Plate Plan. We do not auto-renew your subscription without your consent, and we provide a suspension period after your account expires to give you time to renew at your convenience.",
   },
   {
     id: 6,
-    title: "No holding your information hostage.",
+    title: "Data freedom.",
     content:
-      "You can always export all of your recipes, even after your subscription has expired. You can delete your account at any time and we never share or sell your data or private information.",
+      "Your data belongs to you, and we will never hold it hostage. You can export all of your recipes at any time, and we never share or sell your personal information to anyone.",
   },
 ];
