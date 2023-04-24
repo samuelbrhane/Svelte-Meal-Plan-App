@@ -32,10 +32,10 @@
       <!-- mobile application -->
       <div class="flex flex-col items-center gap-3">
         <button
-          class="flex items-center justify-center px-4 py-2 bg-[#848284c1] w-[320px] gap-3 rounded"
+          class="flex items-center justify-center px-4 py-2 bg-[#4d4c4dc1] w-[320px] gap-3 rounded"
         >
           <h1
-            class="text-lg font-bold border-gray-300 border-r-2 pr-2 text-white"
+            class="text-lg font-bold border-gray-300 border-r-2 pr-2 text-white font-[Alkatra]"
           >
             Get Our Mobile Application
           </h1>

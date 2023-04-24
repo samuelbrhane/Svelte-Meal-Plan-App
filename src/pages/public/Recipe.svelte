@@ -24,7 +24,7 @@
 <Layout>
   <section class="pt-[80px] lg:pt-[100px]">
     <h1
-      class="font-bold font-[Roboto] text-3xl md:text-4xl text-center mt-5 mb-6"
+      class="font-bold font-[Roboto] text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] text-center mt-5 mb-6"
     >
       Food & Recipe Browser
     </h1>

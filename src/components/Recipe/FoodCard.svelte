@@ -7,7 +7,7 @@
 
 <Link
   to={`/recipeDetail/${item.recipe.uri.split("_")[1]}`}
-  class="w-full flex flex-col md:flex-row items-center border-b-[0.6px] border-gray-400 font-[Alkatra] hover:bg-[#d9ebf9]"
+  class="w-full flex flex-col md:flex-row items-center border-b-[0.6px] border-gray-400 font-[Alkatra] hover:bg-[#e7e8e9]"
 >
   <div class="flex items-center w-full">
     <!-- image and name -->

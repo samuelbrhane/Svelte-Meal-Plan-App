@@ -3,6 +3,7 @@
   import { FoodCard, PaginationBtn } from "..";
   import { recipeStore } from "../../stores/recipeStore";
   import Icon from "@iconify/svelte";
+  import { fade, slide } from "svelte/transition";
   let recipeData = [];
   let loading = true;
   let currentPage = 1;
@@ -126,9 +127,13 @@
       />
     </div>
   {:else}
-    {#each recipeData.slice(indexOfFirstPage, indexOfLastPage) as item}
-      <FoodCard {item} />
-    {/each}
+    <div in:slide>
+      {#each recipeData.slice(indexOfFirstPage, indexOfLastPage) as item (item.recipe.uri)}
+        <div in:fade>
+          <FoodCard {item} />
+        </div>
+      {/each}
+    </div>
 
     <!-- pagination -->
     <div>
