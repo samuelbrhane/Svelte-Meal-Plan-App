@@ -3,6 +3,8 @@
   export let formattedDate;
   import Drawer, { AppContent, Content } from "@smui/drawer";
   import List, { Item } from "@smui/list";
+  import { flip } from "svelte/animate";
+  import { fade, slide } from "svelte/transition";
 
   let clickedMeal = "";
 
@@ -108,10 +110,10 @@
           <div
             class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-2 2xl:grid-cols-3 gap-3"
           >
-            {#each healthLabel[0].healthLabels
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 18) as item}
+            {#each healthLabel[0].healthLabels.slice(0, 18) as item (item)}
               <p
+                in:slide
+                animate:flip={{ duration: 50 }}
                 class="font-[Alkatra] text-sm mb-1 border-[#721cb4] border-dotted border-[0.5px] px-1 py-1"
               >
                 {item}

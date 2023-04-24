@@ -10,6 +10,7 @@
   import { mainMealRoute } from "../../utils/routes/mealRoutes";
   import { toast } from "@zerodevx/svelte-toast";
   import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
+  import { fade, slide } from "svelte/transition";
   let mealDateStoreUnsubscribe;
   let selectedDate;
   let selectedMeal = "breakfast";
@@ -181,8 +182,10 @@
       {#if $mealStore.breakfast.length == 0}
         <div class="mealBox">Add Breakfast Meals Here.</div>
       {:else}
-        {#each $mealStore.breakfast as mealItem}
-          <ManageMealCard {mealItem} page="MealPlanner" />
+        {#each $mealStore.breakfast as mealItem (mealItem.uri)}
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="MealPlanner" />
+          </div>
         {/each}
       {/if}
     </button>
@@ -199,7 +202,9 @@
         <div class="mealBox">Add Lunch Meals Here.</div>
       {:else}
         {#each $mealStore.lunch as mealItem}
-          <ManageMealCard {mealItem} page="MealPlanner" />
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="MealPlanner" />
+          </div>
         {/each}
       {/if}
     </button>
@@ -216,7 +221,9 @@
         <div class="mealBox">Add Snack Meals Here.</div>
       {:else}
         {#each $mealStore.snack as mealItem}
-          <ManageMealCard {mealItem} page="MealPlanner" />
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="MealPlanner" />
+          </div>
         {/each}
       {/if}
     </button>
@@ -233,7 +240,9 @@
         <div class="mealBox">Add Dinner Meals Here.</div>
       {:else}
         {#each $mealStore.dinner as mealItem}
-          <ManageMealCard {mealItem} page="MealPlanner" />
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="MealPlanner" />
+          </div>
         {/each}
       {/if}
     </button>

@@ -18,5 +18,5 @@ export const successClasses = {
 export const infoClasses = {
   "--toastBackground": "#327e9f",
   "--toastColor": "white",
-  "--toastWidth": "28rem",
+  "--toastWidth": "20rem",
 };

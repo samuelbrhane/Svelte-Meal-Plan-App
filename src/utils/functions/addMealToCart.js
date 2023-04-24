@@ -1,3 +1,6 @@
+import { toast } from "@zerodevx/svelte-toast";
+import { infoClasses } from "../toast/toastCustom";
+
 export const addMealToCart = (store, modifyStore, formattedItem) => {
   switch (modifyStore.selectedMeal) {
     // add breakfast
@@ -15,6 +18,8 @@ export const addMealToCart = (store, modifyStore, formattedItem) => {
             breakfast: [...mealData.breakfast, formattedItem],
           };
         });
+      } else {
+        toast.push("Meal already added to meal cart.", { theme: infoClasses });
       }
       break;
 
@@ -32,6 +37,8 @@ export const addMealToCart = (store, modifyStore, formattedItem) => {
             lunch: [...mealData.lunch, formattedItem],
           };
         });
+      } else {
+        toast.push("Meal already added to meal cart.", { theme: infoClasses });
       }
       break;
 
@@ -49,6 +56,8 @@ export const addMealToCart = (store, modifyStore, formattedItem) => {
             snack: [...mealData.snack, formattedItem],
           };
         });
+      } else {
+        toast.push("Meal already added to meal cart.", { theme: infoClasses });
       }
       break;
 
@@ -66,6 +75,8 @@ export const addMealToCart = (store, modifyStore, formattedItem) => {
             dinner: [...mealData.dinner, formattedItem],
           };
         });
+      } else {
+        toast.push("Meal already added to meal cart.", { theme: infoClasses });
       }
       break;
 

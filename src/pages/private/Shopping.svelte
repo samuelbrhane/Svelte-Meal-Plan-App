@@ -11,6 +11,7 @@
   import { DateInput } from "date-picker-svelte";
   import { onMount } from "svelte";
   import Loader from "../../components/Loader.svelte";
+  import { slide } from "svelte/transition";
 
   let currentDate = new Date();
   let loading = false;
@@ -79,7 +80,9 @@
                 <div class="mealType">
                   <h1 class="labelText">Breakfast</h1>
                   {#each selectedDayData.breakfast as mealItem}
-                    <IngredientsCard {mealItem} />
+                    <div in:slide>
+                      <IngredientsCard {mealItem} />
+                    </div>
                   {/each}
                 </div>
 
@@ -87,7 +90,9 @@
                 <div class="mealType">
                   <h1 class="labelText">Lunch</h1>
                   {#each selectedDayData.lunch as mealItem}
-                    <IngredientsCard {mealItem} />
+                    <div in:slide>
+                      <IngredientsCard {mealItem} />
+                    </div>
                   {/each}
                 </div>
 

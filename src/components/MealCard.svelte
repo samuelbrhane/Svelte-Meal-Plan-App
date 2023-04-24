@@ -8,8 +8,11 @@
   import plannerCalorieStore from "../stores/plannedCalorieStore";
   import { addMealToCart } from "../utils/functions/addMealToCart";
   import checkDateStore from "../stores/checkDateStore";
-
+  import { fade } from "svelte/transition";
+  export let key;
   export let page;
+
+  $: console.log("key: " + key);
 
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];
@@ -63,6 +66,7 @@
 </script>
 
 <button
+  in:fade
   class="flex justify-between gap-4 shadow rounded items-center px-4 py-3 flex-col md:flex-row font-[Alkatra] hover:scale-[1.02] hover:shadow-md w-full"
 >
   <!-- meal image -->

@@ -9,6 +9,7 @@
   import { successClasses } from "../../utils/toast/toastCustom";
   import userMealStore from "../../stores/userMealStore";
   import { socket } from "../../utils/socket/socket";
+  import { fade, slide } from "svelte/transition";
 
   let selectedMeal = "breakfast";
 
@@ -122,7 +123,9 @@
         <div class="mealBox">Add Breakfast Meals Here.</div>
       {:else}
         {#each $manageMealStore.breakfast as mealItem}
-          <ManageMealCard {mealItem} page="Management" />
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="Management" />
+          </div>
         {/each}
       {/if}
     </button>
@@ -139,7 +142,9 @@
         <div class="mealBox">Add Lunch Meals Here.</div>
       {:else}
         {#each $manageMealStore.lunch as mealItem}
-          <ManageMealCard {mealItem} page="Management" />
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="Management" />
+          </div>
         {/each}
       {/if}
     </button>
@@ -156,7 +161,9 @@
         <div class="mealBox">Add Snack Meals Here.</div>
       {:else}
         {#each $manageMealStore.snack as mealItem}
-          <ManageMealCard {mealItem} page="Management" />
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="Management" />
+          </div>
         {/each}
       {/if}
     </button>
@@ -173,7 +180,9 @@
         <div class="mealBox">Add Dinner Meals Here.</div>
       {:else}
         {#each $manageMealStore.dinner as mealItem}
-          <ManageMealCard {mealItem} page="Management" />
+          <div in:fade out:slide|local>
+            <ManageMealCard {mealItem} page="Management" />
+          </div>
         {/each}
       {/if}
     </button>
