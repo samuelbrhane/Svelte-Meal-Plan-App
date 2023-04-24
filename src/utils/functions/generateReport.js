@@ -1,5 +1,6 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+
 // Register the Roboto font
 import RobotoRegular from "../../fonts/Roboto-Regular.ttf";
 import RobotoBold from "../../fonts/Roboto-Bold.ttf";
@@ -81,7 +82,44 @@ export const generateReport = (item, userName) => {
   // dinner
   createPageDocument(doc, "Dinner", item.dinner, positionY, pageHeight, titleX);
 
-  doc.save("report.pdf");
+  // shopping list
+  doc.addPage();
+  doc.setFontSize(17);
+  doc.setTextColor("#000");
+  doc.text(10, positionY, "Shopping List:");
+
+  let mealStoreData = [
+    ...item.breakfast,
+    ...item.lunch,
+    ...item.snack,
+    ...item.dinner,
+  ];
+
+  //   get shopping list for all meal
+  let shoppingLists = mealStoreData.map((mealData) => {
+    let mealList = [];
+    mealData.ingredients.forEach((ingredient) => {
+      mealList.push(ingredient.food);
+    });
+
+    return mealList;
+  });
+
+  // create a unique shopping list
+  let reducedShoppingList = shoppingLists.reduce((acc, curr) => {
+    return acc.concat(curr);
+  }, []);
+  let uniqueShoppingList = [...new Set(reducedShoppingList)];
+
+  uniqueShoppingList.forEach((list, index) => {
+    const shoppingX = 11;
+    const shoppingY = positionY + 20 + index * 15;
+    doc.setFontSize(11);
+    doc.setFont("Roboto", "light");
+    doc.text(shoppingX, shoppingY, `${index + 1}. ${list}`);
+  });
+
+  doc.save(`report ${item.selectedDate}.pdf`);
 };
 
 const createPageDocument = (
@@ -98,23 +136,27 @@ const createPageDocument = (
     doc.addPage();
   }
 
-  //   breakfast data
-  doc.setFontSize(13);
+  //   meal data
+  doc.setFont("Roboto", "semibold");
+  doc.setFontSize(14);
   doc.text(10, firstPage ? positionY + 100 : positionY + 10, mealTitle);
 
   mealData.forEach((meal, index) => {
+    doc.setFontSize(12);
+    doc.setFont("Roboto", "semibold");
     const text = `${index + 1}. ${meal.title}`;
     const textHeight = doc.getTextDimensions(text).h;
     if (positionY + textHeight > pageHeight - 30) {
       doc.addPage();
       positionY = 25;
     }
-    doc.setFontSize(11);
 
+    doc.setFontSize(11);
+    doc.setFont("Roboto", "semibold");
     // check meal index
     if (index == 0) {
       doc.text(10, firstPage ? positionY + 115 : positionY + 25, text);
-      doc.setFontSize(10);
+
       doc.text(
         10,
         firstPage ? positionY + 130 : positionY + 40,
@@ -122,7 +164,6 @@ const createPageDocument = (
       );
     } else {
       doc.text(titleX + 40, firstPage ? positionY + 115 : positionY + 25, text);
-      doc.setFontSize(10);
       doc.text(
         titleX + 40,
         firstPage ? positionY + 130 : positionY + 40,
@@ -135,27 +176,13 @@ const createPageDocument = (
       const nutrientMeasurement = `${nutrient.total.toFixed(2)} ${
         nutrient.unit
       }`;
-      const cellWidth = 80;
-      const cellHeight = 15;
-      const cellPadding = 5;
-      const cellX = index == 0 ? 10 : titleX + 40;
-      const cellY = firstPage ? positionY + 145 : positionY + 55;
-
-      doc.cell(cellX, cellY, cellWidth, cellHeight, nutrientText, i + 1);
-      doc.cell(
-        cellX + cellWidth + cellPadding,
-        cellY,
-        50,
-        cellHeight,
-        nutrientMeasurement,
-        i + 1
-      );
-
-      //   if (positionY + cellHeight > pageHeight - 30) {
-      //     doc.addPage();
-      //     positionY = 25;
-      //     firstPage = false;
-      //   }
+      const nutrientX = index == 0 ? 10 : titleX + 40;
+      const nutrientY = firstPage
+        ? positionY + 145 + i * 15
+        : positionY + 55 + i * 15;
+      doc.setFontSize(11);
+      doc.setFont("Roboto", "light");
+      doc.text(nutrientX, nutrientY, `${nutrientText} ${nutrientMeasurement}`);
     });
   });
 };
