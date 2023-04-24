@@ -11,11 +11,57 @@
   let recipeStoreUnsubscribe;
   let mealsData;
   let loading;
+  let nutrientName = "Calories";
 
   let currentPage = 1;
   let dataPerPage = 5;
   $: indexOfLastPage = currentPage * dataPerPage;
   $: indexOfFirstPage = indexOfLastPage - dataPerPage;
+
+  // sort meal based on nutrient name
+  $: {
+    // check meals data
+    if (mealsData) {
+      switch (nutrientName) {
+        // calories
+        case "Calories":
+          mealsData = [
+            ...mealsData.sort((a, b) => a.recipe.calories - b.recipe.calories),
+          ];
+          break;
+
+        // protein
+        case "Protein":
+          mealsData = [
+            ...mealsData.sort(
+              (a, b) => a.recipe.digest[2].total - b.recipe.digest[2].total
+            ),
+          ];
+          break;
+
+        // fats
+        case "Fats":
+          mealsData = [
+            ...mealsData.sort(
+              (a, b) => a.recipe.digest[0].total - b.recipe.digest[0].total
+            ),
+          ];
+          break;
+
+        // carbs
+        case "Carbs":
+          mealsData = [
+            ...mealsData.sort(
+              (a, b) => a.recipe.digest[1].total - b.recipe.digest[1].total
+            ),
+          ];
+          break;
+
+        default:
+          break;
+      }
+    }
+  }
 
   // subscribe to mealDateStore
   onMount(() => {
@@ -73,11 +119,11 @@
         </form>
 
         <div>
-          <label for="nutrients">Filter by:</label>
+          <label for="nutrients">Sort by:</label>
 
-          <select id="nutrients">
+          <select id="nutrients" bind:value={nutrientName}>
             <option value="Calories" class="bg-[#a2aa45]">Calories</option>
-            <option value="Protein" class="bg-[#a2aa45]">protein</option>
+            <option value="Protein" class="bg-[#a2aa45]">Protein</option>
             <option value="Fats" class="bg-[#a2aa45]">Fats</option>
             <option value="Carbs" class="bg-[#a2aa45]">Carbs</option>
           </select>

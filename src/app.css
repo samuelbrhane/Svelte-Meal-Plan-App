@@ -56,7 +56,7 @@
   }
 
   .cell {
-    @apply px-2 text-left border-[0.3px] border-gray-400 flex items-center justify-center;
+    @apply px-2 text-left border-[0.3px] border-gray-400 flex items-center;
   }
 
   .labelText {

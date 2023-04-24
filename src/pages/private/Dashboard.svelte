@@ -13,7 +13,7 @@
   import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
   import { DateInput } from "date-picker-svelte";
   // make starting data three days from now
-  let startingDate = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+  let startingDate = new Date();
 
   // change starting date format
   $: day = startingDate.getDate().toString().padStart(2, "0");

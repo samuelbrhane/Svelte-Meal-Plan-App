@@ -85,17 +85,17 @@
 
     <!-- meals table body -->
     <div
-      class="border-b-[0.3px] border-gray-400 font-[Alkatra] text-sm font-light"
+      class="border-b-[0.3px] border-gray-400 font-[Alkatra] text-[13px] font-light"
     >
       {#each slice as item}
         <div
           class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 w-full"
         >
           <div class="flex">
-            <p class="cell w-[60px]">
+            <p class="cell w-[60px] justify-center">
               {item.id}
             </p>
-            <p class="cell flex-grow">
+            <p class="cell flex-grow justify-center">
               {item.selectedDate}
             </p>
           </div>
@@ -130,9 +130,9 @@
           </Cell>
 
           <!-- managing meal data -->
-          <Cell class="cell">
+          <Cell class="cell justify-center">
             <!-- edit meal  -->
-            <div class="flex gap-2 justify-between items-center text-lg">
+            <div class="flex gap-3 justify-center items-center text-lg">
               <button
                 class="text-[#34a470] hover:scale-[1.01]"
                 on:click={() => updateManagementStore(item)}
