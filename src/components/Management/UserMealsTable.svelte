@@ -65,47 +65,69 @@
   <h1 class="mt-5 mb-3 font-bold font-[Roboto] text-2xl">Your Meals</h1>
 
   <!-- meals table -->
-  <DataTable table$aria-label="Todo list" style="width: 100%;">
-    <Head class="border-y-[0.3px] border-gray-400">
-      <Row class="font-[Alkatra] font-bold text-lg">
-        <Cell class="cell">ID</Cell>
-        <Cell class="cell whitespace-nowrap">Created Date</Cell>
+  <div class="">
+    <div class="border-y-[0.3px] border-gray-400">
+      <div
+        class="font-[Alkatra] font-bold text-lg grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 w-full"
+      >
+        <div class="flex">
+          <p class="cell w-[60px]">ID</p>
+          <p class="cell whitespace-nowrap flex-grow">Created Date</p>
+        </div>
+
         <Cell class="cell">Breakfast</Cell>
         <Cell class="cell" numeric>Lunch</Cell>
         <Cell class="cell">Snack</Cell>
         <Cell class="cell">Dinner</Cell>
         <Cell class="cell">Manage</Cell>
-      </Row>
-    </Head>
+      </div>
+    </div>
 
     <!-- meals table body -->
-    <Body
+    <div
       class="border-b-[0.3px] border-gray-400 font-[Alkatra] text-sm font-light"
     >
       {#each slice as item}
-        <Row class="">
-          <Cell class="cell">{item.id}</Cell>
-          <Cell class="cell">{item.selectedDate}</Cell>
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 w-full"
+        >
+          <div class="flex">
+            <p class="cell w-[60px]">
+              {item.id}
+            </p>
+            <p class="cell flex-grow">
+              {item.selectedDate}
+            </p>
+          </div>
+
           <Cell class="cell">
-            {#each item.breakfast as meal}
-              {meal.title} {"  "}
-            {/each}
+            <div>
+              {#each item.breakfast as meal, index}
+                <p>{index + 1}. {meal.title}</p>
+              {/each}
+            </div>
           </Cell>
           <Cell class="cell">
-            {#each item.lunch as meal}
-              {meal.title} {"  "}
-            {/each}</Cell
-          >
+            <div>
+              {#each item.lunch as meal, index}
+                <p>{index + 1}. {meal.title}</p>
+              {/each}
+            </div>
+          </Cell>
           <Cell class="cell">
-            {#each item.snack as meal}
-              {meal.title} {"  "}
-            {/each}</Cell
-          >
+            <div>
+              {#each item.snack as meal, index}
+                <p>{index + 1}. {meal.title}</p>
+              {/each}
+            </div>
+          </Cell>
           <Cell class="cell">
-            {#each item.dinner as meal}
-              {meal.title} {"  "}
-            {/each}</Cell
-          >
+            <div>
+              {#each item.dinner as meal, index}
+                <p>{index + 1}. {meal.title}</p>
+              {/each}
+            </div>
+          </Cell>
 
           <!-- managing meal data -->
           <Cell class="cell">
@@ -135,10 +157,10 @@
               </button>
             </div>
           </Cell>
-        </Row>
+        </div>
       {/each}
-    </Body>
-  </DataTable>
+    </div>
+  </div>
 
   <!-- pagination -->
   <div class=" font-[Alaktra] flex w-full gap-4 mt-2">
