@@ -81,28 +81,28 @@
       totalFats = 0;
       sample = 0;
       findDay.breakfast.forEach((data) => {
-        totalCalories += data.calories / 4;
+        totalCalories += data.calories / 3;
         totalCarbs += data.nutrients[1].total / 4;
-        totalProtein += data.nutrients[2].total / 3;
-        totalFats += data.nutrients[0].total / 5;
+        totalProtein += data.nutrients[2].total / 5;
+        totalFats += data.nutrients[0].total / 6;
       });
       findDay.lunch.forEach((data) => {
-        totalCalories += data.calories / 4;
+        totalCalories += data.calories / 3;
         totalCarbs += data.nutrients[1].total / 4;
-        totalProtein += data.nutrients[2].total / 3;
-        totalFats += data.nutrients[0].total / 5;
+        totalProtein += data.nutrients[2].total / 5;
+        totalFats += data.nutrients[0].total / 6;
       });
       findDay.snack.forEach((data) => {
-        totalCalories += data.calories / 4;
+        totalCalories += data.calories / 3;
         totalCarbs += data.nutrients[1].total / 4;
-        totalProtein += data.nutrients[2].total / 3;
-        totalFats += data.nutrients[0].total / 5;
+        totalProtein += data.nutrients[2].total / 5;
+        totalFats += data.nutrients[0].total / 6;
       });
       findDay.dinner.forEach((data) => {
-        totalCalories += data.calories / 4;
+        totalCalories += data.calories / 3;
         totalCarbs += data.nutrients[1].total / 4;
-        totalProtein += data.nutrients[2].total / 3;
-        totalFats += data.nutrients[0].total / 5;
+        totalProtein += data.nutrients[2].total / 5;
+        totalFats += data.nutrients[0].total / 6;
       });
     }
   }

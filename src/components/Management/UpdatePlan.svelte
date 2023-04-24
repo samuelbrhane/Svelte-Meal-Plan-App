@@ -55,6 +55,7 @@
 
     const formBody = {
       selectedDate,
+      plannedCalories: $userMealStore.plannedCalories,
       lunch,
       snack,
       dinner,

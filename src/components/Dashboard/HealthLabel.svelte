@@ -3,7 +3,6 @@
   export let formattedDate;
   import Drawer, { AppContent, Content } from "@smui/drawer";
   import List, { Item } from "@smui/list";
-  import { onMount } from "svelte";
 
   let clickedMeal = "";
 

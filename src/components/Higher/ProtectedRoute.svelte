@@ -16,7 +16,8 @@
           userData.isAuthenticated &&
           (value.pathname == "/login" ||
             value.pathname == "/register" ||
-            value.pathname == "/reset-password")
+            value.pathname == "/reset-password" ||
+            value.pathname == "/activate-message")
         ) {
           navigate("/dashboard");
         }
@@ -46,6 +47,7 @@
 
   // authentication pages
   import {
+    ActivateMessage,
     Activation,
     Login,
     Register,
@@ -81,6 +83,7 @@
   <Route path="/login" component={Login} />
   <Route path="/register" component={Register} />
   <Route path="/activate/:uid/:token" component={Activation} />
+  <Route path="/activate-message" component={ActivateMessage} />
   <Route path="/reset-password" component={ResetPassword} />
   <Route
     path="/password/reset/confirm/:uid/:token"

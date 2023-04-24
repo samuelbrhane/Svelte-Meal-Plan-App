@@ -46,23 +46,23 @@
 
         findDay.breakfast.forEach((data) => {
           currentDateCarbs += data.nutrients[1].total / 4;
-          currentDateFats += data.nutrients[0].total / 5;
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateFats += data.nutrients[0].total / 6;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         findDay.lunch.forEach((data) => {
           currentDateCarbs += data.nutrients[1].total / 4;
           currentDateFats += data.nutrients[0].total / 5;
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         findDay.snack.forEach((data) => {
           currentDateCarbs += data.nutrients[1].total / 4;
-          currentDateFats += data.nutrients[0].total / 5;
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateFats += data.nutrients[0].total / 6;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         findDay.dinner.forEach((data) => {
           currentDateCarbs += data.nutrients[1].total / 4;
-          currentDateFats += data.nutrients[0].total / 5;
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateFats += data.nutrients[0].total / 6;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         carbs.push(currentDateCarbs);
         protein.push(currentDateProtein);

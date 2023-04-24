@@ -62,16 +62,16 @@
         let currentDateProtein = 0;
 
         findDay.breakfast.forEach((data) => {
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         findDay.lunch.forEach((data) => {
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         findDay.snack.forEach((data) => {
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         findDay.dinner.forEach((data) => {
-          currentDateProtein += data.nutrients[2].total / 3;
+          currentDateProtein += data.nutrients[2].total / 5;
         });
         protein.push(currentDateProtein);
       }

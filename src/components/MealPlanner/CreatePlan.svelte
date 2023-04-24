@@ -75,6 +75,7 @@
     const dinner = $mealStore.dinner;
     const formBody = {
       selectedDate: formattedDate,
+      plannedCalories: $plannerCalorieStore.plannerCalories,
       lunch,
       snack,
       dinner,

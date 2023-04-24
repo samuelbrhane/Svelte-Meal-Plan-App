@@ -1,5 +1,5 @@
 <script>
-  import { Link } from "svelte-navigator";
+  import { Link, navigate } from "svelte-navigator";
   import { toast } from "@zerodevx/svelte-toast";
   import { fade } from "svelte/transition";
   import { onDestroy } from "svelte";
@@ -46,11 +46,7 @@
 
       //user created successfully
       toast.push("User created successfully", { theme: successClasses });
-
-      // check email to activate
-      toast.push("Please check your email to activate your account!", {
-        theme: infoClasses,
-      });
+      navigate("/activate-message");
 
       name = "";
       email = "";

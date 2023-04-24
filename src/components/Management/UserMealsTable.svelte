@@ -28,6 +28,7 @@
 
   // update management meal store for updating
   const updateManagementStore = (item) => {
+    $userMealStore.plannedCalories = item.plannedCalories;
     manageMealStore.update((mealStore) => {
       return {
         ...mealStore,
