@@ -16,20 +16,41 @@ const recipeKeys = [
     appId: import.meta.env.VITE_RECIPE_APP_ID_3,
     appKey: import.meta.env.VITE_RECIPE_APP_KEY_3,
   },
+  {
+    id: 4,
+    appId: import.meta.env.VITE_RECIPE_APP_ID_4,
+    appKey: import.meta.env.VITE_RECIPE_APP_KEY_4,
+  },
+  {
+    id: 5,
+    appId: import.meta.env.VITE_RECIPE_APP_ID_5,
+    appKey: import.meta.env.VITE_RECIPE_APP_KEY_5,
+  },
 ];
 
+const instructionKey = [
+  {
+    id: 1,
+    appKey: import.meta.env.VITE_INSTRUCTION_APP_KEY_1,
+  },
+  {
+    id: 2,
+    appKey: import.meta.env.VITE_INSTRUCTION_APP_KEY_2,
+  },
+  {
+    id: 3,
+    appKey: import.meta.env.VITE_INSTRUCTION_APP_KEY_3,
+  },
+  {
+    id: 4,
+    appKey: import.meta.env.VITE_INSTRUCTION_APP_KEY_4,
+  },
+];
+
+// recipe route
 const baseRoute = "https://api.edamam.com/api/recipes/v2";
 
-// search recipe function
+// instruction route
+const InstructionUrl = `https://tasty.p.rapidapi.com/recipes/list?from=0&size=1&q=`;
 
-// // get single recipe data
-// const getSingleRecipe = async (id) => {
-//   const randomIndex = Math.floor(Math.random() * recipeKeys.length);
-//   const { data } = await axios.get(
-//     `${baseRoute}/${id}?type=public&app_id=${recipeKeys[randomIndex].appId}&app_key=${recipeKeys[randomIndex].appKey}`
-//   );
-//   console.log("data: " + JSON.stringify(data));
-//   return data;
-// };
-
-export { recipeKeys, baseRoute };
+export { recipeKeys, baseRoute, InstructionUrl, instructionKey };

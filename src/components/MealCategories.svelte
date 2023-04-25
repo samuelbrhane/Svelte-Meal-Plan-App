@@ -17,14 +17,14 @@
     <button
       on:click={() => handleSearch(category)}
       class={`flex flex-col items-center bg-[#cce154] hover:scale-[1.03] shadow-md text-sm  text-black font-[Alkatra] py-6 min-w-[80px] gap-4 px-2 rounded-3xl ${
-        currentCategory == category.id && "bg-[#f993f7] text-white"
+        currentCategory == category.id && "bg-[#2b0e25] text-white"
       }`}
     >
       <Icon
         icon={category.icon}
         class="text-4xl bg-[#0f666f] text-white  p-2 rounded"
       />
-      <p>{category.title}</p>
+      <p class="text-[11px]">{category.title}</p>
     </button>
   {/each}
 </div>

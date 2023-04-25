@@ -79,9 +79,9 @@
                 <!-- breakfast -->
                 <div class="mealType">
                   <h1 class="labelText">Breakfast</h1>
-                  {#each selectedDayData.breakfast as mealItem}
+                  {#each selectedDayData.breakfast as mealItem, index}
                     <div in:slide>
-                      <IngredientsCard {mealItem} />
+                      <IngredientsCard {mealItem} {index} />
                     </div>
                   {/each}
                 </div>
@@ -89,9 +89,9 @@
                 <!-- lunch -->
                 <div class="mealType">
                   <h1 class="labelText">Lunch</h1>
-                  {#each selectedDayData.lunch as mealItem}
+                  {#each selectedDayData.lunch as mealItem, index}
                     <div in:slide>
-                      <IngredientsCard {mealItem} />
+                      <IngredientsCard {mealItem} index={index + 2} />
                     </div>
                   {/each}
                 </div>
@@ -99,16 +99,16 @@
                 <!-- snack -->
                 <div class="mealType">
                   <h1 class="labelText">Snack</h1>
-                  {#each selectedDayData.snack as mealItem}
-                    <IngredientsCard {mealItem} />
+                  {#each selectedDayData.snack as mealItem, index}
+                    <IngredientsCard {mealItem} {index} />
                   {/each}
                 </div>
 
                 <!-- dinner -->
                 <div class="mealType">
                   <h1 class="labelText">Dinner</h1>
-                  {#each selectedDayData.dinner as mealItem}
-                    <IngredientsCard {mealItem} />
+                  {#each selectedDayData.dinner as mealItem, index}
+                    <IngredientsCard {mealItem} index={index + 2} />
                   {/each}
                 </div>
               </div>

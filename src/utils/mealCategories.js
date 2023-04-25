@@ -1,7 +1,7 @@
 export const mealCategories = [
   {
     id: 1,
-    title: "Popular",
+    title: "Recommended",
     icon: "game-icons:meal",
   },
   {

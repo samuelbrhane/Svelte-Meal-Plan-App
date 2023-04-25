@@ -1,5 +1,5 @@
 <script>
-  import Icon from "@iconify/svelte";
+  import Icon, { loadIcon } from "@iconify/svelte";
   import { outcomes } from "../../utils/outcomes";
   import { inview } from "svelte-inview";
   import { animateComponent } from "../../utils/functions/animation";

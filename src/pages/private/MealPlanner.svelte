@@ -11,7 +11,7 @@
 
   // search recipe on mount
   onMount(() => {
-    searchRecipe("All");
+    searchRecipe("vegan");
   });
 </script>
 

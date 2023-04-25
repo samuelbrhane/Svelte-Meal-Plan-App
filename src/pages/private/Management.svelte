@@ -24,7 +24,7 @@
         $userMealStore.userMeals = response.userMeals;
       }
     );
-    searchRecipe("All");
+    searchRecipe("vegan");
   });
 </script>
 
