@@ -1,8 +1,17 @@
+<script>
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
+</script>
+
 <div class="bg-[#d7d9d9] h-[400px] mt-10 md:mt-20 mb-20 font-[Alkatra] para">
   <div
     class="max-w-6xl mx-auto px-3 grid grid-cols-1 md:grid-cols-2 h-full gap-12 lg:gap-20 xl:gap-24 items-center"
   >
-    <div class="">
+    <div
+      class="relative bottom-0"
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromBottom")}
+    >
       <h1 class="title">Our Story.</h1>
       <p>
         Our story began with a group of health enthusiasts who were frustrated
@@ -19,7 +28,11 @@
       <p />
     </div>
 
-    <div class="relative h-full">
+    <div
+      class="relative h-full right-0"
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromRight")}
+    >
       <img
         src="https://images.pexels.com/photos/5638643/pexels-photo-5638643.jpeg?auto=compress&cs=tinysrgb&w=600"
         alt="aboutImage"

@@ -1,5 +1,14 @@
+<script>
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
+</script>
+
 <div class="font-[Alkatra] para mb-10 bg-green-400]">
-  <div class="max-w-2xl mx-auto px-3 md:py-20 pb-10 pt-[180px]">
+  <div
+    class="max-w-2xl mx-auto px-3 md:py-20 pb-10 pt-[180px] relative bottom-0"
+    use:inview
+    on:inview_change={(e) => animateComponent(e, "fromBottom")}
+  >
     <h1 class="text-center title">We make your meal planning services easy…</h1>
     <p>
       Fitness professionals know that a healthy diet is crucial for achieving

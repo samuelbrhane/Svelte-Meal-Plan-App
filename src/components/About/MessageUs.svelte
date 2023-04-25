@@ -2,6 +2,8 @@
   const handleFormSubmit = () => {};
   let email = "";
   let message = "";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
 <section class="relative w-full min-h-[500px] lg:h-[550px] pb-[200px]">
@@ -17,7 +19,11 @@
     <div
       class="max-w-6xl mx-auto px-3 grid grid-cols-1 h-full lg:grid-cols-2 gap-6 lg:gap-20 items-center"
     >
-      <div>
+      <div
+        class="relative left-0"
+        use:inview
+        on:inview_change={(e) => animateComponent(e, "fromLeft")}
+      >
         <h1
           class="font-bold text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto] mb-6"
         >
@@ -34,7 +40,11 @@
       </div>
 
       <!-- Question form -->
-      <div class="bg-white rounded-xl shadow py-4 px-6 md:py-8 lg:py-12">
+      <div
+        class="bg-white rounded-xl shadow py-4 px-6 md:py-8 lg:py-12 relative right-0"
+        use:inview
+        on:inview_change={(e) => animateComponent(e, "fromRight")}
+      >
         <form
           on:submit|preventDefault={handleFormSubmit}
           class="font-[Alkatra]"

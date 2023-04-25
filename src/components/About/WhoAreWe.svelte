@@ -1,14 +1,22 @@
 <script>
+  import { animateComponent } from "../../utils/functions/animation";
   import { teams } from "../../utils/teams";
+  import { inview } from "svelte-inview";
 </script>
 
-<main class="max-w-6xl mx-auto px-3 text-center">
+<section class="max-w-6xl mx-auto px-3 text-center">
   <h1
-    class="mb-3 font-bold text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto]"
+    use:inview
+    on:inview_change={(e) => animateComponent(e, "fromRight")}
+    class="mb-3 font-bold relative right-0 text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto]"
   >
     Who we are.
   </h1>
-  <div class="max-w-3xl mx-auto text-left font-[Alkatra]">
+  <div
+    class="max-w-3xl mx-auto text-left font-[Alkatra] relative left-0"
+    use:inview
+    on:inview_change={(e) => animateComponent(e, "fromLeft")}
+  >
     <p>
       We created Plate Plan with a simple goal in mind, help you create
       healthier eating habits by making it easy and enjoyable to manage your
@@ -46,4 +54,4 @@
       </div>
     {/each}
   </div>
-</main>
+</section>

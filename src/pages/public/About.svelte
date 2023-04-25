@@ -10,6 +10,8 @@
     WhyWeDo,
   } from "../../components";
   import Layout from "../../components/Higher/Layout.svelte";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
 <Layout>
@@ -27,7 +29,9 @@
         class="flex justify-center w-full top-[20vh] h-[20vh] md:h-[16vh] lg:top-[50vh] lg:h-[28vh] absolute left-0 z-20"
       >
         <div
-          class="bg-[#d7d9d9] text-[#a32389] max-w-7xl mx-auto font-bold h-full font-[Merriweather] py-8 px-8 md:py-10 md:px-20 lg:px-30 xl:px-30 text-xl md:text-3xl xl:text-4xl"
+          use:inview
+          on:inview_change={(e) => animateComponent(e, "fromLeft")}
+          class="bg-[#d7d9d9] text-[#a32389] relative left-0 max-w-7xl mx-auto font-bold h-full font-[Merriweather] py-8 px-8 md:py-10 md:px-20 lg:px-30 xl:px-30 text-xl md:text-3xl xl:text-4xl"
         >
           <h1 class="text-start mb-4 mr-24">It's not just about eating...</h1>
           <h1 class="text-end">it's about the relationships.</h1>
@@ -39,7 +43,9 @@
       >
         <!-- Intro Text -->
         <div
-          class="mx-auto px-3 pt-[12vh] lg:pt-[18vh] text-center max-w-3xl pb-8"
+          use:inview
+          on:inview_change={(e) => animateComponent(e, "fromRight")}
+          class="mx-auto px-3 pt-[12vh] relative right-0 lg:pt-[18vh] text-center max-w-3xl pb-8"
         >
           <h1 class="lg:text-3xl text-2xl font-[Roboto] mb-3 font-semibold">
             We simplify the meal-planning process.
@@ -69,17 +75,25 @@
 
         <!-- Why people love plate plan -->
         <div class="max-w-6xl mx-auto px-3 mb-8 text-center">
-          <h1
-            class="mb-3 font-bold text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto]"
+          <div
+            class="relative right-0"
+            use:inview
+            on:inview_change={(e) => animateComponent(e, "fromRight")}
           >
-            Why people love Plate Plan
-          </h1>
-          <p class="mb-6 font-[Merriweather] text-light text-gray-500">
-            If they love it, they'll actually use it.
-          </p>
+            <h1
+              class="mb-3 font-bold text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto]"
+            >
+              Why people love Plate Plan
+            </h1>
+            <p class="mb-6 font-[Merriweather] text-light text-gray-500">
+              If they love it, they'll actually use it.
+            </p>
+          </div>
 
           <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:gap-12 xl:gap-20"
+            use:inview
+            on:inview_change={(e) => animateComponent(e, "fromLeft")}
+            class="grid relative left-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:gap-12 xl:gap-20"
           >
             <!-- save time -->
             <div class="text-center">

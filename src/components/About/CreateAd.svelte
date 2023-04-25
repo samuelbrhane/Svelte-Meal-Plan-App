@@ -1,10 +1,16 @@
 <script>
   import Icon from "@iconify/svelte";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
 <main class="bg-[#f4f0f4] py-10">
   <div class="max-w-6xl mx-auto px-3 grid md:grid-cols-2 items-center">
-    <div>
+    <div
+      class="relative left-0"
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromLeft")}
+    >
       <h1
         class="mb-5 text-xl md:text-2xl text-[#a32389] lg:text-3xl font-[Roboto] font-bold"
       >
