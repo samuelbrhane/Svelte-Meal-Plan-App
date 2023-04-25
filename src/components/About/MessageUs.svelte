@@ -19,11 +19,7 @@
     <div
       class="max-w-6xl mx-auto px-3 grid grid-cols-1 h-full lg:grid-cols-2 gap-6 lg:gap-20 items-center"
     >
-      <div
-        class="relative left-0"
-        use:inview
-        on:inview_change={(e) => animateComponent(e, "fromLeft")}
-      >
+      <div class="relative left-0" z>
         <h1
           class="font-bold text-[#a32389] text-2xl md:text-3xl lg:text-4xl font-[Roboto] mb-6"
         >
