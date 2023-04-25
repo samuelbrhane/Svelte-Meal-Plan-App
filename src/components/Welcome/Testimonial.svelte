@@ -1,5 +1,7 @@
 <script>
   import { Scroll } from "../";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
 <section
@@ -16,7 +18,9 @@
   >
     <div class=" py-6">
       <h1
-        class="text-center text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-semibold font-[Roboto] mb-4"
+        use:inview
+        on:inview_change={(e) => animateComponent(e, "fromLeft")}
+        class="text-center text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] relative left-0 font-semibold font-[Roboto] mb-4"
       >
         The benefits are lasting
       </h1>
@@ -24,7 +28,11 @@
       <div
         class="max-w-6xl mx-auto px-3 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-20"
       >
-        <div class="bg-white px-8 py-12">
+        <div
+          class="bg-white px-8 py-12 relative left-0"
+          use:inview
+          on:inview_change={(e) => animateComponent(e, "fromLeft")}
+        >
           <h1 class="font-bold text-xl font-[Roboto] lg:text-2xl mb-2">73%</h1>
           <h2 class="font-semibold font-[Merriweather] mb-2">
             Increase in consumption of “healthier foods”.
@@ -36,7 +44,11 @@
           </p>
         </div>
 
-        <div class="bg-white px-10 py-12">
+        <div
+          class="bg-white px-10 py-12 relative right-0"
+          use:inview
+          on:inview_change={(e) => animateComponent(e, "fromRight")}
+        >
           <h1 class="font-bold text-xl font-[Roboto] lg:text-2xl mb-2">73%</h1>
           <h2 class="font-semibold font-[Merriweather] mb-2">
             Increase in consumption of “healthier foods”.

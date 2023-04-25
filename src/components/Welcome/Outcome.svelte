@@ -1,6 +1,8 @@
 <script>
   import Icon from "@iconify/svelte";
   import { outcomes } from "../../utils/outcomes";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
 <section class="my-4">
@@ -8,13 +10,19 @@
     class="max-w-6xl mx-auto px-3 grid lg:grid-cols-2 lg:gap-8 xl:gap-12 items-center"
   >
     <img
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromLeft")}
       src="/media/outcome1.jpeg"
       alt="outcomeImage"
-      class="w-full rounded-md max-h-[500px]"
+      class="w-full rounded-md max-h-[500px] relative left-0"
     />
 
     <!-- outcomes -->
-    <div class="mt-6 lg:mt-0">
+    <div
+      class="mt-6 lg:mt-0 relative right-0"
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromRight")}
+    >
       <h1
         class="text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-bold font-[Roboto] mb-3 lg:mb-6"
       >

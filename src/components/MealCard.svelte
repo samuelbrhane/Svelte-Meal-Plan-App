@@ -12,8 +12,6 @@
   export let key;
   export let page;
 
-  $: console.log("key: " + key);
-
   // get random rating
   let rating = ratings[Math.floor(Math.random() * ratings.length)];
 

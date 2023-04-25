@@ -116,6 +116,63 @@
     flex-shrink: 0;
   }
 
+  /* on view animation */
+  /* left */
+  .fromLeft {
+    animation: fromLeftAnimate 2s 0.5s forwards;
+  }
+
+  @keyframes fromLeftAnimate {
+    from {
+      left: -50px;
+    }
+    to {
+      left: 0;
+    }
+  }
+
+  /* left */
+  .fromBottom {
+    animation: fromBottomAnimate 2s 0.5s forwards;
+  }
+
+  @keyframes fromBottomAnimate {
+    from {
+      bottom: -50px;
+    }
+    to {
+      bottom: 0;
+    }
+  }
+
+  /* tight */
+  .fromRight {
+    animation: fromRightAnimate 2s 0.5s forwards;
+  }
+
+  @keyframes fromRightAnimate {
+    from {
+      right: -50px;
+    }
+    to {
+      right: 0;
+    }
+  }
+
+  /* top */
+  .fromTop {
+    animation: fromTopAnimate 2s 0.5s forwards;
+  }
+
+  @keyframes fromTopAnimate {
+    from {
+      top: -50px;
+    }
+    to {
+      top: 0;
+    }
+  }
+
   /* width */
   ::-webkit-scrollbar {
     @apply w-[4px] h-0;

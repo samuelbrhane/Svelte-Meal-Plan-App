@@ -2,6 +2,8 @@
   import { Link, useLocation } from "svelte-navigator";
   import Icon from "@iconify/svelte";
   import { onMount, onDestroy } from "svelte";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../utils/functions/animation";
 
   let location = useLocation();
 
@@ -41,7 +43,9 @@
 
     <!-- Footer contents -->
     <div
-      class="grid grid-cols-2 md:grid-cols-4 py-6 gap-4 text-[#253a3a] lg:items-center"
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromLeft")}
+      class="grid grid-cols-2 relative left-0 md:grid-cols-4 py-6 gap-4 text-[#253a3a] lg:items-center"
     >
       <!-- mobile apps -->
       <div>

@@ -1,10 +1,23 @@
+<script>
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
+</script>
+
 <div
   class="max-w-6xl mx-auto px-3 flex flex-col lg:flex-row lg:gap-5 xl:gap-[30px] items-center py-4"
 >
-  <div class="lg:w-[55%] mt-4 relative">
+  <div
+    class="lg:w-[55%] mt-4 relative left-0"
+    use:inview
+    on:inview_change={(e) => animateComponent(e, "fromLeft")}
+  >
     <img src="/media/users.png" alt="featureImage" class="w-full" />
   </div>
-  <div class="lg:w-[45%] relative">
+  <div
+    class="lg:w-[45%] relative right-0"
+    use:inview
+    on:inview_change={(e) => animateComponent(e, "fromRight")}
+  >
     <h1
       class="text-xl font-semibold font-[Roboto] lg:text-4xl xl:text-[40px] mb-4"
     >

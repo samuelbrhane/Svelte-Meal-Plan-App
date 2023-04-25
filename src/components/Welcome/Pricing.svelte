@@ -1,11 +1,18 @@
 <script>
   import { pricing } from "../../utils/pricing";
   import Icon from "@iconify/svelte";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
-<section id="Pricing" class="px-4 relative lg:px-20 xl:px-30 py-12">
+<section
+  use:inview
+  on:inview_change={(e) => animateComponent(e, "fromTop")}
+  id="Pricing"
+  class="px-4 relative lg:px-20 xl:px-30 py-12"
+>
   <h1
-    class="text-center font-semibold text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-[Roboto]"
+    class="text-center relative top-0 font-semibold text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-[Roboto]"
   >
     Pricing Plan
   </h1>
@@ -18,7 +25,7 @@
     {#each pricing as item (item.id)}
       <div class="flex relative justify-center mb-4 md:px-4 xl:px-8">
         <div
-          class="flex flex-col justify-between shadow-sm hover:shadow-md h-[500px] w-full hover:scale-[1.02] py-10 px-6 rounded-lg"
+          class="flex flex-col justify-between shadow-sm h-[500px] w-full hover:scale-[1.01] py-10 px-6 rounded-lg"
         >
           <div class="">
             <h1 class="mb-3 font-bold text-xl md:text-2xl font-[Roboto]">
