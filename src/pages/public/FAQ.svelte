@@ -5,7 +5,9 @@
     Footer,
     UserQuestion,
   } from "../../components";
+  import { inview } from "svelte-inview";
   import Layout from "../../components/Higher/Layout.svelte";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
 <Layout>
@@ -25,7 +27,9 @@
         <div class="max-w-6xl mx-auto px-3">
           <!-- faq -->
           <h1
-            class="font-semibold font-[Merriweather] mt-8 text-[#a32389] text-3xl lg:text-4xl xl:text-[42px]"
+            use:inview
+            on:inview_change={(e) => animateComponent(e, "fromLeft")}
+            class="font-semibold relative left-0 font-[Merriweather] mt-8 text-[#a32389] text-3xl lg:text-4xl xl:text-[42px]"
           >
             Frequently Asked Questions
           </h1>

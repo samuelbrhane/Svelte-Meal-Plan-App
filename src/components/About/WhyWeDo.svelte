@@ -21,13 +21,7 @@
     <div
       class="pt-[250px] md:pt-0 pb-4 h-full flex flex-col items-center justify-center"
     >
-      <h1
-        class="title relative right-0"
-        use:inview
-        on:inview_change={(e) => animateComponent(e, "fromRight")}
-      >
-        Why we do it.
-      </h1>
+      <h1 class="title relative right-0">Why we do it.</h1>
       <p>
         Our app is designed to simplify the process by providing personalized
         meal plans that are tailored to meet individual dietary requirements and

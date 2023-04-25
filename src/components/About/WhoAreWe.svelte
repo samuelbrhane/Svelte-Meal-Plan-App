@@ -12,11 +12,7 @@
   >
     Who we are.
   </h1>
-  <div
-    class="max-w-3xl mx-auto text-left font-[Alkatra] relative left-0"
-    use:inview
-    on:inview_change={(e) => animateComponent(e, "fromLeft")}
-  >
+  <div class="max-w-3xl mx-auto text-left font-[Alkatra] relative left-0">
     <p>
       We created Plate Plan with a simple goal in mind, help you create
       healthier eating habits by making it easy and enjoyable to manage your

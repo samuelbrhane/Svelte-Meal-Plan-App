@@ -29,8 +29,6 @@
 
     <!--services  -->
     <div
-      use:inview
-      on:inview_change={(e) => animateComponent(e, "fromLeft")}
       class="grid grid-cols-1 relative left-0 md:grid-cols-2 lg:grid-cols-3 mt-8 gap-6 md:gap-8 lg:gap-2 xl:gap-6"
     >
       {#each services as service (service.id)}

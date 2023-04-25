@@ -28,11 +28,7 @@
       <div
         class="max-w-6xl mx-auto px-3 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 xl:gap-20"
       >
-        <div
-          class="bg-white px-8 py-12 relative left-0"
-          use:inview
-          on:inview_change={(e) => animateComponent(e, "fromLeft")}
-        >
+        <div class="bg-white px-8 py-12 relative left-0">
           <h1 class="font-bold text-xl font-[Roboto] lg:text-2xl mb-2">73%</h1>
           <h2 class="font-semibold font-[Merriweather] mb-2">
             Increase in consumption of “healthier foods”.
@@ -44,11 +40,7 @@
           </p>
         </div>
 
-        <div
-          class="bg-white px-10 py-12 relative right-0"
-          use:inview
-          on:inview_change={(e) => animateComponent(e, "fromRight")}
-        >
+        <div class="bg-white px-10 py-12 relative right-0">
           <h1 class="font-bold text-xl font-[Roboto] lg:text-2xl mb-2">73%</h1>
           <h2 class="font-semibold font-[Merriweather] mb-2">
             Increase in consumption of “healthier foods”.

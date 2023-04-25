@@ -10,8 +10,6 @@
     class="max-w-6xl mx-auto px-3 grid lg:grid-cols-2 lg:gap-8 xl:gap-12 items-center"
   >
     <img
-      use:inview
-      on:inview_change={(e) => animateComponent(e, "fromLeft")}
       src="/media/outcome1.jpeg"
       alt="outcomeImage"
       class="w-full rounded-md max-h-[500px] relative left-0"

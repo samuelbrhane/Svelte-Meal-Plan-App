@@ -16,11 +16,7 @@
     </h1>
 
     <!-- features -->
-    <div
-      class="grid md:grid-cols-2 gap-4 lg:gap-8 xl:gap-12 relative right-0"
-      use:inview
-      on:inview_change={(e) => animateComponent(e, "fromRight")}
-    >
+    <div class="grid md:grid-cols-2 gap-4 lg:gap-8 xl:gap-12 relative right-0">
       {#each features as feature (feature.id)}
         <div class="mb-4 flex gap-4 items-center">
           <div>

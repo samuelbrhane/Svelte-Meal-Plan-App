@@ -11,6 +11,7 @@
   import { generateReport } from "../../utils/functions/generateReport";
   import userMealStore from "../../stores/userMealStore";
   import { socket } from "../../utils/socket/socket";
+  import { fade, slide } from "svelte/transition";
 
   //   add pagination
   let rowsPerPage = 10;
@@ -97,6 +98,7 @@
         <div
           class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 w-full"
         >
+          <!-- id and selected Date -->
           <div class="flex">
             <p class="cell w-[60px] justify-center">
               {item.id}
@@ -106,31 +108,38 @@
             </p>
           </div>
 
+          <!-- breakfast -->
           <Cell class="cell">
             <div>
               {#each item.breakfast as meal, index}
-                <p>{index + 1}. {meal.title}</p>
+                <p in:fade out:slide|local>{index + 1}. {meal.title}</p>
               {/each}
             </div>
           </Cell>
+
+          <!-- lunch -->
           <Cell class="cell">
             <div>
               {#each item.lunch as meal, index}
-                <p>{index + 1}. {meal.title}</p>
+                <p in:fade out:slide|local>{index + 1}. {meal.title}</p>
               {/each}
             </div>
           </Cell>
+
+          <!-- snack -->
           <Cell class="cell">
             <div>
               {#each item.snack as meal, index}
-                <p>{index + 1}. {meal.title}</p>
+                <p in:fade out:slide|local>{index + 1}. {meal.title}</p>
               {/each}
             </div>
           </Cell>
+
+          <!-- dinner -->
           <Cell class="cell">
             <div>
               {#each item.dinner as meal, index}
-                <p>{index + 1}. {meal.title}</p>
+                <p in:fade out:slide|local>{index + 1}. {meal.title}</p>
               {/each}
             </div>
           </Cell>

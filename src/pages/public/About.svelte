@@ -91,8 +91,6 @@
           </div>
 
           <div
-            use:inview
-            on:inview_change={(e) => animateComponent(e, "fromLeft")}
             class="grid relative left-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 lg:gap-12 xl:gap-20"
           >
             <!-- save time -->

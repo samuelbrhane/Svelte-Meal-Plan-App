@@ -14,8 +14,6 @@
     </h1>
     <div
       class="flex justify-center font-semibold text-sm font-[Merriweather] relative left-0"
-      use:inview
-      on:inview_change={(e) => animateComponent(e, "fromLeft")}
     >
       <p class="max-w-[750px] text-[#3a3a3a]">
         Say goodbye to the chaos of meal planning! With our meal planning
@@ -47,11 +45,7 @@
               >
                 Recipe Clipper
               </h1>
-              <p
-                class="font-[Alkatra] text-lg relative bottom-0"
-                use:inview
-                on:inview_change={(e) => animateComponent(e, "fromBottom")}
-              >
+              <p class="font-[Alkatra] text-lg relative bottom-0">
                 Our Recipe Clipper allows you to gather all your recipes
                 together in your digital recipe book and organize them how you
                 like.
@@ -78,11 +72,7 @@
               >
                 Planning Calendar
               </h1>
-              <p
-                class="font-[Alkatra] text-lg relative bottom-0"
-                use:inview
-                on:inview_change={(e) => animateComponent(e, "fromBottom")}
-              >
+              <p class="font-[Alkatra] text-lg relative bottom-0">
                 The meal planning calendar lets you plan ahead for any length of
                 time, save meal plans to reuse in the future and add notes to
                 remind yourself of the other events and obligations in your
@@ -108,9 +98,7 @@
             Automated Shopping List
           </h1>
           <div
-            use:inview
-            on:inview_change={(e) => animateComponent(e, "fromBottom")}
-            class="font-[Alkatra] text-lg grid grid-cols-1 relative bottom-0 xl:grid-cols-2 gap-20"
+            class="font-[Alkatra] text-lg grid grid-cols-1 relative bottom-0cd xl:grid-cols-2 gap-20"
           >
             <p>
               But the very best part of Plan to Eat is the automated shopping

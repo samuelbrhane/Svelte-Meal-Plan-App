@@ -1,5 +1,7 @@
 <script>
   import Icon from "@iconify/svelte";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../utils/functions/animation";
 </script>
 
 <section class="relative text-black py-3">
@@ -14,7 +16,11 @@
       class="max-w-6xl mx-auto px-3 grid grid-cols-1 lg:grid-cols-2 gap-3 items-center lg:gap-8 xl:gap-12"
     >
       <!-- create account -->
-      <div class="">
+      <div
+        class="relative left-0"
+        use:inview
+        on:inview_change={(e) => animateComponent(e, "fromLeft")}
+      >
         <h1
           class="text-xl font-bold mb-3 md:text-2xl xl:text-3xl font-[Merriweather] text-[#a32389]"
         >

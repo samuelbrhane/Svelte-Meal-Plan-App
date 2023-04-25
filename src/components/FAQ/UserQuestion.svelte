@@ -1,13 +1,17 @@
 <script>
   let email = "";
   let message = "";
+  import { inview } from "svelte-inview";
+  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
 <!-- users' additional question form -->
 <section class="bg-[#eae8e8cd] py-7">
   <div class="max-w-6xl mx-auto px-3">
     <h1
-      class="font-semibold font-[Roboto] text-3xl md:text-4xl xl:text-[30px] lg:text-2xl mb-3 text-[#a32389]"
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromLeft")}
+      class="font-semibold font-[Roboto] text-3xl md:text-4xl relative left-0 xl:text-[30px] lg:text-2xl mb-3 text-[#a32389]"
     >
       Have a different question?
     </h1>
@@ -23,7 +27,11 @@
     </p>
 
     <!-- form -->
-    <form class="mt-4 font-[Alkatra]">
+    <form
+      class="mt-4 font-[Alkatra] relative bottom-0"
+      use:inview
+      on:inview_change={(e) => animateComponent(e, "fromBottom")}
+    >
       <input
         type="email"
         placeholder="Enter Your Email"

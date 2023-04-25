@@ -7,11 +7,7 @@
   <div
     class="max-w-6xl mx-auto px-3 grid grid-cols-1 md:grid-cols-2 h-full gap-12 lg:gap-20 xl:gap-24 items-center"
   >
-    <div
-      class="relative bottom-0"
-      use:inview
-      on:inview_change={(e) => animateComponent(e, "fromBottom")}
-    >
+    <div class="relative bottom-0">
       <h1 class="title">Our Story.</h1>
       <p>
         Our story began with a group of health enthusiasts who were frustrated
