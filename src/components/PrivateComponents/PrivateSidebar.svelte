@@ -66,9 +66,9 @@
             </Link>
           </li>
           <li
-            on:select={() => isActive("/mealPlanner")}
+            on:select={() => isActive("/meal-planner")}
             class={` ${
-              pathname === "/mealPlanner" && "activeLink"
+              pathname === "/meal-planner" && "activeLink"
             } privateLinks`}
           >
             <Link to="/meal-planner" class="flex items-center px-2 gap-2">

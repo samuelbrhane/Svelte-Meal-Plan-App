@@ -24,22 +24,25 @@
     // fetch instruction
     const fetchInstruction = async () => {
       loading = true;
-      const response = await fetch(
-        `${InstructionUrl}${mealItem.title.split(" ")[0]}`,
-        options
-      );
-      const json = await response.json();
-      if (
-        json.results &&
-        json.results.length > 0 &&
-        json.results[0].recipes &&
-        json.results[0].recipes.length > 0 &&
-        json.results[0].recipes[0].instructions
-      ) {
-        instruction = json.results[0].recipes[0].instructions;
+      try {
+        const response = await fetch(
+          `${InstructionUrl}${mealItem.title.split(" ")[0]}`,
+          options
+        );
+        const json = await response.json();
+        if (
+          json.results &&
+          json.results.length > 0 &&
+          json.results[0].recipes &&
+          json.results[0].recipes.length > 0 &&
+          json.results[0].recipes[0].instructions
+        ) {
+          instruction = json.results[0].recipes[0].instructions;
+        }
+        loading = false;
+      } catch (error) {
+        loading = false;
       }
-
-      loading = false;
     };
 
     fetchInstruction();

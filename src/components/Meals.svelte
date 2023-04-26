@@ -3,7 +3,6 @@
   import { Loader, MealCategories, MealCard, PaginationBtn } from "./";
   import mealDateStore from "../stores/mealDateStore";
   import { recipeStore, searchRecipe } from "../stores/recipeStore";
-  import { slide } from "svelte/transition";
 
   export let page;
   let searchWord = "";

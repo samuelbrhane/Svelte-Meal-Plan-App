@@ -9,6 +9,7 @@
   import { registerRoute } from "../../utils/routes/authRoutes";
   import { Loader } from "..";
   import { getGoogleAuthorization } from "../../utils/auth2/googleAuth";
+  import dietAllergiesStore from "../../stores/dietAllergiesStore";
   let loading = false;
   let name = "";
   let email = "";
@@ -41,6 +42,8 @@
         email,
         first_name: name.split(" ")[0],
         last_name: name.split(" ")[1],
+        meal_type: $dietAllergiesStore.dietType,
+        allergies: $dietAllergiesStore.allergies,
         password,
       });
 

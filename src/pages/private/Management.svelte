@@ -24,7 +24,31 @@
         $userMealStore.userMeals = response.userMeals;
       }
     );
-    searchRecipe("vegan");
+    let searchWord;
+    switch ($authStore.dietType) {
+      case "Classic":
+        searchWord = "food";
+        break;
+      case "Keto":
+        searchWord = "salmon";
+        break;
+      case "Paleo":
+        searchWord = "meat";
+        break;
+      case "Vegan":
+        searchWord = "vegan";
+        break;
+      case "Vegetarian":
+        searchWord = "vegetarian";
+        break;
+      case "Pescetarian":
+        searchWord = "fish";
+        break;
+
+      default:
+        searchWord = "food";
+    }
+    searchRecipe(searchWord);
   });
 </script>
 
