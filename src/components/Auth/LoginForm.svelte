@@ -165,10 +165,10 @@
   </form>
 </section>
 
-<!-- link to register -->
+<!-- link to diet type -->
 <div class="mt-3 flex items-center gap-2 w-full justify-center">
   <p>New to Plate Plan?</p>
-  <Link to="/register" class="hover:scale-105 hover:text-[#26648b]"
-    >Register</Link
+  <Link to="/diet-type" class="hover:scale-105 hover:text-[#26648b]"
+    >Get Started</Link
   >
 </div>

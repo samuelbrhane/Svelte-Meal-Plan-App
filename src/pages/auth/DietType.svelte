@@ -7,7 +7,7 @@
 
 <section class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <div
-    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra] relative"
+    class="flex flex-col items-center py-8 lg:py-4 2xl:py-12 bg-[#ecf4ed] font-[Alkatra] relative"
   >
     <!-- back to homepage -->
     <Link
@@ -17,13 +17,21 @@
       <Icon icon="ic:baseline-arrow-back" class="text-lg" />
       Back to homepage
     </Link>
-    <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase mt-12">
+    <h1
+      class="text-2xl 2xl:text-4xl font-bold text-[#7db9db] md:text-3xl uppercase mt-12"
+    >
       Plate plan
     </h1>
 
-    <img src="/media/title.png" alt="Logo" class="w-16 h-16" />
+    <img
+      src="/media/title.png"
+      alt="Logo"
+      class="w-12 h-12 2xl:w-14 2xl:h-14 lg:hidden 2xl:inline"
+    />
 
-    <h1 class="text-center font-semibold text-4xl mt-6 mb-3 font-[Alkatra]">
+    <h1
+      class="text-center text-2xl 2xl:text-4xl font-semibold mt-6 mb-3 font-[Alkatra]"
+    >
       Pick Your Diet
     </h1>
 

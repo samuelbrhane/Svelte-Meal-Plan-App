@@ -2,6 +2,7 @@
   import { RegisterForm } from "../../components";
   import Icon from "@iconify/svelte";
   import { Link } from "svelte-navigator";
+  import dietAllergiesStore from "../../stores/dietAllergiesStore";
 </script>
 
 <main class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
