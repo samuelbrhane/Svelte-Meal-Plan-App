@@ -37,13 +37,15 @@
 {#if userData.loading}
   <Loader />
 {:else}
-  <!-- public pages -->
-  <Route path="/" component={Welcome} />
-  <Route path="/recipe" component={Recipe} />
-  <Route path="/about" component={About} />
-  <Route path="/faq" component={FAQ} />
-  <Route path="/recipeDetail/:id" component={RecipeDetail} />
+  <div class="overflow-x-hidden">
+    <!-- public pages -->
+    <Route path="/" component={Welcome} />
+    <Route path="/recipe" component={Recipe} />
+    <Route path="/about" component={About} />
+    <Route path="/faq" component={FAQ} />
+    <Route path="/recipeDetail/:id" component={RecipeDetail} />
 
-  <!-- protected routes -->
-  <Route component={ProtectedRoute} {userData} />
+    <!-- protected routes -->
+    <Route component={ProtectedRoute} {userData} />
+  </div>
 {/if}

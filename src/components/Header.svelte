@@ -94,9 +94,9 @@
       <!-- Authentication links -->
       <div class="hidden lg:flex flex-col items-center">
         <Link
-          to="/register"
+          to="/diet-type"
           class="px-12 hover:scale-[1.03] font-[Roboto] py-2 text-xl bg-[#44a0d6] rounded-lg text-white font-semibold"
-          >Register</Link
+          >Get Started</Link
         >
         <div class="text-sm mt-1 flex items-center gap-[6px]">
           <p class="text-white">Already a member?</p>

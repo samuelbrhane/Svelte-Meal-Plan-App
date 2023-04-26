@@ -1,16 +1,9 @@
 <script>
   import { pricing } from "../../utils/pricing";
   import Icon from "@iconify/svelte";
-  import { inview } from "svelte-inview";
-  import { animateComponent } from "../../utils/functions/animation";
 </script>
 
-<section
-  use:inview
-  on:inview_change={(e) => animateComponent(e, "fromTop")}
-  id="Pricing"
-  class="px-4 relative lg:px-20 xl:px-30 py-12"
->
+<section id="Pricing" class="px-4 relative lg:px-20 xl:px-30 py-12">
   <h1
     class="text-center relative top-0 font-semibold text-[#a32389] text-3xl lg:text-4xl xl:text-[42px] font-[Roboto]"
   >

@@ -119,7 +119,7 @@
   /* on view animation */
   /* left */
   .fromLeft {
-    animation: fromLeftAnimate 2s 0.5s forwards;
+    animation: fromLeftAnimate 1s 0.1s forwards;
   }
 
   @keyframes fromLeftAnimate {
@@ -133,7 +133,7 @@
 
   /* left */
   .fromBottom {
-    animation: fromBottomAnimate 2s 0.5s forwards;
+    animation: fromBottomAnimate 1s 0.1s forwards;
   }
 
   @keyframes fromBottomAnimate {
@@ -147,7 +147,7 @@
 
   /* tight */
   .fromRight {
-    animation: fromRightAnimate 2s 0.5s forwards;
+    animation: fromRightAnimate 1s 0.1s forwards;
   }
 
   @keyframes fromRightAnimate {
@@ -161,7 +161,7 @@
 
   /* top */
   .fromTop {
-    animation: fromTopAnimate 2s 0.5s forwards;
+    animation: fromTopAnimate 1s 0.1s forwards;
   }
 
   @keyframes fromTopAnimate {

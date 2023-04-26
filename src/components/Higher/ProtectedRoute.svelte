@@ -12,12 +12,14 @@
     unsubscribe = location.subscribe((value) => {
       // handle protected routes
       const handleRouteChange = () => {
-        // navigate to home page if user authenticated
+        // navigate to dashboard page if user authenticated
         if (
           userData.isAuthenticated &&
           (value.pathname == "/login" ||
             value.pathname == "/register" ||
             value.pathname == "/reset-password" ||
+            value.pathname == "/diet-type" ||
+            value.pathname == "/allergies" ||
             value.pathname == "/activate-message")
         ) {
           navigate("/dashboard");
@@ -26,7 +28,7 @@
         else if (
           !userData.isAuthenticated &&
           (value.pathname == "/dashboard" ||
-            value.pathname == "/mealPlanner" ||
+            value.pathname == "/meal-planner" ||
             value.pathname == "/shopping" ||
             value.pathname == "/calories" ||
             value.pathname == "/fats" ||
@@ -50,6 +52,8 @@
   import {
     ActivateMessage,
     Activation,
+    Allergies,
+    DietType,
     Login,
     Register,
     ResetPassword,
@@ -72,7 +76,7 @@
 <div>
   <!-- private pages -->
   <Route path="/dashboard" component={Dashboard} />
-  <Route path="/mealPlanner" component={MealPlanner} />
+  <Route path="/meal-planner" component={MealPlanner} />
   <Route path="/shopping" component={Shopping} />
   <Route path="/management" component={Management} />
   <Route path="/calories" component={Calories} />
@@ -82,6 +86,8 @@
 
   <!-- authentication pages -->
   <Route path="/login" component={Login} />
+  <Route path="/allergies" component={Allergies} />
+  <Route path="/diet-type" component={DietType} />
   <Route path="/register" component={Register} />
   <Route path="/activate/:uid/:token" component={Activation} />
   <Route path="/activate-message" component={ActivateMessage} />

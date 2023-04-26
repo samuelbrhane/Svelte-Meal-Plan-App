@@ -41,6 +41,6 @@
         </div>
       </div>
     </div>
-    <img src="/media/ad.png" alt="foodImage" class="hidden md:inline" />
+    <img src="/media/adImage.png" alt="foodImage" class="hidden md:inline" />
   </div>
 </main>

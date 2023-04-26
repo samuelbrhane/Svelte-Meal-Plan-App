@@ -85,10 +85,10 @@
   <!-- add loader when form submitted -->
   <Loader />
 {/if}
-<section class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
+<section class="flex justify-center h-screen overflow-hidden">
   <!-- form  -->
   <div
-    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra] relative"
+    class="flex flex-col items-center w-full py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra] relative"
   >
     <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase mt-12">
       Plate plan
@@ -186,10 +186,5 @@
         </div>
       </form>
     </div>
-  </div>
-
-  <!-- forget password images  -->
-  <div class="bg-[#cfecf3] lg:flex items-center hidden">
-    <img src="/media/forget2.png" alt="login" class="w-full" />
   </div>
 </section>

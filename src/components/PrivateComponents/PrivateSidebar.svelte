@@ -71,7 +71,7 @@
               pathname === "/mealPlanner" && "activeLink"
             } privateLinks`}
           >
-            <Link to="/mealPlanner" class="flex items-center px-2 gap-2">
+            <Link to="/meal-planner" class="flex items-center px-2 gap-2">
               <Icon icon="game-icons:hot-meal" class="text-xl" />
               <span>Meal Planner</span>
             </Link>

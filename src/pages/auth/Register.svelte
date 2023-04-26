@@ -6,7 +6,7 @@
 
 <main class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
   <!-- auth image -->
-  <div class="lg:flex hidden items-center bg-[#fbfdee]">
+  <div class="lg:flex hidden items-center bg-[#ffffff]">
     <img src="/media/register.png" alt="login" class="w-full" />
   </div>
 

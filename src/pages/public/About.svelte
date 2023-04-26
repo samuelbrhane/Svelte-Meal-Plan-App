@@ -58,15 +58,14 @@
         </div>
 
         <!-- About Content -->
-
-        <!-- Why we do it -->
-        <WhyWeDo />
+        <!-- Our Story -->
+        <OurStory />
 
         <!-- service -->
         <OurService />
 
-        <!-- Our Story -->
-        <OurStory />
+        <!-- Why we do it -->
+        <WhyWeDo />
 
         <!-- how it works -->
         <div class="px-4">

@@ -74,9 +74,9 @@
     <!-- Authentication links -->
     <div class="flex flex-col items-center">
       <Link
-        to="/register"
+        to="/diet-type"
         class="bg-[#427fa3] font-bold text-white px-12 py-2 rounded-md hover:scale-[1.06]"
-        >Register</Link
+        >Get Started</Link
       >
       <div class="text-sm mt-3 flex items-center gap-[6px]">
         <p class="text-white">Already a member?</p>

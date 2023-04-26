@@ -1,14 +1,9 @@
 <script>
 </script>
 
-<section class="grid grid-cols-1 lg:grid-cols-2 h-screen overflow-hidden">
-  <!-- activate account image  -->
-  <div class="bg-[#f5f0f3] lg:flex items-center hidden">
-    <img src="/media/message.png" alt="login" class="w-full" />
-  </div>
-
+<section class="flex justify-center h-screen overflow-hidden">
   <div
-    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] font-[Alkatra] relative"
+    class="flex flex-col items-center py-20 lg:py-8 bg-[#ecf4ed] w-full font-[Alkatra] relative"
   >
     <h1 class="text-4xl font-bold text-[#7db9db] md:text-3xl uppercase mt-12">
       Plate plan
