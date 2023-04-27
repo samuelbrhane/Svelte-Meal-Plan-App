@@ -29,7 +29,6 @@
         case "Pescetarian":
           searchWord = "fish";
           break;
-
         default:
           searchWord = "food";
       }
