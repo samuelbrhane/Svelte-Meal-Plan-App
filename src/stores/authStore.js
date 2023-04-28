@@ -28,6 +28,7 @@ let verifyToken = async () => {
     let { data } = await axios.get(verifyTokenRoute, {
       headers: { Authorization: `JWT ${userToken.access}` },
     });
+
     authStore.set({
       loading: false,
       isAuthenticated: true,

@@ -12,6 +12,7 @@
   import { fetchUserMeals } from "../../utils/functions/fetchUserMeals";
   import { searchRecipe } from "../../stores/recipeStore";
   import userMealStore from "../../stores/userMealStore";
+  import { dietMeals } from "../../utils/functions/dietMeals";
 
   let loading = true;
   // let errorMessage;
@@ -24,30 +25,10 @@
         $userMealStore.userMeals = response.userMeals;
       }
     );
-    let searchWord;
-    switch ($authStore.dietType) {
-      case "Classic":
-        searchWord = "food";
-        break;
-      case "Keto":
-        searchWord = "salmon";
-        break;
-      case "Paleo":
-        searchWord = "meat";
-        break;
-      case "Vegan":
-        searchWord = "vegan";
-        break;
-      case "Vegetarian":
-        searchWord = "vegetarian";
-        break;
-      case "Pescetarian":
-        searchWord = "fish";
-        break;
 
-      default:
-        searchWord = "food";
-    }
+    // get recommended diets
+    let searchWord = dietMeals($authStore.dietType);
+
     searchRecipe(searchWord);
   });
 </script>
