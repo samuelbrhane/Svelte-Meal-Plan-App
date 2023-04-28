@@ -1,9 +1,27 @@
 <script>
-  const handleFormSubmit = () => {};
   let email = "";
   let message = "";
   import { inview } from "svelte-inview";
   import { animateComponent } from "../../utils/functions/animation";
+  import { baseBackendUrl } from "../../utils/routes/authRoutes";
+  import axios from "axios";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
+
+  // send a message from user
+  const handleFormSubmit = async () => {
+    try {
+      await axios.post(`${baseBackendUrl}/messages/`, {
+        email,
+        message,
+      });
+      email = "";
+      message = "";
+      toast.push("Message send successfully.", { theme: successClasses });
+    } catch (error) {
+      toast.push("Message can not be send.", { theme: errorClasses });
+    }
+  };
 </script>
 
 <section class="relative w-full min-h-[500px] lg:h-[550px] pb-[200px]">

@@ -10,7 +10,7 @@
   import authStore from "../../stores/authStore";
   import { generateReport } from "../../utils/functions/generateReport";
   import userMealStore from "../../stores/userMealStore";
-  import { socket } from "../../utils/socket/socket";
+  // import { socket } from "../../utils/socket/socket";
   import { fade, slide } from "svelte/transition";
 
   //   add pagination
@@ -58,11 +58,11 @@
       },
     });
 
-    socket.on("meal_deleted", (mealId) => {
-      $userMealStore.userMeals = $userMealStore.userMeals.filter(
-        (meal) => meal.id !== mealId
-      );
-    });
+    // socket.on("meal_deleted", (mealId) => {
+    //   $userMealStore.userMeals = $userMealStore.userMeals.filter(
+    //     (meal) => meal.id !== mealId
+    //   );
+    // });
     toast.push("Meal Deleted Successfully.", { theme: successClasses });
   };
 </script>

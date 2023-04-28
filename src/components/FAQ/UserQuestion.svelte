@@ -3,6 +3,25 @@
   let message = "";
   import { inview } from "svelte-inview";
   import { animateComponent } from "../../utils/functions/animation";
+  import axios from "axios";
+  import { baseBackendUrl } from "../../utils/routes/authRoutes";
+  import { toast } from "@zerodevx/svelte-toast";
+  import { errorClasses, successClasses } from "../../utils/toast/toastCustom";
+
+  // send message from the user
+  const handleSubmit = async () => {
+    try {
+      await axios.post(`${baseBackendUrl}/messages/`, {
+        email,
+        message,
+      });
+      email = "";
+      message = "";
+      toast.push("Message send successfully.", { theme: successClasses });
+    } catch (error) {
+      toast.push("Message can not be send.", { theme: errorClasses });
+    }
+  };
 </script>
 
 <!-- users' additional question form -->
@@ -28,6 +47,7 @@
 
     <!-- form -->
     <form
+      on:submit|preventDefault={handleSubmit}
       class="mt-4 font-[Alkatra] relative bottom-0"
       use:inview
       on:inview_change={(e) => animateComponent(e, "fromBottom")}
