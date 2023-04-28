@@ -9,7 +9,6 @@
   import { addMealToCart } from "../utils/functions/addMealToCart";
   import checkDateStore from "../stores/checkDateStore";
   import { fade } from "svelte/transition";
-  export let key;
   export let page;
 
   // get random rating

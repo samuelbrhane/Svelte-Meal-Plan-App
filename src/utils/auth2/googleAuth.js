@@ -7,6 +7,8 @@ import axios from "axios";
 let queryParams = new URLSearchParams(window.location.search);
 import authStore from "../../stores/authStore";
 import { navigate } from "svelte-navigator";
+import { toast } from "@zerodevx/svelte-toast";
+import { errorClasses } from "../toast/toastCustom";
 
 let code = queryParams.get("code");
 let state = queryParams.get("state");
@@ -63,10 +65,15 @@ export const googleAuthentication = async (state, code) => {
   } catch (error) {
     // update authStore
     authStore.update((authData) => {
-      authData.isAuthenticated = false;
-      authData.token = null;
-      authData.loading = false;
-      return authData;
+      return {
+        ...authData,
+        isAuthenticated: false,
+        token: null,
+        loading: false,
+      };
     });
+    // navigate to home page
+    toast.push("Please register using email first.", { theme: errorClasses });
+    navigate("/");
   }
 };

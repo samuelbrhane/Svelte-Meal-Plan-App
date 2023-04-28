@@ -39,9 +39,10 @@
     {#each dietTypes as item (item.id)}
       <button
         on:click={() => ($dietAllergiesStore.dietType = item.title)}
-        class={`bg-[#dbdbd9] min-w-[350px] mb-3 py-2 rounded flex items-center justify-between px-4 ${
-          $dietAllergiesStore.dietType == item.title &&
-          "bg-[#5a8012] text-white"
+        class={` min-w-[350px] mb-3 py-2 rounded flex items-center justify-between px-4 ${
+          $dietAllergiesStore.dietType == item.title
+            ? "bg-[#5a8012] text-white"
+            : "bg-[#dbdbd9]"
         }`}
       >
         <span class="text-lg">{item.title}</span>
