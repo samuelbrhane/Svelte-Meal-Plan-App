@@ -43,6 +43,8 @@ export const googleAuthentication = async (state, code) => {
       }
     );
 
+    console.log("data", data);
+
     // safe token in local storage
     localStorage.setItem("platePlanToken", JSON.stringify(data));
 
@@ -74,6 +76,6 @@ export const googleAuthentication = async (state, code) => {
     });
     // navigate to home page
     toast.push("Please register using email first.", { theme: errorClasses });
-    navigate("/");
+    navigate("/diet-type");
   }
 };
