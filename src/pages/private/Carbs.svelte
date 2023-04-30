@@ -37,12 +37,14 @@
 
   // fetch user's meal data
   onMount(() => {
-    fetchUserMeals($authStore.userId, $authStore.token.access).then(
-      (response) => {
-        loading = response.loading;
-        userMeals = response.userMeals;
-      }
-    );
+    if ($authStore.token) {
+      fetchUserMeals($authStore.userId, $authStore.token.access).then(
+        (response) => {
+          loading = response.loading;
+          userMeals = response.userMeals;
+        }
+      );
+    }
   });
 
   // carbs array

@@ -25,30 +25,36 @@ let userToken = JSON.parse(localStorage.getItem("platePlanToken"));
 //  verify token stored in local storage
 let verifyToken = async () => {
   try {
-    let { data } = await axios.get(verifyTokenRoute, {
-      headers: { Authorization: `JWT ${userToken.access}` },
-    });
+    // check if there is a token in local storage
+    if (userToken) {
+      let { data } = await axios.get(verifyTokenRoute, {
+        headers: { Authorization: `JWT ${userToken.access}` },
+      });
 
-    authStore.set({
-      loading: false,
-      isAuthenticated: true,
-      token: userToken,
-      userName: data.first_name + " " + data.last_name,
-      userEmail: data.email,
-      userId: data.id,
-      allergies: data.allergies,
-      dietType: data.meal_type,
-    });
+      // check if verification is valid
+      if (data.first_name) {
+        authStore.set({
+          loading: false,
+          isAuthenticated: true,
+          token: userToken,
+          userName: data.first_name + " " + data.last_name,
+          userEmail: data.email,
+          userId: data.id,
+          allergies: data.allergies,
+          dietType: data.meal_type,
+        });
+      }
+    } else {
+      authStore.update((authData) => {
+        return { ...authData, loading: false };
+      });
+    }
   } catch (error) {
-    authStore.set({
-      loading: false,
-      isAuthenticated: false,
-      token: null,
-      userName: "",
-      userEmail: "",
-      userId: "",
-      allergies: [],
-      dietType: "",
+    //   remove token from local storage
+    localStorage.removeItem("platePlanToken");
+
+    authStore.update((authData) => {
+      return { ...authData, loading: false };
     });
   }
 };

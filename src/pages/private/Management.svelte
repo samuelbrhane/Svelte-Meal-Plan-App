@@ -19,12 +19,14 @@
 
   // fetch user's meal and recipe
   onMount(() => {
-    fetchUserMeals($authStore.userId, $authStore.token.access).then(
-      (response) => {
-        loading = response.loading;
-        $userMealStore.userMeals = response.userMeals;
-      }
-    );
+    if ($authStore.token) {
+      fetchUserMeals($authStore.userId, $authStore.token.access).then(
+        (response) => {
+          loading = response.loading;
+          $userMealStore.userMeals = response.userMeals;
+        }
+      );
+    }
 
     // get recommended diets
     let searchWord = dietMeals($authStore.dietType);
