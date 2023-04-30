@@ -18,6 +18,7 @@
   let userMeals = [];
   let selectedDayData;
 
+  //  fetch user meals on page mount
   onMount(async () => {
     const response = await fetchUserMeals(
       $authStore.userId,

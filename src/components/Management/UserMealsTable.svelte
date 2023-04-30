@@ -12,6 +12,7 @@
   import userMealStore from "../../stores/userMealStore";
   // import { socket } from "../../utils/socket/socket";
   import { fade, slide } from "svelte/transition";
+  import { MealDeleteModal } from "..";
 
   //   add pagination
   let rowsPerPage = 10;
@@ -27,6 +28,9 @@
   $: if (currentPage > lastPage) {
     currentPage = lastPage;
   }
+
+  let deleteModalOpened = false;
+  let currentDeletingMealId = null;
 
   // update management meal store for updating
   const updateManagementStore = (item) => {
@@ -44,8 +48,16 @@
     });
   };
 
+  // confirm meal delete before deleting
+  const checkDeleteConfirmation = (id) => {
+    deleteModalOpened = true;
+    currentDeletingMealId = id;
+  };
+
   // delete single meal
   const deleteMeal = async (id) => {
+    currentDeletingMealId = null;
+    deleteModalOpened = false;
     $userMealStore.userMeals = $userMealStore.userMeals.filter(
       (meal) => meal.id !== id
     );
@@ -68,6 +80,13 @@
 </script>
 
 <section>
+  <!-- meal delete confirmation modal -->
+  <MealDeleteModal
+    {deleteModalOpened}
+    on:closeModal={() => (deleteModalOpened = false)}
+    on:deleteMeal={() => deleteMeal(currentDeletingMealId)}
+  />
+
   <!-- title -->
   <h1 class="mt-5 mb-3 font-bold font-[Roboto] text-2xl">Your Meals</h1>
 
@@ -158,7 +177,7 @@
               <!-- delete meal -->
               <button
                 class="text-[#a43449] hover:scale-[1.01]"
-                on:click={() => deleteMeal(item.id)}
+                on:click={() => checkDeleteConfirmation(item.id)}
               >
                 <Icon icon="ic:sharp-delete" />
               </button>

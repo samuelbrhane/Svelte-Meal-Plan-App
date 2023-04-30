@@ -41,7 +41,7 @@
 <main class="bg-[#47153e] text-white w-[250px] h-full flex flex-col">
   <div class="py-2">
     <!-- Add site title -->
-    <Link to="/" class="flex items-center gap-2">
+    <Link to="/" class="flex items-center gap-2 px-5">
       <img src="/media/title.png" alt="Logo" class="w-10 h-10" />
       <h1 class="text-xl font-bold text-[#3789b9] uppercase">Plate plan</h1>
     </Link>
