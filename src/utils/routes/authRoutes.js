@@ -1,9 +1,9 @@
 export const baseBackendUrl = import.meta.env.VITE_BACKEND_URL;
-export const loginRoute = `${baseBackendUrl}/auth/jwt/create/`;
-export const registerRoute = `${baseBackendUrl}/auth/users/`;
-export const resetPasswordRoute = `${baseBackendUrl}/auth/users/reset_password/`;
-export const resetPasswordConfirmRoute = `${baseBackendUrl}/auth/users/reset_password_confirm/`;
-export const verifyTokenRoute = `${baseBackendUrl}/auth/users/me/`;
-export const activateAccountRoute = `${baseBackendUrl}/auth/users/activation/`;
+export const loginRoute = `/auth/jwt/create/`;
+export const registerRoute = `/auth/users/`;
+export const resetPasswordRoute = `/auth/users/reset_password/`;
+export const resetPasswordConfirmRoute = `/auth/users/reset_password_confirm/`;
+export const verifyTokenRoute = `/auth/users/me/`;
+export const activateAccountRoute = `/auth/users/activation/`;
 export const getAuthorizationUrlRoute = `${baseBackendUrl}/auth/o/google-oauth2/?redirect_uri=${baseBackendUrl}`;
 export const googleAuthenticationRoute = `${baseBackendUrl}/auth/o/google-oauth2`;
